@@ -1,0 +1,3 @@
+SOFTINCLUDE /apps/cadencetools/2015/IC616/share/cdssetup/cds.lib
+DEFINE compmemcell#2elib /home/i/iliabautista/numenta/veriloga/compmemcell/compmemcell#2elib
+DEFINE cds#2elib /home/i/iliabautista/numenta/veriloga/compmemcell/cds#2elib

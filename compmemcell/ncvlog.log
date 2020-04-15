@@ -1,0 +1,22 @@
+TOOL:	ncvlog(64)	14.20-s012: Started on Dec 13, 2016 at 15:02:15 EST
+ncvlog
+    -use5x
+    -work __nclib
+    -view module
+    -logfile ncvlog.log
+    -hdlvar /home/i/iliabautista/numenta/veriloga/compmemcell/hdl.var
+    -cdslib /tmp/ihdl_cdslibb3019_13019
+    -messages
+    -nostdout
+    -nocopyright
+    -ESCAPEDNAME
+    /home/i/iliabautista/numenta/veriloga/compmemcell/inverter/inverter.v
+    /home/i/iliabautista/numenta/veriloga/compmemcell/inverter/inverter_tb.v
+
+file: /home/i/iliabautista/numenta/veriloga/compmemcell/inverter/inverter.v
+	module __nclib.inverter:module
+		errors: 0, warnings: 0
+file: /home/i/iliabautista/numenta/veriloga/compmemcell/inverter/inverter_tb.v
+	module __nclib.inverter_tb:module
+		errors: 0, warnings: 0
+TOOL:	ncvlog(64)	14.20-s012: Exiting on Dec 13, 2016 at 15:02:15 EST  (total: 00:00:00)

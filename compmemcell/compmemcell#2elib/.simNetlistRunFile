@@ -1,0 +1,11 @@
+simVerilogNetlistFileList = '(
+    (("compmemcell.lib" "inverter_tb") 
+	("cds0/netlist" "cds0/map" "functional")
+    )
+)
+simVerilogNetlistFileLibList = '("compmemcell.lib")
+simVerilogNetlistFileCellList = '(("compmemcell.lib" 
+	("inverter_tb")
+    )
+)
+hnlIncrementalDirectory = '"ihnl"

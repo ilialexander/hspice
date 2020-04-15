@@ -1,0 +1,7 @@
+simFuncDPLList = '((nil libName "compmemcell.lib" cellName "inverter_tb"
+    viewName "functional" filePath "/home/i/iliabautista/numenta/veriloga/compmemcell/compmemcell#2elib/inverter_tb/functional/verilog.v"
+    ) 
+    (nil libName "compmemcell.lib" cellName "inverter"
+    viewName "functional" filePath "/home/i/iliabautista/numenta/veriloga/compmemcell/compmemcell#2elib/inverter/functional/verilog.v"
+    )
+)

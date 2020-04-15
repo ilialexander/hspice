@@ -1,0 +1,8 @@
+CADENCE IHNL01070
+$model
+compmemcell.lib/inverter/functional inverter
+$endmodel
+$net
+$endnet
+$param
+$endparam

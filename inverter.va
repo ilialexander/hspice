@@ -1,0 +1,12 @@
+module inverter(y,x);
+
+  output reg y;
+  input x;
+
+always @*
+begin
+
+  y = ~x;
+
+end
+endmodule

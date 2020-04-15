@@ -1,0 +1,3 @@
+database -open shmWave -shm -default -into shm.db
+probe -create -shm -all
+run

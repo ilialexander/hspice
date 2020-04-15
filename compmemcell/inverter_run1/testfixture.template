@@ -1,0 +1,23 @@
+
+`timescale 1ns / 1ns
+
+module test;
+
+
+wire  O_out;
+
+reg  I_in;
+
+
+
+inverter top(I_in, O_out); 
+ 
+
+`ifdef verilog
+
+ //please enter any additional verilog stimulus in the /home/i/iliabautista/numenta/veriloga/compmemcell/inverter_run1/testfixture.verilog file
+`include "/home/i/iliabautista/numenta/veriloga/compmemcell/inverter_run1/testfixture.verilog"
+
+`endif
+
+endmodule 

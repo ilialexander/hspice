@@ -1,0 +1,19 @@
+// Verilog HDL and netlist files of
+// "compmemcell.lib inverter_tb functional"
+
+// HDL models
+
+// HDL file for compmemcell.lib, inverter_tb, functional.
+/home/i/iliabautista/numenta/veriloga/compmemcell/compmemcell#2elib/inverter_tb/functional/verilog.v
+
+
+
+// End HDL models
+
+// Netlisted models
+
+// netlist file - compmemcell.lib, inverter_tb, functional.
+ihnl/cds0/netlist
+
+
+// End HDL models

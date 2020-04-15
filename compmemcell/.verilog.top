@@ -1,0 +1,14 @@
+
+`timescale 1ns / 1ns
+
+module test;
+
+
+wire  O_out;
+
+reg  I_in;
+
+
+
+inverter top(I_in, O_out); 
+ 

@@ -1,0 +1,5 @@
+tmLCVDPLList = '((nil viewType "netlist" viewName "functional"
+    cellName "inverter_tb" libName "compmemcell.lib"
+    )
+)
+xxxInternalGlobAliasList = '(nil)
