@@ -1,0 +1,16 @@
+* "simulator" "HSPICE" 
+* "version" "F-2011.09-SP2 64-BIT"
+* "format" "HSP"
+* "rundate" "15:00:00 04/22/2020 "
+* "netlist" "invcir.sp "
+* "runtitle" "$ee105 spice tutorial example 1 - simple inverter circuit"
+* time =    0.            
+* temperature =   25.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ in =   0.            
++ out = 899.9996m       
++ vs = 900.0000m       
+***   END: Saved Operating Point ***                     

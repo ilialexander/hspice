@@ -1,0 +1,22 @@
+### Custom WaveView ADV log file, revision M-2017.03-SP1 (build May 20, ) ###
+### created at 14:38:10 on Wed Apr 22 2020 (Linux AMD64) ###
+### Host Name: itn3.rc.usf.edu   User ID: iliabautista   PID: 87240   ###
+wv_start_log
+# (0) running in waveview only mode
+# (0) SW_SX_PERL_LIB defined
+# (0) SW_SX_TCL_LIB defined
+# (0) HOME defined
+sx_open_sim_file_read {invcir.tr0}
+wv_resize_browser {Custom WaveView} {} {WV.Browser} 250 1724
+wv_resize_browser {Custom WaveView} {} {waveview 1:1} 820 1698
+wv_resize_window {Custom WaveView} 1080 1867
+wv_move_window {Custom WaveView} {} 1920 23
+wv_expand_tree_item {Custom WaveView} {} {hierview} {D0:invcir.tr0(0)} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D0:invcir.tr0(0)@toplevel(0)} {0} {+sep=@}
+wv_select_list_item {Custom WaveView} {} {sigview} {v(out)} 4
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(out)} 4
+wv_select_list_item {Custom WaveView} {} {sigview} {v(in)} 3
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(in)} 3
+wv_close_window {Custom WaveView} 
+wv_select_dialog {Confirmation} 
+#wv_press_button {Confirmation} {} {Ok} 

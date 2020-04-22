@@ -1,0 +1,19 @@
+Args: pva -p hsp -t spi -f resistor.pvadir/pvaHDL.lis -o resistor.pvadir
+
+==> Start pvaCG on Fri Apr 17 12:41:45 2020
+
+
+Begin of pVA compiling on Fri Apr 17 12:41:45 2020
+
+Parsing './resistor.va'
+
+End of pVA compiling on Fri Apr 17 12:41:45 2020
+
+
+End of build pVA DB on Fri Apr 17 12:41:45 2020
+
+
+resistor.pvadir/pvaRTL_amd64.so is reused
+
+End of pVA elaboration on Fri Apr 17 12:41:45 2020
+
