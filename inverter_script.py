@@ -22,9 +22,11 @@ def getListOfFiles(dirName):
 
 
 def main():
-    dirName = '/work_bgfs/i/iliabautista/2-Research/2-Simulations/1-HDL/veriloga/modelfiles/';
+    dirName = '/work_bgfs/i/iliabautista/2-Research/2-Simulations/1-HDL/hspice/modelfiles/';
     # Get the list of all files in directory tree at given path
     full_path_files = getListOfFiles(dirName)
+
+    print(full_path_files)
 
     models_files  = [files.replace(dirName, '').replace('nfet.pm', '').replace('/', '_') for files in full_path_files]
     models_files_dir = [model for model in models_files if "pfet.pm"  not in model]
