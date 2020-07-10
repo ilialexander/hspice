@@ -1,8 +1,10 @@
 from classes.ptm import Ptm
 
-temp = Ptm()
+temp = Ptm("test")
 
 dir_name = '/work_bgfs/i/iliabautista/2-Research/2-Simulations/1-HDL/hspice/modelfiles/'
 
-temp.listptmfiles(dir_name)
+print(temp.get_ptm_models(dir_name))
+
+print(temp.uut)
 
