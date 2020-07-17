@@ -8,14 +8,9 @@ def main():
 
     temp = Ptm("test", "nfet.pm", "pfet.pm")
 
-    # Get the list of all files in directory tree at given path
-    models_paths = temp.get_models(dir_name)
+    subdir_paths = temp.set_uut_dir(dir_name) # create uut directories and sbudirs
 
-    cir_files = temp.set_fet_names(dir_name, models_paths)
-
-    dir_paths = temp.set_uut_dir(cir_files)
-
-    temp.set_fet_subckts(cir_files, dir_paths)
+    temp.set_fet_subckts(subdir_paths) # create fet subckt in subdirs
 
 if __name__ == '__main__':
     main()
