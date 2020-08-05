@@ -25,22 +25,19 @@ class Ptm:
 
     def set_fet_names(self, directory):
         '''Set the names for the subckt files'''
-        models_full_paths = self.get_models(directory) # get all fet models        
-        # retrieves file names from models_full_paths
-        models_files  = [files.replace(directory, '').replace(self.nmodel, '').replace('/', '_') for files in models_full_paths]
+        self.models_paths = self.get_models(directory) # get all fet models        
+        # retrieves file names from self.models_paths
+        models_files  = [files.replace(directory, '').replace(self.nmodel, '').replace('/', '_') for files in self.models_paths]
         # cleans extra models under pmodels names
-        r_subckt_names = [model for model in models_files if self.pmodel not in model]
-        models_subckt_names = list()
-        # refine the names of the subckt models
-        [models_subckt_names.append("".join(reversed(r_subckt_name.split("_")))) for r_subckt_name in r_subckt_names]
+        subckt_names = [model for model in models_files if self.pmodel not in model]
 
-        return models_subckt_names
+        return subckt_names
 
 
     def set_uut_dir(self, dir_name):
         '''Creates directories for the Unit Under Test (uut)'''
         self.models_subdir = self.set_fet_names(dir_name) # set subckt files names
-        local_paths = [self.uut + '/' + self.uut + '_' + subdir_name for subdir_name in self.models_subdir] # set models' directory names
+        local_paths = [self.uut + '/' + subdir_name for subdir_name in self.models_subdir] # set models' directory names
         local_paths.insert(0,self.uut) # add parent directory
         for subdir_name in local_paths: # iterates through paths' list
             try:
@@ -76,3 +73,16 @@ class Ptm:
                             pass
 
         return None 
+
+
+    def get_fet_params(self, model_uut):
+        '''Gets the FETs parameters'''
+        fet_size = model_uut.split("_")[0]
+        pmodel_subpath = model_uut.replace("_","/") + self.pmodel
+        pmodel_path = [path for path in self.models_paths if pmodel_subpath in path]
+        with open(pmodel_path[0]) as pmodel:
+            for line in pmodel:
+                if "VDD" in line:
+                    fet_voltage = line.split("VDD=")[1].replace("V","").replace("\n","")
+
+        return (fet_size, fet_voltage)           
