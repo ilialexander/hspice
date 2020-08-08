@@ -3,7 +3,7 @@
  lic:
  lic: FLEXlm: v10.8
  lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu
- lic: HOSTID:                      PID:      20952
+ lic: HOSTID:                      PID:      31449
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
@@ -14,10 +14,10 @@
        option post     =     2.00
  init: end read circuit files,  cpu clock=  2.00E-02 memory=       153 kb
  init: begin check errors,  cpu clock=  2.00E-02
- init: end check errors,  cpu clock=  2.00E-02 memory=       153 kb
- init: begin setup matrix, pivot=     0 cpu clock=  2.00E-02
-       establish matrix -- done,  cpu clock=  2.00E-02 memory=       157 kb
-       re-order matrix -- done,  cpu clock=  2.00E-02 memory=       156 kb
+ init: end check errors,  cpu clock=  3.00E-02 memory=       153 kb
+ init: begin setup matrix, pivot=     0 cpu clock=  3.00E-02
+       establish matrix -- done,  cpu clock=  3.00E-02 memory=       157 kb
+       re-order matrix -- done,  cpu clock=  3.00E-02 memory=       156 kb
  init: end setup matrix,  cpu clock=  3.00E-02 memory=       171 kb
  dcop: begin dcop,  cpu clock=  3.00E-02
  dcop: end dcop,  cpu clock=  3.00E-02 memory=       171 kb  tot_iter=       4

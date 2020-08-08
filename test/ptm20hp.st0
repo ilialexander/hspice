@@ -3,7 +3,7 @@
  lic:
  lic: FLEXlm: v10.8
  lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu
- lic: HOSTID:                      PID:      20959
+ lic: HOSTID:                      PID:      31465
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
@@ -14,18 +14,18 @@
        option post     =     2.00
  init: end read circuit files,  cpu clock=  3.00E-02 memory=       153 kb
  init: begin check errors,  cpu clock=  3.00E-02
- init: end check errors,  cpu clock=  4.00E-02 memory=       153 kb
- init: begin setup matrix, pivot=     0 cpu clock=  4.00E-02
-       establish matrix -- done,  cpu clock=  4.00E-02 memory=       157 kb
-       re-order matrix -- done,  cpu clock=  4.00E-02 memory=       156 kb
- init: end setup matrix,  cpu clock=  4.00E-02 memory=       171 kb
- dcop: begin dcop,  cpu clock=  4.00E-02
- dcop: end dcop,  cpu clock=  4.00E-02 memory=       171 kb  tot_iter=       4
+ init: end check errors,  cpu clock=  3.00E-02 memory=       153 kb
+ init: begin setup matrix, pivot=     0 cpu clock=  3.00E-02
+       establish matrix -- done,  cpu clock=  3.00E-02 memory=       157 kb
+       re-order matrix -- done,  cpu clock=  3.00E-02 memory=       156 kb
+ init: end setup matrix,  cpu clock=  3.00E-02 memory=       171 kb
+ dcop: begin dcop,  cpu clock=  3.00E-02
+ dcop: end dcop,  cpu clock=  3.00E-02 memory=       171 kb  tot_iter=       4
  output: ptm20hp.tr0
- sweep: tran tran0    begin, stop_t=  4.00E-09 #sweeps= 401 cpu clock=  4.00E-02
- tran: time= 4.4697E-10 tot_iter=      59 conv_iter=      20 cpu clock= 4.00E-02
- tran: time= 8.4697E-10 tot_iter=      63 conv_iter=      22 cpu clock= 4.00E-02
- tran: time= 1.2251E-09 tot_iter=     113 conv_iter=      37 cpu clock= 4.00E-02
+ sweep: tran tran0    begin, stop_t=  4.00E-09 #sweeps= 401 cpu clock=  3.00E-02
+ tran: time= 4.4697E-10 tot_iter=      59 conv_iter=      20 cpu clock= 3.00E-02
+ tran: time= 8.4697E-10 tot_iter=      63 conv_iter=      22 cpu clock= 3.00E-02
+ tran: time= 1.2251E-09 tot_iter=     113 conv_iter=      37 cpu clock= 3.00E-02
  tran: time= 1.6881E-09 tot_iter=     126 conv_iter=      42 cpu clock= 4.00E-02
  tran: time= 2.0881E-09 tot_iter=     130 conv_iter=      44 cpu clock= 4.00E-02
  tran: time= 2.4881E-09 tot_iter=     134 conv_iter=      46 cpu clock= 4.00E-02
