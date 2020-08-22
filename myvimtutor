@@ -2,376 +2,93 @@
 			       Lesson 1 SUMMARY
 
 
-  5. To insert or append text type:
-	 i   type inserted text   <ESC>		insert before the cursor
-	 A   type appended text   <ESC>         append after the line
+  4. To delete the character at the cursor type:      x
+
+  5. Append after the line:                           A
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 2 SUMMARY
 
 
-  1. To delete from the cursor up to the next word type:    dw
-  2. To delete from the cursor to the end of a line type:    d$
-  3. To delete a whole line type:    dd
+  1. To delete from the cursor to the next word:      dw
+  2. To delete from the cursor to the end of a line:  d$
+  3. To delete a whole line type:                     dd
 
-  4. To repeat a motion prepend it with a number:   2w
-  5. The format for a change command is:
-               operator   [number]   motion
-     where:
-       operator - is what to do, such as  d  for delete
-       [number] - is an optional count to repeat the motion
-       motion   - moves over the text to operate on, such as  w (word),
-		  $ (to the end of line), etc.
+  4. To repeat a motion prepend it with a number:     2w
+  5. The format for a change command is:              operator [number] motion
+       operator - what to do, such as  d  for delete
+       [number] - optional count to repeat motion
+       motion   - text to operate on, e.g., w (word),
+		  $ (till end of line), etc.
 
-  6. To move to the start of the line use a zero:  0
+  6. To move to the start of the line use a zero:     0
 
-  7. To undo previous actions, type: 	       u  (lowercase u)
-     To undo all the changes on a line, type:  U  (capital U)
-     To undo the undo's, type:		       CTRL-R
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			 Lesson 3.1: THE PUT COMMAND
+  7. To undo previous actions, type: 	              u  (lowercase u)
+     To undo all the changes on a line, type:         U  (capital U)
+     To undo the undo's, type:		              CTRL-R
 
 
-       ** Type	p  to put previously deleted text after the cursor. **
-
-  1. Move the cursor to the first ---> line below.
-
-  2. Type  dd  to delete the line and store it in a Vim register.
-
-  3. Move the cursor to the c) line, ABOVE where the deleted line should go.
-
-  4. Type   p   to put the line below the cursor.
-
-  5. Repeat steps 2 through 4 to put all the lines in correct order.
-
----> d) Can you learn too?
----> b) Violets are blue,
----> c) Intelligence is learned,
----> a) Roses are red,
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		       Lesson 3.2: THE REPLACE COMMAND
-
-
-       ** Type  rx  to replace the character at the cursor with  x . **
-
-  1. Move the cursor to the first line below marked --->.
-
-  2. Move the cursor so that it is on top of the first error.
-
-  3. Type   r	and then the character which should be there.
-
-  4. Repeat steps 2 and 3 until the first line is equal to the second one.
-
---->  Whan this lime was tuoed in, someone presswd some wrojg keys!
---->  When this line was typed in, someone pressed some wrong keys!
-
-  5. Now move on to Lesson 3.3.
-
-NOTE: Remember that you should be learning by doing, not memorization.
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Lesson 3.3: THE CHANGE OPERATOR
-
-
-	   ** To change until the end of a word, type  ce . **
-
-  1. Move the cursor to the first line below marked --->.
-
-  2. Place the cursor on the  u  in  lubw.
-
-  3. Type  ce  and the correct word (in this case, type  ine ).
-
-  4. Press <ESC> and move to the next character that needs to be changed.
-
-  5. Repeat steps 3 and 4 until the first sentence is the same as the second.
-
----> This lubw has a few wptfd that mrrf changing usf the change operator.
----> This line has a few words that need changing using the change operator.
-
-Notice that  ce  deletes the word and places you in Insert mode.
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		       Lesson 3.4: MORE CHANGES USING c
-
-
-     ** The change operator is used with the same motions as delete. **
-
-  1. The change operator works in the same way as delete.  The format is:
-
-         c    [number]   motion
-
-  2. The motions are the same, such as   w (word) and  $ (end of line).
-
-  3. Move to the first line below marked --->.
-
-  4. Move the cursor to the first error.
-
-  5. Type  c$  and type the rest of the line like the second and press <ESC>.
-
----> The end of this line needs some help to make it like the second.
----> The end of this line needs to be corrected using the  c$  command.
-
-NOTE:  You can use the Backspace key to correct mistakes while typing.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 3 SUMMARY
 
 
-  1. To put back text that has just been deleted, type   p .  This puts the
-     deleted text AFTER the cursor (if a line was deleted it will go on the
-     line below the cursor).
+  1. Put back recently deleted text after cursor:     p
+     (if deleted line, p inserts below cursor).
 
-  2. To replace the character under the cursor, type   r   and then the
-     character you want to have there.
+  2. To replace the character under the cursor:       rx
 
-  3. The change operator allows you to change from the cursor to where the
-     motion takes you.  eg. Type  ce  to change from the cursor to the end of
-     the word,  c$  to change to the end of a line.
+  3. To change from cursor to end of word:            ce
+     To change to the end of the line:                c$
 
-  4. The format for change is:
-
-	 c   [number]   motion
-
-Now go on to the next lesson.
+  4. The format for change is:                        c [number] motion
 
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		  Lesson 4.1: CURSOR LOCATION AND FILE STATUS
-
-  ** Type CTRL-G to show your location in the file and the file status.
-     Type  G  to move to a line in the file. **
-
-  NOTE: Read this entire lesson before executing any of the steps!!
-
-  1. Hold down the Ctrl key and press  g .  We call this CTRL-G.
-     A message will appear at the bottom of the page with the filename and the
-     position in the file.  Remember the line number for Step 3.
-
-NOTE:  You may see the cursor position in the lower right corner of the screen
-       This happens when the 'ruler' option is set (see  :help 'ruler'  )
-
-  2. Press  G  to move you to the bottom of the file.
-     Type  gg  to move you to the start of the file.
-
-  3. Type the number of the line you were on and then  G .  This will
-     return you to the line you were on when you first pressed CTRL-G.
-
-  4. If you feel confident to do this, execute steps 1 through 3.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Lesson 4.2: THE SEARCH COMMAND
-
-
-     ** Type  /  followed by a phrase to search for the phrase. **
-
-  1. In Normal mode type the  /  character.  Notice that it and the cursor
-     appear at the bottom of the screen as with the  :	command.
-
-  2. Now type 'errroor' <ENTER>.  This is the word you want to search for.
-
-  3. To search for the same phrase again, simply type  n .
-     To search for the same phrase in the opposite direction, type  N .
-
-  4. To search for a phrase in the backward direction, use  ?  instead of  / .
-
-  5. To go back to where you came from press  CTRL-O  (Keep Ctrl down while
-     pressing the letter o).  Repeat to go back further.  CTRL-I goes forward.
-
---->  "errroor" is not the way to spell error;  errroor is an error.
-NOTE: When the search reaches the end of the file it will continue at the
-      start, unless the 'wrapscan' option has been reset.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		   Lesson 4.3: MATCHING PARENTHESES SEARCH
-
-
-	      ** Type  %  to find a matching ),], or } . **
-
-  1. Place the cursor on any (, [, or { in the line below marked --->.
-
-  2. Now type the  %  character.
-
-  3. The cursor will move to the matching parenthesis or bracket.
-
-  4. Type  %  to move the cursor to the other matching bracket.
-
-  5. Move the cursor to another (,),[,],{ or } and see what  %  does.
-
----> This ( is a test line with ('s, ['s ] and {'s } in it. ))
-
-
-NOTE: This is very useful in debugging a program with unmatched parentheses!
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		      Lesson 4.4: THE SUBSTITUTE COMMAND
-
-
-	** Type  :s/old/new/g  to substitute 'new' for 'old'. **
-
-  1. Move the cursor to the line below marked --->.
-
-  2. Type  :s/thee/the <ENTER> .  Note that this command only changes the
-     first occurrence of "thee" in the line.
-
-  3. Now type  :s/thee/the/g .  Adding the  g  flag means to substitute
-     globally in the line, change all occurrences of "thee" in the line.
-
----> thee best time to see thee flowers is in thee spring.
-
-  4. To change every occurrence of a character string between two lines,
-     type   :#,#s/old/new/g    where #,# are the line numbers of the range
-                               of lines where the substitution is to be done.
-     Type   :%s/old/new/g      to change every occurrence in the whole file.
-     Type   :%s/old/new/gc     to find every occurrence in the whole file,
-     			       with a prompt whether to substitute or not.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 4 SUMMARY
 
 
-  1. CTRL-G  displays your location in the file and the file status.
-             G  moves to the end of the file.
-     number  G  moves to that line number.
-            gg  moves to the first line.
+  1. Display location in file and file status:        CTRL-G
+     Moves to the line number:                        [number] G  
+     Moves to the end of the file:                    G
+     Moves to the first line:                         gg 
 
-  2. Typing  /	followed by a phrase searches FORWARD for the phrase.
-     Typing  ?	followed by a phrase searches BACKWARD for the phrase.
-     After a search type  n  to find the next occurrence in the same direction
-     or  N  to search in the opposite direction.
-     CTRL-O takes you back to older positions, CTRL-I to newer positions.
+  2. Searches FORWARD for the phrase:                 /[phrase]
+     Searches BACKWARD for the phrase:                ?[phrase]
+     Find next occurrence in the same direction:      n  
+     Find next occurrence in opposite direction:      N  
+     Go back to older cursor positions:               CTRL-O 
+     Go to newer cursor positions:                    CTRL-I 
 
-  3. Typing  %	while the cursor is on a (,),[,],{, or } goes to its match.
+  3. Go to match while cursor is on (,),[,],{, or }:  %
 
-  4. To substitute new for the first old in a line type    :s/old/new
-     To substitute new for all 'old's on a line type	   :s/old/new/g
-     To substitute phrases between two line #'s type	   :#,#s/old/new/g
-     To substitute all occurrences in the file type	   :%s/old/new/g
-     To ask for confirmation each time add 'c'		   :%s/old/new/gc
+  4. Substitute new for first old in a line           :s/old/new
+     Substitute new for all 'old's on a line          :s/old/new/g
+     Substitute phrases between two line #'s          :#,#s/old/new/g
+     Substitute all occurrences in the file           :%s/old/new/g
+     Ask for confirmation each time                   :%s/old/new/gc
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		Lesson 5.1: HOW TO EXECUTE AN EXTERNAL COMMAND
-
-
-   ** Type  :!	followed by an external command to execute that command. **
-
-  1. Type the familiar command	:  to set the cursor at the bottom of the
-     screen.  This allows you to enter a command-line command.
-
-  2. Now type the  !  (exclamation point) character.  This allows you to
-     execute any external shell command.
-
-  3. As an example type   ls   following the ! and then hit <ENTER>.  This
-     will show you a listing of your directory, just as if you were at the
-     shell prompt.  Or use  :!dir  if ls doesn't work.
-
-NOTE:  It is possible to execute any external command this way, also with
-       arguments.
-
-NOTE:  All  :  commands must be finished by hitting <ENTER>
-       From here on we will not always mention it.
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		      Lesson 5.2: MORE ON WRITING FILES
-
-
-     ** To save the changes made to the text, type  :w FILENAME. **
-
-  1. Type  :!dir  or  :!ls  to get a listing of your directory.
-     You already know you must hit <ENTER> after this.
-
-  2. Choose a filename that does not exist yet, such as TEST.
-
-  3. Now type:	 :w TEST   (where TEST is the filename you chose.)
-
-  4. This saves the whole file (the Vim Tutor) under the name TEST.
-     To verify this, type    :!dir  or  :!ls   again to see your directory.
-
-NOTE: If you were to exit Vim and start it again with  vim TEST , the file
-      would be an exact copy of the tutor when you saved it.
-
-  5. Now remove the file by typing (MS-DOS):    :!del TEST
-				or (Unix):	:!rm TEST
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		    Lesson 5.3: SELECTING TEXT TO WRITE
-
-
-	** To save part of the file, type  v  motion  :w FILENAME **
-
-  1. Move the cursor to this line.
-
-  2. Press  v  and move the cursor to the fifth item below.  Notice that the
-     text is highlighted.
-
-  3. Press the  :  character.  At the bottom of the screen  :'<,'> will appear.
-
-  4. Type  w TEST  , where TEST is a filename that does not exist yet.  Verify
-     that you see  :'<,'>w TEST  before you press <ENTER>.
-
-  5. Vim will write the selected lines to the file TEST.  Use  :!dir  or  :!ls
-     to see it.  Do not remove it yet!  We will use it in the next lesson.
-
-NOTE:  Pressing  v  starts Visual selection.  You can move the cursor around
-       to make the selection bigger or smaller.  Then you can use an operator
-       to do something with the text.  For example,  d  deletes the text.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		   Lesson 5.4: RETRIEVING AND MERGING FILES
-
-
-       ** To insert the contents of a file, type  :r FILENAME  **
-
-  1. Place the cursor just above this line.
-
-NOTE:  After executing Step 2 you will see text from Lesson 5.3.  Then move
-       DOWN to see this lesson again.
-
-  2. Now retrieve your TEST file using the command   :r TEST   where TEST is
-     the name of the file you used.
-     The file you retrieve is placed below the cursor line.
-
-  3. To verify that a file was retrieved, cursor back and notice that there
-     are now two copies of Lesson 5.3, the original and the file version.
-
-NOTE:  You can also read the output of an external command.  For example,
-       :r !ls  reads the output of the ls command and puts it below the
-       cursor.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 5 SUMMARY
 
 
-  1.  :!command  executes an external command.
+  1.  Execute an external command with                :!command
+	  Shows a directory listing                   :!ls
+	  Removes file FILENAME                       :!rm FILENAME   
 
-      Some useful examples are:
-	 (MS-DOS)	  (Unix)
-	  :!dir		   :!ls		   -  shows a directory listing.
-	  :!del FILENAME   :!rm FILENAME   -  removes file FILENAME.
+  2.  Writes the current file with name FILENAME      :w FILENAME  
 
-  2.  :w FILENAME  writes the current Vim file to disk with name FILENAME.
+  3.  Saves Visually selected lines in FILENAME:      v motion :w FILENAME  
+      
+  4.  Puts lines from FILENAME below cursor           :r FILENAME  
 
-  3.  v  motion  :w FILENAME  saves the Visually selected lines in file
-      FILENAME.
+  5.  Puts command's output below the cursor          :r !ls
 
-  4.  :r FILENAME  retrieves disk file FILENAME and puts it below the
-      cursor position.
-
-  5.  :r !dir  reads the output of the dir command and puts it below the
-      cursor position.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

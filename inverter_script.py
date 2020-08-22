@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 import os
+exec(open('/usr/share/Modules/init/python.py').read())
+module('load', 'apps/synopsys/hspice/F-2011.09-SP2')
 from classes.ptm import Ptm
 
 def main():
-    os.system('module add apps/synopsys/hspice/F-2011.09-SP2')
+#   os.system('module add apps/synopsys/hspice/F-2011.09-SP2')
 
     # For the given path, get the full path list of transistors models
     dir_name = '/work_bgfs/i/iliabautista/2-Research/2-Simulations/1-HDL/hspice/modelfiles/'
@@ -17,6 +19,8 @@ def main():
     #temp.set_fet_subckts(subdir_paths) # create fet subckt in subdirs
 
     nfin = 1000
+
+    timing_data = []
 
     for model_subdir in models_subdirs:
         parts = model_subdir.split("/")
@@ -33,29 +37,44 @@ def main():
             uut.write(".lib '../models' " + subuut[0] + "\n\n")
 
             uut.write("$FETs" + "\n")
-            uut.write("xpfet" + "1" + " out in vdd vdd pfet l=" + fet_size + "n nfin=" + str(nfin) + "m\n")
-            uut.write("xnfet" + "1" + " out in gnd gnd nfet l=" + fet_size + "n nfin=" + str(nfin) + "m\n\n")
+            uut.write("xpfet" + "1" + " z_out a_in vdd vdd pfet l=" + fet_size + "n nfin=" + str(nfin) + "m\n")
+            uut.write("xnfet" + "1" + " z_out a_in gnd gnd nfet l=" + fet_size + "n nfin=" + str(nfin) + "m\n\n")
 
             uut.write("$Output Load\n")
-            uut.write("c" + "1" + " out 0 5f\n\n")
+            uut.write("c" + "1" + " z_out 0 5f\n\n")
 
             uut.write("$Power Sources\n")
-            uut.write("vdd vdd gnd " + fet_voltage + "V\n")
-            uut.write("vin in  gnd  PULSE(0V " + fet_voltage + "V 0ns 50ps 50ps 1ns 20ns)\n\n")
+            uut.write("vdd vdd  gnd " + fet_voltage + "V\n")
+            uut.write("vin a_in gnd  PULSE(0V " + fet_voltage + "V 0ns 50ps 50ps 1ns 2ns)\n\n")
             
             uut.write(".option post=2\n\n")
             
             uut.write("$Analysis\n")
             uut.write(".tran 10ps 4ns\n\n")
 
+            uut.write(".print TRAN V(a_in) V(z_out)\n\n")
+
             uut.write(".end")
 
 
         uut_script_dir = os.getcwd()
         os.chdir(temp.uut)
-        os.system('hspice ' + subuut[0] + ".sp")
+        os.system('hspice ' + subuut[0] + ".sp > " + subuut[0] + ".lis")
         os.chdir(uut_script_dir)
-#       print(temp.uut)
+
+        timing_series = [] 
+        with open(os.getcwd() + "/" + temp.uut + "/" + subuut[0] + ".lis") as results:
+            reading_flag = 0
+            for line in results:
+                if ("x\n" in line): 
+                    reading_flag = 1
+                elif ("y\n" in line) and (reading_flag == 1):
+                    reading_flag = 0
+                elif (reading_flag == 1):
+                    timing_series.append(line)
+        timing_data.append(timing_series)
+
+    print(timing_data[0][1])
 
 if __name__ == '__main__':
     main()
