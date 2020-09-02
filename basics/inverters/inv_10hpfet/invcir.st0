@@ -2,8 +2,8 @@
  Input File: invcir.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu
- lic: HOSTID:                      PID:      168703
+ lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu
+ lic: HOSTID:                      PID:      98060
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
@@ -28,11 +28,11 @@
  tran: time= 1.2050E-09 tot_iter=     153 conv_iter=      45 cpu clock= 3.00E-02
  tran: time= 1.7606E-09 tot_iter=     159 conv_iter=      48 cpu clock= 3.00E-02
  tran: time= 2.0000E-09 tot_iter=     163 conv_iter=      50 cpu clock= 3.00E-02
- tran: time= 2.4132E-09 tot_iter=     223 conv_iter=      68 cpu clock= 4.00E-02
- tran: time= 2.8132E-09 tot_iter=     227 conv_iter=      70 cpu clock= 4.00E-02
- tran: time= 3.2949E-09 tot_iter=     308 conv_iter=      95 cpu clock= 4.00E-02
- tran: time= 3.6917E-09 tot_iter=     312 conv_iter=      97 cpu clock= 4.00E-02
- tran: time= 4.0000E-09 tot_iter=     316 conv_iter=      99 cpu clock= 4.00E-02
- sweep: tran tran0    end,  cpu clock=  4.00E-02 memory=       171 kb
+ tran: time= 2.4132E-09 tot_iter=     223 conv_iter=      68 cpu clock= 3.00E-02
+ tran: time= 2.8132E-09 tot_iter=     227 conv_iter=      70 cpu clock= 3.00E-02
+ tran: time= 3.2949E-09 tot_iter=     308 conv_iter=      95 cpu clock= 3.00E-02
+ tran: time= 3.6917E-09 tot_iter=     312 conv_iter=      97 cpu clock= 3.00E-02
+ tran: time= 4.0000E-09 tot_iter=     316 conv_iter=      99 cpu clock= 3.00E-02
+ sweep: tran tran0    end,  cpu clock=  3.00E-02 memory=       171 kb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)
