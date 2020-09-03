@@ -3,7 +3,6 @@
 
   1. To delete from the cursor to the next word:      dw
   2. To delete from the cursor to the end of a line:  D
-  3. To delete a whole line type:                     dd
      To delete a line break:                          J
 
   4. To repeat a motion prepend it with a number:     3e
@@ -16,8 +15,6 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 3 SUMMARY
-
-  2. To replace the character under the cursor:       rx
 
   3. To change from cursor to end of word:            ce
      To change to the end of the line:                C
@@ -45,22 +42,20 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 5 SUMMARY
 
-  1.  Execute an external command with                :!command
-	  Shows a directory listing                   :!ls
+  1. Execute an external command with                :!command
+         Shows a directory listing                   :!ls
 
-  2.  Writes the current file with name FILENAME      :w FILENAME  
-  3.  Saves Visually selected lines in FILENAME:      v motion :w FILENAME  
-      
-  4.  Puts lines from FILENAME below cursor           :r FILENAME  
-  5.  Puts command's output below the cursor          :r !ls
+  2. Writes the current file with name FILENAME      :w FILENAME  
+  3. Saves Visually selected lines in FILENAME:      v motion :w FILENAME  
+
+  4. Puts lines from FILENAME below cursor           :r FILENAME  
+  5. Puts command's output below the cursor          :r !ls
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 6 SUMMARY
 
-  4. Yank (copy) text:                                y
-     Put (paste) it:                                  p
-     Yanks line to clip board:                        "*yy
+  4. Yanks line to clip board:                        "*yy
      Puts text from clip board:                       "*p
 
   5. Replace mode until  <ESC>  is pressed:           R
@@ -70,9 +65,6 @@
         ignore upper/lower case when searching:       ic  | 'ignorecase'
 	show partial matches for a search phrase:     is  | 'incsearch'	
 	highlight all matching phrases:               hls | 'hlsearch'	
-     Use the long or the short option.
-
-  7. Prepend "no" to switch an option off             :set noic
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

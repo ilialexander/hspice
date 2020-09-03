@@ -9,8 +9,8 @@
   Command line options: ptm14hp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu 
- lic: HOSTID:                      PID:      123853 
+ lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
+ lic: HOSTID:                      PID:      17455 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -27,12 +27,12 @@
    number circuitname                     definition         multiplier
         0 main circuit
         1 xinput_0.                       input_0            1.00 
-        2 xtest0.                         test0              1.00 
+        2 xinverter0.                     inverter0          1.00 
         3 xoutput_0.                      output_0           1.00 
         4 xinput_0.xpfetin_0.             pfet               1.00 
         5 xinput_0.xnfetin_0.             nfet               1.00 
-        6 xtest0.xpfet_0.                 pfet               1.00 
-        7 xtest0.xnfet_0.                 nfet               1.00 
+        6 xinverter0.xpfet_0.             pfet               1.00 
+        7 xinverter0.xnfet_0.             nfet               1.00 
         8 xoutput_0.xpfetout_0.           pfet               1.00 
         9 xoutput_0.xnfetout_0.           nfet               1.00 
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
@@ -4187,6 +4187,8 @@
    NNIGBACC =      0 
    PNIGBACC =      0 
   **info** (ptm14hp.sp:32) DC voltage reset to initial transient source value              in source        0:vin                 new dc=  0.0000D+00
+ **warning** invalid circuit pathname xtest0
+  **warning** (ptm14hp.sp:42) Could not find branch element xtest0 ;branch output ignored
   
       
  **info** set option symb=1 internally to help for convergence.
@@ -4620,9 +4622,9 @@ x
 y
  power_avg=   2.8958u  from=   0.          to=   4.0000n
  avg_power=  -2.4287n  from=   0.          to=   4.0000n
- inv_avg_power= 386.2530n  from=   0.          to=   4.0000n
- peakpower=  21.9882u    at=  28.7318p
-             from=   0.         to=   4.0000n
+ inv_avg_power=   failed   from=   0.          to=   4.0000n
+ peakpower=   failed     at=   0.     
+             from=   0.         to=   0.     
  trf_delay_1=   2.2246p  targ=   1.0813n   trig=   1.0791n
  tfr_delay_1=   2.4742p  targ=  30.5354p   trig=  28.0612p
  trf_delay_2=   2.0034p  targ=   3.0810n   trig=   3.0790n
@@ -4639,7 +4641,7 @@ y
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2804.828
+ cpu MHz	: 1831.585
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -4671,17 +4673,17 @@ y
   analysis           time    # points   tot. iter  conv.iter
   op point           0.00           1           5
   transient          0.04         401         738         188 rev=        37
-  readin             0.01
+  readin             0.00
   errchk             0.01
   setup              0.00
-  output             0.00
+  output             0.01
 
 
            peak memory used        135.46 megabytes
            total cpu time            0.06 seconds
-           total elapsed time        0.32 seconds
-           job started at     22:39:34 09/01/2020
-           job ended   at     22:39:35 09/01/2020
+           total elapsed time        0.68 seconds
+           job started at     13:59:08 09/03/2020
+           job ended   at     13:59:08 09/03/2020
 
 
  lic: Release hspice token(s) 

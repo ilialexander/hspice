@@ -2,15 +2,15 @@
  Input File: ptm10hp.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu
- lic: HOSTID:                      PID:      123835
+ lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu
+ lic: HOSTID:                      PID:      17445
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
  lic: License/Maintenance for hspice will expire on 18-jul-2021/2019.06
  lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu
  lic:
- init: begin read circuit files,  cpu clock=  2.00E-02
+ init: begin read circuit files,  cpu clock=  3.00E-02
        option post     =     2.00
  init: end read circuit files,  cpu clock=  3.00E-02 memory=       154 kb
  init: begin check errors,  cpu clock=  3.00E-02

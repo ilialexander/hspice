@@ -10,13 +10,13 @@ xnfetin_0 in_0 inb_0 gnd gnd nfet l=10n nfin=1000m
 .ends
 
 xinput_0 inb_0 in_0 vdd input_0
-.subckt test0 in_0 out_0 vdd
+.subckt inverter0 in_0 out_0 vdd
 $FETs
 xpfet_0 out_0 in_0 vdd vdd pfet l=10n nfin=1000m
 xnfet_0 out_0 in_0 gnd gnd nfet l=10n nfin=1000m
 .ends
 
-xtest0 in_0 out_0 vdd test0
+xinverter0 in_0 out_0 vdd inverter0
 $Output Load
 .subckt output_0 out_0 outb_0 vdd
 xpfetout_0 outb_0 out_0 vdd vdd pfet l=10n nfin=1000m

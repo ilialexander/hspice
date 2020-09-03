@@ -1,9 +1,9 @@
        1 xinput_0.
-       2 xtest0.
+       2 xinverter0.
        3 xoutput_0.
        4 xinput_0.xpfetin_0.
        5 xinput_0.xnfetin_0.
-       6 xtest0.xpfet_0.
-       7 xtest0.xnfet_0.
+       6 xinverter0.xpfet_0.
+       7 xinverter0.xnfet_0.
        8 xoutput_0.xpfetout_0.
        9 xoutput_0.xnfetout_0.
