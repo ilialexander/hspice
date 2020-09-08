@@ -2,7 +2,7 @@
 
 import os
 
-class Ptm:
+class ptm:
 
     def __init__(self, uut, nmodel, pmodel):
         self.uut = uut #unit under test
@@ -63,10 +63,10 @@ class Ptm:
 
     def get_models_libs(self):
         '''Gathers the list of models files'''
-        models_list = []
-        with open('models') as models:
+        models_list = [] # list of model files
+        with open('models') as models: # models files contains all the model libraries
             for line in models:
-                if ".LIB" in line:
+                if ".LIB" in line: # lines which contain model names
                     models_list.append(line.replace(".LIB ", "").replace("\n", ""))
 
         return models_list
@@ -74,12 +74,13 @@ class Ptm:
 
     def get_fet_params(self, model_uut):
         '''Gets the FETs parameters'''
-        fet_size = model_uut.split("/")[1]
+        fet_size = model_uut.split("/")[1] # get size from model name
         pmodel_subpath = model_uut + self.pmodel
+        # search for pmodel path to read file
         pmodel_path = [path for path in self.models_paths if pmodel_subpath in path]
         with open(pmodel_path[0]) as pmodel:
             for line in pmodel:
-                if "VDD" in line:
+                if "VDD" in line: # read line with nominal voltage
                     fet_voltage = line.split("VDD=")[1].replace("V","").replace("\n","")
 
         return (fet_size, fet_voltage)           

@@ -3,6 +3,6 @@ $DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
  power_avg        avg_power        inv_avg_power    peakpower         
  trf_delay_1      tfr_delay_1      trf_delay_2      tfr_delay_2       
  temper           alter#            
-  2.439e-06       -1.187e-08          failed           failed         
-  6.038e-12        6.432e-12        5.911e-12        6.388e-12        
+  8.089e-07       -7.050e-07        4.459e-07        3.037e-05        
+  1.281e-11        1.149e-11        1.163e-11        1.294e-11        
    25.0000        1                 

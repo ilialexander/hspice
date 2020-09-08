@@ -9,9 +9,6 @@
      Move Backwards to first letter of word:          b
      Move Backwards to last letter of word:           ge
 
-  7. To undo all the changes on a line:               U
-     To Redo type:                                    CTRL-R
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 3 SUMMARY
@@ -58,8 +55,6 @@
   4. Yanks line to clip board:                        "*yy
      Puts text from clip board:                       "*p
 
-  5. Replace mode until  <ESC>  is pressed:           R
-
   6. Sets the option "xxx"                            :set xxx
      Some options are:
         ignore upper/lower case when searching:       ic  | 'ignorecase'
@@ -89,7 +84,7 @@
 	:help w
 	:help c_CTRL-D
 	:help insert-index
-	:help usr_09.txt
+	:help usr_10.txt
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		      Lesson 7.2: CREATE A STARTUP SCRIPT
 

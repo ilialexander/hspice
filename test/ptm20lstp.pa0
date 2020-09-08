@@ -1,9 +1,18 @@
        1 xinput_0.
        2 xinverter0.
-       3 xoutput_0.
-       4 xinput_0.xpfetin_0.
-       5 xinput_0.xnfetin_0.
-       6 xinverter0.xpfet_0.
-       7 xinverter0.xnfet_0.
-       8 xoutput_0.xpfetout_0.
-       9 xoutput_0.xnfetout_0.
+       3 xoutput_00.
+       4 xoutput_01.
+       5 xoutput_02.
+       6 xoutput_03.
+       7 xinput_0.xpfetin_0.
+       8 xinput_0.xnfetin_0.
+       9 xinverter0.xpfet_0.
+      10 xinverter0.xnfet_0.
+      11 xoutput_00.xpfetout_0.
+      12 xoutput_00.xnfetout_0.
+      13 xoutput_01.xpfetout_0.
+      14 xoutput_01.xnfetout_0.
+      15 xoutput_02.xpfetout_0.
+      16 xoutput_02.xnfetout_0.
+      17 xoutput_03.xpfetout_0.
+      18 xoutput_03.xnfetout_0.
