@@ -15,7 +15,7 @@ class subckts:
         rise_time = str(fall_time / 2)
         fall_time = str(fall_time)
         instance = str(instance)
-        self.uut.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(0V " + self.fet_voltage + "V 0ns 50ps 50ps " + rise_time + "n " + fall_time + "n)\n\n")
+        self.uut.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(" + self.fet_voltage + "V " + "0V 0ns 50ps 50ps " + rise_time + "n " + fall_time + "n)\n\n")
         # declare subckt name, input, output, and source
         self.uut.write(".subckt input_" + instance + " inb_" + instance + " in_" + instance + " vdd\n")
         # call pfet model name, and decaler its input, output, and source
@@ -61,3 +61,6 @@ class subckts:
         # call instance of inverter subckt in uut file
         self.uut.write("xinverter" + instance + " in_" + instance + " out_" + instance + " vdd " + "inverter" + instance + "\n\n")
         return None
+
+#   def write_dram(self, instance):
+

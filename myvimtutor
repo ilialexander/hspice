@@ -5,7 +5,7 @@
   2. To delete from the cursor to the end of a line:  D
      To delete a line break:                          J
 
-  4. To repeat a motion prepend it with a number:     3e
+  4. To repeat a motion, prepend it with a number:    3e
      Move Backwards to first letter of word:          b
      Move Backwards to last letter of word:           ge
 
