@@ -1,0 +1,6 @@
+read all data from .lis to python
+take delay averages for rise_fall and fall_rise
+create uut subckt to measure total avg power
+read power in python
+plot waves in python for all ptm model sizes
+work on dram cell

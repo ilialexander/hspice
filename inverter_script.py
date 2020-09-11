@@ -26,10 +26,15 @@ def main():
         parts = model_subdir.split("/")
         parts.reverse()
         parts = "".join(parts)
-        subuut = [subuut_name for subuut_name in models_list if parts in subuut_name] 
+        subuut = [subuut_name for subuut_name in models_list if parts in subuut_name]
         with open(os.getcwd() + "/" + temp.uut + "/" + subuut[0] + ".sp", 'w+') as uut:
             (fet_size, fet_voltage) = temp.get_fet_params(model_subdir)
             vdd_50 = str(float(fet_voltage) / 2)
+
+            uut_size = 3
+            serial_instance = 3
+            load_amount = 1
+            sim_time = str(2 ** uut_size)
 
             subckts_modules = subckts(uut, fet_size, nfin, fet_voltage)
 
@@ -41,36 +46,23 @@ def main():
 
             uut.write("$Power Sources\n")
             uut.write("vdd vdd  gnd " + fet_voltage + "V\n")
-            
-            uut_size = 3
-            load_amount = 2
-            sim_time = str(2 ** uut_size )
+            subckts_modules.set_inverter()
 
-            for instance in range(uut_size):
-                cycle_time = (2) * (2 ** instance)
-                subckts_modules.write_source(instance, cycle_time)
-                subckts_modules.write_inverter(instance)
-                subckts_modules.write_outputs(instance, load_amount)
 
-                # automate to print per uut subckt, need to use instance and tags
-                instance_str = str(instance)
-                uut.write(".print TRAN V(in_" + instance_str + ") V(out_" + instance_str + ")\n")
+            subckts_modules.write_source(uut_size)
+ 
+            # inputs uut_size, load ammount, sim_time
+            subckts_modules.write_inverter(uut_size, serial_instance)
 
-                # automate to print per uut subckt, create subckt uut to calculate power of entire uut
-                uut.write(".measure tran inv_avg_power" + instance_str  + " avg p(x" + "inverter" + instance_str + ") from=0ns to=" + sim_time + "ns\n")
-                # automate to print per uut subckt
-                uut.write(".measure tran peakpower" + instance_str  + " max p(x" + "inverter" + instance_str + ")\n")
+            uut.write("$Output Loads\n")
+            subckts_modules.write_outputs(uut_size, load_amount, serial_instance)
 
-                for rise_fall in range(2 ** ((uut_size - instance) - 1)):
-                    rise_fall = str(rise_fall + 1)
-                    # use instance to derive a method that will calculate all delays and an average
-                    uut.write(".measure tran trf_delay_" + instance_str + rise_fall + " trig v(in_" + instance_str + ") val=" + vdd_50 + " rise=" + rise_fall + " targ v(out_" + instance_str + ") val=" + vdd_50 + " fall=" + rise_fall + "\n")
-                    # automate to print per uut subckt
-                    uut.write(".measure tran tfr_delay_" + instance_str + rise_fall + " trig v(in_" + instance_str + ") val=" + vdd_50 + " fall=" + rise_fall + " targ v(out_" + instance_str + ") val=" + vdd_50 + " rise=" + rise_fall + "\n")
-
+            subckts_modules.measure_delays(uut_size, serial_instance)
+            subckts_modules.print_wave(uut_size, serial_instance)
+            subckts_modules.measure_power(uut_size, sim_time, serial_instance)
 
             uut.write(".option post=2\n\n")
-            
+ 
             uut.write("$Analysis\n")
             uut.write(".tran 10ps " + sim_time + "ns\n\n")
 
@@ -84,11 +76,11 @@ def main():
         os.system('hspice ' + subuut[0] + ".sp > " + subuut[0] + ".lis")
         os.chdir(uut_script_dir)
 
-        timing_series = [] 
+        timing_series = []
         with open(os.getcwd() + "/" + temp.uut + "/" + subuut[0] + ".lis") as results:
             reading_flag = 0
             for line in results:
-                if ("x\n" in line): 
+                if ("x\n" in line):
                     reading_flag = 1
                 elif ("y\n" in line) and (reading_flag == 1):
                     reading_flag = 0

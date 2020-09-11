@@ -6,116 +6,87 @@ $Netlist of test
 
 $Power Sources
 vdd vdd  gnd 0.8V
+.subckt inverter in out vdd
+$FETs
+xpfet out in vdd vdd pfet l=14n nfin=1000m
+xnfet out in gnd gnd nfet l=14n nfin=1000m
+.ends
+
 vin_0 inb_0 gnd  PULSE(0.8V 0V 0ns 50ps 50ps 1.0n 2n)
-
-.subckt input_0 inb_0 in_0 vdd
-xpfetin_0 in_0 inb_0 vdd vdd pfet l=14n nfin=1000m
-xnfetin_0 in_0 inb_0 gnd gnd nfet l=14n nfin=1000m
-.ends
-xinput_0 inb_0 in_0 vdd input_0
-
-.subckt inverter0 in_0 out_0 vdd
-$FETs
-xpfet_0 out_0 in_0 vdd vdd pfet l=14n nfin=1000m
-xnfet_0 out_0 in_0 gnd gnd nfet l=14n nfin=1000m
-.ends
-xinverter0 in_0 out_0 vdd inverter0
-
-$Output Load
-.subckt output_00 out_0 outb_00 vdd
-xpfetout_0 outb_00 out_0 vdd vdd pfet l=14n nfin=1000m
-xnfetout_0 outb_00 out_0 gnd gnd nfet l=14n nfin=1000m
-.ends
-xoutput_00 out_0 outb_00 vdd output_00
-
-$Output Load
-.subckt output_01 out_0 outb_01 vdd
-xpfetout_0 outb_01 out_0 vdd vdd pfet l=14n nfin=1000m
-xnfetout_0 outb_01 out_0 gnd gnd nfet l=14n nfin=1000m
-.ends
-xoutput_01 out_0 outb_01 vdd output_01
-
-.print TRAN V(in_0) V(out_0)
-.measure tran inv_avg_power0 avg p(xinverter0) from=0ns to=8ns
-.measure tran peakpower0 max p(xinverter0)
-.measure tran trf_delay_01 trig v(in_0) val=0.4 rise=1 targ v(out_0) val=0.4 fall=1
-.measure tran tfr_delay_01 trig v(in_0) val=0.4 fall=1 targ v(out_0) val=0.4 rise=1
-.measure tran trf_delay_02 trig v(in_0) val=0.4 rise=2 targ v(out_0) val=0.4 fall=2
-.measure tran tfr_delay_02 trig v(in_0) val=0.4 fall=2 targ v(out_0) val=0.4 rise=2
-.measure tran trf_delay_03 trig v(in_0) val=0.4 rise=3 targ v(out_0) val=0.4 fall=3
-.measure tran tfr_delay_03 trig v(in_0) val=0.4 fall=3 targ v(out_0) val=0.4 rise=3
-.measure tran trf_delay_04 trig v(in_0) val=0.4 rise=4 targ v(out_0) val=0.4 fall=4
-.measure tran tfr_delay_04 trig v(in_0) val=0.4 fall=4 targ v(out_0) val=0.4 rise=4
+xinput_0 inb_0 outin_00 vdd inverter
 vin_1 inb_1 gnd  PULSE(0.8V 0V 0ns 50ps 50ps 2.0n 4n)
-
-.subckt input_1 inb_1 in_1 vdd
-xpfetin_1 in_1 inb_1 vdd vdd pfet l=14n nfin=1000m
-xnfetin_1 in_1 inb_1 gnd gnd nfet l=14n nfin=1000m
-.ends
-xinput_1 inb_1 in_1 vdd input_1
-
-.subckt inverter1 in_1 out_1 vdd
-$FETs
-xpfet_1 out_1 in_1 vdd vdd pfet l=14n nfin=1000m
-xnfet_1 out_1 in_1 gnd gnd nfet l=14n nfin=1000m
-.ends
-xinverter1 in_1 out_1 vdd inverter1
-
-$Output Load
-.subckt output_10 out_1 outb_10 vdd
-xpfetout_1 outb_10 out_1 vdd vdd pfet l=14n nfin=1000m
-xnfetout_1 outb_10 out_1 gnd gnd nfet l=14n nfin=1000m
-.ends
-xoutput_10 out_1 outb_10 vdd output_10
-
-$Output Load
-.subckt output_11 out_1 outb_11 vdd
-xpfetout_1 outb_11 out_1 vdd vdd pfet l=14n nfin=1000m
-xnfetout_1 outb_11 out_1 gnd gnd nfet l=14n nfin=1000m
-.ends
-xoutput_11 out_1 outb_11 vdd output_11
-
-.print TRAN V(in_1) V(out_1)
-.measure tran inv_avg_power1 avg p(xinverter1) from=0ns to=8ns
-.measure tran peakpower1 max p(xinverter1)
-.measure tran trf_delay_11 trig v(in_1) val=0.4 rise=1 targ v(out_1) val=0.4 fall=1
-.measure tran tfr_delay_11 trig v(in_1) val=0.4 fall=1 targ v(out_1) val=0.4 rise=1
-.measure tran trf_delay_12 trig v(in_1) val=0.4 rise=2 targ v(out_1) val=0.4 fall=2
-.measure tran tfr_delay_12 trig v(in_1) val=0.4 fall=2 targ v(out_1) val=0.4 rise=2
+xinput_1 inb_1 outin_01 vdd inverter
 vin_2 inb_2 gnd  PULSE(0.8V 0V 0ns 50ps 50ps 4.0n 8n)
+xinput_2 inb_2 outin_02 vdd inverter
 
-.subckt input_2 inb_2 in_2 vdd
-xpfetin_2 in_2 inb_2 vdd vdd pfet l=14n nfin=1000m
-xnfetin_2 in_2 inb_2 gnd gnd nfet l=14n nfin=1000m
-.ends
-xinput_2 inb_2 in_2 vdd input_2
+xinverter00 outin_00 outin_10 vdd inverter
+xinverter10 outin_10 outin_20 vdd inverter
+xinverter20 outin_20 outin_30 vdd inverter
+xinverter01 outin_01 outin_11 vdd inverter
+xinverter11 outin_11 outin_21 vdd inverter
+xinverter21 outin_21 outin_31 vdd inverter
+xinverter02 outin_02 outin_12 vdd inverter
+xinverter12 outin_12 outin_22 vdd inverter
+xinverter22 outin_22 outin_32 vdd inverter
 
-.subckt inverter2 in_2 out_2 vdd
-$FETs
-xpfet_2 out_2 in_2 vdd vdd pfet l=14n nfin=1000m
-xnfet_2 out_2 in_2 gnd gnd nfet l=14n nfin=1000m
-.ends
-xinverter2 in_2 out_2 vdd inverter2
+$Output Loads
+xoutput_00 outin_40 outb_00 vdd inverter
+xoutput_10 outin_41 outb_10 vdd inverter
+xoutput_20 outin_42 outb_20 vdd inverter
 
-$Output Load
-.subckt output_20 out_2 outb_20 vdd
-xpfetout_2 outb_20 out_2 vdd vdd pfet l=14n nfin=1000m
-xnfetout_2 outb_20 out_2 gnd gnd nfet l=14n nfin=1000m
-.ends
-xoutput_20 out_2 outb_20 vdd output_20
-
-$Output Load
-.subckt output_21 out_2 outb_21 vdd
-xpfetout_2 outb_21 out_2 vdd vdd pfet l=14n nfin=1000m
-xnfetout_2 outb_21 out_2 gnd gnd nfet l=14n nfin=1000m
-.ends
-xoutput_21 out_2 outb_21 vdd output_21
-
-.print TRAN V(in_2) V(out_2)
-.measure tran inv_avg_power2 avg p(xinverter2) from=0ns to=8ns
-.measure tran peakpower2 max p(xinverter2)
-.measure tran trf_delay_21 trig v(in_2) val=0.4 rise=1 targ v(out_2) val=0.4 fall=1
-.measure tran tfr_delay_21 trig v(in_2) val=0.4 fall=1 targ v(out_2) val=0.4 rise=1
+.measure tran trf_delay_001 trig v(outin_00) val=0.4 rise=1 targ v(outin_10) val=0.4 fall=1
+.measure tran tfr_delay_001 trig v(outin_00) val=0.4 fall=1 targ v(outin_10) val=0.4 rise=1
+.measure tran trf_delay_002 trig v(outin_00) val=0.4 rise=2 targ v(outin_10) val=0.4 fall=2
+.measure tran tfr_delay_002 trig v(outin_00) val=0.4 fall=2 targ v(outin_10) val=0.4 rise=2
+.measure tran trf_delay_003 trig v(outin_00) val=0.4 rise=3 targ v(outin_10) val=0.4 fall=3
+.measure tran tfr_delay_003 trig v(outin_00) val=0.4 fall=3 targ v(outin_10) val=0.4 rise=3
+.measure tran trf_delay_004 trig v(outin_00) val=0.4 rise=4 targ v(outin_10) val=0.4 fall=4
+.measure tran tfr_delay_004 trig v(outin_00) val=0.4 fall=4 targ v(outin_10) val=0.4 rise=4
+.measure tran trf_delay_101 trig v(outin_10) val=0.4 rise=1 targ v(outin_20) val=0.4 fall=1
+.measure tran tfr_delay_101 trig v(outin_10) val=0.4 fall=1 targ v(outin_20) val=0.4 rise=1
+.measure tran trf_delay_102 trig v(outin_10) val=0.4 rise=2 targ v(outin_20) val=0.4 fall=2
+.measure tran tfr_delay_102 trig v(outin_10) val=0.4 fall=2 targ v(outin_20) val=0.4 rise=2
+.measure tran trf_delay_103 trig v(outin_10) val=0.4 rise=3 targ v(outin_20) val=0.4 fall=3
+.measure tran tfr_delay_103 trig v(outin_10) val=0.4 fall=3 targ v(outin_20) val=0.4 rise=3
+.measure tran trf_delay_104 trig v(outin_10) val=0.4 rise=4 targ v(outin_20) val=0.4 fall=4
+.measure tran tfr_delay_104 trig v(outin_10) val=0.4 fall=4 targ v(outin_20) val=0.4 rise=4
+.measure tran trf_delay_201 trig v(outin_20) val=0.4 rise=1 targ v(outin_30) val=0.4 fall=1
+.measure tran tfr_delay_201 trig v(outin_20) val=0.4 fall=1 targ v(outin_30) val=0.4 rise=1
+.measure tran trf_delay_202 trig v(outin_20) val=0.4 rise=2 targ v(outin_30) val=0.4 fall=2
+.measure tran tfr_delay_202 trig v(outin_20) val=0.4 fall=2 targ v(outin_30) val=0.4 rise=2
+.measure tran trf_delay_203 trig v(outin_20) val=0.4 rise=3 targ v(outin_30) val=0.4 fall=3
+.measure tran tfr_delay_203 trig v(outin_20) val=0.4 fall=3 targ v(outin_30) val=0.4 rise=3
+.measure tran trf_delay_204 trig v(outin_20) val=0.4 rise=4 targ v(outin_30) val=0.4 fall=4
+.measure tran tfr_delay_204 trig v(outin_20) val=0.4 fall=4 targ v(outin_30) val=0.4 rise=4
+.measure tran trf_delay_011 trig v(outin_01) val=0.4 rise=1 targ v(outin_11) val=0.4 fall=1
+.measure tran tfr_delay_011 trig v(outin_01) val=0.4 fall=1 targ v(outin_11) val=0.4 rise=1
+.measure tran trf_delay_012 trig v(outin_01) val=0.4 rise=2 targ v(outin_11) val=0.4 fall=2
+.measure tran tfr_delay_012 trig v(outin_01) val=0.4 fall=2 targ v(outin_11) val=0.4 rise=2
+.measure tran trf_delay_111 trig v(outin_11) val=0.4 rise=1 targ v(outin_21) val=0.4 fall=1
+.measure tran tfr_delay_111 trig v(outin_11) val=0.4 fall=1 targ v(outin_21) val=0.4 rise=1
+.measure tran trf_delay_112 trig v(outin_11) val=0.4 rise=2 targ v(outin_21) val=0.4 fall=2
+.measure tran tfr_delay_112 trig v(outin_11) val=0.4 fall=2 targ v(outin_21) val=0.4 rise=2
+.measure tran trf_delay_211 trig v(outin_21) val=0.4 rise=1 targ v(outin_31) val=0.4 fall=1
+.measure tran tfr_delay_211 trig v(outin_21) val=0.4 fall=1 targ v(outin_31) val=0.4 rise=1
+.measure tran trf_delay_212 trig v(outin_21) val=0.4 rise=2 targ v(outin_31) val=0.4 fall=2
+.measure tran tfr_delay_212 trig v(outin_21) val=0.4 fall=2 targ v(outin_31) val=0.4 rise=2
+.measure tran trf_delay_021 trig v(outin_02) val=0.4 rise=1 targ v(outin_12) val=0.4 fall=1
+.measure tran tfr_delay_021 trig v(outin_02) val=0.4 fall=1 targ v(outin_12) val=0.4 rise=1
+.measure tran trf_delay_121 trig v(outin_12) val=0.4 rise=1 targ v(outin_22) val=0.4 fall=1
+.measure tran tfr_delay_121 trig v(outin_12) val=0.4 fall=1 targ v(outin_22) val=0.4 rise=1
+.measure tran trf_delay_221 trig v(outin_22) val=0.4 rise=1 targ v(outin_32) val=0.4 fall=1
+.measure tran tfr_delay_221 trig v(outin_22) val=0.4 fall=1 targ v(outin_32) val=0.4 rise=1
+.print TRAN V(outin_00) V(outin_10)
+.print TRAN V(outin_10) V(outin_20)
+.print TRAN V(outin_20) V(outin_30)
+.print TRAN V(outin_01) V(outin_11)
+.print TRAN V(outin_11) V(outin_21)
+.print TRAN V(outin_21) V(outin_31)
+.print TRAN V(outin_02) V(outin_12)
+.print TRAN V(outin_12) V(outin_22)
+.print TRAN V(outin_22) V(outin_32)
+.measure tran inv_avg_power00 avg p(xinverter00) from=0ns to=8ns
+.measure tran peakpower00 max p(xinverter00)
 .option post=2
 
 $Analysis
