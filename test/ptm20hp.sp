@@ -4,7 +4,7 @@ $/work_bgfs/i/iliabautista/2-Research/2-Simulations/1-HDL/hspice/inverter_script
 $Netlist of test
 .lib '../models' ptm20hp
 
-$Power Sources
+$Sources
 vdd vdd  gnd 0.9V
 .subckt inverter in out vdd
 $FETs
@@ -16,82 +16,44 @@ vin_0 inb_0 gnd  PULSE(0.9V 0V 0ns 50ps 50ps 1.0n 2n)
 xinput_0 inb_0 outin_00 vdd inverter
 vin_1 inb_1 gnd  PULSE(0.9V 0V 0ns 50ps 50ps 2.0n 4n)
 xinput_1 inb_1 outin_01 vdd inverter
-vin_2 inb_2 gnd  PULSE(0.9V 0V 0ns 50ps 50ps 4.0n 8n)
-xinput_2 inb_2 outin_02 vdd inverter
 
 xinverter00 outin_00 outin_10 vdd inverter
 xinverter10 outin_10 outin_20 vdd inverter
-xinverter20 outin_20 outin_30 vdd inverter
 xinverter01 outin_01 outin_11 vdd inverter
 xinverter11 outin_11 outin_21 vdd inverter
-xinverter21 outin_21 outin_31 vdd inverter
-xinverter02 outin_02 outin_12 vdd inverter
-xinverter12 outin_12 outin_22 vdd inverter
-xinverter22 outin_22 outin_32 vdd inverter
 
 $Output Loads
-xoutput_00 outin_40 outb_00 vdd inverter
-xoutput_10 outin_41 outb_10 vdd inverter
-xoutput_20 outin_42 outb_20 vdd inverter
+xoutput_00 outin_30 outb_00 vdd inverter
+xoutput_10 outin_31 outb_10 vdd inverter
 
 .measure tran trf_delay_001 trig v(outin_00) val=0.45 rise=1 targ v(outin_10) val=0.45 fall=1
 .measure tran tfr_delay_001 trig v(outin_00) val=0.45 fall=1 targ v(outin_10) val=0.45 rise=1
 .measure tran trf_delay_002 trig v(outin_00) val=0.45 rise=2 targ v(outin_10) val=0.45 fall=2
 .measure tran tfr_delay_002 trig v(outin_00) val=0.45 fall=2 targ v(outin_10) val=0.45 rise=2
-.measure tran trf_delay_003 trig v(outin_00) val=0.45 rise=3 targ v(outin_10) val=0.45 fall=3
-.measure tran tfr_delay_003 trig v(outin_00) val=0.45 fall=3 targ v(outin_10) val=0.45 rise=3
-.measure tran trf_delay_004 trig v(outin_00) val=0.45 rise=4 targ v(outin_10) val=0.45 fall=4
-.measure tran tfr_delay_004 trig v(outin_00) val=0.45 fall=4 targ v(outin_10) val=0.45 rise=4
 .measure tran trf_delay_101 trig v(outin_10) val=0.45 rise=1 targ v(outin_20) val=0.45 fall=1
 .measure tran tfr_delay_101 trig v(outin_10) val=0.45 fall=1 targ v(outin_20) val=0.45 rise=1
 .measure tran trf_delay_102 trig v(outin_10) val=0.45 rise=2 targ v(outin_20) val=0.45 fall=2
 .measure tran tfr_delay_102 trig v(outin_10) val=0.45 fall=2 targ v(outin_20) val=0.45 rise=2
-.measure tran trf_delay_103 trig v(outin_10) val=0.45 rise=3 targ v(outin_20) val=0.45 fall=3
-.measure tran tfr_delay_103 trig v(outin_10) val=0.45 fall=3 targ v(outin_20) val=0.45 rise=3
-.measure tran trf_delay_104 trig v(outin_10) val=0.45 rise=4 targ v(outin_20) val=0.45 fall=4
-.measure tran tfr_delay_104 trig v(outin_10) val=0.45 fall=4 targ v(outin_20) val=0.45 rise=4
-.measure tran trf_delay_201 trig v(outin_20) val=0.45 rise=1 targ v(outin_30) val=0.45 fall=1
-.measure tran tfr_delay_201 trig v(outin_20) val=0.45 fall=1 targ v(outin_30) val=0.45 rise=1
-.measure tran trf_delay_202 trig v(outin_20) val=0.45 rise=2 targ v(outin_30) val=0.45 fall=2
-.measure tran tfr_delay_202 trig v(outin_20) val=0.45 fall=2 targ v(outin_30) val=0.45 rise=2
-.measure tran trf_delay_203 trig v(outin_20) val=0.45 rise=3 targ v(outin_30) val=0.45 fall=3
-.measure tran tfr_delay_203 trig v(outin_20) val=0.45 fall=3 targ v(outin_30) val=0.45 rise=3
-.measure tran trf_delay_204 trig v(outin_20) val=0.45 rise=4 targ v(outin_30) val=0.45 fall=4
-.measure tran tfr_delay_204 trig v(outin_20) val=0.45 fall=4 targ v(outin_30) val=0.45 rise=4
 .measure tran trf_delay_011 trig v(outin_01) val=0.45 rise=1 targ v(outin_11) val=0.45 fall=1
 .measure tran tfr_delay_011 trig v(outin_01) val=0.45 fall=1 targ v(outin_11) val=0.45 rise=1
-.measure tran trf_delay_012 trig v(outin_01) val=0.45 rise=2 targ v(outin_11) val=0.45 fall=2
-.measure tran tfr_delay_012 trig v(outin_01) val=0.45 fall=2 targ v(outin_11) val=0.45 rise=2
 .measure tran trf_delay_111 trig v(outin_11) val=0.45 rise=1 targ v(outin_21) val=0.45 fall=1
 .measure tran tfr_delay_111 trig v(outin_11) val=0.45 fall=1 targ v(outin_21) val=0.45 rise=1
-.measure tran trf_delay_112 trig v(outin_11) val=0.45 rise=2 targ v(outin_21) val=0.45 fall=2
-.measure tran tfr_delay_112 trig v(outin_11) val=0.45 fall=2 targ v(outin_21) val=0.45 rise=2
-.measure tran trf_delay_211 trig v(outin_21) val=0.45 rise=1 targ v(outin_31) val=0.45 fall=1
-.measure tran tfr_delay_211 trig v(outin_21) val=0.45 fall=1 targ v(outin_31) val=0.45 rise=1
-.measure tran trf_delay_212 trig v(outin_21) val=0.45 rise=2 targ v(outin_31) val=0.45 fall=2
-.measure tran tfr_delay_212 trig v(outin_21) val=0.45 fall=2 targ v(outin_31) val=0.45 rise=2
-.measure tran trf_delay_021 trig v(outin_02) val=0.45 rise=1 targ v(outin_12) val=0.45 fall=1
-.measure tran tfr_delay_021 trig v(outin_02) val=0.45 fall=1 targ v(outin_12) val=0.45 rise=1
-.measure tran trf_delay_121 trig v(outin_12) val=0.45 rise=1 targ v(outin_22) val=0.45 fall=1
-.measure tran tfr_delay_121 trig v(outin_12) val=0.45 fall=1 targ v(outin_22) val=0.45 rise=1
-.measure tran trf_delay_221 trig v(outin_22) val=0.45 rise=1 targ v(outin_32) val=0.45 fall=1
-.measure tran tfr_delay_221 trig v(outin_22) val=0.45 fall=1 targ v(outin_32) val=0.45 rise=1
 .print TRAN V(outin_00) V(outin_10)
 .print TRAN V(outin_10) V(outin_20)
-.print TRAN V(outin_20) V(outin_30)
 .print TRAN V(outin_01) V(outin_11)
 .print TRAN V(outin_11) V(outin_21)
-.print TRAN V(outin_21) V(outin_31)
-.print TRAN V(outin_02) V(outin_12)
-.print TRAN V(outin_12) V(outin_22)
-.print TRAN V(outin_22) V(outin_32)
-.measure tran inv_avg_power00 avg p(xinverter00) from=0ns to=8ns
+.measure tran inv_avg_power00 avg p(xinverter00) from=0ns to=4ns
 .measure tran peakpower00 max p(xinverter00)
+.measure tran inv_avg_power10 avg p(xinverter10) from=0ns to=4ns
+.measure tran peakpower10 max p(xinverter10)
+.measure tran inv_avg_power01 avg p(xinverter01) from=0ns to=4ns
+.measure tran peakpower01 max p(xinverter01)
+.measure tran inv_avg_power11 avg p(xinverter11) from=0ns to=4ns
+.measure tran peakpower11 max p(xinverter11)
 .option post=2
 
 $Analysis
-.tran 10ps 8ns
+.tran 10ps 4ns
 
-.measure tran power_avg avg power
-.measure tran avg_power avg p(vdd) from=0ns to=8ns
+.measure tran source_power avg power
 .end

@@ -21,6 +21,8 @@ def main():
     nfin = "1000m"
 
     timing_data = []
+    delay_data = []
+    power_data = []
 
     for model_subdir in models_subdirs:
         parts = model_subdir.split("/")
@@ -31,8 +33,8 @@ def main():
             (fet_size, fet_voltage) = temp.get_fet_params(model_subdir)
             vdd_50 = str(float(fet_voltage) / 2)
 
-            uut_size = 3
-            serial_instance = 3
+            uut_size = 2
+            serial_instance = 2
             load_amount = 1
             sim_time = str(2 ** uut_size)
 
@@ -44,10 +46,9 @@ def main():
             uut.write("$Netlist of " + temp.uut + "\n")
             uut.write(".lib '../models' " + subuut[0] + "\n\n")
 
-            uut.write("$Power Sources\n")
+            uut.write("$Sources\n")
             uut.write("vdd vdd  gnd " + fet_voltage + "V\n")
             subckts_modules.set_inverter()
-
 
             subckts_modules.write_source(uut_size)
  
@@ -66,8 +67,7 @@ def main():
             uut.write("$Analysis\n")
             uut.write(".tran 10ps " + sim_time + "ns\n\n")
 
-            uut.write(".measure tran power_avg avg power\n")
-            uut.write(".measure tran avg_power avg p(vdd) from=0ns to=" + sim_time + "ns\n")
+            uut.write(".measure tran source_power avg power\n")
 
             uut.write(".end")
 
@@ -77,24 +77,47 @@ def main():
         os.chdir(uut_script_dir)
 
         timing_series = []
+        delay_series = []
+        power_series = []
         with open(os.getcwd() + "/" + temp.uut + "/" + subuut[0] + ".lis") as results:
-            reading_flag = 0
+            timing_flag = 0
+            delay_flag = 0
+            power_flag = 0
             for line in results:
                 if ("x\n" in line):
-                    reading_flag = 1
-                elif ("y\n" in line) and (reading_flag == 1):
-                    reading_flag = 0
-                elif (reading_flag == 1):
+                    timing_flag = 1
+                elif ("y\n" in line) and (timing_flag == 1):
+                    timing_flag = 0
+                elif (timing_flag == 1):
                     timing_series.append(line.split())
-        timing_data.append(timing_series)
 
+                if ("transient analysis" in line):
+                    delay_flag = 1
+                elif ("x\n" in line) and (delay_flag == 1):
+                    delay_flag = 0
+                elif (delay_flag == 1):
+                    delay_series.append(line.split())
+
+                if ("avg_power" in line):
+                    power_flag = 1
+                    power_series.append(line.split())
+                elif ("job concluded" in line) and (power_flag == 1):
+                    power_flag = 0
+                elif (power_flag == 1):
+                    power_series.append(line.split())
+
+        timing_data.append(timing_series)
+        delay_data.append(delay_series)
+        power_data.append(power_series)
 
 #    print(timing_data[0][1])
 #    print(timing_data[0][2][1])
 
-    data = pd.DataFrame(timing_data[0][3:], columns = ['Time', 'Voltage_in', 'Voltage_out'])
+    data = pd.DataFrame(timing_data[0], columns = ['Time', 'Voltage_in', 'Voltage_out'])
     data_no_indices = data.to_string(index=False)
-#    print(data_no_indices)
+    #print(data_no_indices)
+    print(delay_data)
+    print(power_data)
 
 if __name__ == '__main__':
     main()

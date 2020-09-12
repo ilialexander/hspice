@@ -1,4 +1,3 @@
-read all data from .lis to python
 take delay averages for rise_fall and fall_rise
 create uut subckt to measure total avg power
 read power in python

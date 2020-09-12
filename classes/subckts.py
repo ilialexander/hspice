@@ -92,7 +92,7 @@ class subckts:
                 self.uut.write(".measure tran inv_avg_power" + outin + instance  + " avg p(x" + "inverter" + outin + instance + ") from=0ns to=" + sim_time + "ns\n")
                 # automate to print per uut subckt
                 self.uut.write(".measure tran peakpower" + outin + instance  + " max p(x" + "inverter" + outin + instance + ")\n")
-                return None
+        return None
 
     def print_wave(self, uut_size, serial_instance):
         for instance in range(uut_size):

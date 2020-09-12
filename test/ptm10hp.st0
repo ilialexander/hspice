@@ -2,38 +2,38 @@
  Input File: ptm10hp.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu
- lic: HOSTID:                      PID:      17617
+ lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu
+ lic: HOSTID:                      PID:      89217
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
  lic: License/Maintenance for hspice will expire on 18-jul-2021/2019.06
  lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu
  lic:
- init: begin read circuit files,  cpu clock=  3.00E-02
+ init: begin read circuit files,  cpu clock=  2.00E-02
        option post     =     2.00
- init: end read circuit files,  cpu clock=  3.00E-02 memory=       158 kb
- init: begin check errors,  cpu clock=  3.00E-02
- **warning**  No DC path to ground from node        0:                outin_40
- init: end check errors,  cpu clock=  3.00E-02 memory=       424 kb
- init: begin setup matrix, pivot=     0 cpu clock=  3.00E-02
-       establish matrix -- done,  cpu clock=  3.00E-02 memory=       478 kb
-       re-order matrix -- done,  cpu clock=  3.00E-02 memory=       468 kb
- init: end setup matrix,  cpu clock=  3.00E-02 memory=       563 kb
- dcop: begin dcop,  cpu clock=  3.00E-02
- dcop: end dcop,  cpu clock=  6.00E-02 memory=       563 kb  tot_iter=     112
+ init: end read circuit files,  cpu clock=  2.00E-02 memory=       155 kb
+ init: begin check errors,  cpu clock=  2.00E-02
+ **warning**  No DC path to ground from node        0:                outin_30
+ init: end check errors,  cpu clock=  2.00E-02 memory=       287 kb
+ init: begin setup matrix, pivot=     0 cpu clock=  2.00E-02
+       establish matrix -- done,  cpu clock=  2.00E-02 memory=       316 kb
+       re-order matrix -- done,  cpu clock=  2.00E-02 memory=       311 kb
+ init: end setup matrix,  cpu clock=  2.00E-02 memory=       366 kb
+ dcop: begin dcop,  cpu clock=  2.00E-02
+ dcop: end dcop,  cpu clock=  4.00E-02 memory=       366 kb  tot_iter=     112
  output: ptm10hp.mt0
- sweep: tran tran0    begin, stop_t=  8.00E-09 #sweeps= 801 cpu clock=  6.00E-02
- tran: time= 8.7639E-10 tot_iter=     108 conv_iter=      29 cpu clock= 8.00E-02
- tran: time= 1.6816E-09 tot_iter=     245 conv_iter=      63 cpu clock= 1.00E-01
- tran: time= 2.4045E-09 tot_iter=     415 conv_iter=     100 cpu clock= 1.10E-01
- tran: time= 3.2021E-09 tot_iter=     527 conv_iter=     125 cpu clock= 1.20E-01
- tran: time= 4.0000E-09 tot_iter=     533 conv_iter=     128 cpu clock= 1.20E-01
- tran: time= 5.0500E-09 tot_iter=     741 conv_iter=     179 cpu clock= 1.50E-01
- tran: time= 5.7109E-09 tot_iter=     844 conv_iter=     204 cpu clock= 1.60E-01
- tran: time= 6.4404E-09 tot_iter=    1042 conv_iter=     249 cpu clock= 1.80E-01
- tran: time= 7.2001E-09 tot_iter=    1407 conv_iter=     280 cpu clock= 2.10E-01
- tran: time= 8.0000E-09 tot_iter=    1686 conv_iter=     307 cpu clock= 2.40E-01
- sweep: tran tran0    end,  cpu clock=  2.40E-01 memory=       564 kb
+ sweep: tran tran0    begin, stop_t=  4.00E-09 #sweeps= 401 cpu clock=  4.00E-02
+ tran: time= 5.4331E-10 tot_iter=      94 conv_iter=      25 cpu clock= 5.00E-02
+ tran: time= 9.4331E-10 tot_iter=      98 conv_iter=      27 cpu clock= 5.00E-02
+ tran: time= 1.2332E-09 tot_iter=     245 conv_iter=      49 cpu clock= 6.00E-02
+ tran: time= 1.6165E-09 tot_iter=     249 conv_iter=      51 cpu clock= 6.00E-02
+ tran: time= 2.0000E-09 tot_iter=     253 conv_iter=      53 cpu clock= 6.00E-02
+ tran: time= 2.4484E-09 tot_iter=     663 conv_iter=     115 cpu clock= 9.00E-02
+ tran: time= 2.8484E-09 tot_iter=     667 conv_iter=     117 cpu clock= 9.00E-02
+ tran: time= 3.2264E-09 tot_iter=     787 conv_iter=     148 cpu clock= 1.00E-01
+ tran: time= 3.7817E-09 tot_iter=     793 conv_iter=     151 cpu clock= 1.00E-01
+ tran: time= 4.0000E-09 tot_iter=     795 conv_iter=     152 cpu clock= 1.00E-01
+ sweep: tran tran0    end,  cpu clock=  1.00E-01 memory=       367 kb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)
