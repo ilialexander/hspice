@@ -1,5 +1,14 @@
-take delay averages for rise_fall and fall_rise
 create uut subckt to measure total avg power
 read power in python
+clean/comment code
+merge
+create new branch plot_data
+take delay averages for rise_fall and fall_rise
 plot waves in python for all ptm model sizes
+plot delay per ptm model
+plot power per ptm model
+clean/comment code
+create new branch dram
 work on dram cell
+create new branch cam
+work on cam cell

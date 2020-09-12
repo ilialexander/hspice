@@ -2,15 +2,15 @@
  Input File: ptm10lstp.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu
- lic: HOSTID:                      PID:      89263
+ lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu
+ lic: HOSTID:                      PID:      182867
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
  lic: License/Maintenance for hspice will expire on 18-jul-2021/2019.06
  lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu
  lic:
- init: begin read circuit files,  cpu clock=  3.00E-02
+ init: begin read circuit files,  cpu clock=  2.00E-02
        option post     =     2.00
  init: end read circuit files,  cpu clock=  3.00E-02 memory=       155 kb
  init: begin check errors,  cpu clock=  3.00E-02
@@ -26,9 +26,9 @@
  sweep: tran tran0    begin, stop_t=  4.00E-09 #sweeps= 401 cpu clock=  5.00E-02
  tran: time= 5.6977E-10 tot_iter=      91 conv_iter=      26 cpu clock= 6.00E-02
  tran: time= 9.6977E-10 tot_iter=      95 conv_iter=      28 cpu clock= 6.00E-02
- tran: time= 1.2083E-09 tot_iter=     191 conv_iter=      44 cpu clock= 6.00E-02
- tran: time= 1.7405E-09 tot_iter=     197 conv_iter=      47 cpu clock= 6.00E-02
- tran: time= 2.0000E-09 tot_iter=     201 conv_iter=      49 cpu clock= 6.00E-02
+ tran: time= 1.2083E-09 tot_iter=     191 conv_iter=      44 cpu clock= 7.00E-02
+ tran: time= 1.7405E-09 tot_iter=     197 conv_iter=      47 cpu clock= 7.00E-02
+ tran: time= 2.0000E-09 tot_iter=     201 conv_iter=      49 cpu clock= 7.00E-02
  tran: time= 2.4419E-09 tot_iter=     429 conv_iter=      92 cpu clock= 8.00E-02
  tran: time= 2.8419E-09 tot_iter=     433 conv_iter=      94 cpu clock= 8.00E-02
  tran: time= 3.2604E-09 tot_iter=     715 conv_iter=     128 cpu clock= 1.00E-01

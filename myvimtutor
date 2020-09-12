@@ -1,8 +1,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 2 SUMMARY
 
-  1. To delete from the cursor to the next word:      dw
-  2. To delete from the cursor to the end of a line:  D
+  1. To delete from the cursor to the end of a line:  D
      To delete a line break:                          J
 
   4. To repeat a motion, prepend it with a number:    3e
@@ -13,11 +12,8 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 3 SUMMARY
 
-  3. To change from cursor to end of word:            ce
-     To change to the end of the line:                C
-
+  3. To change to the end of the line:                C
   4. The format for change is:                        c [number] motion
-     Repeat a change with:                            .
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,15 +48,20 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 6 SUMMARY
 
-  4. Yanks line to clip board:                        "*yy
+  1. Yanks line to clip board:                        "*yy
      Puts text from clip board:                       "*p
 
-  6. Sets the option "xxx"                            :set xxx
+  2. Sets the option "xxx"                            :set xxx
      Some options are:
         ignore upper/lower case when searching:       ic  | 'ignorecase'
 	show partial matches for a search phrase:     is  | 'incsearch'	
 	highlight all matching phrases:               hls | 'hlsearch'	
 
+  3. To record and playback, register = a - z:        q{register}
+     stdio.h
+     fcntl.h
+     unistd.h
+     stdlib.h
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		       Lesson 7.1: GETTING HELP

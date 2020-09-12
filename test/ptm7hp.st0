@@ -2,18 +2,18 @@
  Input File: ptm7hp.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu
- lic: HOSTID:                      PID:      89254
+ lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu
+ lic: HOSTID:                      PID:      182859
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
  lic: License/Maintenance for hspice will expire on 18-jul-2021/2019.06
  lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu
  lic:
- init: begin read circuit files,  cpu clock=  3.00E-02
+ init: begin read circuit files,  cpu clock=  2.00E-02
        option post     =     2.00
- init: end read circuit files,  cpu clock=  3.00E-02 memory=       155 kb
- init: begin check errors,  cpu clock=  3.00E-02
+ init: end read circuit files,  cpu clock=  2.00E-02 memory=       155 kb
+ init: begin check errors,  cpu clock=  2.00E-02
  **warning**  No DC path to ground from node        0:                outin_30
  init: end check errors,  cpu clock=  3.00E-02 memory=       287 kb
  init: begin setup matrix, pivot=     0 cpu clock=  3.00E-02
@@ -21,14 +21,14 @@
        re-order matrix -- done,  cpu clock=  3.00E-02 memory=       311 kb
  init: end setup matrix,  cpu clock=  3.00E-02 memory=       366 kb
  dcop: begin dcop,  cpu clock=  3.00E-02
- dcop: end dcop,  cpu clock=  5.00E-02 memory=       366 kb  tot_iter=     112
+ dcop: end dcop,  cpu clock=  4.00E-02 memory=       366 kb  tot_iter=     112
  output: ptm7hp.mt0
- sweep: tran tran0    begin, stop_t=  4.00E-09 #sweeps= 401 cpu clock=  5.00E-02
- tran: time= 4.6947E-10 tot_iter=      94 conv_iter=      25 cpu clock= 6.00E-02
- tran: time= 8.6947E-10 tot_iter=      98 conv_iter=      27 cpu clock= 6.00E-02
- tran: time= 1.2869E-09 tot_iter=     198 conv_iter=      50 cpu clock= 7.00E-02
- tran: time= 1.6869E-09 tot_iter=     202 conv_iter=      52 cpu clock= 7.00E-02
- tran: time= 2.0000E-09 tot_iter=     206 conv_iter=      54 cpu clock= 7.00E-02
+ sweep: tran tran0    begin, stop_t=  4.00E-09 #sweeps= 401 cpu clock=  4.00E-02
+ tran: time= 4.6947E-10 tot_iter=      94 conv_iter=      25 cpu clock= 5.00E-02
+ tran: time= 8.6947E-10 tot_iter=      98 conv_iter=      27 cpu clock= 5.00E-02
+ tran: time= 1.2869E-09 tot_iter=     198 conv_iter=      50 cpu clock= 6.00E-02
+ tran: time= 1.6869E-09 tot_iter=     202 conv_iter=      52 cpu clock= 6.00E-02
+ tran: time= 2.0000E-09 tot_iter=     206 conv_iter=      54 cpu clock= 6.00E-02
  tran: time= 2.5458E-09 tot_iter=     614 conv_iter=     111 cpu clock= 9.00E-02
  tran: time= 2.9458E-09 tot_iter=     618 conv_iter=     113 cpu clock= 9.00E-02
  tran: time= 3.3017E-09 tot_iter=     739 conv_iter=     142 cpu clock= 1.00E-01
