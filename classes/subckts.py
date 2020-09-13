@@ -3,185 +3,252 @@ import os
 
 class subckts:
 
-    def __init__(self, uut, fet_size, fet_nfin, fet_voltage):
-        self.uut = uut # name of unit under test, e.g. inverter
-        self.fet_size = fet_size # fet length size, e.g. 14nm, 10nm, 7nm
-        self.fet_nfin = fet_nfin # fin size?? e.g. 1000m
+    def __init__(self, script_params, grid_params, fet_params, sim_params):
+        (script_dir, script_name, uut) = script_params 
+        self.script_dir = script_dir # script working directory
+        self.uut = uut # unit under test
+        self.script_name = script_name # name of running script
+
+        (spice_file, parallel_instances, serial_instances, load_amount) = grid_params
+        self.spice_file = spice_file # name of unit under test, e.g. inverter
+        self.par_instances = parallel_instances # grid columns
+        self.ser_instances = serial_instances # grid rows
+        self.load_amount = load_amount # load for realistic results
+
+        (subuut, fet_length, fet_voltage, fet_nfin) = fet_params
+        self.subuut = subuut # ptm under test
+        self.fet_length = fet_length # fet length size, e.g. 14nm, 10nm, 7nm
         self.fet_voltage = fet_voltage # nominal voltage for ptm model
+        self.fet_nfin = fet_nfin # fin size?? e.g. 1000m
+
+        (sim_type, sim_tinc) = sim_params
+        self.sim_type = sim_type # simulation type, e.g., tran, dc
+        self.sim_tinc = sim_tinc # simulation time step
+
+        self.vdd_50 = str(float(self.fet_voltage) / 2) # 50% of vdd/nominal voltage
+        self.sim_time = str(2 ** self.par_instances) # total simulation time
+        self.script_path = self.script_dir + "/" + self.script_name # full path to working script
 
 
     '''Inputs and Outputs LOADS'''
 
-    def write_source(self, uut_size):
+    def write_source(self):
         '''Write input source of system to .sp file'''
-            # inputs uut_size, load ammount, sim_time
-        for instance in range(uut_size):
-            fall_time = (2) * (2 ** instance)
-            rise_time = str(fall_time / 2)
+        # input sources are porportional to the amount of instances
+        self.spice_file.write("$all input sources\n")
+        for instance in range(self.par_instances):
+            fall_time = (2) * (2 ** instance) # time from highest value to lowest, it provides a virtual binary count
+            rise_time = str(fall_time / 2)    # time from lowest value to lowest
             fall_time = str(fall_time)
             instance = str(instance)
-            self.uut.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(" + self.fet_voltage + "V " + "0V 0ns 50ps 50ps " + rise_time + "n " + fall_time + "n)\n")
-            # call instance of input source subckt in uut file
-            self.uut.write("xinput_" + instance + " inb_" + instance + " outin_0" + instance + " vdd " + "inverter\n")
-        self.uut.write("\n")
+            # sets input wave
+            self.spice_file.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(" + self.fet_voltage + "V " + "0V 0ns 50ps 50ps " + rise_time + "n " + fall_time + "n)\n")
+
+        # sets a more realistic input through inverter
+        self.spice_file.write("$invert input sources\n")
+        for instance in range(self.par_instances):
+            instance = str(instance)
+            # sets wave inverted
+            self.spice_file.write("xinput_" + instance + " inb_" + instance + " outin_0" + instance + " vdd " + "inverter\n")
+        self.spice_file.write("\n")
         return None
 
-    def write_outputs(self, uut_size, tag, outin):
-        '''Write output load of system to .sp file'''
-        for instance in range(uut_size):
-            inout = str(outin + 1)
-            for output_tag in range(tag):
+
+    def write_outputs(self):
+        '''Write realistic output load of system to .sp file'''
+        for instance in range(self.par_instances):
+            inout = str(self.ser_instances) # connects model_uut outputs to realistic loads
+            for output_tag in range(self.load_amount):
                 instance = str(instance) # instance of ouput to evaluate
                 output_tag = str(output_tag) # amount of load per output
-                # call instance of ouput load subckt in uut file
-                self.uut.write("xoutput_" + instance + output_tag + " outin_" + inout  + instance + " outb_" + instance + output_tag + " vdd " + "inverter\n")
-        self.uut.write("\n")
+                # call instance of ouput load subckt in model_uut file
+                self.spice_file.write("xoutput_" + instance + output_tag + " outin_" + inout  + instance + " outb_" + instance + output_tag + " vdd " + "inverter\n")
+        self.spice_file.write("\n")
         return None
+
 
 
     '''UUTs'''
     def set_inverter_subckt(self):
         '''Write inverter subckt'''
         # declare subckt name, input, output, and source
-        self.uut.write(".subckt inverter in out vdd\n")
-        self.uut.write("$FETs" + "\n")
+        self.spice_file.write(".subckt inverter in out vdd\n")
+        self.spice_file.write("$fets" + "\n")
         # call pfet model name, and decaler its input, output, and source
-        self.uut.write("xpfet out in vdd vdd pfet l=" + self.fet_size + "n nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xpfet out in vdd vdd pfet l=" + self.fet_length + "n nfin=" + self.fet_nfin + "\n")
         # call nfet model name, and decaler its input, output, and source
-        self.uut.write("xnfet out in gnd gnd nfet l=" + self.fet_size + "n nfin=" + self.fet_nfin + "\n")
-        self.uut.write(".ends\n") # end subckt declaration
-        self.uut.write("\n")
+        self.spice_file.write("xnfet out in gnd gnd nfet l=" + self.fet_length + "n nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write(".ends\n") # end subckt declaration
+        self.spice_file.write("\n")
         return None
 
-    def write_inverter(self, uut_size, serial_instance):
+    def write_inverter(self):
         '''Write inverter device'''
-        self.uut.write(".subckt uut_grid vdd\n")
-        self.uut.write("+")
-        for instance in range(uut_size):
+        # declare model_uut subckt
+        self.spice_file.write(".subckt model_uut_grid vdd\n")
+        self.spice_file.write("+")
+        for instance in range(self.par_instances):
             instance = str(instance)
-            self.uut.write("outin_0" + instance + " ")
-        self.uut.write("$ Inputs to uut_grid Subckt\n")
+            # declare subckt inputs
+            self.spice_file.write("outin_0" + instance + " ")
+        self.spice_file.write("$inputs to model_uut_grid Subckt\n")
 
-        self.uut.write("+")
-        for instance in range(uut_size):
-            for outin in range(serial_instance):
+        self.spice_file.write("+")
+        for instance in range(self.par_instances):
+            for outin in range(self.ser_instances):
                 instance = str(instance)
                 inout = str(outin + 1)
-                self.uut.write("outin_" + inout + instance + " ")
-        self.uut.write("$ Outputs to uut_grid Subckt\n")
+                # declare subckt outputs
+                self.spice_file.write("outin_" + inout + instance + " ")
+        self.spice_file.write("$outputs to model_uut_grid Subckt\n")
                 
-        for instance in range(uut_size):
-            for outin in range(serial_instance):
+        for instance in range(self.par_instances):
+            for outin in range(self.ser_instances):
                 instance = str(instance)
                 inout = str(outin + 1)
                 outin = str(outin)
-                self.uut.write("xinverter" + outin + instance + " " + "outin_" + outin  + instance + " " + "outin_" + inout + instance + " vdd " + "inverter\n")
-        self.uut.write(".ends\n")
+                # invoke inverters
+                self.spice_file.write("xinverter" + outin + instance + " " + "outin_" + outin  + instance + " " + "outin_" + inout + instance + " vdd " + "inverter\n")
+        self.spice_file.write(".ends\n")
 
-        self.uut.write("xuut_grid vdd\n")
-        self.uut.write("+")
-        for instance in range(uut_size):
+        # invoke model_uut_grid
+        self.spice_file.write("$invoke UUT grid\n")
+        self.spice_file.write("xmodel_uut_grid vdd\n")
+        self.spice_file.write("+")
+        for instance in range(self.par_instances):
             instance = str(instance)
-            self.uut.write("outin_0" + instance + " ")
-        self.uut.write("$ Inputs to uut_grid\n")
+            # declare inputs
+            self.spice_file.write("outin_0" + instance + " ")
+        self.spice_file.write("$inputs to model_uut_grid\n")
 
-        self.uut.write("+")
-        for instance in range(uut_size):
-            for outin in range(serial_instance):
+        self.spice_file.write("+")
+        for instance in range(self.par_instances):
+            for outin in range(self.ser_instances):
                 instance = str(instance)
                 inout = str(outin + 1)
-                self.uut.write("outin_" + inout + instance + " ")
-        self.uut.write("$ Outputs to uut_grid\n")
-        self.uut.write("+uut_grid\n\n")
-
+                # declare outputs
+                self.spice_file.write("outin_" + inout + instance + " ")
+        self.spice_file.write("$outputs to model_uut_grid\n")
+        self.spice_file.write("+model_uut_grid\n\n")
         return None
+
 
 
     '''Analysis and Measurements'''
 
-    def set_library(self, script_path, subuut, uut):
-        self.uut.write("$This UUT was automatically generated by:\n")
-        self.uut.write("$" + script_path + "\n")
-        self.uut.write("$Netlist of " + uut + "\n")
-        self.uut.write(".lib '../models' " + subuut + "\n\n")
+    def set_library(self):
+        '''Sets the library to read the ptm model'''
+        # name of unit under test in spice file
+        self.spice_file.write("$ Netlist of " + self.uut + "\n")
+        # script location disclaimer
+        self.spice_file.write("$ This UUT was automatically generated by:\n")
+        self.spice_file.write("$ " + self.script_path + "\n")
+        # invoke library for ptm model to test
+        self.spice_file.write(".lib '../models' " + self.subuut + "\n")
         return None
 
-    def analysis_type(self, sim_type, sim_tinc, sim_time):
-        self.uut.write("$Simulation/Analysis Type\n")
-        self.uut.write(".option post=2\n")
-        self.uut.write("." + sim_type + " " + sim_tinc + " " + sim_time + "ns\n\n")
-        self.uut.write(".end")
+
+    def analysis_type(self):
+        '''Sets the type of analysis for the simulation'''
+        self.spice_file.write(".option post=2\n")
+        # sets the simulation step and duration
+        self.spice_file.write("." + self.sim_type + " " + self.sim_tinc + " " + self.sim_time + "ns\n\n")
+        self.spice_file.write(".end")
         return None
 
-    def run_hspice(self, script_dir, subuut, uut):
-        os.chdir(uut)
-        os.system('hspice ' + subuut + ".sp > " + subuut + ".lis")
-        os.chdir(script_dir)
+
+    def run_hspice(self):
+        '''Runs hspice for each model simulation'''
+        os.chdir(self.uut) # changes to uut directory
+        # invokes hspice
+        os.system('hspice ' + self.subuut + ".sp > " + self.subuut + ".lis")
+        os.chdir(self.script_dir) # changes directory back to script
         return None
+
 
     def read_meas(self, start_str, end_str, line, lis_flag, lis_series):
+        '''Reads the measurements from .lis file'''
         if (start_str in line):
-            lis_flag = 1
+            lis_flag = 1 # start reading
         elif (end_str in line) and (lis_flag == 1):
-            lis_flag = 0
+            lis_flag = 0 # stop resding
         elif (lis_flag == 1):
+            # append lines with data
             lis_series.append(line.split())
+        # returns the flag and data collected
         return (lis_flag, lis_series)
 
-    def collect_data(self, cwd, subuut, uut):
-        power_series = []
-        delay_series = []
-        timing_series = []
-        with open(cwd + "/" + uut + "/" + subuut + ".lis") as results:
-            timing_flag = 0
-            delay_flag = 0
-            power_flag = 0
+
+    def collect_data(self):
+        '''Collects all data to import by python'''
+        # will divide between avg and max
+        power_series = [] # reads all power data
+        delay_series = [] # reads all delay data
+        timing_series = [] # reads all timing data
+        with open(self.script_dir + "/" + self.uut + "/" + self.subuut + ".lis") as results:
+            timing_flag = 0 # initializes flag
+            delay_flag = 0 # initializes flag
+            power_flag = 0 # initializes flag
             for line in results:
+                # reads the power measurements from .lis file
                 (power_flag, power_series) = self.read_meas("transient analysis", "trf", line, power_flag, power_series)
+                # reads the delay measurements from .lis file
                 (delay_flag, delay_series) = self.read_meas("source_power", "x\n", line, delay_flag, delay_series)
+                # reads the timing measurements from .lis file
                 (timing_flag, timing_series) = self.read_meas("x\n", "y\n", line, timing_flag, timing_series)
+        # returns power, delay and timing data
         return (power_series, delay_series, timing_series)
 
-    def measure_delays(self, uut_size, serial_instance):
-        vdd_50 = str(float(self.fet_voltage) / 2)
-        for instance in range(uut_size):
-            rise_fall_count = 2 ** ((uut_size - instance) - 1)
-            for outin in range(serial_instance):
+
+    def measure_delays(self):
+        '''Measures all delays of model_uut_grid'''
+        for instance in range(self.par_instances):
+            rise_fall_count = 2 ** ((self.par_instances - instance) - 1) # calculates the amount of rises and falls of a signal
+            for outin in range(self.ser_instances):
                 inout = str(outin + 1)
                 outin = str(outin)
-                for rise_fall in range(rise_fall_count ):
+                for rise_fall in range(rise_fall_count):
                     rise_fall = str(rise_fall + 1)
                     instance = str(instance)
-                    # use instance to derive a method that will calculate all delays and an average
-                    self.uut.write(".measure tran trf_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=" + vdd_50 + " rise=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=" + vdd_50 + " fall=" + rise_fall + "\n")
-                    # automate to print per uut subckt
-                    self.uut.write(".measure tran tfr_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=" + vdd_50 + " fall=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=" + vdd_50 + " rise=" + rise_fall + "\n")
+                    # measures rise_fall delay
+                    self.spice_file.write(".measure tran trf_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=" + self.vdd_50 + " rise=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=" + self.vdd_50 + " fall=" + rise_fall + "\n")
+                    # measures rise_fall delay
+                    self.spice_file.write(".measure tran tfr_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=" + self.vdd_50 + " fall=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=" + self.vdd_50 + " rise=" + rise_fall + "\n")
         return None
 
-    def measure_power(self, uut_size, sim_time, serial_instance):
-        for instance in range(uut_size):
-            for outin in range(serial_instance):
+
+    def measure_power(self):
+        '''Measures model_uut and individual unit powers'''
+        for instance in range(self.par_instances):
+            for outin in range(self.ser_instances):
                 instance = str(instance)
                 outin = str(outin)
-                # automate to print per uut subckt, create subckt uut to calculate power of entire uut
-                self.uut.write(".measure tran inv_avg_power" + outin + instance  + " avg p(xuut_grid.x" + "inverter" + outin + instance + ") from=0ns to=" + sim_time + "ns\n")
-                # automate to print per uut subckt
-                self.uut.write(".measure tran peakpower" + outin + instance  + " max p(xuut_grid.x" + "inverter" + outin + instance + ")\n")
+                # measures individual avg power
+                self.spice_file.write(".measure tran inv_avg_power" + outin + instance  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + instance + ") from=0ns to=" + self.sim_time + "ns\n")
+                # measures individual max power
+                self.spice_file.write(".measure tran peakpower" + outin + instance  + " max p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
 
-        self.uut.write(".measure tran uut_grid_avg_power avg p(xuut_grid) from=0ns to=" + sim_time + "ns\n")
-        self.uut.write(".measure tran uut_grid_max_power max p(xuut_grid)\n")
-        self.uut.write(".measure tran source_power avg power\n")
+        # measures model_uut avg power
+        self.spice_file.write(".measure tran model_uut_grid_avg_power avg p(xmodel_uut_grid) from=0ns to=" + self.sim_time + "ns\n")
+        # measures model_uut max power
+        self.spice_file.write(".measure tran model_uut_grid_max_power max p(xmodel_uut_grid)\n")
+        # Serves more as a flag to collect data
+        self.spice_file.write(".measure tran source_power avg power\n") # measures source avg power
         return None
 
-    def print_wave(self, uut_size, serial_instance):
-        for instance in range(uut_size):
-            for outin in range(serial_instance):
+
+    def print_wave(self):
+        '''Prints each datapoint to .lis file'''
+        for instance in range(self.par_instances):
+            for outin in range(self.ser_instances):
                 instance = str(instance)
                 inout = str(outin + 1)
                 outin = str(outin)
-                # automate to print per uut subckt, need to use instance and tags
-                self.uut.write(".print TRAN V(" + "outin_" + outin + instance + ") V(" + "outin_" + inout + instance + ")\n")
+                # prints data per input-output pair in model_uut subckts
+                self.spice_file.write(".print TRAN V(" + "outin_" + outin + instance + ") V(" + "outin_" + inout + instance + ")\n")
+        self.spice_file.write("\n")
         return None
+
 
 #   def write_dram(self, instance):
 

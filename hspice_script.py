@@ -1,0 +1,92 @@
+#!/usr/bin/env python
+import os
+import pandas as pd
+
+exec(open("python.py").read())
+module('load', 'apps/synopsys/hspice/F-2011.09-SP2')
+
+from classes.ptm import ptm
+from classes.subckts import subckts
+
+def main():
+    # For the given path, get the full path list of transistors models
+    cwd = os.getcwd() # gets the current_working_directoru
+    dir_name = cwd + '/modelfiles/'
+
+    uut_setup = ptm("inverter", "nfet.pm", "pfet.pm", "1000m")
+
+    uut_params = uut_setup.set_fet_names(dir_name) # gets/sets fet names and creates uut directory
+
+    timing_data = [] # collects data to produce timing diagrams
+    delay_data = []  # collects data to calculate avg delay 
+    power_data = []  # collects data to present power
+
+    for fet_params in uut_params:
+        (subuut, fet_length, fet_voltage, fet_nfin) = fet_params
+        with open(cwd + "/" + uut_setup.uut + "/" + subuut + ".sp", 'w+') as spice_file:
+
+            uut = uut_setup.uut         # uut name
+            script_name = __file__ # working script name
+            script_params = (cwd, script_name, uut)
+
+            parallel_instances = 2 # modules with unique inout
+            serial_instances = 2   # modules connected output to input
+            load_amount = 1        # load amount for 'realistic' results
+            grid_params = (spice_file, parallel_instances, serial_instances, load_amount)
+
+            sim_type = "tran"      # simulation type, e.g., tran, dc
+            sim_tinc = "10p"       # time step for simulations
+            sim_params = (sim_type, sim_tinc)
+
+            # invokes subckts class
+            subckts_modules = subckts(script_params, grid_params, fet_params, sim_params)
+
+            # set .sp header
+            subckts_modules.set_library()
+
+            spice_file.write("$ UUT individual unit\n")
+            subckts_modules.set_inverter_subckt()
+
+            spice_file.write("$ Sources\n")
+            spice_file.write("vdd vdd  gnd " + fet_voltage + "V\n")
+            subckts_modules.write_source()
+ 
+            spice_file.write("$ Unit Under Test\n")
+            subckts_modules.write_inverter()
+
+            spice_file.write("$ Output Loads\n")
+            subckts_modules.write_outputs()
+
+            spice_file.write("$ Measurements\n")
+            subckts_modules.measure_power()
+            subckts_modules.measure_delays()
+            subckts_modules.print_wave()
+
+            spice_file.write("$ Simulation/Analysis Type\n")
+            subckts_modules.analysis_type()
+
+        # run hspice
+        subckts_modules.run_hspice()
+
+        # collect all series
+        (power_series, delay_series, timing_series) = subckts_modules.collect_data()
+
+        # collect all data
+        timing_data.append(timing_series)
+        delay_data.append(delay_series)
+        power_data.append(power_series)
+
+#    print(timing_data[0][1])
+#    print(timing_data[0][2][1])
+
+    data = pd.DataFrame(timing_data[0], columns = ['Time', 'Voltage_in', 'Voltage_out'])
+    data_no_indices = data.to_string(index=False)
+
+#    print(data_no_indices)
+#    print(timing_data)
+#    print(delay_data)
+#    print(power_data)
+
+if __name__ == '__main__':
+    main()
+

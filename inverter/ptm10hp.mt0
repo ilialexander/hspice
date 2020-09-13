@@ -1,0 +1,16 @@
+$DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
+.TITLE '$ netlist of inverter'
+ inv_avg_power00  peakpower00      inv_avg_power10  peakpower10       
+ inv_avg_power01  peakpower01      inv_avg_power11  peakpower11       
+ model_uut_grid_avg_power model_uut_grid_max_power source_power      
+ trf_delay_001    tfr_delay_001    trf_delay_002    tfr_delay_002     
+ trf_delay_101    tfr_delay_101    trf_delay_102    tfr_delay_102     
+ trf_delay_011    tfr_delay_011    trf_delay_111    tfr_delay_111     
+ temper           alter#            
+  6.946e-07        2.042e-05        6.277e-07        2.750e-05        
+  6.002e-07        1.864e-05        5.721e-07        2.452e-05        
+  2.495e-06        8.561e-05        5.175e-06        2.110e-12        
+  2.384e-12        2.195e-12        2.277e-12        1.623e-12        
+  1.599e-12        3.403e-13        1.863e-12        2.110e-12        
+  2.299e-12        1.666e-12        1.599e-12         25.0000         
+ 1                 

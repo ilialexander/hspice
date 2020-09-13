@@ -22,7 +22,6 @@
   1. Display location in file and file status:        CTRL-G
      Moves to the line number:                        [number] G  
      Scroll Up or Down:                               CTRL-e | CTRL-y
-     Scroll half a screen Forth or Back:              CTRL-d | CTRL-u
      To mark a position for (x = a-z) use:            mx
      To travel to marked postiontion:                 `x
 

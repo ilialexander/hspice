@@ -1,0 +1,4568 @@
+ ****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
+  Copyright (C) 2011 Synopsys, Inc. All Rights Reserved.                        
+  Unpublished-rights reserved under US copyright laws.
+  This program is protected by law and is subject to the
+  terms and conditions of the license agreement from Synopsys.
+  Use of this program is your acceptance to be bound by the
+  license agreement. HSPICE is the trademark of Synopsys, Inc.
+  Input File: ptm14lstp.sp                                                      
+  Command line options: ptm14lstp.sp
+ lic:  
+ lic: FLEXlm: v10.8 
+ lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
+ lic: HOSTID:                      PID:      17057 
+ lic: Using FLEXlm license file: 
+ lic: 27000@license0.rc.usf.edu 
+ lic: Checkout 1 hspice 
+ lic: License/Maintenance for hspice will expire on 18-jul-2021/2019.06 
+ lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu 
+ lic:   
+  **warning** (../modelfiles/lstp/14nfet.pm:4) Model nfet device geometries will not be checked against the limits set by lmin, lmax, nfinmin and nfinmax. To enable this check, add a period(.) to the model name(i.e. enable model selector).
+1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
+ ******  
+ $ netlist of inverter
+
+  ******  circuit name directory
+ circuit number to circuit name directory
+   number circuitname                     definition         multiplier
+        0 main circuit
+        1 xinput_0.                       inverter           1.00 
+        2 xinput_1.                       inverter           1.00 
+        3 xmodel_uut_grid.                model_uut_grid     1.00 
+        4 xoutput_00.                     inverter           1.00 
+        5 xoutput_10.                     inverter           1.00 
+        6 xinput_0.xpfet.                 pfet               1.00 
+        7 xinput_0.xnfet.                 nfet               1.00 
+        8 xinput_1.xpfet.                 pfet               1.00 
+        9 xinput_1.xnfet.                 nfet               1.00 
+       10 xmodel_uut_grid.xinverter00.    inverter           1.00 
+       11 xmodel_uut_grid.xinverter10.    inverter           1.00 
+       12 xmodel_uut_grid.xinverter01.    inverter           1.00 
+       13 xmodel_uut_grid.xinverter11.    inverter           1.00 
+       14 xoutput_00.xpfet.               pfet               1.00 
+       15 xoutput_00.xnfet.               nfet               1.00 
+       16 xoutput_10.xpfet.               pfet               1.00 
+       17 xoutput_10.xnfet.               nfet               1.00 
+       18 xmodel_uut_grid.xinverter00.xpfet.
+                                            pfet               1.00 
+       19 xmodel_uut_grid.xinverter00.xnfet.
+                                            nfet               1.00 
+       20 xmodel_uut_grid.xinverter10.xpfet.
+                                            pfet               1.00 
+       21 xmodel_uut_grid.xinverter10.xnfet.
+                                            nfet               1.00 
+       22 xmodel_uut_grid.xinverter01.xpfet.
+                                            pfet               1.00 
+       23 xmodel_uut_grid.xinverter01.xnfet.
+                                            nfet               1.00 
+       24 xmodel_uut_grid.xinverter11.xpfet.
+                                            pfet               1.00 
+       25 xmodel_uut_grid.xinverter11.xnfet.
+                                            nfet               1.00 
+1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
+ ******  
+ $ netlist of inverter
+
+  ******  mos   model parameters tnom=  25.000 temp=  25.000 *****
+ Model Name: pfet 
+ BSIM-MG BULK Model(Level72)
+   VERSION = 105.03  
+   DEVTYPE = -1 
+   BULKMOD = 1  
+   COREMOD = 0 
+   GEOMOD = 1 
+   RDSMOD = 1 
+   IGCMOD = 1 
+   IGBMOD = 1 
+   GIDLMOD = 0 
+   IIMOD = 0 
+   NQSMOD = 0 
+   SHMOD = 0 
+   RGATEMOD = 0 
+   RGEOMOD = 1 
+   CGEOMOD = 2 
+   CAPMOD = 0 
+   LINT = 2.5e-10 m
+   LL =      0 m^(LLN+1)
+   LLN =      1 
+   DLC =      0 m
+   DLBIN =      0 
+   LLC =      0 m^(LLN+1)
+   EOT = 9.2e-10 m
+   TOXP = 1.3e-09 m
+   EOTBOX = 1.4e-07 m
+   HFIN = 2.3e-08 m
+   FECH =      1 
+   DELTAW =      0 m
+   FECHCV =      1 
+   DELTAWCV =      0 m
+   NBODY =  5e+22 m^-3
+   NSD =  3e+26 m^-3
+   PHIG =  4.574 eV
+   EPSROX =    3.9 
+   EPSRSUB =   11.9 
+   EASUB =   4.05 eV
+   NI0SUB = 1.1e+16 m^-3
+   BG0SUB =   1.12 eV
+   NC0SUB = 2.86e+25 m^-3
+   NGATE =      0 m^-3
+   CIT = 1.3e-05 F/m^2
+   CDSC = 0.0216 F/m^2
+   CDSCD =  0.007 F/m^2
+   CDSCDR =  0.007 
+   DVT0 =   0.01 
+   DVT1 =   0.69 
+   PHIN =   0.05 V
+   ETA0 =   0.74 
+   ETA0R =   0.74 
+   DSUB =    0.9 
+   K1RSCE =      0 V^1/2
+   LPE0 =  5e-09 m
+   DVTSHIFT =      0 
+   QMFACTOR =      0 
+   QMTCENIV =      0 
+   QMTCENCV =      0 
+   AQMTCEN =      0 
+   BQMTCEN = 1.2e-08 
+   ETAQM =   0.54 
+   QM0 = 0.001143 
+   PQM =   0.66 
+   QM0ACC =  0.001 
+   PQMACC =   0.66 
+   VSAT = 1.05e+05 
+   AVSAT =      0 
+   BVSAT =  1e-07 
+   VSAT1 = 1.05e+05 
+   AVSAT1 =      0 
+   BVSAT1 =  1e-07 
+   DELTAVSAT =      1 
+   KSATIV =    0.8 
+   MEXP =      3 
+   AMEXP =      0 
+   BMEXP =      1 
+   PTWG =      0 
+   APTWG =      0 
+   BPTWG =  1e-07 
+   AT = -0.00156 
+   TMEXP =      0 
+   PTWGT =  0.004 
+   U0 =  0.033 
+   ETAMOB =      2 
+   UP =      0 
+   LPA =      1 
+   UA =    0.3 
+   AUA =      0 
+   BUA =  1e-07 
+   EU =    1.8 
+   AEU =      0 
+   BEU =  1e-07 
+   UD =      0 
+   AUD =      0 
+   BUD =  5e-08 
+   UCS =      0 
+   UTE =      0 
+   UTL = -0.0015 
+   UA1 = 0.001032 
+   UD1 =      0 
+   UCSTE = -0.00478 
+   RDSWMIN =      0 
+   RDSW =    100 
+   ARDSW =      0 
+   BRDSW =  1e-07 
+   RSWMIN =      0 
+   RSW =      0 
+   ARSW =      0 
+   BRSW =  1e-07 
+   RDWMIN =      0 
+   RDW =      0 
+   ARDW =      0 
+   BRDW =  1e-07 
+   PRWG =      0 
+   WR =      1 
+   PRT =  0.001 
+   PDIBL1 =    1.3 
+   PDIBL2 = 0.0002 
+   DROUT =   1.06 
+   PVAG =      1 
+   PCLM =    0.2 
+   APCLM =      0 
+   BPCLM =  1e-07 
+   PCLMG =      0 
+   VASAT =    0.6 
+   PCLMCV =  0.013 
+   PCLMGCV =      0 
+   VASATCV =    0.2 
+   RGEXT =      0 ohm
+   RGFIN =  0.001 ohm
+   RSHS =      0 ohm
+   RSHD =      0 ohm
+   HEPI =  9e-09 m
+   TSILI =  8e-09 m
+   RHOC =  9e-13 ohm/m^2
+   RHORSD =      1 ohm/m
+   RHOEXT =      1 ohm/m
+   CRATIO =    0.5 
+   DELTAPRSD =      0 m
+   SDTERM = 0 
+   LSP = 3.6e-09 m
+   LDG = 2.5e-09 m
+   EPSRSP =    3.9 
+   TGATE = 8.5e-09 m
+   TMASK =      0 m
+   ASILIEND =      0 m^2
+   ARSDEND =      0 m^2
+   PRSDEND =      0 m
+   NSDE =  6e+25 m^-3
+   RGEOA =      1 
+   RGEOB =      0 m^-1
+   RGEOC =      0 m^-1
+   RGEOD =      0 m^-1
+   RGEOE =      0 m^-1
+   CGEOA =      1 
+   CGEOB =      0 m^-1
+   CGEOC =      0 m^-1
+   CGEOD =      0 m^-1
+   CGEOE =      1 
+   AIGBINV = 0.0111 (Fs^2/g)^0.5m^-1
+   BIGBINV =   0.03 (Fs^2/g)^0.5m^-1
+   CIGBINV =  0.006 V^-1
+   EIGBINV =    1.1 V
+   NIGBINV =    1.2 
+   AIGBACC = 0.0149 
+   BIGBACC = 0.000949 
+   CIGBACC =  0.075 
+   NIGBACC =      3 
+   AIGC = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGC = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGC =  0.075 V^-1
+   NIGC =      1 
+   DLCIGS =      0 m
+   AIGS = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGS = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGS =  0.075 V^-1
+   DLCIGD =      0 m
+   AIGD = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGD = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGD =  0.075 V^-1
+   POXEDGE =      1 
+   AGIDL = 5.729e-12 ohm^-1
+   BGIDL =  3e+08 V/m
+   EGIDL =    0.1 V
+   AGISL = 5.729e-12 ohm^-1
+   BGISL =  3e+08 V/m
+   EGISL =    0.1 V
+   ALPHA0 =      0 mV^-1
+   ALPHA1 =      0 V^-1
+   BETA0 =     30 V^-1
+   ALPHAII =      0 
+   BETAII0 =      0 V^-1
+   BETAII1 =      0 
+   BETAII2 =    0.1 V
+   ESATII =  1e+07 V/m
+   LII =  5e-10 V/m
+   SII0 =    0.5 V^-1
+   SII1 =    0.1 
+   SII2 =      0 V
+   SIID =      0 V
+   EOTACC = 9.2e-10 m
+   DELVFBACC =      0 V
+   CFS = 2.56e-11 F/m
+   CFD = 2.65e-11 F/m
+   COVS = 2.5e-11 F/m
+   COVD = 2.5e-11 F/m
+   CGSO =      0 F/m
+   CGDO =      0 F/m
+   CGSL =      0 F/m
+   CGDL =      0 F/m
+   CKAPPAS =    0.6 V
+   CKAPPAD =    0.6 V
+   CGBO =      0 F/m
+   CGBL =      0 F/m
+   CKAPPAB =    0.6 V
+   CSDESW =      0 F/m
+   CJS = 0.0005 F/m^2
+   CJD = 0.0005 F/m^2
+   CJSWS =  5e-10 F/m
+   CJSWD =  5e-10 F/m
+   CJSWGS =      0 F/m
+   CJSWGD =      0 F/m
+   PBS =      1 V
+   PBD =      1 V
+   PBSWS =      1 V
+   PBSWD =      1 V
+   PBSWGS =      1 V
+   PBSWGD =      1 V
+   MJS, =    0.5 
+   MJD =    0.5 
+   MJSWS =   0.33 
+   MJSWD =   0.33 
+   MJSWGS =   0.33 
+   MJSWGD =   0.33 
+   SJS =      0 
+   SJD =      0 
+   SJSWS =      0 
+   SJSWD =      0 
+   SJSWGS =      0 
+   SJSWGD =      0 
+   MJS2 =  0.125 
+   MJD2 =  0.125 
+   MJSWS2 =   0.33 
+   MJSWD2 =   0.33 
+   MJSWGS2 =   0.33 
+   MJSWGD2 =   0.33 
+   JSS = 0.0001 A/m^2
+   JSD = 0.0001 A/m^2
+   JSWS =      0 A/m
+   JSWD =      0 A/m
+   JSWGS =      0 A/m
+   JSWGD =      0 A/m
+   NJS =      1 
+   NJD =      1 
+   IJTHSFWD =    0.1 A
+   IJTHDFWD =    0.1 A
+   IJTHSREV =    0.1 A
+   IJTHDREV =    0.1 A
+   BVS =     10 V
+   BVD =     10 V
+   XJBVS =      1 
+   XJBVD =      1 
+   JTSS =      0 A/m^2
+   JTSD =      0 A/m^2
+   JTSSWS =      0 A/m
+   JTSSWD =      0 A/m
+   JTSSWGS =      0 A/m
+   JTSSWGD =      0 A/m
+   JTWEFF =      0 m
+   NJTS =     20 
+   NJTSD =     20 
+   NJTSSW =     20 
+   NJTSSWD =     20 
+   NJTSSWG =     20 
+   NJTSSWGD =     20 
+   VTSS =     10 V
+   VTSD =     10 V
+   VTSSWS =     10 V
+   VTSSWD =     10 V
+   VTSSWGS =     10 V
+   VTSSWGD =     10 V
+   LINTIGEN =      0 m
+   NTGEN =      1 
+   AIGEN =      0 m^-3V^-1
+   BIGEN =      0 m^-3V^-3
+   XRCRG1 =     12 
+   XRCRG2 =      1 
+   NSEG = 5 
+   EF =      1 
+   EM = 4.1e+07 V/m
+   NOIA = 6.25e+39 eV^-1s^1-EFm^-3
+   NOIB = 3.125e+24 eV^-1s^1-EFm^-1
+   NOIC = 8.75e+07 eV^-1s^1-EFm
+   NTNOI =      1 
+   TNOM =  300.1 K
+   TBGASUB = 0.000702 eV/K
+   TBGBSUB =   1108 K
+   KT1 =      0 V
+   KT1L =      0 Vm
+   IIT =   -0.5 
+   TII =      0 
+   TGIDL = -0.0003 K^-1
+   IGT =    2.5 
+   TCJ =      0 K^-1
+   TCJSW =      0 K^-1
+   TCJSWG =      0 K^-1
+   TPB =      0 K^-1
+   TPBSW =      0 K^-1
+   TPBSWG =      0 K^-1
+   XTIS =      3 
+   XTID =      3 
+   XTSS =   0.02 
+   XTSD =   0.02 
+   XTSSWS =   0.02 
+   XTSSWD =   0.02 
+   XTSSWGS =   0.02 
+   XTSSWGD =   0.02 
+   TNJTS =      0 
+   TNJTSD =      0 
+   TNJTSSW =      0 
+   TNJTSSWD =      0 
+   TNJTSSWG =      0 
+   TNJTSSWGD =      0 
+   RTH0 =   0.01 ohm
+   CTH0 =  1e-05 F
+   WTH0 =      0 m
+   LNBODY =      0 
+   NNBODY =      0 
+   PNBODY =      0 
+   LPHIG =      0 
+   NPHIG =      0 
+   PPHIG =      0 
+   LNGATE =      0 
+   NNGATE =      0 
+   PNGATE =      0 
+   LCIT =      0 
+   NCIT =      0 
+   PCIT =      0 
+   LCDSC =      0 
+   NCDSC =      0 
+   PCDSC =      0 
+   LCDSCD =      0 
+   NCDSCD =      0 
+   PCDSCD =      0 
+   LCDSCDR =      0 
+   NCDSCDR =      0 
+   PCDSCDR =      0 
+   LDVT0 =      0 
+   NDVT0 =      0 
+   PDVT0 =      0 
+   LDVT1 =      0 
+   NDVT1 =      0 
+   PDVT1 =      0 
+   LPHIN =      0 
+   NPHIN =      0 
+   PPHIN =      0 
+   LETA0 =      0 
+   NETA0 =      0 
+   PETA0 =      0 
+   LETA0R =      0 
+   NETA0R =      0 
+   PETA0R =      0 
+   LDSUB =      0 
+   NDSUB =      0 
+   PDSUB =      0 
+   LK1RSCE =      0 
+   NK1RSCE =      0 
+   PK1RSCE =      0 
+   LLPE0 =      0 
+   NLPE0 =      0 
+   PLPE0 =      0 
+   LQMFACTOR =      0 
+   NQMFACTOR =      0 
+   PQMFACTOR =      0 
+   LQMTCENIV =      0 
+   NQMTCENIV =      0 
+   PQMTCENIV =      0 
+   LQMTCENCV =      0 
+   NQMTCENCV =      0 
+   PQMTCENCV =      0 
+   LVSAT =      0 
+   NVSAT =      0 
+   PVSAT =      0 
+   LKSATIV =      0 
+   NKSATIV =      0 
+   PKSATIV =      0 
+   LMEXP =      0 
+   NMEXP =      0 
+   PMEXP =      0 
+   LPTWG =      0 
+   NPTWG =      0 
+   PPTWG =      0 
+   LTHETASAT =      0 
+   NTHETASAT =      0 
+   PTHETASAT =      0 
+   LU0 =      0 
+   NU0 =      0 
+   PU0 =      0 
+   LUP =      0 
+   NUP =      0 
+   PUP =      0 
+   LUA =      0 
+   NUA =      0 
+   PUA =      0 
+   LEU =      0 
+   NEU =      0 
+   PEU =      0 
+   LUD =      0 
+   NUD =      0 
+   PUD =      0 
+   LUCS =      0 
+   NUCS =      0 
+   PUCS =      0 
+   LPCLM =      0 
+   NPCLM =      0 
+   PPCLM =      0 
+   LPCLMCV =      0 
+   NPCLMCV =      0 
+   PPCLMCV =      0 
+   LRDSW =      0 
+   NRDSW =      0 
+   PRDSW =      0 
+   LRSW =      0 
+   NRSW =      0 
+   PRSW =      0 
+   LRDW =      0 
+   NRDW =      0 
+   PRDW =      0 
+   LPRWG =      0 
+   NPRWG =      0 
+   PPRWG =      0 
+   LWR =      0 
+   NWR =      0 
+   PWR =      0 
+   LPDIBL1 =      0 
+   NPDIBL1 =      0 
+   PPDIBL1 =      0 
+   LPDIBL2 =      0 
+   NPDIBL2 =      0 
+   PPDIBL2 =      0 
+   LDROUT =      0 
+   NDROUT =      0 
+   PDROUT =      0 
+   LPVAG =      0 
+   NPVAG =      0 
+   PPVAG =      0 
+   LAIGBINV =      0 
+   NAIGBINV =      0 
+   PAIGBINV =      0 
+   LBIGBINV =      0 
+   NBIGBINV =      0 
+   PBIGBINV =      0 
+   LCIGBINV =      0 
+   NCIGBINV =      0 
+   PCIGBINV =      0 
+   LEIGBINV =      0 
+   NEIGBINV =      0 
+   PEIGBINV =      0 
+   LNIGBINV =      0 
+   NNIGBINV =      0 
+   PNIGBINV =      0 
+   LAIGC =      0 
+   NAIGC =      0 
+   PAIGC =      0 
+   LBIGC =      0 
+   NBIGC =      0 
+   PBIGC =      0 
+   LCIGC =      0 
+   NCIGC =      0 
+   PCIGC =      0 
+   LNIGC =      0 
+   NNIGC =      0 
+   PNIGC =      0 
+   LAIGS =      0 
+   NAIGS =      0 
+   PAIGS =      0 
+   LBIGS =      0 
+   NBIGS =      0 
+   PBIGS =      0 
+   LCIGS =      0 
+   NCIGS =      0 
+   PCIGS =      0 
+   LAIGD =      0 
+   NAIGD =      0 
+   PAIGD =      0 
+   LBIGD =      0 
+   NBIGD =      0 
+   PBIGD =      0 
+   LCIGD =      0 
+   NCIGD =      0 
+   PCIGD =      0 
+   LPOXEDGE =      0 
+   NPOXEDGE =      0 
+   PPOXEDGE =      0 
+   LAGIDL =      0 
+   NAGIDL =      0 
+   PAGIDL =      0 
+   LBGIDL =      0 
+   NBGIDL =      0 
+   PBGIDL =      0 
+   LEGIDL =      0 
+   NEGIDL =      0 
+   PEGIDL =      0 
+   LAGISL =      0 
+   NAGISL =      0 
+   PAGISL =      0 
+   LBGISL =      0 
+   NBGISL =      0 
+   PBGISL =      0 
+   LEGISL =      0 
+   NEGISL =      0 
+   PEGISL =      0 
+   LALPHA0 =      0 
+   NALPHA0 =      0 
+   PALPHA0 =      0 
+   LALPHA1 =      0 
+   NALPHA1 =      0 
+   PALPHA1 =      0 
+   LBETA0 =      0 
+   NBETA0 =      0 
+   PBETA0 =      0 
+   LALPHAII =      0 
+   NALPHAII =      0 
+   PALPHAII =      0 
+   LBETAII0 =      0 
+   NBETAII0 =      0 
+   PBETAII0 =      0 
+   LBETAII1 =      0 
+   NBETAII1 =      0 
+   PBETAII1 =      0 
+   LBETAII2 =      0 
+   NBETAII2 =      0 
+   PBETAII2 =      0 
+   LESATII =      0 
+   NESATII =      0 
+   PESATII =      0 
+   LLII =      0 
+   NLII =      0 
+   PLII =      0 
+   LSII0 =      0 
+   NSII0 =      0 
+   PSII0 =      0 
+   LSII1 =      0 
+   NSII1 =      0 
+   PSII1 =      0 
+   LSII2 =      0 
+   NSII2 =      0 
+   PSII2 =      0 
+   LSIID =      0 
+   NSIID =      0 
+   PSIID =      0 
+   LCFS =      0 
+   NCFS =      0 
+   PCFS =      0 
+   LCFD =      0 
+   NCFD =      0 
+   PCFD =      0 
+   LCOVS =      0 
+   NCOVS =      0 
+   PCOVS =      0 
+   LCOVD =      0 
+   NCOVD =      0 
+   PCOVD =      0 
+   LCGSL =      0 
+   NCGSL =      0 
+   PCGSL =      0 
+   LCGDL =      0 
+   NCGDL =      0 
+   PCGDL =      0 
+   LCKAPPAS =      0 
+   NCKAPPAS =      0 
+   PCKAPPAS =      0 
+   LCKAPPAD =      0 
+   NCKAPPAD =      0 
+   PCKAPPAD =      0 
+   LCGBL =      0 
+   NCGBL =      0 
+   PCGBL =      0 
+   LCKAPPAB =      0 
+   NCKAPPAB =      0 
+   PCKAPPAB =      0 
+   LNTGEN =      0 
+   NNTGEN =      0 
+   PNTGEN =      0 
+   LAIGEN =      0 
+   NAIGEN =      0 
+   PAIGEN =      0 
+   LBIGEN =      0 
+   NBIGEN =      0 
+   PBIGEN =      0 
+   LXRCRG1 =      0 
+   NXRCRG1 =      0 
+   PXRCRG1 =      0 
+   LXRCRG2 =      0 
+   NXRCRG2 =      0 
+   PXRCRG2 =      0 
+   LINTNOI =      0 
+   NINTNOI =      0 
+   PINTNOI =      0 
+   LUTE =      0 
+   NUTE =      0 
+   PUTE =      0 
+   LUTL =      0 
+   NUTL =      0 
+   PUTL =      0 
+   LUA1 =      0 
+   NUA1 =      0 
+   PUA1 =      0 
+   LUD1 =      0 
+   NUD1 =      0 
+   PUD1 =      0 
+   LUCSTE =      0 
+   NUCSTE =      0 
+   PUCSTE =      0 
+   LPTWGT =      0 
+   NPTWGT =      0 
+   PPTWGT =      0 
+   LAT =      0 
+   NAT =      0 
+   PAT =      0 
+   LSTTHETASAT =      0 
+   NSTTHETASAT =      0 
+   PSTTHETASAT =      0 
+   LPRT =      0 
+   NPRT =      0 
+   PPRT =      0 
+   LIIT =      0 
+   NIIT =      0 
+   PIIT =      0 
+   LTII =      0 
+   NTII =      0 
+   PTII =      0 
+   LTGIDL =      0 
+   NTGIDL =      0 
+   PTGIDL =      0 
+   LIGT =      0 
+   NIGT =      0 
+   PIGT =      0 
+   L = 1.8e-08 m
+   D =  4e-08 m
+   TFIN =  1e-08 m
+   FPITCH = 3.2e-08 m
+   NF = 1 
+   NFIN = 1 
+   NGCON = 1 
+   ASEO =      0 m^2
+   ADEO =      0 m^2
+   PSEO =      0 m
+   PDEO =      0 m
+   ASEJ =      0 m^2
+   ADEJ =      0 m^2
+   PSEJ =      0 m
+   PDEJ =      0 m
+   CGSP =      0 F
+   CGDP =      0 F
+   CDSP =      0 F
+   NRS =      0 
+   NRD =      0 
+   LRSD = 1.8e-08 m
+   XL =      0 m
+   DELVTRAND =      0 
+   U0MULT =      1 
+   IDS0MULT =      1 
+   Lmin =  1e-08 m
+   Lmax =  3e-08 m
+   NFINmin = 0 
+   NFINmax = 1 
+   LVSAT1 =      0 
+   NVSAT1 =      0 
+   PVSAT1 =      0 
+   LETAMOB =      0 
+   NETAMOB =      0 
+   PETAMOB =      0 
+   LPCLMG =      0 
+   NPCLMG =      0 
+   PPCLMG =      0 
+   LVASAT =      0 
+   NVASAT =      0 
+   PVASAT =      0 
+   LAIGBACC =      0 
+   NAIGBACC =      0 
+   PAIGBACC =      0 
+   LBIGBACC =      0 
+   NBIGBACC =      0 
+   PBIGBACC =      0 
+   LCIGBACC =      0 
+   NCIGBACC =      0 
+   PCIGBACC =      0 
+   LNIGBACC =      0 
+   NNIGBACC =      0 
+   PNIGBACC =      0 
+ Model Name: nfet 
+ BSIM-MG BULK Model(Level72)
+   VERSION = 105.03  
+   DEVTYPE = 1 
+   BULKMOD = 1  
+   COREMOD = 0 
+   GEOMOD = 1 
+   RDSMOD = 1 
+   IGCMOD = 1 
+   IGBMOD = 1 
+   GIDLMOD = 0 
+   IIMOD = 0 
+   NQSMOD = 0 
+   SHMOD = 0 
+   RGATEMOD = 0 
+   RGEOMOD = 1 
+   CGEOMOD = 2 
+   CAPMOD = 0 
+   LINT = 2.5e-10 m
+   LL =      0 m^(LLN+1)
+   LLN =      1 
+   DLC =      0 m
+   DLBIN =      0 
+   LLC =      0 m^(LLN+1)
+   EOT = 9.2e-10 m
+   TOXP = 1.3e-09 m
+   EOTBOX = 1.4e-07 m
+   HFIN = 2.3e-08 m
+   FECH =      1 
+   DELTAW =      0 m
+   FECHCV =      1 
+   DELTAWCV =      0 m
+   NBODY =  5e+22 m^-3
+   NSD =  3e+26 m^-3
+   PHIG =  4.603 eV
+   EPSROX =    3.9 
+   EPSRSUB =   11.9 
+   EASUB =   4.05 eV
+   NI0SUB = 1.1e+16 m^-3
+   BG0SUB =   1.12 eV
+   NC0SUB = 2.86e+25 m^-3
+   NGATE =      0 m^-3
+   CIT = 1.3e-05 F/m^2
+   CDSC = 0.0216 F/m^2
+   CDSCD =  0.007 F/m^2
+   CDSCDR =  0.007 
+   DVT0 =   0.01 
+   DVT1 =   0.69 
+   PHIN =   0.05 V
+   ETA0 = 0.5141 
+   ETA0R = 0.5141 
+   DSUB =    0.9 
+   K1RSCE =      0 V^1/2
+   LPE0 =  5e-09 m
+   DVTSHIFT =      0 
+   QMFACTOR =      0 
+   QMTCENIV =      0 
+   QMTCENCV =      0 
+   AQMTCEN =      0 
+   BQMTCEN = 1.2e-08 
+   ETAQM =   0.54 
+   QM0 = 0.001143 
+   PQM =   0.66 
+   QM0ACC =  0.001 
+   PQMACC =   0.66 
+   VSAT = 1.1e+05 
+   AVSAT =      0 
+   BVSAT =  1e-07 
+   VSAT1 = 1.1e+05 
+   AVSAT1 =      0 
+   BVSAT1 =  1e-07 
+   DELTAVSAT =      1 
+   KSATIV =    0.8 
+   MEXP =      3 
+   AMEXP =      0 
+   BMEXP =      1 
+   PTWG =      0 
+   APTWG =      0 
+   BPTWG =  1e-07 
+   AT = -0.00156 
+   TMEXP =      0 
+   PTWGT =  0.004 
+   U0 =  0.052 
+   ETAMOB =      2 
+   UP =      0 
+   LPA =      1 
+   UA =    0.3 
+   AUA =      0 
+   BUA =  1e-07 
+   EU =    1.8 
+   AEU =      0 
+   BEU =  1e-07 
+   UD =      0 
+   AUD =      0 
+   BUD =  5e-08 
+   UCS =      0 
+   UTE =      0 
+   UTL = -0.0015 
+   UA1 = 0.001032 
+   UD1 =      0 
+   UCSTE = -0.00478 
+   RDSWMIN =      0 
+   RDSW =    100 
+   ARDSW =      0 
+   BRDSW =  1e-07 
+   RSWMIN =      0 
+   RSW =      0 
+   ARSW =      0 
+   BRSW =  1e-07 
+   RDWMIN =      0 
+   RDW =      0 
+   ARDW =      0 
+   BRDW =  1e-07 
+   PRWG =      0 
+   WR =      1 
+   PRT =  0.001 
+   PDIBL1 =    1.3 
+   PDIBL2 = 0.0002 
+   DROUT =   1.06 
+   PVAG =      1 
+   PCLM =    0.2 
+   APCLM =      0 
+   BPCLM =  1e-07 
+   PCLMG =      0 
+   VASAT =    0.6 
+   PCLMCV =  0.013 
+   PCLMGCV =      0 
+   VASATCV =    0.2 
+   RGEXT =      0 ohm
+   RGFIN =  0.001 ohm
+   RSHS =      0 ohm
+   RSHD =      0 ohm
+   HEPI =  9e-09 m
+   TSILI =  8e-09 m
+   RHOC =  8e-13 ohm/m^2
+   RHORSD =      1 ohm/m
+   RHOEXT =      1 ohm/m
+   CRATIO =    0.5 
+   DELTAPRSD =      0 m
+   SDTERM = 0 
+   LSP = 3.6e-09 m
+   LDG = 2.5e-09 m
+   EPSRSP =    3.9 
+   TGATE = 8.5e-09 m
+   TMASK =      0 m
+   ASILIEND =      0 m^2
+   ARSDEND =      0 m^2
+   PRSDEND =      0 m
+   NSDE =  6e+25 m^-3
+   RGEOA =      1 
+   RGEOB =      0 m^-1
+   RGEOC =      0 m^-1
+   RGEOD =      0 m^-1
+   RGEOE =      0 m^-1
+   CGEOA =      1 
+   CGEOB =      0 m^-1
+   CGEOC =      0 m^-1
+   CGEOD =      0 m^-1
+   CGEOE =      1 
+   AIGBINV = 0.0111 (Fs^2/g)^0.5m^-1
+   BIGBINV =   0.03 (Fs^2/g)^0.5m^-1
+   CIGBINV =  0.006 V^-1
+   EIGBINV =    1.1 V
+   NIGBINV =    1.2 
+   AIGBACC = 0.0149 
+   BIGBACC = 0.000949 
+   CIGBACC =  0.075 
+   NIGBACC =      3 
+   AIGC = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGC = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGC =  0.075 V^-1
+   NIGC =      1 
+   DLCIGS =      0 m
+   AIGS = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGS = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGS =  0.075 V^-1
+   DLCIGD =      0 m
+   AIGD = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGD = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGD =  0.075 V^-1
+   POXEDGE =      1 
+   AGIDL = 5.729e-12 ohm^-1
+   BGIDL =  3e+08 V/m
+   EGIDL =    0.1 V
+   AGISL = 5.729e-12 ohm^-1
+   BGISL =  3e+08 V/m
+   EGISL =    0.1 V
+   ALPHA0 =      0 mV^-1
+   ALPHA1 =      0 V^-1
+   BETA0 =     30 V^-1
+   ALPHAII =      0 
+   BETAII0 =      0 V^-1
+   BETAII1 =      0 
+   BETAII2 =    0.1 V
+   ESATII =  1e+07 V/m
+   LII =  5e-10 V/m
+   SII0 =    0.5 V^-1
+   SII1 =    0.1 
+   SII2 =      0 V
+   SIID =      0 V
+   EOTACC = 9.2e-10 m
+   DELVFBACC =      0 V
+   CFS = 2.56e-11 F/m
+   CFD = 2.65e-11 F/m
+   COVS = 2.5e-11 F/m
+   COVD = 2.5e-11 F/m
+   CGSO =      0 F/m
+   CGDO =      0 F/m
+   CGSL =      0 F/m
+   CGDL =      0 F/m
+   CKAPPAS =    0.6 V
+   CKAPPAD =    0.6 V
+   CGBO =      0 F/m
+   CGBL =      0 F/m
+   CKAPPAB =    0.6 V
+   CSDESW =      0 F/m
+   CJS = 0.0005 F/m^2
+   CJD = 0.0005 F/m^2
+   CJSWS =  5e-10 F/m
+   CJSWD =  5e-10 F/m
+   CJSWGS =      0 F/m
+   CJSWGD =      0 F/m
+   PBS =      1 V
+   PBD =      1 V
+   PBSWS =      1 V
+   PBSWD =      1 V
+   PBSWGS =      1 V
+   PBSWGD =      1 V
+   MJS, =    0.5 
+   MJD =    0.5 
+   MJSWS =   0.33 
+   MJSWD =   0.33 
+   MJSWGS =   0.33 
+   MJSWGD =   0.33 
+   SJS =      0 
+   SJD =      0 
+   SJSWS =      0 
+   SJSWD =      0 
+   SJSWGS =      0 
+   SJSWGD =      0 
+   MJS2 =  0.125 
+   MJD2 =  0.125 
+   MJSWS2 =   0.33 
+   MJSWD2 =   0.33 
+   MJSWGS2 =   0.33 
+   MJSWGD2 =   0.33 
+   JSS = 0.0001 A/m^2
+   JSD = 0.0001 A/m^2
+   JSWS =      0 A/m
+   JSWD =      0 A/m
+   JSWGS =      0 A/m
+   JSWGD =      0 A/m
+   NJS =      1 
+   NJD =      1 
+   IJTHSFWD =    0.1 A
+   IJTHDFWD =    0.1 A
+   IJTHSREV =    0.1 A
+   IJTHDREV =    0.1 A
+   BVS =     10 V
+   BVD =     10 V
+   XJBVS =      1 
+   XJBVD =      1 
+   JTSS =      0 A/m^2
+   JTSD =      0 A/m^2
+   JTSSWS =      0 A/m
+   JTSSWD =      0 A/m
+   JTSSWGS =      0 A/m
+   JTSSWGD =      0 A/m
+   JTWEFF =      0 m
+   NJTS =     20 
+   NJTSD =     20 
+   NJTSSW =     20 
+   NJTSSWD =     20 
+   NJTSSWG =     20 
+   NJTSSWGD =     20 
+   VTSS =     10 V
+   VTSD =     10 V
+   VTSSWS =     10 V
+   VTSSWD =     10 V
+   VTSSWGS =     10 V
+   VTSSWGD =     10 V
+   LINTIGEN =      0 m
+   NTGEN =      1 
+   AIGEN =      0 m^-3V^-1
+   BIGEN =      0 m^-3V^-3
+   XRCRG1 =     12 
+   XRCRG2 =      1 
+   NSEG = 5 
+   EF =      1 
+   EM = 4.1e+07 V/m
+   NOIA = 6.25e+39 eV^-1s^1-EFm^-3
+   NOIB = 3.125e+24 eV^-1s^1-EFm^-1
+   NOIC = 8.75e+07 eV^-1s^1-EFm
+   NTNOI =      1 
+   TNOM =  300.1 K
+   TBGASUB = 0.000702 eV/K
+   TBGBSUB =   1108 K
+   KT1 =      0 V
+   KT1L =      0 Vm
+   IIT =   -0.5 
+   TII =      0 
+   TGIDL = -0.0003 K^-1
+   IGT =    2.5 
+   TCJ =      0 K^-1
+   TCJSW =      0 K^-1
+   TCJSWG =      0 K^-1
+   TPB =      0 K^-1
+   TPBSW =      0 K^-1
+   TPBSWG =      0 K^-1
+   XTIS =      3 
+   XTID =      3 
+   XTSS =   0.02 
+   XTSD =   0.02 
+   XTSSWS =   0.02 
+   XTSSWD =   0.02 
+   XTSSWGS =   0.02 
+   XTSSWGD =   0.02 
+   TNJTS =      0 
+   TNJTSD =      0 
+   TNJTSSW =      0 
+   TNJTSSWD =      0 
+   TNJTSSWG =      0 
+   TNJTSSWGD =      0 
+   RTH0 =   0.01 ohm
+   CTH0 =  1e-05 F
+   WTH0 =      0 m
+   LNBODY =      0 
+   NNBODY =      0 
+   PNBODY =      0 
+   LPHIG =      0 
+   NPHIG =      0 
+   PPHIG =      0 
+   LNGATE =      0 
+   NNGATE =      0 
+   PNGATE =      0 
+   LCIT =      0 
+   NCIT =      0 
+   PCIT =      0 
+   LCDSC =      0 
+   NCDSC =      0 
+   PCDSC =      0 
+   LCDSCD =      0 
+   NCDSCD =      0 
+   PCDSCD =      0 
+   LCDSCDR =      0 
+   NCDSCDR =      0 
+   PCDSCDR =      0 
+   LDVT0 =      0 
+   NDVT0 =      0 
+   PDVT0 =      0 
+   LDVT1 =      0 
+   NDVT1 =      0 
+   PDVT1 =      0 
+   LPHIN =      0 
+   NPHIN =      0 
+   PPHIN =      0 
+   LETA0 =      0 
+   NETA0 =      0 
+   PETA0 =      0 
+   LETA0R =      0 
+   NETA0R =      0 
+   PETA0R =      0 
+   LDSUB =      0 
+   NDSUB =      0 
+   PDSUB =      0 
+   LK1RSCE =      0 
+   NK1RSCE =      0 
+   PK1RSCE =      0 
+   LLPE0 =      0 
+   NLPE0 =      0 
+   PLPE0 =      0 
+   LQMFACTOR =      0 
+   NQMFACTOR =      0 
+   PQMFACTOR =      0 
+   LQMTCENIV =      0 
+   NQMTCENIV =      0 
+   PQMTCENIV =      0 
+   LQMTCENCV =      0 
+   NQMTCENCV =      0 
+   PQMTCENCV =      0 
+   LVSAT =      0 
+   NVSAT =      0 
+   PVSAT =      0 
+   LKSATIV =      0 
+   NKSATIV =      0 
+   PKSATIV =      0 
+   LMEXP =      0 
+   NMEXP =      0 
+   PMEXP =      0 
+   LPTWG =      0 
+   NPTWG =      0 
+   PPTWG =      0 
+   LTHETASAT =      0 
+   NTHETASAT =      0 
+   PTHETASAT =      0 
+   LU0 =      0 
+   NU0 =      0 
+   PU0 =      0 
+   LUP =      0 
+   NUP =      0 
+   PUP =      0 
+   LUA =      0 
+   NUA =      0 
+   PUA =      0 
+   LEU =      0 
+   NEU =      0 
+   PEU =      0 
+   LUD =      0 
+   NUD =      0 
+   PUD =      0 
+   LUCS =      0 
+   NUCS =      0 
+   PUCS =      0 
+   LPCLM =      0 
+   NPCLM =      0 
+   PPCLM =      0 
+   LPCLMCV =      0 
+   NPCLMCV =      0 
+   PPCLMCV =      0 
+   LRDSW =      0 
+   NRDSW =      0 
+   PRDSW =      0 
+   LRSW =      0 
+   NRSW =      0 
+   PRSW =      0 
+   LRDW =      0 
+   NRDW =      0 
+   PRDW =      0 
+   LPRWG =      0 
+   NPRWG =      0 
+   PPRWG =      0 
+   LWR =      0 
+   NWR =      0 
+   PWR =      0 
+   LPDIBL1 =      0 
+   NPDIBL1 =      0 
+   PPDIBL1 =      0 
+   LPDIBL2 =      0 
+   NPDIBL2 =      0 
+   PPDIBL2 =      0 
+   LDROUT =      0 
+   NDROUT =      0 
+   PDROUT =      0 
+   LPVAG =      0 
+   NPVAG =      0 
+   PPVAG =      0 
+   LAIGBINV =      0 
+   NAIGBINV =      0 
+   PAIGBINV =      0 
+   LBIGBINV =      0 
+   NBIGBINV =      0 
+   PBIGBINV =      0 
+   LCIGBINV =      0 
+   NCIGBINV =      0 
+   PCIGBINV =      0 
+   LEIGBINV =      0 
+   NEIGBINV =      0 
+   PEIGBINV =      0 
+   LNIGBINV =      0 
+   NNIGBINV =      0 
+   PNIGBINV =      0 
+   LAIGC =      0 
+   NAIGC =      0 
+   PAIGC =      0 
+   LBIGC =      0 
+   NBIGC =      0 
+   PBIGC =      0 
+   LCIGC =      0 
+   NCIGC =      0 
+   PCIGC =      0 
+   LNIGC =      0 
+   NNIGC =      0 
+   PNIGC =      0 
+   LAIGS =      0 
+   NAIGS =      0 
+   PAIGS =      0 
+   LBIGS =      0 
+   NBIGS =      0 
+   PBIGS =      0 
+   LCIGS =      0 
+   NCIGS =      0 
+   PCIGS =      0 
+   LAIGD =      0 
+   NAIGD =      0 
+   PAIGD =      0 
+   LBIGD =      0 
+   NBIGD =      0 
+   PBIGD =      0 
+   LCIGD =      0 
+   NCIGD =      0 
+   PCIGD =      0 
+   LPOXEDGE =      0 
+   NPOXEDGE =      0 
+   PPOXEDGE =      0 
+   LAGIDL =      0 
+   NAGIDL =      0 
+   PAGIDL =      0 
+   LBGIDL =      0 
+   NBGIDL =      0 
+   PBGIDL =      0 
+   LEGIDL =      0 
+   NEGIDL =      0 
+   PEGIDL =      0 
+   LAGISL =      0 
+   NAGISL =      0 
+   PAGISL =      0 
+   LBGISL =      0 
+   NBGISL =      0 
+   PBGISL =      0 
+   LEGISL =      0 
+   NEGISL =      0 
+   PEGISL =      0 
+   LALPHA0 =      0 
+   NALPHA0 =      0 
+   PALPHA0 =      0 
+   LALPHA1 =      0 
+   NALPHA1 =      0 
+   PALPHA1 =      0 
+   LBETA0 =      0 
+   NBETA0 =      0 
+   PBETA0 =      0 
+   LALPHAII =      0 
+   NALPHAII =      0 
+   PALPHAII =      0 
+   LBETAII0 =      0 
+   NBETAII0 =      0 
+   PBETAII0 =      0 
+   LBETAII1 =      0 
+   NBETAII1 =      0 
+   PBETAII1 =      0 
+   LBETAII2 =      0 
+   NBETAII2 =      0 
+   PBETAII2 =      0 
+   LESATII =      0 
+   NESATII =      0 
+   PESATII =      0 
+   LLII =      0 
+   NLII =      0 
+   PLII =      0 
+   LSII0 =      0 
+   NSII0 =      0 
+   PSII0 =      0 
+   LSII1 =      0 
+   NSII1 =      0 
+   PSII1 =      0 
+   LSII2 =      0 
+   NSII2 =      0 
+   PSII2 =      0 
+   LSIID =      0 
+   NSIID =      0 
+   PSIID =      0 
+   LCFS =      0 
+   NCFS =      0 
+   PCFS =      0 
+   LCFD =      0 
+   NCFD =      0 
+   PCFD =      0 
+   LCOVS =      0 
+   NCOVS =      0 
+   PCOVS =      0 
+   LCOVD =      0 
+   NCOVD =      0 
+   PCOVD =      0 
+   LCGSL =      0 
+   NCGSL =      0 
+   PCGSL =      0 
+   LCGDL =      0 
+   NCGDL =      0 
+   PCGDL =      0 
+   LCKAPPAS =      0 
+   NCKAPPAS =      0 
+   PCKAPPAS =      0 
+   LCKAPPAD =      0 
+   NCKAPPAD =      0 
+   PCKAPPAD =      0 
+   LCGBL =      0 
+   NCGBL =      0 
+   PCGBL =      0 
+   LCKAPPAB =      0 
+   NCKAPPAB =      0 
+   PCKAPPAB =      0 
+   LNTGEN =      0 
+   NNTGEN =      0 
+   PNTGEN =      0 
+   LAIGEN =      0 
+   NAIGEN =      0 
+   PAIGEN =      0 
+   LBIGEN =      0 
+   NBIGEN =      0 
+   PBIGEN =      0 
+   LXRCRG1 =      0 
+   NXRCRG1 =      0 
+   PXRCRG1 =      0 
+   LXRCRG2 =      0 
+   NXRCRG2 =      0 
+   PXRCRG2 =      0 
+   LINTNOI =      0 
+   NINTNOI =      0 
+   PINTNOI =      0 
+   LUTE =      0 
+   NUTE =      0 
+   PUTE =      0 
+   LUTL =      0 
+   NUTL =      0 
+   PUTL =      0 
+   LUA1 =      0 
+   NUA1 =      0 
+   PUA1 =      0 
+   LUD1 =      0 
+   NUD1 =      0 
+   PUD1 =      0 
+   LUCSTE =      0 
+   NUCSTE =      0 
+   PUCSTE =      0 
+   LPTWGT =      0 
+   NPTWGT =      0 
+   PPTWGT =      0 
+   LAT =      0 
+   NAT =      0 
+   PAT =      0 
+   LSTTHETASAT =      0 
+   NSTTHETASAT =      0 
+   PSTTHETASAT =      0 
+   LPRT =      0 
+   NPRT =      0 
+   PPRT =      0 
+   LIIT =      0 
+   NIIT =      0 
+   PIIT =      0 
+   LTII =      0 
+   NTII =      0 
+   PTII =      0 
+   LTGIDL =      0 
+   NTGIDL =      0 
+   PTGIDL =      0 
+   LIGT =      0 
+   NIGT =      0 
+   PIGT =      0 
+   L = 1.8e-08 m
+   D =  4e-08 m
+   TFIN =  1e-08 m
+   FPITCH = 3.2e-08 m
+   NF = 1 
+   NFIN = 1 
+   NGCON = 1 
+   ASEO =      0 m^2
+   ADEO =      0 m^2
+   PSEO =      0 m
+   PDEO =      0 m
+   ASEJ =      0 m^2
+   ADEJ =      0 m^2
+   PSEJ =      0 m
+   PDEJ =      0 m
+   CGSP =      0 F
+   CGDP =      0 F
+   CDSP =      0 F
+   NRS =      0 
+   NRD =      0 
+   LRSD = 1.8e-08 m
+   XL =      0 m
+   DELVTRAND =      0 
+   U0MULT =      1 
+   IDS0MULT =      1 
+   Lmin =  1e-08 m
+   Lmax =  3e-08 m
+   NFINmin = 0 
+   NFINmax = 1 
+   LVSAT1 =      0 
+   NVSAT1 =      0 
+   PVSAT1 =      0 
+   LETAMOB =      0 
+   NETAMOB =      0 
+   PETAMOB =      0 
+   LPCLMG =      0 
+   NPCLMG =      0 
+   PPCLMG =      0 
+   LVASAT =      0 
+   NVASAT =      0 
+   PVASAT =      0 
+   LAIGBACC =      0 
+   NAIGBACC =      0 
+   PAIGBACC =      0 
+   LBIGBACC =      0 
+   NBIGBACC =      0 
+   PBIGBACC =      0 
+   LCIGBACC =      0 
+   NCIGBACC =      0 
+   PCIGBACC =      0 
+   LNIGBACC =      0 
+   NNIGBACC =      0 
+   PNIGBACC =      0 
+ Model Name: pfet 
+ BSIM-MG BULK Model(Level72)
+   VERSION = 105.03  
+   DEVTYPE = -1 
+   BULKMOD = 1  
+   COREMOD = 0 
+   GEOMOD = 1 
+   RDSMOD = 1 
+   IGCMOD = 1 
+   IGBMOD = 1 
+   GIDLMOD = 0 
+   IIMOD = 0 
+   NQSMOD = 0 
+   SHMOD = 0 
+   RGATEMOD = 0 
+   RGEOMOD = 1 
+   CGEOMOD = 2 
+   CAPMOD = 0 
+   LINT = 2.5e-10 m
+   LL =      0 m^(LLN+1)
+   LLN =      1 
+   DLC =      0 m
+   DLBIN =      0 
+   LLC =      0 m^(LLN+1)
+   EOT = 9.2e-10 m
+   TOXP = 1.3e-09 m
+   EOTBOX = 1.4e-07 m
+   HFIN = 2.3e-08 m
+   FECH =      1 
+   DELTAW =      0 m
+   FECHCV =      1 
+   DELTAWCV =      0 m
+   NBODY =  5e+22 m^-3
+   NSD =  3e+26 m^-3
+   PHIG =  4.574 eV
+   EPSROX =    3.9 
+   EPSRSUB =   11.9 
+   EASUB =   4.05 eV
+   NI0SUB = 1.1e+16 m^-3
+   BG0SUB =   1.12 eV
+   NC0SUB = 2.86e+25 m^-3
+   NGATE =      0 m^-3
+   CIT = 1.3e-05 F/m^2
+   CDSC = 0.0216 F/m^2
+   CDSCD =  0.007 F/m^2
+   CDSCDR =  0.007 
+   DVT0 =   0.01 
+   DVT1 =   0.69 
+   PHIN =   0.05 V
+   ETA0 =   0.74 
+   ETA0R =   0.74 
+   DSUB =    0.9 
+   K1RSCE =      0 V^1/2
+   LPE0 =  5e-09 m
+   DVTSHIFT =      0 
+   QMFACTOR =      0 
+   QMTCENIV =      0 
+   QMTCENCV =      0 
+   AQMTCEN =      0 
+   BQMTCEN = 1.2e-08 
+   ETAQM =   0.54 
+   QM0 = 0.001143 
+   PQM =   0.66 
+   QM0ACC =  0.001 
+   PQMACC =   0.66 
+   VSAT = 1.05e+05 
+   AVSAT =      0 
+   BVSAT =  1e-07 
+   VSAT1 = 1.05e+05 
+   AVSAT1 =      0 
+   BVSAT1 =  1e-07 
+   DELTAVSAT =      1 
+   KSATIV =    0.8 
+   MEXP =      3 
+   AMEXP =      0 
+   BMEXP =      1 
+   PTWG =      0 
+   APTWG =      0 
+   BPTWG =  1e-07 
+   AT = -0.00156 
+   TMEXP =      0 
+   PTWGT =  0.004 
+   U0 =  0.033 
+   ETAMOB =      2 
+   UP =      0 
+   LPA =      1 
+   UA =    0.3 
+   AUA =      0 
+   BUA =  1e-07 
+   EU =    1.8 
+   AEU =      0 
+   BEU =  1e-07 
+   UD =      0 
+   AUD =      0 
+   BUD =  5e-08 
+   UCS =      0 
+   UTE =      0 
+   UTL = -0.0015 
+   UA1 = 0.001032 
+   UD1 =      0 
+   UCSTE = -0.00478 
+   RDSWMIN =      0 
+   RDSW =    100 
+   ARDSW =      0 
+   BRDSW =  1e-07 
+   RSWMIN =      0 
+   RSW =      0 
+   ARSW =      0 
+   BRSW =  1e-07 
+   RDWMIN =      0 
+   RDW =      0 
+   ARDW =      0 
+   BRDW =  1e-07 
+   PRWG =      0 
+   WR =      1 
+   PRT =  0.001 
+   PDIBL1 =    1.3 
+   PDIBL2 = 0.0002 
+   DROUT =   1.06 
+   PVAG =      1 
+   PCLM =    0.2 
+   APCLM =      0 
+   BPCLM =  1e-07 
+   PCLMG =      0 
+   VASAT =    0.6 
+   PCLMCV =  0.013 
+   PCLMGCV =      0 
+   VASATCV =    0.2 
+   RGEXT =      0 ohm
+   RGFIN =  0.001 ohm
+   RSHS =      0 ohm
+   RSHD =      0 ohm
+   HEPI =  9e-09 m
+   TSILI =  8e-09 m
+   RHOC =  9e-13 ohm/m^2
+   RHORSD =      1 ohm/m
+   RHOEXT =      1 ohm/m
+   CRATIO =    0.5 
+   DELTAPRSD =      0 m
+   SDTERM = 0 
+   LSP = 3.6e-09 m
+   LDG = 2.5e-09 m
+   EPSRSP =    3.9 
+   TGATE = 8.5e-09 m
+   TMASK =      0 m
+   ASILIEND =      0 m^2
+   ARSDEND =      0 m^2
+   PRSDEND =      0 m
+   NSDE =  6e+25 m^-3
+   RGEOA =      1 
+   RGEOB =      0 m^-1
+   RGEOC =      0 m^-1
+   RGEOD =      0 m^-1
+   RGEOE =      0 m^-1
+   CGEOA =      1 
+   CGEOB =      0 m^-1
+   CGEOC =      0 m^-1
+   CGEOD =      0 m^-1
+   CGEOE =      1 
+   AIGBINV = 0.0111 (Fs^2/g)^0.5m^-1
+   BIGBINV =   0.03 (Fs^2/g)^0.5m^-1
+   CIGBINV =  0.006 V^-1
+   EIGBINV =    1.1 V
+   NIGBINV =    1.2 
+   AIGBACC = 0.0149 
+   BIGBACC = 0.000949 
+   CIGBACC =  0.075 
+   NIGBACC =      3 
+   AIGC = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGC = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGC =  0.075 V^-1
+   NIGC =      1 
+   DLCIGS =      0 m
+   AIGS = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGS = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGS =  0.075 V^-1
+   DLCIGD =      0 m
+   AIGD = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGD = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGD =  0.075 V^-1
+   POXEDGE =      1 
+   AGIDL = 5.729e-12 ohm^-1
+   BGIDL =  3e+08 V/m
+   EGIDL =    0.1 V
+   AGISL = 5.729e-12 ohm^-1
+   BGISL =  3e+08 V/m
+   EGISL =    0.1 V
+   ALPHA0 =      0 mV^-1
+   ALPHA1 =      0 V^-1
+   BETA0 =     30 V^-1
+   ALPHAII =      0 
+   BETAII0 =      0 V^-1
+   BETAII1 =      0 
+   BETAII2 =    0.1 V
+   ESATII =  1e+07 V/m
+   LII =  5e-10 V/m
+   SII0 =    0.5 V^-1
+   SII1 =    0.1 
+   SII2 =      0 V
+   SIID =      0 V
+   EOTACC = 9.2e-10 m
+   DELVFBACC =      0 V
+   CFS = 2.56e-11 F/m
+   CFD = 2.65e-11 F/m
+   COVS = 2.5e-11 F/m
+   COVD = 2.5e-11 F/m
+   CGSO =      0 F/m
+   CGDO =      0 F/m
+   CGSL =      0 F/m
+   CGDL =      0 F/m
+   CKAPPAS =    0.6 V
+   CKAPPAD =    0.6 V
+   CGBO =      0 F/m
+   CGBL =      0 F/m
+   CKAPPAB =    0.6 V
+   CSDESW =      0 F/m
+   CJS = 0.0005 F/m^2
+   CJD = 0.0005 F/m^2
+   CJSWS =  5e-10 F/m
+   CJSWD =  5e-10 F/m
+   CJSWGS =      0 F/m
+   CJSWGD =      0 F/m
+   PBS =      1 V
+   PBD =      1 V
+   PBSWS =      1 V
+   PBSWD =      1 V
+   PBSWGS =      1 V
+   PBSWGD =      1 V
+   MJS, =    0.5 
+   MJD =    0.5 
+   MJSWS =   0.33 
+   MJSWD =   0.33 
+   MJSWGS =   0.33 
+   MJSWGD =   0.33 
+   SJS =      0 
+   SJD =      0 
+   SJSWS =      0 
+   SJSWD =      0 
+   SJSWGS =      0 
+   SJSWGD =      0 
+   MJS2 =  0.125 
+   MJD2 =  0.125 
+   MJSWS2 =   0.33 
+   MJSWD2 =   0.33 
+   MJSWGS2 =   0.33 
+   MJSWGD2 =   0.33 
+   JSS = 0.0001 A/m^2
+   JSD = 0.0001 A/m^2
+   JSWS =      0 A/m
+   JSWD =      0 A/m
+   JSWGS =      0 A/m
+   JSWGD =      0 A/m
+   NJS =      1 
+   NJD =      1 
+   IJTHSFWD =    0.1 A
+   IJTHDFWD =    0.1 A
+   IJTHSREV =    0.1 A
+   IJTHDREV =    0.1 A
+   BVS =     10 V
+   BVD =     10 V
+   XJBVS =      1 
+   XJBVD =      1 
+   JTSS =      0 A/m^2
+   JTSD =      0 A/m^2
+   JTSSWS =      0 A/m
+   JTSSWD =      0 A/m
+   JTSSWGS =      0 A/m
+   JTSSWGD =      0 A/m
+   JTWEFF =      0 m
+   NJTS =     20 
+   NJTSD =     20 
+   NJTSSW =     20 
+   NJTSSWD =     20 
+   NJTSSWG =     20 
+   NJTSSWGD =     20 
+   VTSS =     10 V
+   VTSD =     10 V
+   VTSSWS =     10 V
+   VTSSWD =     10 V
+   VTSSWGS =     10 V
+   VTSSWGD =     10 V
+   LINTIGEN =      0 m
+   NTGEN =      1 
+   AIGEN =      0 m^-3V^-1
+   BIGEN =      0 m^-3V^-3
+   XRCRG1 =     12 
+   XRCRG2 =      1 
+   NSEG = 5 
+   EF =      1 
+   EM = 4.1e+07 V/m
+   NOIA = 6.25e+39 eV^-1s^1-EFm^-3
+   NOIB = 3.125e+24 eV^-1s^1-EFm^-1
+   NOIC = 8.75e+07 eV^-1s^1-EFm
+   NTNOI =      1 
+   TNOM =  300.1 K
+   TBGASUB = 0.000702 eV/K
+   TBGBSUB =   1108 K
+   KT1 =      0 V
+   KT1L =      0 Vm
+   IIT =   -0.5 
+   TII =      0 
+   TGIDL = -0.0003 K^-1
+   IGT =    2.5 
+   TCJ =      0 K^-1
+   TCJSW =      0 K^-1
+   TCJSWG =      0 K^-1
+   TPB =      0 K^-1
+   TPBSW =      0 K^-1
+   TPBSWG =      0 K^-1
+   XTIS =      3 
+   XTID =      3 
+   XTSS =   0.02 
+   XTSD =   0.02 
+   XTSSWS =   0.02 
+   XTSSWD =   0.02 
+   XTSSWGS =   0.02 
+   XTSSWGD =   0.02 
+   TNJTS =      0 
+   TNJTSD =      0 
+   TNJTSSW =      0 
+   TNJTSSWD =      0 
+   TNJTSSWG =      0 
+   TNJTSSWGD =      0 
+   RTH0 =   0.01 ohm
+   CTH0 =  1e-05 F
+   WTH0 =      0 m
+   LNBODY =      0 
+   NNBODY =      0 
+   PNBODY =      0 
+   LPHIG =      0 
+   NPHIG =      0 
+   PPHIG =      0 
+   LNGATE =      0 
+   NNGATE =      0 
+   PNGATE =      0 
+   LCIT =      0 
+   NCIT =      0 
+   PCIT =      0 
+   LCDSC =      0 
+   NCDSC =      0 
+   PCDSC =      0 
+   LCDSCD =      0 
+   NCDSCD =      0 
+   PCDSCD =      0 
+   LCDSCDR =      0 
+   NCDSCDR =      0 
+   PCDSCDR =      0 
+   LDVT0 =      0 
+   NDVT0 =      0 
+   PDVT0 =      0 
+   LDVT1 =      0 
+   NDVT1 =      0 
+   PDVT1 =      0 
+   LPHIN =      0 
+   NPHIN =      0 
+   PPHIN =      0 
+   LETA0 =      0 
+   NETA0 =      0 
+   PETA0 =      0 
+   LETA0R =      0 
+   NETA0R =      0 
+   PETA0R =      0 
+   LDSUB =      0 
+   NDSUB =      0 
+   PDSUB =      0 
+   LK1RSCE =      0 
+   NK1RSCE =      0 
+   PK1RSCE =      0 
+   LLPE0 =      0 
+   NLPE0 =      0 
+   PLPE0 =      0 
+   LQMFACTOR =      0 
+   NQMFACTOR =      0 
+   PQMFACTOR =      0 
+   LQMTCENIV =      0 
+   NQMTCENIV =      0 
+   PQMTCENIV =      0 
+   LQMTCENCV =      0 
+   NQMTCENCV =      0 
+   PQMTCENCV =      0 
+   LVSAT =      0 
+   NVSAT =      0 
+   PVSAT =      0 
+   LKSATIV =      0 
+   NKSATIV =      0 
+   PKSATIV =      0 
+   LMEXP =      0 
+   NMEXP =      0 
+   PMEXP =      0 
+   LPTWG =      0 
+   NPTWG =      0 
+   PPTWG =      0 
+   LTHETASAT =      0 
+   NTHETASAT =      0 
+   PTHETASAT =      0 
+   LU0 =      0 
+   NU0 =      0 
+   PU0 =      0 
+   LUP =      0 
+   NUP =      0 
+   PUP =      0 
+   LUA =      0 
+   NUA =      0 
+   PUA =      0 
+   LEU =      0 
+   NEU =      0 
+   PEU =      0 
+   LUD =      0 
+   NUD =      0 
+   PUD =      0 
+   LUCS =      0 
+   NUCS =      0 
+   PUCS =      0 
+   LPCLM =      0 
+   NPCLM =      0 
+   PPCLM =      0 
+   LPCLMCV =      0 
+   NPCLMCV =      0 
+   PPCLMCV =      0 
+   LRDSW =      0 
+   NRDSW =      0 
+   PRDSW =      0 
+   LRSW =      0 
+   NRSW =      0 
+   PRSW =      0 
+   LRDW =      0 
+   NRDW =      0 
+   PRDW =      0 
+   LPRWG =      0 
+   NPRWG =      0 
+   PPRWG =      0 
+   LWR =      0 
+   NWR =      0 
+   PWR =      0 
+   LPDIBL1 =      0 
+   NPDIBL1 =      0 
+   PPDIBL1 =      0 
+   LPDIBL2 =      0 
+   NPDIBL2 =      0 
+   PPDIBL2 =      0 
+   LDROUT =      0 
+   NDROUT =      0 
+   PDROUT =      0 
+   LPVAG =      0 
+   NPVAG =      0 
+   PPVAG =      0 
+   LAIGBINV =      0 
+   NAIGBINV =      0 
+   PAIGBINV =      0 
+   LBIGBINV =      0 
+   NBIGBINV =      0 
+   PBIGBINV =      0 
+   LCIGBINV =      0 
+   NCIGBINV =      0 
+   PCIGBINV =      0 
+   LEIGBINV =      0 
+   NEIGBINV =      0 
+   PEIGBINV =      0 
+   LNIGBINV =      0 
+   NNIGBINV =      0 
+   PNIGBINV =      0 
+   LAIGC =      0 
+   NAIGC =      0 
+   PAIGC =      0 
+   LBIGC =      0 
+   NBIGC =      0 
+   PBIGC =      0 
+   LCIGC =      0 
+   NCIGC =      0 
+   PCIGC =      0 
+   LNIGC =      0 
+   NNIGC =      0 
+   PNIGC =      0 
+   LAIGS =      0 
+   NAIGS =      0 
+   PAIGS =      0 
+   LBIGS =      0 
+   NBIGS =      0 
+   PBIGS =      0 
+   LCIGS =      0 
+   NCIGS =      0 
+   PCIGS =      0 
+   LAIGD =      0 
+   NAIGD =      0 
+   PAIGD =      0 
+   LBIGD =      0 
+   NBIGD =      0 
+   PBIGD =      0 
+   LCIGD =      0 
+   NCIGD =      0 
+   PCIGD =      0 
+   LPOXEDGE =      0 
+   NPOXEDGE =      0 
+   PPOXEDGE =      0 
+   LAGIDL =      0 
+   NAGIDL =      0 
+   PAGIDL =      0 
+   LBGIDL =      0 
+   NBGIDL =      0 
+   PBGIDL =      0 
+   LEGIDL =      0 
+   NEGIDL =      0 
+   PEGIDL =      0 
+   LAGISL =      0 
+   NAGISL =      0 
+   PAGISL =      0 
+   LBGISL =      0 
+   NBGISL =      0 
+   PBGISL =      0 
+   LEGISL =      0 
+   NEGISL =      0 
+   PEGISL =      0 
+   LALPHA0 =      0 
+   NALPHA0 =      0 
+   PALPHA0 =      0 
+   LALPHA1 =      0 
+   NALPHA1 =      0 
+   PALPHA1 =      0 
+   LBETA0 =      0 
+   NBETA0 =      0 
+   PBETA0 =      0 
+   LALPHAII =      0 
+   NALPHAII =      0 
+   PALPHAII =      0 
+   LBETAII0 =      0 
+   NBETAII0 =      0 
+   PBETAII0 =      0 
+   LBETAII1 =      0 
+   NBETAII1 =      0 
+   PBETAII1 =      0 
+   LBETAII2 =      0 
+   NBETAII2 =      0 
+   PBETAII2 =      0 
+   LESATII =      0 
+   NESATII =      0 
+   PESATII =      0 
+   LLII =      0 
+   NLII =      0 
+   PLII =      0 
+   LSII0 =      0 
+   NSII0 =      0 
+   PSII0 =      0 
+   LSII1 =      0 
+   NSII1 =      0 
+   PSII1 =      0 
+   LSII2 =      0 
+   NSII2 =      0 
+   PSII2 =      0 
+   LSIID =      0 
+   NSIID =      0 
+   PSIID =      0 
+   LCFS =      0 
+   NCFS =      0 
+   PCFS =      0 
+   LCFD =      0 
+   NCFD =      0 
+   PCFD =      0 
+   LCOVS =      0 
+   NCOVS =      0 
+   PCOVS =      0 
+   LCOVD =      0 
+   NCOVD =      0 
+   PCOVD =      0 
+   LCGSL =      0 
+   NCGSL =      0 
+   PCGSL =      0 
+   LCGDL =      0 
+   NCGDL =      0 
+   PCGDL =      0 
+   LCKAPPAS =      0 
+   NCKAPPAS =      0 
+   PCKAPPAS =      0 
+   LCKAPPAD =      0 
+   NCKAPPAD =      0 
+   PCKAPPAD =      0 
+   LCGBL =      0 
+   NCGBL =      0 
+   PCGBL =      0 
+   LCKAPPAB =      0 
+   NCKAPPAB =      0 
+   PCKAPPAB =      0 
+   LNTGEN =      0 
+   NNTGEN =      0 
+   PNTGEN =      0 
+   LAIGEN =      0 
+   NAIGEN =      0 
+   PAIGEN =      0 
+   LBIGEN =      0 
+   NBIGEN =      0 
+   PBIGEN =      0 
+   LXRCRG1 =      0 
+   NXRCRG1 =      0 
+   PXRCRG1 =      0 
+   LXRCRG2 =      0 
+   NXRCRG2 =      0 
+   PXRCRG2 =      0 
+   LINTNOI =      0 
+   NINTNOI =      0 
+   PINTNOI =      0 
+   LUTE =      0 
+   NUTE =      0 
+   PUTE =      0 
+   LUTL =      0 
+   NUTL =      0 
+   PUTL =      0 
+   LUA1 =      0 
+   NUA1 =      0 
+   PUA1 =      0 
+   LUD1 =      0 
+   NUD1 =      0 
+   PUD1 =      0 
+   LUCSTE =      0 
+   NUCSTE =      0 
+   PUCSTE =      0 
+   LPTWGT =      0 
+   NPTWGT =      0 
+   PPTWGT =      0 
+   LAT =      0 
+   NAT =      0 
+   PAT =      0 
+   LSTTHETASAT =      0 
+   NSTTHETASAT =      0 
+   PSTTHETASAT =      0 
+   LPRT =      0 
+   NPRT =      0 
+   PPRT =      0 
+   LIIT =      0 
+   NIIT =      0 
+   PIIT =      0 
+   LTII =      0 
+   NTII =      0 
+   PTII =      0 
+   LTGIDL =      0 
+   NTGIDL =      0 
+   PTGIDL =      0 
+   LIGT =      0 
+   NIGT =      0 
+   PIGT =      0 
+   L = 1.8e-08 m
+   D =  4e-08 m
+   TFIN =  1e-08 m
+   FPITCH = 3.2e-08 m
+   NF = 1 
+   NFIN = 1 
+   NGCON = 1 
+   ASEO =      0 m^2
+   ADEO =      0 m^2
+   PSEO =      0 m
+   PDEO =      0 m
+   ASEJ =      0 m^2
+   ADEJ =      0 m^2
+   PSEJ =      0 m
+   PDEJ =      0 m
+   CGSP =      0 F
+   CGDP =      0 F
+   CDSP =      0 F
+   NRS =      0 
+   NRD =      0 
+   LRSD = 1.8e-08 m
+   XL =      0 m
+   DELVTRAND =      0 
+   U0MULT =      1 
+   IDS0MULT =      1 
+   Lmin =  1e-08 m
+   Lmax =  3e-08 m
+   NFINmin = 0 
+   NFINmax = 1 
+   LVSAT1 =      0 
+   NVSAT1 =      0 
+   PVSAT1 =      0 
+   LETAMOB =      0 
+   NETAMOB =      0 
+   PETAMOB =      0 
+   LPCLMG =      0 
+   NPCLMG =      0 
+   PPCLMG =      0 
+   LVASAT =      0 
+   NVASAT =      0 
+   PVASAT =      0 
+   LAIGBACC =      0 
+   NAIGBACC =      0 
+   PAIGBACC =      0 
+   LBIGBACC =      0 
+   NBIGBACC =      0 
+   PBIGBACC =      0 
+   LCIGBACC =      0 
+   NCIGBACC =      0 
+   PCIGBACC =      0 
+   LNIGBACC =      0 
+   NNIGBACC =      0 
+   PNIGBACC =      0 
+ Model Name: nfet 
+ BSIM-MG BULK Model(Level72)
+   VERSION = 105.03  
+   DEVTYPE = 1 
+   BULKMOD = 1  
+   COREMOD = 0 
+   GEOMOD = 1 
+   RDSMOD = 1 
+   IGCMOD = 1 
+   IGBMOD = 1 
+   GIDLMOD = 0 
+   IIMOD = 0 
+   NQSMOD = 0 
+   SHMOD = 0 
+   RGATEMOD = 0 
+   RGEOMOD = 1 
+   CGEOMOD = 2 
+   CAPMOD = 0 
+   LINT = 2.5e-10 m
+   LL =      0 m^(LLN+1)
+   LLN =      1 
+   DLC =      0 m
+   DLBIN =      0 
+   LLC =      0 m^(LLN+1)
+   EOT = 9.2e-10 m
+   TOXP = 1.3e-09 m
+   EOTBOX = 1.4e-07 m
+   HFIN = 2.3e-08 m
+   FECH =      1 
+   DELTAW =      0 m
+   FECHCV =      1 
+   DELTAWCV =      0 m
+   NBODY =  5e+22 m^-3
+   NSD =  3e+26 m^-3
+   PHIG =  4.603 eV
+   EPSROX =    3.9 
+   EPSRSUB =   11.9 
+   EASUB =   4.05 eV
+   NI0SUB = 1.1e+16 m^-3
+   BG0SUB =   1.12 eV
+   NC0SUB = 2.86e+25 m^-3
+   NGATE =      0 m^-3
+   CIT = 1.3e-05 F/m^2
+   CDSC = 0.0216 F/m^2
+   CDSCD =  0.007 F/m^2
+   CDSCDR =  0.007 
+   DVT0 =   0.01 
+   DVT1 =   0.69 
+   PHIN =   0.05 V
+   ETA0 = 0.5141 
+   ETA0R = 0.5141 
+   DSUB =    0.9 
+   K1RSCE =      0 V^1/2
+   LPE0 =  5e-09 m
+   DVTSHIFT =      0 
+   QMFACTOR =      0 
+   QMTCENIV =      0 
+   QMTCENCV =      0 
+   AQMTCEN =      0 
+   BQMTCEN = 1.2e-08 
+   ETAQM =   0.54 
+   QM0 = 0.001143 
+   PQM =   0.66 
+   QM0ACC =  0.001 
+   PQMACC =   0.66 
+   VSAT = 1.1e+05 
+   AVSAT =      0 
+   BVSAT =  1e-07 
+   VSAT1 = 1.1e+05 
+   AVSAT1 =      0 
+   BVSAT1 =  1e-07 
+   DELTAVSAT =      1 
+   KSATIV =    0.8 
+   MEXP =      3 
+   AMEXP =      0 
+   BMEXP =      1 
+   PTWG =      0 
+   APTWG =      0 
+   BPTWG =  1e-07 
+   AT = -0.00156 
+   TMEXP =      0 
+   PTWGT =  0.004 
+   U0 =  0.052 
+   ETAMOB =      2 
+   UP =      0 
+   LPA =      1 
+   UA =    0.3 
+   AUA =      0 
+   BUA =  1e-07 
+   EU =    1.8 
+   AEU =      0 
+   BEU =  1e-07 
+   UD =      0 
+   AUD =      0 
+   BUD =  5e-08 
+   UCS =      0 
+   UTE =      0 
+   UTL = -0.0015 
+   UA1 = 0.001032 
+   UD1 =      0 
+   UCSTE = -0.00478 
+   RDSWMIN =      0 
+   RDSW =    100 
+   ARDSW =      0 
+   BRDSW =  1e-07 
+   RSWMIN =      0 
+   RSW =      0 
+   ARSW =      0 
+   BRSW =  1e-07 
+   RDWMIN =      0 
+   RDW =      0 
+   ARDW =      0 
+   BRDW =  1e-07 
+   PRWG =      0 
+   WR =      1 
+   PRT =  0.001 
+   PDIBL1 =    1.3 
+   PDIBL2 = 0.0002 
+   DROUT =   1.06 
+   PVAG =      1 
+   PCLM =    0.2 
+   APCLM =      0 
+   BPCLM =  1e-07 
+   PCLMG =      0 
+   VASAT =    0.6 
+   PCLMCV =  0.013 
+   PCLMGCV =      0 
+   VASATCV =    0.2 
+   RGEXT =      0 ohm
+   RGFIN =  0.001 ohm
+   RSHS =      0 ohm
+   RSHD =      0 ohm
+   HEPI =  9e-09 m
+   TSILI =  8e-09 m
+   RHOC =  8e-13 ohm/m^2
+   RHORSD =      1 ohm/m
+   RHOEXT =      1 ohm/m
+   CRATIO =    0.5 
+   DELTAPRSD =      0 m
+   SDTERM = 0 
+   LSP = 3.6e-09 m
+   LDG = 2.5e-09 m
+   EPSRSP =    3.9 
+   TGATE = 8.5e-09 m
+   TMASK =      0 m
+   ASILIEND =      0 m^2
+   ARSDEND =      0 m^2
+   PRSDEND =      0 m
+   NSDE =  6e+25 m^-3
+   RGEOA =      1 
+   RGEOB =      0 m^-1
+   RGEOC =      0 m^-1
+   RGEOD =      0 m^-1
+   RGEOE =      0 m^-1
+   CGEOA =      1 
+   CGEOB =      0 m^-1
+   CGEOC =      0 m^-1
+   CGEOD =      0 m^-1
+   CGEOE =      1 
+   AIGBINV = 0.0111 (Fs^2/g)^0.5m^-1
+   BIGBINV =   0.03 (Fs^2/g)^0.5m^-1
+   CIGBINV =  0.006 V^-1
+   EIGBINV =    1.1 V
+   NIGBINV =    1.2 
+   AIGBACC = 0.0149 
+   BIGBACC = 0.000949 
+   CIGBACC =  0.075 
+   NIGBACC =      3 
+   AIGC = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGC = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGC =  0.075 V^-1
+   NIGC =      1 
+   DLCIGS =      0 m
+   AIGS = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGS = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGS =  0.075 V^-1
+   DLCIGD =      0 m
+   AIGD = 0.0136 (Fs^2/g)^0.5m^-1
+   BIGD = 0.00171 (Fs^2/g)^0.5m^-1V^-1
+   CIGD =  0.075 V^-1
+   POXEDGE =      1 
+   AGIDL = 5.729e-12 ohm^-1
+   BGIDL =  3e+08 V/m
+   EGIDL =    0.1 V
+   AGISL = 5.729e-12 ohm^-1
+   BGISL =  3e+08 V/m
+   EGISL =    0.1 V
+   ALPHA0 =      0 mV^-1
+   ALPHA1 =      0 V^-1
+   BETA0 =     30 V^-1
+   ALPHAII =      0 
+   BETAII0 =      0 V^-1
+   BETAII1 =      0 
+   BETAII2 =    0.1 V
+   ESATII =  1e+07 V/m
+   LII =  5e-10 V/m
+   SII0 =    0.5 V^-1
+   SII1 =    0.1 
+   SII2 =      0 V
+   SIID =      0 V
+   EOTACC = 9.2e-10 m
+   DELVFBACC =      0 V
+   CFS = 2.56e-11 F/m
+   CFD = 2.65e-11 F/m
+   COVS = 2.5e-11 F/m
+   COVD = 2.5e-11 F/m
+   CGSO =      0 F/m
+   CGDO =      0 F/m
+   CGSL =      0 F/m
+   CGDL =      0 F/m
+   CKAPPAS =    0.6 V
+   CKAPPAD =    0.6 V
+   CGBO =      0 F/m
+   CGBL =      0 F/m
+   CKAPPAB =    0.6 V
+   CSDESW =      0 F/m
+   CJS = 0.0005 F/m^2
+   CJD = 0.0005 F/m^2
+   CJSWS =  5e-10 F/m
+   CJSWD =  5e-10 F/m
+   CJSWGS =      0 F/m
+   CJSWGD =      0 F/m
+   PBS =      1 V
+   PBD =      1 V
+   PBSWS =      1 V
+   PBSWD =      1 V
+   PBSWGS =      1 V
+   PBSWGD =      1 V
+   MJS, =    0.5 
+   MJD =    0.5 
+   MJSWS =   0.33 
+   MJSWD =   0.33 
+   MJSWGS =   0.33 
+   MJSWGD =   0.33 
+   SJS =      0 
+   SJD =      0 
+   SJSWS =      0 
+   SJSWD =      0 
+   SJSWGS =      0 
+   SJSWGD =      0 
+   MJS2 =  0.125 
+   MJD2 =  0.125 
+   MJSWS2 =   0.33 
+   MJSWD2 =   0.33 
+   MJSWGS2 =   0.33 
+   MJSWGD2 =   0.33 
+   JSS = 0.0001 A/m^2
+   JSD = 0.0001 A/m^2
+   JSWS =      0 A/m
+   JSWD =      0 A/m
+   JSWGS =      0 A/m
+   JSWGD =      0 A/m
+   NJS =      1 
+   NJD =      1 
+   IJTHSFWD =    0.1 A
+   IJTHDFWD =    0.1 A
+   IJTHSREV =    0.1 A
+   IJTHDREV =    0.1 A
+   BVS =     10 V
+   BVD =     10 V
+   XJBVS =      1 
+   XJBVD =      1 
+   JTSS =      0 A/m^2
+   JTSD =      0 A/m^2
+   JTSSWS =      0 A/m
+   JTSSWD =      0 A/m
+   JTSSWGS =      0 A/m
+   JTSSWGD =      0 A/m
+   JTWEFF =      0 m
+   NJTS =     20 
+   NJTSD =     20 
+   NJTSSW =     20 
+   NJTSSWD =     20 
+   NJTSSWG =     20 
+   NJTSSWGD =     20 
+   VTSS =     10 V
+   VTSD =     10 V
+   VTSSWS =     10 V
+   VTSSWD =     10 V
+   VTSSWGS =     10 V
+   VTSSWGD =     10 V
+   LINTIGEN =      0 m
+   NTGEN =      1 
+   AIGEN =      0 m^-3V^-1
+   BIGEN =      0 m^-3V^-3
+   XRCRG1 =     12 
+   XRCRG2 =      1 
+   NSEG = 5 
+   EF =      1 
+   EM = 4.1e+07 V/m
+   NOIA = 6.25e+39 eV^-1s^1-EFm^-3
+   NOIB = 3.125e+24 eV^-1s^1-EFm^-1
+   NOIC = 8.75e+07 eV^-1s^1-EFm
+   NTNOI =      1 
+   TNOM =  300.1 K
+   TBGASUB = 0.000702 eV/K
+   TBGBSUB =   1108 K
+   KT1 =      0 V
+   KT1L =      0 Vm
+   IIT =   -0.5 
+   TII =      0 
+   TGIDL = -0.0003 K^-1
+   IGT =    2.5 
+   TCJ =      0 K^-1
+   TCJSW =      0 K^-1
+   TCJSWG =      0 K^-1
+   TPB =      0 K^-1
+   TPBSW =      0 K^-1
+   TPBSWG =      0 K^-1
+   XTIS =      3 
+   XTID =      3 
+   XTSS =   0.02 
+   XTSD =   0.02 
+   XTSSWS =   0.02 
+   XTSSWD =   0.02 
+   XTSSWGS =   0.02 
+   XTSSWGD =   0.02 
+   TNJTS =      0 
+   TNJTSD =      0 
+   TNJTSSW =      0 
+   TNJTSSWD =      0 
+   TNJTSSWG =      0 
+   TNJTSSWGD =      0 
+   RTH0 =   0.01 ohm
+   CTH0 =  1e-05 F
+   WTH0 =      0 m
+   LNBODY =      0 
+   NNBODY =      0 
+   PNBODY =      0 
+   LPHIG =      0 
+   NPHIG =      0 
+   PPHIG =      0 
+   LNGATE =      0 
+   NNGATE =      0 
+   PNGATE =      0 
+   LCIT =      0 
+   NCIT =      0 
+   PCIT =      0 
+   LCDSC =      0 
+   NCDSC =      0 
+   PCDSC =      0 
+   LCDSCD =      0 
+   NCDSCD =      0 
+   PCDSCD =      0 
+   LCDSCDR =      0 
+   NCDSCDR =      0 
+   PCDSCDR =      0 
+   LDVT0 =      0 
+   NDVT0 =      0 
+   PDVT0 =      0 
+   LDVT1 =      0 
+   NDVT1 =      0 
+   PDVT1 =      0 
+   LPHIN =      0 
+   NPHIN =      0 
+   PPHIN =      0 
+   LETA0 =      0 
+   NETA0 =      0 
+   PETA0 =      0 
+   LETA0R =      0 
+   NETA0R =      0 
+   PETA0R =      0 
+   LDSUB =      0 
+   NDSUB =      0 
+   PDSUB =      0 
+   LK1RSCE =      0 
+   NK1RSCE =      0 
+   PK1RSCE =      0 
+   LLPE0 =      0 
+   NLPE0 =      0 
+   PLPE0 =      0 
+   LQMFACTOR =      0 
+   NQMFACTOR =      0 
+   PQMFACTOR =      0 
+   LQMTCENIV =      0 
+   NQMTCENIV =      0 
+   PQMTCENIV =      0 
+   LQMTCENCV =      0 
+   NQMTCENCV =      0 
+   PQMTCENCV =      0 
+   LVSAT =      0 
+   NVSAT =      0 
+   PVSAT =      0 
+   LKSATIV =      0 
+   NKSATIV =      0 
+   PKSATIV =      0 
+   LMEXP =      0 
+   NMEXP =      0 
+   PMEXP =      0 
+   LPTWG =      0 
+   NPTWG =      0 
+   PPTWG =      0 
+   LTHETASAT =      0 
+   NTHETASAT =      0 
+   PTHETASAT =      0 
+   LU0 =      0 
+   NU0 =      0 
+   PU0 =      0 
+   LUP =      0 
+   NUP =      0 
+   PUP =      0 
+   LUA =      0 
+   NUA =      0 
+   PUA =      0 
+   LEU =      0 
+   NEU =      0 
+   PEU =      0 
+   LUD =      0 
+   NUD =      0 
+   PUD =      0 
+   LUCS =      0 
+   NUCS =      0 
+   PUCS =      0 
+   LPCLM =      0 
+   NPCLM =      0 
+   PPCLM =      0 
+   LPCLMCV =      0 
+   NPCLMCV =      0 
+   PPCLMCV =      0 
+   LRDSW =      0 
+   NRDSW =      0 
+   PRDSW =      0 
+   LRSW =      0 
+   NRSW =      0 
+   PRSW =      0 
+   LRDW =      0 
+   NRDW =      0 
+   PRDW =      0 
+   LPRWG =      0 
+   NPRWG =      0 
+   PPRWG =      0 
+   LWR =      0 
+   NWR =      0 
+   PWR =      0 
+   LPDIBL1 =      0 
+   NPDIBL1 =      0 
+   PPDIBL1 =      0 
+   LPDIBL2 =      0 
+   NPDIBL2 =      0 
+   PPDIBL2 =      0 
+   LDROUT =      0 
+   NDROUT =      0 
+   PDROUT =      0 
+   LPVAG =      0 
+   NPVAG =      0 
+   PPVAG =      0 
+   LAIGBINV =      0 
+   NAIGBINV =      0 
+   PAIGBINV =      0 
+   LBIGBINV =      0 
+   NBIGBINV =      0 
+   PBIGBINV =      0 
+   LCIGBINV =      0 
+   NCIGBINV =      0 
+   PCIGBINV =      0 
+   LEIGBINV =      0 
+   NEIGBINV =      0 
+   PEIGBINV =      0 
+   LNIGBINV =      0 
+   NNIGBINV =      0 
+   PNIGBINV =      0 
+   LAIGC =      0 
+   NAIGC =      0 
+   PAIGC =      0 
+   LBIGC =      0 
+   NBIGC =      0 
+   PBIGC =      0 
+   LCIGC =      0 
+   NCIGC =      0 
+   PCIGC =      0 
+   LNIGC =      0 
+   NNIGC =      0 
+   PNIGC =      0 
+   LAIGS =      0 
+   NAIGS =      0 
+   PAIGS =      0 
+   LBIGS =      0 
+   NBIGS =      0 
+   PBIGS =      0 
+   LCIGS =      0 
+   NCIGS =      0 
+   PCIGS =      0 
+   LAIGD =      0 
+   NAIGD =      0 
+   PAIGD =      0 
+   LBIGD =      0 
+   NBIGD =      0 
+   PBIGD =      0 
+   LCIGD =      0 
+   NCIGD =      0 
+   PCIGD =      0 
+   LPOXEDGE =      0 
+   NPOXEDGE =      0 
+   PPOXEDGE =      0 
+   LAGIDL =      0 
+   NAGIDL =      0 
+   PAGIDL =      0 
+   LBGIDL =      0 
+   NBGIDL =      0 
+   PBGIDL =      0 
+   LEGIDL =      0 
+   NEGIDL =      0 
+   PEGIDL =      0 
+   LAGISL =      0 
+   NAGISL =      0 
+   PAGISL =      0 
+   LBGISL =      0 
+   NBGISL =      0 
+   PBGISL =      0 
+   LEGISL =      0 
+   NEGISL =      0 
+   PEGISL =      0 
+   LALPHA0 =      0 
+   NALPHA0 =      0 
+   PALPHA0 =      0 
+   LALPHA1 =      0 
+   NALPHA1 =      0 
+   PALPHA1 =      0 
+   LBETA0 =      0 
+   NBETA0 =      0 
+   PBETA0 =      0 
+   LALPHAII =      0 
+   NALPHAII =      0 
+   PALPHAII =      0 
+   LBETAII0 =      0 
+   NBETAII0 =      0 
+   PBETAII0 =      0 
+   LBETAII1 =      0 
+   NBETAII1 =      0 
+   PBETAII1 =      0 
+   LBETAII2 =      0 
+   NBETAII2 =      0 
+   PBETAII2 =      0 
+   LESATII =      0 
+   NESATII =      0 
+   PESATII =      0 
+   LLII =      0 
+   NLII =      0 
+   PLII =      0 
+   LSII0 =      0 
+   NSII0 =      0 
+   PSII0 =      0 
+   LSII1 =      0 
+   NSII1 =      0 
+   PSII1 =      0 
+   LSII2 =      0 
+   NSII2 =      0 
+   PSII2 =      0 
+   LSIID =      0 
+   NSIID =      0 
+   PSIID =      0 
+   LCFS =      0 
+   NCFS =      0 
+   PCFS =      0 
+   LCFD =      0 
+   NCFD =      0 
+   PCFD =      0 
+   LCOVS =      0 
+   NCOVS =      0 
+   PCOVS =      0 
+   LCOVD =      0 
+   NCOVD =      0 
+   PCOVD =      0 
+   LCGSL =      0 
+   NCGSL =      0 
+   PCGSL =      0 
+   LCGDL =      0 
+   NCGDL =      0 
+   PCGDL =      0 
+   LCKAPPAS =      0 
+   NCKAPPAS =      0 
+   PCKAPPAS =      0 
+   LCKAPPAD =      0 
+   NCKAPPAD =      0 
+   PCKAPPAD =      0 
+   LCGBL =      0 
+   NCGBL =      0 
+   PCGBL =      0 
+   LCKAPPAB =      0 
+   NCKAPPAB =      0 
+   PCKAPPAB =      0 
+   LNTGEN =      0 
+   NNTGEN =      0 
+   PNTGEN =      0 
+   LAIGEN =      0 
+   NAIGEN =      0 
+   PAIGEN =      0 
+   LBIGEN =      0 
+   NBIGEN =      0 
+   PBIGEN =      0 
+   LXRCRG1 =      0 
+   NXRCRG1 =      0 
+   PXRCRG1 =      0 
+   LXRCRG2 =      0 
+   NXRCRG2 =      0 
+   PXRCRG2 =      0 
+   LINTNOI =      0 
+   NINTNOI =      0 
+   PINTNOI =      0 
+   LUTE =      0 
+   NUTE =      0 
+   PUTE =      0 
+   LUTL =      0 
+   NUTL =      0 
+   PUTL =      0 
+   LUA1 =      0 
+   NUA1 =      0 
+   PUA1 =      0 
+   LUD1 =      0 
+   NUD1 =      0 
+   PUD1 =      0 
+   LUCSTE =      0 
+   NUCSTE =      0 
+   PUCSTE =      0 
+   LPTWGT =      0 
+   NPTWGT =      0 
+   PPTWGT =      0 
+   LAT =      0 
+   NAT =      0 
+   PAT =      0 
+   LSTTHETASAT =      0 
+   NSTTHETASAT =      0 
+   PSTTHETASAT =      0 
+   LPRT =      0 
+   NPRT =      0 
+   PPRT =      0 
+   LIIT =      0 
+   NIIT =      0 
+   PIIT =      0 
+   LTII =      0 
+   NTII =      0 
+   PTII =      0 
+   LTGIDL =      0 
+   NTGIDL =      0 
+   PTGIDL =      0 
+   LIGT =      0 
+   NIGT =      0 
+   PIGT =      0 
+   L = 1.8e-08 m
+   D =  4e-08 m
+   TFIN =  1e-08 m
+   FPITCH = 3.2e-08 m
+   NF = 1 
+   NFIN = 1 
+   NGCON = 1 
+   ASEO =      0 m^2
+   ADEO =      0 m^2
+   PSEO =      0 m
+   PDEO =      0 m
+   ASEJ =      0 m^2
+   ADEJ =      0 m^2
+   PSEJ =      0 m
+   PDEJ =      0 m
+   CGSP =      0 F
+   CGDP =      0 F
+   CDSP =      0 F
+   NRS =      0 
+   NRD =      0 
+   LRSD = 1.8e-08 m
+   XL =      0 m
+   DELVTRAND =      0 
+   U0MULT =      1 
+   IDS0MULT =      1 
+   Lmin =  1e-08 m
+   Lmax =  3e-08 m
+   NFINmin = 0 
+   NFINmax = 1 
+   LVSAT1 =      0 
+   NVSAT1 =      0 
+   PVSAT1 =      0 
+   LETAMOB =      0 
+   NETAMOB =      0 
+   PETAMOB =      0 
+   LPCLMG =      0 
+   NPCLMG =      0 
+   PPCLMG =      0 
+   LVASAT =      0 
+   NVASAT =      0 
+   PVASAT =      0 
+   LAIGBACC =      0 
+   NAIGBACC =      0 
+   PAIGBACC =      0 
+   LBIGBACC =      0 
+   NBIGBACC =      0 
+   PBIGBACC =      0 
+   LCIGBACC =      0 
+   NCIGBACC =      0 
+   PCIGBACC =      0 
+   LNIGBACC =      0 
+   NNIGBACC =      0 
+   PNIGBACC =      0 
+  **info** (ptm14lstp.sp:15) DC voltage reset to initial transient source value              in source        0:vin_0               new dc=  0.8000D+00
+  
+      
+ **info** set option symb=1 internally to help for convergence.
+ *****************************************************************
+ ******  option summary
+ ******
+ runlvl  = 3         bypass  = 2         
+  Opening plot unit= 15
+ file=ptm14lstp.pa0                                                            
+
+1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
+ ******  
+ $ netlist of inverter
+
+  ******  operating point information tnom=  25.000 temp=  25.000 *****
+ ***** operating point status is voltage   simulation time is     0.     
+     node    =voltage       node    =voltage       node    =voltage
+
+ + 0:inb_0   = 800.0000m  0:inb_1   = 800.0000m  0:outb_00 = 799.9992m
+ + 0:outb_10 = 799.9992m  0:outin_00= 953.6673n  0:outin_01= 953.6673n
+ + 0:outin_10= 799.9991m  0:outin_11= 799.9991m  0:outin_20= 953.6898n
+ + 0:outin_21= 953.6898n  0:vdd     = 800.0000m
+
+ ******  
+ $ netlist of inverter
+
+  ******  transient analysis tnom=  25.000 temp=  25.000 *****
+ inv_avg_power00= 490.5645n  from=   0.          to=   4.0000n
+ peakpower00= 211.5764u    at=   3.1000n
+             from=   0.         to=   4.0000n
+ inv_avg_power10=   2.8025u  from=   0.          to=   4.0000n
+ peakpower10=   1.3559m    at=   3.0947n
+             from=   0.         to=   4.0000n
+ inv_avg_power01=  35.0256n  from=   0.          to=   4.0000n
+ peakpower01=  13.2391u    at=   2.0832n
+             from=   0.         to=   4.0000n
+ inv_avg_power11=  38.8778n  from=   0.          to=   4.0000n
+ peakpower11=  20.0438u    at=   2.0866n
+             from=   0.         to=   4.0000n
+ model_uut_grid_avg_power=   3.3669u  from=   0.          to=   4.0000n
+ model_uut_grid_max_power=   1.5501m    at=   3.0983n
+             from=   0.         to=   4.0000n
+ source_power=   3.5306u  from=   0.          to=   4.0000n
+ trf_delay_001=   3.9485p  targ=  36.3597p   trig=  32.4113p
+ tfr_delay_001=   3.7877p  targ=   1.0846n   trig=   1.0808n
+ trf_delay_002=   3.9375p  targ=   2.0363n   trig=   2.0324n
+ tfr_delay_002=   4.1214p  targ=   3.0845n   trig=   3.0804n
+ trf_delay_101=   4.1157p  targ=   1.0887n   trig=   1.0846n
+ tfr_delay_101=   3.1632p  targ=  39.5229p   trig=  36.3597p
+ trf_delay_102=   3.8869p  targ=   3.0884n   trig=   3.0845n
+ tfr_delay_102=   3.1621p  targ=   2.0395n   trig=   2.0363n
+ trf_delay_011=   3.9485p  targ=  36.3597p   trig=  32.4113p
+ tfr_delay_011=   4.2962p  targ=   2.0863n   trig=   2.0820n
+ trf_delay_111=   2.8783p  targ=   2.0892n   trig=   2.0863n
+ tfr_delay_111=   3.1632p  targ=  39.5229p   trig=  36.3597p
+x
+
+        time    voltage      voltage    
+                 outin_00     outin_10  
+    0.          953.6673n    799.9991m  
+   10.00000p     -2.4687m    800.0228m  
+   20.00000p      3.1158m    800.2781m  
+   30.00000p    266.2507m    797.6806m  
+   40.00000p    766.9719m     54.5364m  
+   50.00000p    797.2202m    724.9186u  
+   60.00000p    800.0055m      9.2647u  
+   70.00000p    799.9937m     -6.0476u  
+   80.00000p    799.9900m     -9.6426u  
+   90.00000p    800.0011m      3.6827u  
+  100.00000p    800.0122m     17.0081u  
+  110.00000p    800.0104m     14.6273u  
+  120.00000p    800.0053m      8.3957u  
+  130.00000p    800.0003m      2.1640u  
+  140.00000p    799.9952m     -4.0677u  
+  150.00000p    799.9901m    -10.2994u  
+  160.00000p    799.9851m    -16.5311u  
+  170.00000p    799.9860m    -15.3662u  
+  180.00000p    799.9883m    -12.5202u  
+  190.00000p    799.9906m     -9.6742u  
+  200.00000p    799.9928m     -6.8283u  
+  210.00000p    799.9951m     -3.9823u  
+  220.00000p    799.9974m     -1.1363u  
+  230.00000p    799.9997m      1.7097u  
+  240.00000p    800.0020m      4.5557u  
+  250.00000p    800.0042m      7.4017u  
+  260.00000p    800.0065m     10.2477u  
+  270.00000p    800.0088m     13.0936u  
+  280.00000p    800.0111m     15.9396u  
+  290.00000p    800.0133m     18.7856u  
+  300.00000p    800.0129m     18.2104u  
+  310.00000p    800.0114m     16.3499u  
+  320.00000p    800.0099m     14.4893u  
+  330.00000p    800.0085m     12.6288u  
+  340.00000p    800.0070m     10.7683u  
+  350.00000p    800.0055m      8.9078u  
+  360.00000p    800.0040m      7.0472u  
+  370.00000p    800.0025m      5.1867u  
+  380.00000p    800.0011m      3.3262u  
+  390.00000p    799.9996m      1.4656u  
+  400.00000p    799.9981m      0.       
+  410.00000p    799.9966m     -2.2554u  
+  420.00000p    799.9951m     -4.1159u  
+  430.00000p    799.9937m     -5.9765u  
+  440.00000p    799.9922m     -7.8370u  
+  450.00000p    799.9907m     -9.6975u  
+  460.00000p    799.9892m    -11.5581u  
+  470.00000p    799.9878m    -13.4186u  
+  480.00000p    799.9863m    -15.2791u  
+  490.00000p    799.9848m    -17.1396u  
+  500.00000p    799.9855m    -16.2966u  
+  510.00000p    799.9869m    -14.4379u  
+  520.00000p    799.9884m    -12.5792u  
+  530.00000p    799.9899m    -10.7204u  
+  540.00000p    799.9913m     -8.8617u  
+  550.00000p    799.9928m     -7.0030u  
+  560.00000p    799.9943m     -5.1443u  
+  570.00000p    799.9957m     -3.2856u  
+  580.00000p    799.9972m     -1.4268u  
+  590.00000p    799.9987m      0.       
+  600.00000p    800.0002m      2.2906u  
+  610.00000p    800.0016m      4.1493u  
+  620.00000p    800.0031m      6.0080u  
+  630.00000p    800.0046m      7.8668u  
+  640.00000p    800.0060m      9.7255u  
+  650.00000p    800.0075m     11.5842u  
+  660.00000p    800.0090m     13.4429u  
+  670.00000p    800.0104m     15.3017u  
+  680.00000p    800.0119m     17.1604u  
+  690.00000p    800.0134m     19.0191u  
+  700.00000p    800.0127m     18.1766u  
+  710.00000p    800.0113m     16.3194u  
+  720.00000p    800.0098m     14.4621u  
+  730.00000p    800.0083m     12.6048u  
+  740.00000p    800.0069m     10.7476u  
+  750.00000p    800.0054m      8.8903u  
+  760.00000p    800.0040m      7.0330u  
+  770.00000p    800.0025m      5.1758u  
+  780.00000p    800.0010m      3.3185u  
+  790.00000p    799.9996m      1.4612u  
+  800.00000p    799.9981m      0.       
+  810.00000p    799.9967m     -2.2533u  
+  820.00000p    799.9952m     -4.1106u  
+  830.00000p    799.9937m     -5.9679u  
+  840.00000p    799.9923m     -7.8251u  
+  850.00000p    799.9908m     -9.6824u  
+  860.00000p    799.9894m    -11.5397u  
+  870.00000p    799.9879m    -13.3969u  
+  880.00000p    799.9864m    -15.2542u  
+  890.00000p    799.9850m    -17.1115u  
+  900.00000p    799.9859m    -15.9033u  
+  910.00000p    799.9878m    -13.5435u  
+  920.00000p    799.9896m    -11.1838u  
+  930.00000p    799.9914m     -8.8240u  
+  940.00000p    799.9933m     -6.4642u  
+  950.00000p    799.9951m     -4.1044u  
+  960.00000p    799.9970m     -1.7446u  
+  970.00000p    799.9988m    615.1671n  
+  980.00000p    800.0007m      2.9750u  
+  990.00000p    800.0025m      5.3347u  
+    1.00000n    800.0044m      7.6945u  
+    1.01000n    800.0062m     10.0543u  
+    1.02000n    800.0081m     12.4141u  
+    1.03000n    800.0099m     14.7739u  
+    1.04000n    800.0117m     17.1337u  
+    1.05000n    800.0136m     19.4934u  
+    1.06000n    803.3300m      5.0618u  
+    1.07000n    706.8877m     -1.8170m  
+    1.08000n    432.0787m    109.8803m  
+    1.09000n     27.5914m    734.1124m  
+    1.10000n      3.1409m    799.7750m  
+    1.11000n     -6.1153u    799.9948m  
+    1.12000n      7.5215u    800.0025m  
+    1.13000n      2.5672u    799.9998m  
+    1.14000n     -2.3872u    799.9970m  
+    1.15000n     -4.7582u    799.9957m  
+    1.16000n     -2.5283u    799.9969m  
+    1.17000n      0.         799.9982m  
+    1.18000n      1.9317u    799.9994m  
+    1.19000n      4.1617u    800.0007m  
+    1.20000n      6.3916u    800.0019m  
+    1.21000n      6.7542u    800.0021m  
+    1.22000n      5.8326u    800.0016m  
+    1.23000n      4.9110u    800.0011m  
+    1.24000n      3.9894u    800.0006m  
+    1.25000n      3.0678u    800.0000m  
+    1.26000n      2.1463u    799.9995m  
+    1.27000n      1.2247u    799.9990m  
+    1.28000n      0.         799.9985m  
+    1.29000n   -618.5052n    799.9980m  
+    1.30000n     -1.5401u    799.9975m  
+    1.31000n     -2.4617u    799.9969m  
+    1.32000n     -3.3833u    799.9964m  
+    1.33000n     -4.3048u    799.9959m  
+    1.34000n     -5.2264u    799.9954m  
+    1.35000n     -4.7687u    799.9956m  
+    1.36000n     -4.1431u    799.9960m  
+    1.37000n     -3.5175u    799.9964m  
+    1.38000n     -2.8919u    799.9967m  
+    1.39000n     -2.2664u    799.9971m  
+    1.40000n     -1.6408u    799.9974m  
+    1.41000n     -1.0152u    799.9978m  
+    1.42000n      0.         799.9981m  
+    1.43000n      0.         799.9985m  
+    1.44000n    861.4944n    799.9988m  
+    1.45000n      1.4871u    799.9992m  
+    1.46000n      2.1126u    799.9995m  
+    1.47000n      2.7382u    799.9999m  
+    1.48000n      3.3638u    800.0002m  
+    1.49000n      3.9894u    800.0006m  
+    1.50000n      4.6149u    800.0009m  
+    1.51000n      5.2405u    800.0013m  
+    1.52000n      5.8661u    800.0016m  
+    1.53000n      6.4916u    800.0020m  
+    1.54000n      7.1172u    800.0023m  
+    1.55000n      6.6315u    800.0020m  
+    1.56000n      6.0105u    800.0017m  
+    1.57000n      5.3896u    800.0013m  
+    1.58000n      4.7687u    800.0010m  
+    1.59000n      4.1477u    800.0006m  
+    1.60000n      3.5268u    800.0003m  
+    1.61000n      2.9059u    800.0000m  
+    1.62000n      2.2849u    799.9996m  
+    1.63000n      1.6640u    799.9993m  
+    1.64000n      1.0431u    799.9989m  
+    1.65000n      0.         799.9986m  
+    1.66000n      0.         799.9982m  
+    1.67000n   -819.7309n    799.9979m  
+    1.68000n     -1.4407u    799.9975m  
+    1.69000n     -2.0616u    799.9972m  
+    1.70000n     -2.6825u    799.9968m  
+    1.71000n     -3.3035u    799.9965m  
+    1.72000n     -3.9244u    799.9961m  
+    1.73000n     -4.5453u    799.9958m  
+    1.74000n     -5.1663u    799.9954m  
+    1.75000n     -4.6841u    799.9957m  
+    1.76000n     -4.0678u    799.9960m  
+    1.77000n     -3.4515u    799.9964m  
+    1.78000n     -2.8351u    799.9967m  
+    1.79000n     -2.2188u    799.9971m  
+    1.80000n     -1.6025u    799.9974m  
+    1.81000n   -986.1379n    799.9978m  
+    1.82000n      0.         799.9981m  
+    1.83000n      0.         799.9985m  
+    1.84000n    862.8553n    799.9988m  
+    1.85000n      1.4792u    799.9992m  
+    1.86000n      2.0955u    799.9995m  
+    1.87000n      2.7118u    799.9998m  
+    1.88000n      3.3282u    800.0002m  
+    1.89000n      3.9445u    800.0005m  
+    1.90000n      4.5608u    800.0009m  
+    1.91000n      5.1772u    800.0012m  
+    1.92000n      5.7935u    800.0016m  
+    1.93000n      6.4098u    800.0019m  
+    1.94000n      7.0262u    800.0023m  
+    1.95000n      5.2578u    800.0013m  
+    1.96000n      3.1993u    800.0001m  
+    1.97000n      1.1408u    799.9990m  
+    1.98000n   -917.7368n    799.9978m  
+    1.99000n     -2.9762u    799.9967m  
+    2.00000n     -5.0347u    799.9955m  
+    2.01000n     -2.4794m    800.0111m  
+    2.02000n      3.5621m    800.2261m  
+    2.03000n    265.5014m    797.2993m  
+    2.04000n    768.4429m     51.7089m  
+    2.05000n    796.6839m   -765.8918u  
+    2.06000n    799.9962m    -14.8662u  
+    2.07000n    800.0022m     17.1184u  
+    2.08000n    799.9991m      1.0440u  
+    2.09000n    799.9991m    822.6724n  
+    2.10000n    799.9991m    958.3520n  
+    2.11000n    799.9991m    953.1208n  
+    2.12000n    799.9991m    953.2151n  
+    2.13000n    799.9991m    953.3296n  
+    2.14000n    799.9991m    953.2520n  
+    2.15000n    799.9991m    953.1744n  
+    2.16000n    799.9991m    953.0968n  
+    2.17000n    799.9991m    953.0366n  
+    2.18000n    799.9991m    953.0658n  
+    2.19000n    799.9991m    953.0949n  
+    2.20000n    799.9991m    953.1241n  
+    2.21000n    799.9991m    953.1532n  
+    2.22000n    799.9991m    953.1824n  
+    2.23000n    799.9991m    953.2115n  
+    2.24000n    799.9991m    953.2407n  
+    2.25000n    799.9991m    953.2698n  
+    2.26000n    799.9991m    953.2990n  
+    2.27000n    799.9991m    953.3281n  
+    2.28000n    799.9991m    953.3555n  
+    2.29000n    799.9991m    953.3393n  
+    2.30000n    799.9991m    953.3231n  
+    2.31000n    799.9991m    953.3069n  
+    2.32000n    799.9991m    953.2907n  
+    2.33000n    799.9991m    953.2745n  
+    2.34000n    799.9991m    953.2583n  
+    2.35000n    799.9991m    953.2422n  
+    2.36000n    799.9991m    953.2260n  
+    2.37000n    799.9991m    953.2098n  
+    2.38000n    799.9991m    953.1936n  
+    2.39000n    799.9991m    953.1774n  
+    2.40000n    799.9991m    953.1612n  
+    2.41000n    799.9991m    953.1450n  
+    2.42000n    799.9991m    953.1289n  
+    2.43000n    799.9991m    953.1127n  
+    2.44000n    799.9991m    953.0965n  
+    2.45000n    799.9991m    953.0803n  
+    2.46000n    799.9991m    953.0641n  
+    2.47000n    799.9991m    953.0479n  
+    2.48000n    799.9991m    953.0330n  
+    2.49000n    799.9991m    953.0492n  
+    2.50000n    799.9991m    953.0654n  
+    2.51000n    799.9991m    953.0815n  
+    2.52000n    799.9991m    953.0977n  
+    2.53000n    799.9991m    953.1139n  
+    2.54000n    799.9991m    953.1300n  
+    2.55000n    799.9991m    953.1462n  
+    2.56000n    799.9991m    953.1624n  
+    2.57000n    799.9991m    953.1785n  
+    2.58000n    799.9991m    953.1947n  
+    2.59000n    799.9991m    953.2109n  
+    2.60000n    799.9991m    953.2270n  
+    2.61000n    799.9991m    953.2432n  
+    2.62000n    799.9991m    953.2594n  
+    2.63000n    799.9991m    953.2755n  
+    2.64000n    799.9991m    953.2917n  
+    2.65000n    799.9991m    953.3079n  
+    2.66000n    799.9991m    953.3240n  
+    2.67000n    799.9991m    953.3402n  
+    2.68000n    799.9991m    953.3551n  
+    2.69000n    799.9991m    953.3389n  
+    2.70000n    799.9991m    953.3228n  
+    2.71000n    799.9991m    953.3066n  
+    2.72000n    799.9991m    953.2905n  
+    2.73000n    799.9991m    953.2744n  
+    2.74000n    799.9991m    953.2582n  
+    2.75000n    799.9991m    953.2421n  
+    2.76000n    799.9991m    953.2259n  
+    2.77000n    799.9991m    953.2098n  
+    2.78000n    799.9991m    953.1936n  
+    2.79000n    799.9991m    953.1775n  
+    2.80000n    799.9991m    953.1613n  
+    2.81000n    799.9991m    953.1452n  
+    2.82000n    799.9991m    953.1290n  
+    2.83000n    799.9991m    953.1129n  
+    2.84000n    799.9991m    953.0967n  
+    2.85000n    799.9991m    953.0806n  
+    2.86000n    799.9991m    953.0644n  
+    2.87000n    799.9991m    953.0483n  
+    2.88000n    799.9991m    953.0335n  
+    2.89000n    799.9991m    953.0524n  
+    2.90000n    799.9991m    953.0714n  
+    2.91000n    799.9991m    953.0903n  
+    2.92000n    799.9991m    953.1092n  
+    2.93000n    799.9991m    953.1282n  
+    2.94000n    799.9991m    953.1471n  
+    2.95000n    799.9991m    953.1660n  
+    2.96000n    799.9991m    953.1850n  
+    2.97000n    799.9991m    953.2039n  
+    2.98000n    799.9991m    953.2228n  
+    2.99000n    799.9991m    953.2418n  
+    3.00000n    799.9991m    953.2607n  
+    3.01000n    799.9991m    953.2796n  
+    3.02000n    799.9991m    953.2985n  
+    3.03000n    799.9991m    953.3175n  
+    3.04000n    799.9991m    953.3364n  
+    3.05000n    799.9991m    953.3553n  
+    3.06000n    803.3213m      6.8313u  
+    3.07000n    702.7220m   -512.5093u  
+    3.08000n    414.6524m     84.0861m  
+    3.09000n     25.5555m    740.2838m  
+    3.10000n     77.4369m      1.8447   
+    3.11000n   -232.1760u    800.4448m  
+    3.12000n      1.0657u    799.9993m  
+    3.13000n      0.         799.9976m  
+    3.14000n      1.0943u    799.9994m  
+    3.15000n      1.7278u    800.0013m  
+    3.16000n      1.6553u    800.0011m  
+    3.17000n      1.4284u    800.0005m  
+    3.18000n      1.2016u    799.9998m  
+    3.19000n    974.7830n    799.9992m  
+    3.20000n    747.9601n    799.9986m  
+    3.21000n    521.1372n    799.9980m  
+    3.22000n      0.         799.9973m  
+    3.23000n      0.         799.9967m  
+    3.24000n      0.         799.9969m  
+    3.25000n      0.         799.9971m  
+    3.26000n      0.         799.9974m  
+    3.27000n      0.         799.9976m  
+    3.28000n    500.0635n    799.9979m  
+    3.29000n    593.1348n    799.9981m  
+    3.30000n    686.2060n    799.9984m  
+    3.31000n    779.2773n    799.9986m  
+    3.32000n    872.3485n    799.9989m  
+    3.33000n    965.4198n    799.9991m  
+    3.34000n      1.0585u    799.9994m  
+    3.35000n      1.1516u    799.9996m  
+    3.36000n      1.2446u    799.9999m  
+    3.37000n      1.3377u    800.0002m  
+    3.38000n      1.4308u    800.0004m  
+    3.39000n      1.5238u    800.0007m  
+    3.40000n      1.6169u    800.0009m  
+    3.41000n      1.7100u    800.0012m  
+    3.42000n      1.8031u    800.0014m  
+    3.43000n      1.8600u    800.0016m  
+    3.44000n      1.7673u    800.0013m  
+    3.45000n      1.6745u    800.0011m  
+    3.46000n      1.5817u    800.0008m  
+    3.47000n      1.4889u    800.0006m  
+    3.48000n      1.3962u    800.0003m  
+    3.49000n      1.3034u    800.0001m  
+    3.50000n      1.2106u    799.9998m  
+    3.51000n      1.1178u    799.9996m  
+    3.52000n      1.0251u    799.9993m  
+    3.53000n    932.2995n    799.9991m  
+    3.54000n    839.5263n    799.9988m  
+    3.55000n    746.7530n    799.9986m  
+    3.56000n    653.9798n    799.9983m  
+    3.57000n    561.2066n    799.9981m  
+    3.58000n      0.         799.9978m  
+    3.59000n      0.         799.9976m  
+    3.60000n      0.         799.9973m  
+    3.61000n      0.         799.9971m  
+    3.62000n      0.         799.9968m  
+    3.63000n      0.         799.9967m  
+    3.64000n      0.         799.9969m  
+    3.65000n      0.         799.9972m  
+    3.66000n      0.         799.9974m  
+    3.67000n      0.         799.9977m  
+    3.68000n    510.6068n    799.9979m  
+    3.69000n    604.5602n    799.9982m  
+    3.70000n    698.5137n    799.9984m  
+    3.71000n    792.4672n    799.9987m  
+    3.72000n    886.4207n    799.9989m  
+    3.73000n    980.3742n    799.9992m  
+    3.74000n      1.0743u    799.9994m  
+    3.75000n      1.1683u    799.9997m  
+    3.76000n      1.2622u    799.9999m  
+    3.77000n      1.3562u    800.0002m  
+    3.78000n      1.4501u    800.0004m  
+    3.79000n      1.5441u    800.0007m  
+    3.80000n      1.6380u    800.0009m  
+    3.81000n      1.7320u    800.0012m  
+    3.82000n      1.8260u    800.0014m  
+    3.83000n      1.8802u    800.0016m  
+    3.84000n      1.7697u    800.0013m  
+    3.85000n      1.6591u    800.0010m  
+    3.86000n      1.5486u    800.0007m  
+    3.87000n      1.4381u    800.0004m  
+    3.88000n      1.3275u    800.0001m  
+    3.89000n      1.2170u    799.9998m  
+    3.90000n      1.1065u    799.9995m  
+    3.91000n    995.9556n    799.9992m  
+    3.92000n    885.4266n    799.9990m  
+    3.93000n    774.8975n    799.9987m  
+    3.94000n    664.3685n    799.9984m  
+    3.95000n    553.8394n    799.9981m  
+    3.96000n      0.         799.9978m  
+    3.97000n      0.         799.9975m  
+    3.98000n      0.         799.9972m  
+    3.99000n      0.         799.9969m  
+    4.00000n      0.         799.9966m  
+y
+x
+
+        time    voltage      voltage    
+                 outin_10     outin_20  
+    0.          799.9991m    953.6898n  
+   10.00000p    800.0228m      2.6186u  
+   20.00000p    800.2781m     15.5437u  
+   30.00000p    797.6806m   -586.4304u  
+   40.00000p     54.5364m    484.1209m  
+   50.00000p    724.9186u    801.4916m  
+   60.00000p      9.2647u    800.0139m  
+   70.00000p     -6.0476u    799.9868m  
+   80.00000p     -9.6426u    799.9810m  
+   90.00000p      3.6827u    800.0040m  
+  100.00000p     17.0081u    800.0271m  
+  110.00000p     14.6273u    800.0229m  
+  120.00000p      8.3957u    800.0120m  
+  130.00000p      2.1640u    800.0012m  
+  140.00000p     -4.0677u    799.9903m  
+  150.00000p    -10.2994u    799.9794m  
+  160.00000p    -16.5311u    799.9686m  
+  170.00000p    -15.3662u    799.9706m  
+  180.00000p    -12.5202u    799.9756m  
+  190.00000p     -9.6742u    799.9806m  
+  200.00000p     -6.8283u    799.9856m  
+  210.00000p     -3.9823u    799.9905m  
+  220.00000p     -1.1363u    799.9955m  
+  230.00000p      1.7097u    800.0005m  
+  240.00000p      4.5557u    800.0055m  
+  250.00000p      7.4017u    800.0105m  
+  260.00000p     10.2477u    800.0154m  
+  270.00000p     13.0936u    800.0204m  
+  280.00000p     15.9396u    800.0254m  
+  290.00000p     18.7856u    800.0304m  
+  300.00000p     18.2104u    800.0294m  
+  310.00000p     16.3499u    800.0261m  
+  320.00000p     14.4893u    800.0228m  
+  330.00000p     12.6288u    800.0196m  
+  340.00000p     10.7683u    800.0163m  
+  350.00000p      8.9078u    800.0131m  
+  360.00000p      7.0472u    800.0098m  
+  370.00000p      5.1867u    800.0065m  
+  380.00000p      3.3262u    800.0033m  
+  390.00000p      1.4656u    800.0000m  
+  400.00000p      0.         799.9968m  
+  410.00000p     -2.2554u    799.9935m  
+  420.00000p     -4.1159u    799.9902m  
+  430.00000p     -5.9765u    799.9870m  
+  440.00000p     -7.8370u    799.9837m  
+  450.00000p     -9.6975u    799.9804m  
+  460.00000p    -11.5581u    799.9772m  
+  470.00000p    -13.4186u    799.9739m  
+  480.00000p    -15.2791u    799.9707m  
+  490.00000p    -17.1396u    799.9674m  
+  500.00000p    -16.2966u    799.9689m  
+  510.00000p    -14.4379u    799.9721m  
+  520.00000p    -12.5792u    799.9754m  
+  530.00000p    -10.7204u    799.9787m  
+  540.00000p     -8.8617u    799.9819m  
+  550.00000p     -7.0030u    799.9852m  
+  560.00000p     -5.1443u    799.9885m  
+  570.00000p     -3.2856u    799.9917m  
+  580.00000p     -1.4268u    799.9950m  
+  590.00000p      0.         799.9983m  
+  600.00000p      2.2906u    800.0015m  
+  610.00000p      4.1493u    800.0048m  
+  620.00000p      6.0080u    800.0080m  
+  630.00000p      7.8668u    800.0113m  
+  640.00000p      9.7255u    800.0146m  
+  650.00000p     11.5842u    800.0178m  
+  660.00000p     13.4429u    800.0211m  
+  670.00000p     15.3017u    800.0244m  
+  680.00000p     17.1604u    800.0276m  
+  690.00000p     19.0191u    800.0309m  
+  700.00000p     18.1766u    800.0294m  
+  710.00000p     16.3194u    800.0261m  
+  720.00000p     14.4621u    800.0229m  
+  730.00000p     12.6048u    800.0196m  
+  740.00000p     10.7476u    800.0163m  
+  750.00000p      8.8903u    800.0131m  
+  760.00000p      7.0330u    800.0098m  
+  770.00000p      5.1758u    800.0065m  
+  780.00000p      3.3185u    800.0033m  
+  790.00000p      1.4612u    800.0000m  
+  800.00000p      0.         799.9968m  
+  810.00000p     -2.2533u    799.9935m  
+  820.00000p     -4.1106u    799.9902m  
+  830.00000p     -5.9679u    799.9870m  
+  840.00000p     -7.8251u    799.9837m  
+  850.00000p     -9.6824u    799.9804m  
+  860.00000p    -11.5397u    799.9772m  
+  870.00000p    -13.3969u    799.9739m  
+  880.00000p    -15.2542u    799.9706m  
+  890.00000p    -17.1115u    799.9674m  
+  900.00000p    -15.9033u    799.9695m  
+  910.00000p    -13.5435u    799.9736m  
+  920.00000p    -11.1838u    799.9778m  
+  930.00000p     -8.8240u    799.9820m  
+  940.00000p     -6.4642u    799.9861m  
+  950.00000p     -4.1044u    799.9903m  
+  960.00000p     -1.7446u    799.9944m  
+  970.00000p    615.1671n    799.9986m  
+  980.00000p      2.9750u    800.0027m  
+  990.00000p      5.3347u    800.0069m  
+    1.00000n      7.6945u    800.0110m  
+    1.01000n     10.0543u    800.0152m  
+    1.02000n     12.4141u    800.0194m  
+    1.03000n     14.7739u    800.0235m  
+    1.04000n     17.1337u    800.0277m  
+    1.05000n     19.4934u    800.0318m  
+    1.06000n      5.0618u    799.9946m  
+    1.07000n     -1.8170m    799.9541m  
+    1.08000n    109.8803m    781.7844m  
+    1.09000n    734.1124m    228.8953m  
+    1.10000n    799.7750m     -2.1874m  
+    1.11000n    799.9948m      2.2692u  
+    1.12000n    800.0025m      0.       
+    1.13000n    799.9998m    762.5522n  
+    1.14000n    799.9970m      1.0308u  
+    1.15000n    799.9957m      1.1788u  
+    1.16000n    799.9969m      1.1128u  
+    1.17000n    799.9982m      1.0469u  
+    1.18000n    799.9994m    980.8867n  
+    1.19000n    800.0007m    914.9170n  
+    1.20000n    800.0019m    848.9472n  
+    1.21000n    800.0021m    832.3180n  
+    1.22000n    800.0016m    849.6172n  
+    1.23000n    800.0011m    866.9165n  
+    1.24000n    800.0006m    884.2158n  
+    1.25000n    800.0000m    901.5150n  
+    1.26000n    799.9995m    918.8143n  
+    1.27000n    799.9990m    936.1135n  
+    1.28000n    799.9985m    953.4128n  
+    1.29000n    799.9980m    970.7121n  
+    1.30000n    799.9975m    988.0113n  
+    1.31000n    799.9969m      1.0053u  
+    1.32000n    799.9964m      1.0226u  
+    1.33000n    799.9959m      1.0399u  
+    1.34000n    799.9954m      1.0572u  
+    1.35000n    799.9956m      1.0516u  
+    1.36000n    799.9960m      1.0432u  
+    1.37000n    799.9964m      1.0348u  
+    1.38000n    799.9967m      1.0264u  
+    1.39000n    799.9971m      1.0180u  
+    1.40000n    799.9974m      1.0096u  
+    1.41000n    799.9978m      1.0012u  
+    1.42000n    799.9981m    992.7439n  
+    1.43000n    799.9985m    984.3374n  
+    1.44000n    799.9988m    975.9308n  
+    1.45000n    799.9992m    967.5243n  
+    1.46000n    799.9995m    959.1177n  
+    1.47000n    799.9999m    950.7112n  
+    1.48000n    800.0002m    942.3046n  
+    1.49000n    800.0006m    933.8981n  
+    1.50000n    800.0009m    925.4915n  
+    1.51000n    800.0013m    917.0850n  
+    1.52000n    800.0016m    908.6784n  
+    1.53000n    800.0020m    900.2719n  
+    1.54000n    800.0023m    891.8653n  
+    1.55000n    800.0020m    895.9909n  
+    1.56000n    800.0017m    901.6411n  
+    1.57000n    800.0013m    907.2912n  
+    1.58000n    800.0010m    912.9413n  
+    1.59000n    800.0006m    918.5914n  
+    1.60000n    800.0003m    924.2416n  
+    1.61000n    800.0000m    929.8917n  
+    1.62000n    799.9996m    935.5418n  
+    1.63000n    799.9993m    941.1919n  
+    1.64000n    799.9989m    946.8421n  
+    1.65000n    799.9986m    952.4922n  
+    1.66000n    799.9982m    958.1423n  
+    1.67000n    799.9979m    963.7924n  
+    1.68000n    799.9975m    969.4426n  
+    1.69000n    799.9972m    975.0927n  
+    1.70000n    799.9968m    980.7428n  
+    1.71000n    799.9965m    986.3929n  
+    1.72000n    799.9961m    992.0431n  
+    1.73000n    799.9958m    997.6932n  
+    1.74000n    799.9954m      1.0033u  
+    1.75000n    799.9957m      1.0013u  
+    1.76000n    799.9960m    998.3965n  
+    1.77000n    799.9964m    995.4573n  
+    1.78000n    799.9967m    992.5181n  
+    1.79000n    799.9971m    989.5789n  
+    1.80000n    799.9974m    986.6397n  
+    1.81000n    799.9978m    983.7005n  
+    1.82000n    799.9981m    980.7613n  
+    1.83000n    799.9985m    977.8221n  
+    1.84000n    799.9988m    974.8829n  
+    1.85000n    799.9992m    971.9437n  
+    1.86000n    799.9995m    969.0045n  
+    1.87000n    799.9998m    966.0653n  
+    1.88000n    800.0002m    963.1261n  
+    1.89000n    800.0005m    960.1869n  
+    1.90000n    800.0009m    957.2477n  
+    1.91000n    800.0012m    954.3085n  
+    1.92000n    800.0016m    951.3693n  
+    1.93000n    800.0019m    948.4301n  
+    1.94000n    800.0023m    945.4909n  
+    1.95000n    800.0013m    936.6368n  
+    1.96000n    800.0001m    927.0631n  
+    1.97000n    799.9990m    917.4894n  
+    1.98000n    799.9978m    907.9157n  
+    1.99000n    799.9967m    898.3420n  
+    2.00000n    799.9955m    888.7683n  
+    2.01000n    800.0111m      7.0304u  
+    2.02000n    800.2261m      4.0569u  
+    2.03000n    797.2993m   -637.1277u  
+    2.04000n     51.7089m    489.0002m  
+    2.05000n   -765.8918u    798.3987m  
+    2.06000n    -14.8662u    799.9518m  
+    2.07000n     17.1184u    800.0431m  
+    2.08000n      1.0440u    799.9994m  
+    2.09000n    822.6724n    799.9988m  
+    2.10000n    958.3520n    799.9991m  
+    2.11000n    953.1208n    799.9991m  
+    2.12000n    953.2151n    799.9991m  
+    2.13000n    953.3296n    799.9991m  
+    2.14000n    953.2520n    799.9991m  
+    2.15000n    953.1744n    799.9991m  
+    2.16000n    953.0968n    799.9991m  
+    2.17000n    953.0366n    799.9991m  
+    2.18000n    953.0658n    799.9991m  
+    2.19000n    953.0949n    799.9991m  
+    2.20000n    953.1241n    799.9991m  
+    2.21000n    953.1532n    799.9991m  
+    2.22000n    953.1824n    799.9991m  
+    2.23000n    953.2115n    799.9991m  
+    2.24000n    953.2407n    799.9991m  
+    2.25000n    953.2698n    799.9991m  
+    2.26000n    953.2990n    799.9991m  
+    2.27000n    953.3281n    799.9991m  
+    2.28000n    953.3555n    799.9991m  
+    2.29000n    953.3393n    799.9991m  
+    2.30000n    953.3231n    799.9991m  
+    2.31000n    953.3069n    799.9991m  
+    2.32000n    953.2907n    799.9991m  
+    2.33000n    953.2745n    799.9991m  
+    2.34000n    953.2583n    799.9991m  
+    2.35000n    953.2422n    799.9991m  
+    2.36000n    953.2260n    799.9991m  
+    2.37000n    953.2098n    799.9991m  
+    2.38000n    953.1936n    799.9991m  
+    2.39000n    953.1774n    799.9991m  
+    2.40000n    953.1612n    799.9991m  
+    2.41000n    953.1450n    799.9991m  
+    2.42000n    953.1289n    799.9991m  
+    2.43000n    953.1127n    799.9991m  
+    2.44000n    953.0965n    799.9991m  
+    2.45000n    953.0803n    799.9991m  
+    2.46000n    953.0641n    799.9991m  
+    2.47000n    953.0479n    799.9991m  
+    2.48000n    953.0330n    799.9991m  
+    2.49000n    953.0492n    799.9991m  
+    2.50000n    953.0654n    799.9991m  
+    2.51000n    953.0815n    799.9991m  
+    2.52000n    953.0977n    799.9991m  
+    2.53000n    953.1139n    799.9991m  
+    2.54000n    953.1300n    799.9991m  
+    2.55000n    953.1462n    799.9991m  
+    2.56000n    953.1624n    799.9991m  
+    2.57000n    953.1785n    799.9991m  
+    2.58000n    953.1947n    799.9991m  
+    2.59000n    953.2109n    799.9991m  
+    2.60000n    953.2270n    799.9991m  
+    2.61000n    953.2432n    799.9991m  
+    2.62000n    953.2594n    799.9991m  
+    2.63000n    953.2755n    799.9991m  
+    2.64000n    953.2917n    799.9991m  
+    2.65000n    953.3079n    799.9991m  
+    2.66000n    953.3240n    799.9991m  
+    2.67000n    953.3402n    799.9991m  
+    2.68000n    953.3551n    799.9991m  
+    2.69000n    953.3389n    799.9991m  
+    2.70000n    953.3228n    799.9991m  
+    2.71000n    953.3066n    799.9991m  
+    2.72000n    953.2905n    799.9991m  
+    2.73000n    953.2744n    799.9991m  
+    2.74000n    953.2582n    799.9991m  
+    2.75000n    953.2421n    799.9991m  
+    2.76000n    953.2259n    799.9991m  
+    2.77000n    953.2098n    799.9991m  
+    2.78000n    953.1936n    799.9991m  
+    2.79000n    953.1775n    799.9991m  
+    2.80000n    953.1613n    799.9991m  
+    2.81000n    953.1452n    799.9991m  
+    2.82000n    953.1290n    799.9991m  
+    2.83000n    953.1129n    799.9991m  
+    2.84000n    953.0967n    799.9991m  
+    2.85000n    953.0806n    799.9991m  
+    2.86000n    953.0644n    799.9991m  
+    2.87000n    953.0483n    799.9991m  
+    2.88000n    953.0335n    799.9991m  
+    2.89000n    953.0524n    799.9991m  
+    2.90000n    953.0714n    799.9991m  
+    2.91000n    953.0903n    799.9991m  
+    2.92000n    953.1092n    799.9991m  
+    2.93000n    953.1282n    799.9991m  
+    2.94000n    953.1471n    799.9991m  
+    2.95000n    953.1660n    799.9991m  
+    2.96000n    953.1850n    799.9991m  
+    2.97000n    953.2039n    799.9991m  
+    2.98000n    953.2228n    799.9991m  
+    2.99000n    953.2418n    799.9991m  
+    3.00000n    953.2607n    799.9991m  
+    3.01000n    953.2796n    799.9991m  
+    3.02000n    953.2985n    799.9991m  
+    3.03000n    953.3175n    799.9991m  
+    3.04000n    953.3364n    799.9991m  
+    3.05000n    953.3553n    799.9991m  
+    3.06000n      6.8313u    799.9950m  
+    3.07000n   -512.5093u    799.9820m  
+    3.08000n     84.0861m    767.4696m  
+    3.09000n    740.2838m    216.1917m  
+    3.10000n      1.8447      -2.0763   
+    3.11000n    800.4448m   -286.8293u  
+    3.12000n    799.9993m      1.5365u  
+    3.13000n    799.9976m     -1.5670u  
+    3.14000n    799.9994m      1.4736u  
+    3.15000n    800.0013m      4.5143u  
+    3.16000n    800.0011m      4.2055u  
+    3.17000n    800.0005m      3.1644u  
+    3.18000n    799.9998m      2.1234u  
+    3.19000n    799.9992m      1.0823u  
+    3.20000n    799.9986m      0.       
+    3.21000n    799.9980m   -999.7734n  
+    3.22000n    799.9973m     -2.0408u  
+    3.23000n    799.9967m     -3.0819u  
+    3.24000n    799.9969m     -2.8108u  
+    3.25000n    799.9971m     -2.3899u  
+    3.26000n    799.9974m     -1.9690u  
+    3.27000n    799.9976m     -1.5481u  
+    3.28000n    799.9979m     -1.1272u  
+    3.29000n    799.9981m   -706.3021n  
+    3.30000n    799.9984m      0.       
+    3.31000n    799.9986m      0.       
+    3.32000n    799.9989m    556.3995n  
+    3.33000n    799.9991m    977.3000n  
+    3.34000n    799.9994m      1.3982u  
+    3.35000n    799.9996m      1.8191u  
+    3.36000n    799.9999m      2.2400u  
+    3.37000n    800.0002m      2.6609u  
+    3.38000n    800.0004m      3.0818u  
+    3.39000n    800.0007m      3.5027u  
+    3.40000n    800.0009m      3.9236u  
+    3.41000n    800.0012m      4.3445u  
+    3.42000n    800.0014m      4.7654u  
+    3.43000n    800.0016m      5.0237u  
+    3.44000n    800.0013m      4.6074u  
+    3.45000n    800.0011m      4.1912u  
+    3.46000n    800.0008m      3.7749u  
+    3.47000n    800.0006m      3.3587u  
+    3.48000n    800.0003m      2.9424u  
+    3.49000n    800.0001m      2.5262u  
+    3.50000n    799.9998m      2.1099u  
+    3.51000n    799.9996m      1.6937u  
+    3.52000n    799.9993m      1.2774u  
+    3.53000n    799.9991m    861.1958n  
+    3.54000n    799.9988m      0.       
+    3.55000n    799.9986m      0.       
+    3.56000n    799.9983m      0.       
+    3.57000n    799.9981m   -803.8010n  
+    3.58000n    799.9978m     -1.2201u  
+    3.59000n    799.9976m     -1.6363u  
+    3.60000n    799.9973m     -2.0525u  
+    3.61000n    799.9971m     -2.4688u  
+    3.62000n    799.9968m     -2.8850u  
+    3.63000n    799.9967m     -3.1393u  
+    3.64000n    799.9969m     -2.7218u  
+    3.65000n    799.9972m     -2.3042u  
+    3.66000n    799.9974m     -1.8866u  
+    3.67000n    799.9977m     -1.4691u  
+    3.68000n    799.9979m     -1.0515u  
+    3.69000n    799.9982m   -633.9726n  
+    3.70000n    799.9984m      0.       
+    3.71000n    799.9987m      0.       
+    3.72000n    799.9989m    618.7047n  
+    3.73000n    799.9992m      1.0363u  
+    3.74000n    799.9994m      1.4538u  
+    3.75000n    799.9997m      1.8714u  
+    3.76000n    799.9999m      2.2889u  
+    3.77000n    800.0002m      2.7065u  
+    3.78000n    800.0004m      3.1241u  
+    3.79000n    800.0007m      3.5416u  
+    3.80000n    800.0009m      3.9592u  
+    3.81000n    800.0012m      4.3767u  
+    3.82000n    800.0014m      4.7943u  
+    3.83000n    800.0016m      5.0361u  
+    3.84000n    800.0013m      4.5488u  
+    3.85000n    800.0010m      4.0614u  
+    3.86000n    800.0007m      3.5741u  
+    3.87000n    800.0004m      3.0868u  
+    3.88000n    800.0001m      2.5995u  
+    3.89000n    799.9998m      2.1121u  
+    3.90000n    799.9995m      1.6248u  
+    3.91000n    799.9992m      1.1375u  
+    3.92000n    799.9990m    650.1520n  
+    3.93000n    799.9987m      0.       
+    3.94000n    799.9984m      0.       
+    3.95000n    799.9981m   -811.8238n  
+    3.96000n    799.9978m     -1.2991u  
+    3.97000n    799.9975m     -1.7865u  
+    3.98000n    799.9972m     -2.2738u  
+    3.99000n    799.9969m     -2.7611u  
+    4.00000n    799.9966m     -3.2485u  
+y
+x
+
+        time    voltage      voltage    
+                 outin_01     outin_11  
+    0.          953.6673n    799.9991m  
+   10.00000p     -2.4687m    800.0228m  
+   20.00000p      3.1158m    800.2781m  
+   30.00000p    266.2507m    797.6806m  
+   40.00000p    766.9719m     54.5364m  
+   50.00000p    797.2202m    724.9186u  
+   60.00000p    800.0055m      9.2647u  
+   70.00000p    799.9937m     -6.0476u  
+   80.00000p    799.9900m     -9.6426u  
+   90.00000p    800.0011m      3.6827u  
+  100.00000p    800.0122m     17.0081u  
+  110.00000p    800.0104m     14.6273u  
+  120.00000p    800.0053m      8.3957u  
+  130.00000p    800.0003m      2.1640u  
+  140.00000p    799.9952m     -4.0677u  
+  150.00000p    799.9901m    -10.2994u  
+  160.00000p    799.9851m    -16.5311u  
+  170.00000p    799.9860m    -15.3662u  
+  180.00000p    799.9883m    -12.5202u  
+  190.00000p    799.9906m     -9.6742u  
+  200.00000p    799.9928m     -6.8283u  
+  210.00000p    799.9951m     -3.9823u  
+  220.00000p    799.9974m     -1.1363u  
+  230.00000p    799.9997m      1.7097u  
+  240.00000p    800.0020m      4.5557u  
+  250.00000p    800.0042m      7.4017u  
+  260.00000p    800.0065m     10.2477u  
+  270.00000p    800.0088m     13.0936u  
+  280.00000p    800.0111m     15.9396u  
+  290.00000p    800.0133m     18.7856u  
+  300.00000p    800.0129m     18.2104u  
+  310.00000p    800.0114m     16.3499u  
+  320.00000p    800.0099m     14.4893u  
+  330.00000p    800.0085m     12.6288u  
+  340.00000p    800.0070m     10.7683u  
+  350.00000p    800.0055m      8.9078u  
+  360.00000p    800.0040m      7.0472u  
+  370.00000p    800.0025m      5.1867u  
+  380.00000p    800.0011m      3.3262u  
+  390.00000p    799.9996m      1.4656u  
+  400.00000p    799.9981m      0.       
+  410.00000p    799.9966m     -2.2554u  
+  420.00000p    799.9951m     -4.1159u  
+  430.00000p    799.9937m     -5.9765u  
+  440.00000p    799.9922m     -7.8370u  
+  450.00000p    799.9907m     -9.6975u  
+  460.00000p    799.9892m    -11.5581u  
+  470.00000p    799.9878m    -13.4186u  
+  480.00000p    799.9863m    -15.2791u  
+  490.00000p    799.9848m    -17.1396u  
+  500.00000p    799.9855m    -16.2966u  
+  510.00000p    799.9869m    -14.4379u  
+  520.00000p    799.9884m    -12.5792u  
+  530.00000p    799.9899m    -10.7204u  
+  540.00000p    799.9913m     -8.8617u  
+  550.00000p    799.9928m     -7.0030u  
+  560.00000p    799.9943m     -5.1443u  
+  570.00000p    799.9957m     -3.2856u  
+  580.00000p    799.9972m     -1.4268u  
+  590.00000p    799.9987m      0.       
+  600.00000p    800.0002m      2.2906u  
+  610.00000p    800.0016m      4.1493u  
+  620.00000p    800.0031m      6.0080u  
+  630.00000p    800.0046m      7.8668u  
+  640.00000p    800.0060m      9.7255u  
+  650.00000p    800.0075m     11.5842u  
+  660.00000p    800.0090m     13.4429u  
+  670.00000p    800.0104m     15.3017u  
+  680.00000p    800.0119m     17.1604u  
+  690.00000p    800.0134m     19.0191u  
+  700.00000p    800.0127m     18.1766u  
+  710.00000p    800.0113m     16.3194u  
+  720.00000p    800.0098m     14.4621u  
+  730.00000p    800.0083m     12.6048u  
+  740.00000p    800.0069m     10.7476u  
+  750.00000p    800.0054m      8.8903u  
+  760.00000p    800.0040m      7.0330u  
+  770.00000p    800.0025m      5.1758u  
+  780.00000p    800.0010m      3.3185u  
+  790.00000p    799.9996m      1.4612u  
+  800.00000p    799.9981m      0.       
+  810.00000p    799.9967m     -2.2533u  
+  820.00000p    799.9952m     -4.1106u  
+  830.00000p    799.9937m     -5.9679u  
+  840.00000p    799.9923m     -7.8251u  
+  850.00000p    799.9908m     -9.6824u  
+  860.00000p    799.9894m    -11.5397u  
+  870.00000p    799.9879m    -13.3969u  
+  880.00000p    799.9864m    -15.2542u  
+  890.00000p    799.9850m    -17.1115u  
+  900.00000p    799.9859m    -15.9033u  
+  910.00000p    799.9878m    -13.5435u  
+  920.00000p    799.9896m    -11.1838u  
+  930.00000p    799.9914m     -8.8240u  
+  940.00000p    799.9933m     -6.4642u  
+  950.00000p    799.9951m     -4.1044u  
+  960.00000p    799.9970m     -1.7446u  
+  970.00000p    799.9988m    615.1671n  
+  980.00000p    800.0007m      2.9750u  
+  990.00000p    800.0025m      5.3347u  
+    1.00000n    800.0044m      7.6945u  
+    1.01000n    800.0062m     10.0543u  
+    1.02000n    800.0081m     12.4141u  
+    1.03000n    800.0099m     14.7739u  
+    1.04000n    800.0117m     17.1337u  
+    1.05000n    800.0136m     19.4934u  
+    1.06000n    799.9990m    882.7037n  
+    1.07000n    799.9984m    759.2347n  
+    1.08000n    799.9994m      1.0318u  
+    1.09000n    799.9993m      1.0604u  
+    1.10000n    799.9992m      1.0255u  
+    1.11000n    799.9991m    955.6972n  
+    1.12000n    799.9991m    952.0351n  
+    1.13000n    799.9991m    953.4644n  
+    1.14000n    799.9991m    954.8937n  
+    1.15000n    799.9991m    955.5697n  
+    1.16000n    799.9991m    954.9039n  
+    1.17000n    799.9991m    954.2381n  
+    1.18000n    799.9991m    953.5723n  
+    1.19000n    799.9991m    952.9066n  
+    1.20000n    799.9991m    952.2408n  
+    1.21000n    799.9991m    952.1350n  
+    1.22000n    799.9991m    952.4144n  
+    1.23000n    799.9991m    952.6938n  
+    1.24000n    799.9991m    952.9732n  
+    1.25000n    799.9991m    953.2526n  
+    1.26000n    799.9991m    953.5320n  
+    1.27000n    799.9991m    953.8114n  
+    1.28000n    799.9991m    954.0908n  
+    1.29000n    799.9991m    954.3702n  
+    1.30000n    799.9991m    954.6496n  
+    1.31000n    799.9991m    954.9290n  
+    1.32000n    799.9991m    955.2084n  
+    1.33000n    799.9991m    955.4878n  
+    1.34000n    799.9991m    955.7672n  
+    1.35000n    799.9991m    955.6271n  
+    1.36000n    799.9991m    955.4360n  
+    1.37000n    799.9991m    955.2449n  
+    1.38000n    799.9991m    955.0538n  
+    1.39000n    799.9991m    954.8626n  
+    1.40000n    799.9991m    954.6715n  
+    1.41000n    799.9991m    954.4804n  
+    1.42000n    799.9991m    954.2893n  
+    1.43000n    799.9991m    954.0982n  
+    1.44000n    799.9991m    953.9071n  
+    1.45000n    799.9991m    953.7160n  
+    1.46000n    799.9991m    953.5249n  
+    1.47000n    799.9991m    953.3338n  
+    1.48000n    799.9991m    953.1427n  
+    1.49000n    799.9991m    952.9515n  
+    1.50000n    799.9991m    952.7604n  
+    1.51000n    799.9991m    952.5693n  
+    1.52000n    799.9991m    952.3782n  
+    1.53000n    799.9991m    952.1871n  
+    1.54000n    799.9991m    951.9960n  
+    1.55000n    799.9991m    952.1454n  
+    1.56000n    799.9991m    952.3363n  
+    1.57000n    799.9991m    952.5272n  
+    1.58000n    799.9991m    952.7181n  
+    1.59000n    799.9991m    952.9089n  
+    1.60000n    799.9991m    953.0998n  
+    1.61000n    799.9991m    953.2907n  
+    1.62000n    799.9991m    953.4816n  
+    1.63000n    799.9991m    953.6724n  
+    1.64000n    799.9991m    953.8633n  
+    1.65000n    799.9991m    954.0542n  
+    1.66000n    799.9991m    954.2451n  
+    1.67000n    799.9991m    954.4359n  
+    1.68000n    799.9991m    954.6268n  
+    1.69000n    799.9991m    954.8177n  
+    1.70000n    799.9991m    955.0086n  
+    1.71000n    799.9991m    955.1994n  
+    1.72000n    799.9991m    955.3903n  
+    1.73000n    799.9991m    955.5812n  
+    1.74000n    799.9991m    955.7721n  
+    1.75000n    799.9991m    955.6228n  
+    1.76000n    799.9991m    955.4322n  
+    1.77000n    799.9991m    955.2415n  
+    1.78000n    799.9991m    955.0509n  
+    1.79000n    799.9991m    954.8602n  
+    1.80000n    799.9991m    954.6696n  
+    1.81000n    799.9991m    954.4790n  
+    1.82000n    799.9991m    954.2883n  
+    1.83000n    799.9991m    954.0977n  
+    1.84000n    799.9991m    953.9070n  
+    1.85000n    799.9991m    953.7164n  
+    1.86000n    799.9991m    953.5258n  
+    1.87000n    799.9991m    953.3351n  
+    1.88000n    799.9991m    953.1445n  
+    1.89000n    799.9991m    952.9538n  
+    1.90000n    799.9991m    952.7632n  
+    1.91000n    799.9991m    952.5726n  
+    1.92000n    799.9991m    952.3819n  
+    1.93000n    799.9991m    952.1913n  
+    1.94000n    799.9991m    952.0006n  
+    1.95000n    799.9991m    952.5554n  
+    1.96000n    799.9991m    953.2008n  
+    1.97000n    799.9991m    953.8462n  
+    1.98000n    799.9991m    954.4917n  
+    1.99000n    799.9991m    955.1371n  
+    2.00000n    799.9991m    955.7825n  
+    2.01000n    799.9991m    953.6668n  
+    2.02000n    799.9991m    953.7108n  
+    2.03000n    799.9991m    953.6907n  
+    2.04000n    799.9991m    953.6895n  
+    2.05000n    799.9991m    953.6898n  
+    2.06000n    803.0240m      3.2203u  
+    2.07000n    790.0673m   -405.6987u  
+    2.08000n    502.6178m     -3.6138m  
+    2.09000n      8.2019m    769.0417m  
+    2.10000n      2.5965m    799.8816m  
+    2.11000n     -3.5490u    800.0018m  
+    2.12000n      1.7803u    799.9986m  
+    2.13000n     10.8565u    799.9931m  
+    2.14000n      5.3279u    799.9965m  
+    2.15000n      0.         799.9998m  
+    2.16000n     -5.7293u    800.0032m  
+    2.17000n    -10.0231u    800.0058m  
+    2.18000n     -8.0089u    800.0046m  
+    2.19000n     -5.9947u    800.0034m  
+    2.20000n     -3.9806u    800.0021m  
+    2.21000n     -1.9664u    800.0009m  
+    2.22000n      0.         799.9997m  
+    2.23000n      2.0620u    799.9985m  
+    2.24000n      4.0761u    799.9972m  
+    2.25000n      6.0903u    799.9960m  
+    2.26000n      8.1045u    799.9948m  
+    2.27000n     10.1187u    799.9936m  
+    2.28000n     12.0085u    799.9924m  
+    2.29000n     10.9043u    799.9931m  
+    2.30000n      9.8001u    799.9937m  
+    2.31000n      8.6960u    799.9944m  
+    2.32000n      7.5918u    799.9951m  
+    2.33000n      6.4876u    799.9958m  
+    2.34000n      5.3834u    799.9964m  
+    2.35000n      4.2792u    799.9971m  
+    2.36000n      3.1750u    799.9978m  
+    2.37000n      2.0708u    799.9985m  
+    2.38000n    966.6365n    799.9991m  
+    2.39000n      0.         799.9998m  
+    2.40000n     -1.2417u    800.0005m  
+    2.41000n     -2.3459u    800.0011m  
+    2.42000n     -3.4501u    800.0018m  
+    2.43000n     -4.5543u    800.0025m  
+    2.44000n     -5.6585u    800.0032m  
+    2.45000n     -6.7627u    800.0038m  
+    2.46000n     -7.8669u    800.0045m  
+    2.47000n     -8.9711u    800.0052m  
+    2.48000n     -9.9876u    800.0058m  
+    2.49000n     -8.8945u    800.0051m  
+    2.50000n     -7.8013u    800.0045m  
+    2.51000n     -6.7082u    800.0038m  
+    2.52000n     -5.6150u    800.0031m  
+    2.53000n     -4.5219u    800.0025m  
+    2.54000n     -3.4287u    800.0018m  
+    2.55000n     -2.3355u    800.0011m  
+    2.56000n     -1.2424u    800.0005m  
+    2.57000n      0.         799.9998m  
+    2.58000n    943.9273n    799.9991m  
+    2.59000n      2.0371u    799.9985m  
+    2.60000n      3.1302u    799.9978m  
+    2.61000n      4.2234u    799.9971m  
+    2.62000n      5.3166u    799.9965m  
+    2.63000n      6.4097u    799.9958m  
+    2.64000n      7.5029u    799.9951m  
+    2.65000n      8.5960u    799.9945m  
+    2.66000n      9.6892u    799.9938m  
+    2.67000n     10.7823u    799.9932m  
+    2.68000n     11.7888u    799.9925m  
+    2.69000n     10.7066u    799.9932m  
+    2.70000n      9.6245u    799.9939m  
+    2.71000n      8.5424u    799.9945m  
+    2.72000n      7.4602u    799.9952m  
+    2.73000n      6.3781u    799.9958m  
+    2.74000n      5.2960u    799.9965m  
+    2.75000n      4.2138u    799.9972m  
+    2.76000n      3.1317u    799.9978m  
+    2.77000n      2.0496u    799.9985m  
+    2.78000n    967.4468n    799.9991m  
+    2.79000n      0.         799.9998m  
+    2.80000n     -1.1968u    800.0004m  
+    2.81000n     -2.2789u    800.0011m  
+    2.82000n     -3.3611u    800.0018m  
+    2.83000n     -4.4432u    800.0024m  
+    2.84000n     -5.5253u    800.0031m  
+    2.85000n     -6.6075u    800.0037m  
+    2.86000n     -7.6896u    800.0044m  
+    2.87000n     -8.7717u    800.0051m  
+    2.88000n     -9.7607u    800.0057m  
+    2.89000n     -8.5050u    800.0049m  
+    2.90000n     -7.2493u    800.0041m  
+    2.91000n     -5.9936u    800.0034m  
+    2.92000n     -4.7380u    800.0026m  
+    2.93000n     -3.4823u    800.0018m  
+    2.94000n     -2.2266u    800.0011m  
+    2.95000n   -970.9626n    800.0003m  
+    2.96000n      0.         799.9995m  
+    2.97000n      1.5404u    799.9988m  
+    2.98000n      2.7961u    799.9980m  
+    2.99000n      4.0517u    799.9972m  
+    3.00000n      5.3074u    799.9965m  
+    3.01000n      6.5631u    799.9957m  
+    3.02000n      7.8187u    799.9949m  
+    3.03000n      9.0744u    799.9942m  
+    3.04000n     10.3301u    799.9934m  
+    3.05000n     11.5857u    799.9927m  
+    3.06000n    822.0204n    799.9992m  
+    3.07000n      0.         799.9997m  
+    3.08000n      1.2938u    799.9990m  
+    3.09000n      1.0067u    799.9991m  
+    3.10000n    949.8332n    799.9991m  
+    3.11000n    953.6673n    799.9991m  
+    3.12000n    953.6672n    799.9991m  
+    3.13000n    953.6674n    799.9991m  
+    3.14000n    953.6672n    799.9991m  
+    3.15000n    953.6670n    799.9991m  
+    3.16000n    953.6671n    799.9991m  
+    3.17000n    953.6671n    799.9991m  
+    3.18000n    953.6672n    799.9991m  
+    3.19000n    953.6672n    799.9991m  
+    3.20000n    953.6673n    799.9991m  
+    3.21000n    953.6674n    799.9991m  
+    3.22000n    953.6674n    799.9991m  
+    3.23000n    953.6675n    799.9991m  
+    3.24000n    953.6675n    799.9991m  
+    3.25000n    953.6674n    799.9991m  
+    3.26000n    953.6674n    799.9991m  
+    3.27000n    953.6674n    799.9991m  
+    3.28000n    953.6674n    799.9991m  
+    3.29000n    953.6673n    799.9991m  
+    3.30000n    953.6673n    799.9991m  
+    3.31000n    953.6673n    799.9991m  
+    3.32000n    953.6673n    799.9991m  
+    3.33000n    953.6673n    799.9991m  
+    3.34000n    953.6672n    799.9991m  
+    3.35000n    953.6672n    799.9991m  
+    3.36000n    953.6672n    799.9991m  
+    3.37000n    953.6672n    799.9991m  
+    3.38000n    953.6671n    799.9991m  
+    3.39000n    953.6671n    799.9991m  
+    3.40000n    953.6671n    799.9991m  
+    3.41000n    953.6671n    799.9991m  
+    3.42000n    953.6670n    799.9991m  
+    3.43000n    953.6670n    799.9991m  
+    3.44000n    953.6670n    799.9991m  
+    3.45000n    953.6671n    799.9991m  
+    3.46000n    953.6671n    799.9991m  
+    3.47000n    953.6671n    799.9991m  
+    3.48000n    953.6671n    799.9991m  
+    3.49000n    953.6672n    799.9991m  
+    3.50000n    953.6672n    799.9991m  
+    3.51000n    953.6672n    799.9991m  
+    3.52000n    953.6672n    799.9991m  
+    3.53000n    953.6673n    799.9991m  
+    3.54000n    953.6673n    799.9991m  
+    3.55000n    953.6673n    799.9991m  
+    3.56000n    953.6673n    799.9991m  
+    3.57000n    953.6674n    799.9991m  
+    3.58000n    953.6674n    799.9991m  
+    3.59000n    953.6674n    799.9991m  
+    3.60000n    953.6674n    799.9991m  
+    3.61000n    953.6674n    799.9991m  
+    3.62000n    953.6675n    799.9991m  
+    3.63000n    953.6675n    799.9991m  
+    3.64000n    953.6675n    799.9991m  
+    3.65000n    953.6674n    799.9991m  
+    3.66000n    953.6674n    799.9991m  
+    3.67000n    953.6674n    799.9991m  
+    3.68000n    953.6674n    799.9991m  
+    3.69000n    953.6673n    799.9991m  
+    3.70000n    953.6673n    799.9991m  
+    3.71000n    953.6673n    799.9991m  
+    3.72000n    953.6673n    799.9991m  
+    3.73000n    953.6672n    799.9991m  
+    3.74000n    953.6672n    799.9991m  
+    3.75000n    953.6672n    799.9991m  
+    3.76000n    953.6672n    799.9991m  
+    3.77000n    953.6672n    799.9991m  
+    3.78000n    953.6671n    799.9991m  
+    3.79000n    953.6671n    799.9991m  
+    3.80000n    953.6671n    799.9991m  
+    3.81000n    953.6671n    799.9991m  
+    3.82000n    953.6670n    799.9991m  
+    3.83000n    953.6670n    799.9991m  
+    3.84000n    953.6670n    799.9991m  
+    3.85000n    953.6671n    799.9991m  
+    3.86000n    953.6671n    799.9991m  
+    3.87000n    953.6671n    799.9991m  
+    3.88000n    953.6672n    799.9991m  
+    3.89000n    953.6672n    799.9991m  
+    3.90000n    953.6672n    799.9991m  
+    3.91000n    953.6672n    799.9991m  
+    3.92000n    953.6673n    799.9991m  
+    3.93000n    953.6673n    799.9991m  
+    3.94000n    953.6673n    799.9991m  
+    3.95000n    953.6674n    799.9991m  
+    3.96000n    953.6674n    799.9991m  
+    3.97000n    953.6674n    799.9991m  
+    3.98000n    953.6674n    799.9991m  
+    3.99000n    953.6675n    799.9991m  
+    4.00000n    953.6675n    799.9991m  
+y
+x
+
+        time    voltage      voltage    
+                 outin_11     outin_21  
+    0.          799.9991m    953.6898n  
+   10.00000p    800.0228m      2.6186u  
+   20.00000p    800.2781m     15.5437u  
+   30.00000p    797.6806m   -586.4304u  
+   40.00000p     54.5364m    484.1209m  
+   50.00000p    724.9186u    801.4916m  
+   60.00000p      9.2647u    800.0139m  
+   70.00000p     -6.0476u    799.9868m  
+   80.00000p     -9.6426u    799.9810m  
+   90.00000p      3.6827u    800.0040m  
+  100.00000p     17.0081u    800.0271m  
+  110.00000p     14.6273u    800.0229m  
+  120.00000p      8.3957u    800.0120m  
+  130.00000p      2.1640u    800.0012m  
+  140.00000p     -4.0677u    799.9903m  
+  150.00000p    -10.2994u    799.9794m  
+  160.00000p    -16.5311u    799.9686m  
+  170.00000p    -15.3662u    799.9706m  
+  180.00000p    -12.5202u    799.9756m  
+  190.00000p     -9.6742u    799.9806m  
+  200.00000p     -6.8283u    799.9856m  
+  210.00000p     -3.9823u    799.9905m  
+  220.00000p     -1.1363u    799.9955m  
+  230.00000p      1.7097u    800.0005m  
+  240.00000p      4.5557u    800.0055m  
+  250.00000p      7.4017u    800.0105m  
+  260.00000p     10.2477u    800.0154m  
+  270.00000p     13.0936u    800.0204m  
+  280.00000p     15.9396u    800.0254m  
+  290.00000p     18.7856u    800.0304m  
+  300.00000p     18.2104u    800.0294m  
+  310.00000p     16.3499u    800.0261m  
+  320.00000p     14.4893u    800.0228m  
+  330.00000p     12.6288u    800.0196m  
+  340.00000p     10.7683u    800.0163m  
+  350.00000p      8.9078u    800.0131m  
+  360.00000p      7.0472u    800.0098m  
+  370.00000p      5.1867u    800.0065m  
+  380.00000p      3.3262u    800.0033m  
+  390.00000p      1.4656u    800.0000m  
+  400.00000p      0.         799.9968m  
+  410.00000p     -2.2554u    799.9935m  
+  420.00000p     -4.1159u    799.9902m  
+  430.00000p     -5.9765u    799.9870m  
+  440.00000p     -7.8370u    799.9837m  
+  450.00000p     -9.6975u    799.9804m  
+  460.00000p    -11.5581u    799.9772m  
+  470.00000p    -13.4186u    799.9739m  
+  480.00000p    -15.2791u    799.9707m  
+  490.00000p    -17.1396u    799.9674m  
+  500.00000p    -16.2966u    799.9689m  
+  510.00000p    -14.4379u    799.9721m  
+  520.00000p    -12.5792u    799.9754m  
+  530.00000p    -10.7204u    799.9787m  
+  540.00000p     -8.8617u    799.9819m  
+  550.00000p     -7.0030u    799.9852m  
+  560.00000p     -5.1443u    799.9885m  
+  570.00000p     -3.2856u    799.9917m  
+  580.00000p     -1.4268u    799.9950m  
+  590.00000p      0.         799.9983m  
+  600.00000p      2.2906u    800.0015m  
+  610.00000p      4.1493u    800.0048m  
+  620.00000p      6.0080u    800.0080m  
+  630.00000p      7.8668u    800.0113m  
+  640.00000p      9.7255u    800.0146m  
+  650.00000p     11.5842u    800.0178m  
+  660.00000p     13.4429u    800.0211m  
+  670.00000p     15.3017u    800.0244m  
+  680.00000p     17.1604u    800.0276m  
+  690.00000p     19.0191u    800.0309m  
+  700.00000p     18.1766u    800.0294m  
+  710.00000p     16.3194u    800.0261m  
+  720.00000p     14.4621u    800.0229m  
+  730.00000p     12.6048u    800.0196m  
+  740.00000p     10.7476u    800.0163m  
+  750.00000p      8.8903u    800.0131m  
+  760.00000p      7.0330u    800.0098m  
+  770.00000p      5.1758u    800.0065m  
+  780.00000p      3.3185u    800.0033m  
+  790.00000p      1.4612u    800.0000m  
+  800.00000p      0.         799.9968m  
+  810.00000p     -2.2533u    799.9935m  
+  820.00000p     -4.1106u    799.9902m  
+  830.00000p     -5.9679u    799.9870m  
+  840.00000p     -7.8251u    799.9837m  
+  850.00000p     -9.6824u    799.9804m  
+  860.00000p    -11.5397u    799.9772m  
+  870.00000p    -13.3969u    799.9739m  
+  880.00000p    -15.2542u    799.9706m  
+  890.00000p    -17.1115u    799.9674m  
+  900.00000p    -15.9033u    799.9695m  
+  910.00000p    -13.5435u    799.9736m  
+  920.00000p    -11.1838u    799.9778m  
+  930.00000p     -8.8240u    799.9820m  
+  940.00000p     -6.4642u    799.9861m  
+  950.00000p     -4.1044u    799.9903m  
+  960.00000p     -1.7446u    799.9944m  
+  970.00000p    615.1671n    799.9986m  
+  980.00000p      2.9750u    800.0027m  
+  990.00000p      5.3347u    800.0069m  
+    1.00000n      7.6945u    800.0110m  
+    1.01000n     10.0543u    800.0152m  
+    1.02000n     12.4141u    800.0194m  
+    1.03000n     14.7739u    800.0235m  
+    1.04000n     17.1337u    800.0277m  
+    1.05000n     19.4934u    800.0318m  
+    1.06000n    882.7037n    799.9991m  
+    1.07000n    759.2347n    799.9992m  
+    1.08000n      1.0318u    799.9992m  
+    1.09000n      1.0604u    799.9993m  
+    1.10000n      1.0255u    799.9993m  
+    1.11000n    955.6972n    799.9991m  
+    1.12000n    952.0351n    799.9991m  
+    1.13000n    953.4644n    799.9991m  
+    1.14000n    954.8937n    799.9991m  
+    1.15000n    955.5697n    799.9991m  
+    1.16000n    954.9039n    799.9991m  
+    1.17000n    954.2381n    799.9991m  
+    1.18000n    953.5723n    799.9991m  
+    1.19000n    952.9066n    799.9991m  
+    1.20000n    952.2408n    799.9991m  
+    1.21000n    952.1350n    799.9991m  
+    1.22000n    952.4144n    799.9991m  
+    1.23000n    952.6938n    799.9991m  
+    1.24000n    952.9732n    799.9991m  
+    1.25000n    953.2526n    799.9991m  
+    1.26000n    953.5320n    799.9991m  
+    1.27000n    953.8114n    799.9991m  
+    1.28000n    954.0908n    799.9991m  
+    1.29000n    954.3702n    799.9991m  
+    1.30000n    954.6496n    799.9991m  
+    1.31000n    954.9290n    799.9991m  
+    1.32000n    955.2084n    799.9991m  
+    1.33000n    955.4878n    799.9991m  
+    1.34000n    955.7672n    799.9991m  
+    1.35000n    955.6271n    799.9991m  
+    1.36000n    955.4360n    799.9991m  
+    1.37000n    955.2449n    799.9991m  
+    1.38000n    955.0538n    799.9991m  
+    1.39000n    954.8626n    799.9991m  
+    1.40000n    954.6715n    799.9991m  
+    1.41000n    954.4804n    799.9991m  
+    1.42000n    954.2893n    799.9991m  
+    1.43000n    954.0982n    799.9991m  
+    1.44000n    953.9071n    799.9991m  
+    1.45000n    953.7160n    799.9991m  
+    1.46000n    953.5249n    799.9991m  
+    1.47000n    953.3338n    799.9991m  
+    1.48000n    953.1427n    799.9991m  
+    1.49000n    952.9515n    799.9991m  
+    1.50000n    952.7604n    799.9991m  
+    1.51000n    952.5693n    799.9991m  
+    1.52000n    952.3782n    799.9991m  
+    1.53000n    952.1871n    799.9991m  
+    1.54000n    951.9960n    799.9991m  
+    1.55000n    952.1454n    799.9991m  
+    1.56000n    952.3363n    799.9991m  
+    1.57000n    952.5272n    799.9991m  
+    1.58000n    952.7181n    799.9991m  
+    1.59000n    952.9089n    799.9991m  
+    1.60000n    953.0998n    799.9991m  
+    1.61000n    953.2907n    799.9991m  
+    1.62000n    953.4816n    799.9991m  
+    1.63000n    953.6724n    799.9991m  
+    1.64000n    953.8633n    799.9991m  
+    1.65000n    954.0542n    799.9991m  
+    1.66000n    954.2451n    799.9991m  
+    1.67000n    954.4359n    799.9991m  
+    1.68000n    954.6268n    799.9991m  
+    1.69000n    954.8177n    799.9991m  
+    1.70000n    955.0086n    799.9991m  
+    1.71000n    955.1994n    799.9991m  
+    1.72000n    955.3903n    799.9991m  
+    1.73000n    955.5812n    799.9991m  
+    1.74000n    955.7721n    799.9991m  
+    1.75000n    955.6228n    799.9991m  
+    1.76000n    955.4322n    799.9991m  
+    1.77000n    955.2415n    799.9991m  
+    1.78000n    955.0509n    799.9991m  
+    1.79000n    954.8602n    799.9991m  
+    1.80000n    954.6696n    799.9991m  
+    1.81000n    954.4790n    799.9991m  
+    1.82000n    954.2883n    799.9991m  
+    1.83000n    954.0977n    799.9991m  
+    1.84000n    953.9070n    799.9991m  
+    1.85000n    953.7164n    799.9991m  
+    1.86000n    953.5258n    799.9991m  
+    1.87000n    953.3351n    799.9991m  
+    1.88000n    953.1445n    799.9991m  
+    1.89000n    952.9538n    799.9991m  
+    1.90000n    952.7632n    799.9991m  
+    1.91000n    952.5726n    799.9991m  
+    1.92000n    952.3819n    799.9991m  
+    1.93000n    952.1913n    799.9991m  
+    1.94000n    952.0006n    799.9991m  
+    1.95000n    952.5554n    799.9991m  
+    1.96000n    953.2008n    799.9991m  
+    1.97000n    953.8462n    799.9991m  
+    1.98000n    954.4917n    799.9991m  
+    1.99000n    955.1371n    799.9991m  
+    2.00000n    955.7825n    799.9991m  
+    2.01000n    953.6668n    799.9991m  
+    2.02000n    953.7108n    799.9991m  
+    2.03000n    953.6907n    799.9991m  
+    2.04000n    953.6895n    799.9991m  
+    2.05000n    953.6898n    799.9991m  
+    2.06000n      3.2203u    799.9931m  
+    2.07000n   -405.6987u    799.9899m  
+    2.08000n     -3.6138m    800.0840m  
+    2.09000n    769.0417m    225.3864m  
+    2.10000n    799.8816m   -255.1135u  
+    2.11000n    800.0018m      5.7152u  
+    2.12000n    799.9986m      0.       
+    2.13000n    799.9931m     -8.5582u  
+    2.14000n    799.9965m     -3.1872u  
+    2.15000n    799.9998m      2.1839u  
+    2.16000n    800.0032m      7.5549u  
+    2.17000n    800.0058m     11.7219u  
+    2.18000n    800.0046m      9.7378u  
+    2.19000n    800.0034m      7.7538u  
+    2.20000n    800.0021m      5.7697u  
+    2.21000n    800.0009m      3.7856u  
+    2.22000n    799.9997m      1.8016u  
+    2.23000n    799.9985m      0.       
+    2.24000n    799.9972m     -2.1666u  
+    2.25000n    799.9960m     -4.1506u  
+    2.26000n    799.9948m     -6.1347u  
+    2.27000n    799.9936m     -8.1188u  
+    2.28000n    799.9924m     -9.9801u  
+    2.29000n    799.9931m     -8.8868u  
+    2.30000n    799.9937m     -7.7934u  
+    2.31000n    799.9944m     -6.7000u  
+    2.32000n    799.9951m     -5.6067u  
+    2.33000n    799.9958m     -4.5133u  
+    2.34000n    799.9964m     -3.4200u  
+    2.35000n    799.9971m     -2.3266u  
+    2.36000n    799.9978m     -1.2333u  
+    2.37000n    799.9985m      0.       
+    2.38000n    799.9991m    953.4647n  
+    2.39000n    799.9998m      2.0468u  
+    2.40000n    800.0005m      3.1402u  
+    2.41000n    800.0011m      4.2335u  
+    2.42000n    800.0018m      5.3269u  
+    2.43000n    800.0025m      6.4203u  
+    2.44000n    800.0032m      7.5136u  
+    2.45000n    800.0038m      8.6070u  
+    2.46000n    800.0045m      9.7003u  
+    2.47000n    800.0052m     10.7937u  
+    2.48000n    800.0058m     11.8001u  
+    2.49000n    800.0051m     10.7136u  
+    2.50000n    800.0045m      9.6270u  
+    2.51000n    800.0038m      8.5405u  
+    2.52000n    800.0031m      7.4539u  
+    2.53000n    800.0025m      6.3674u  
+    2.54000n    800.0018m      5.2808u  
+    2.55000n    800.0011m      4.1942u  
+    2.56000n    800.0005m      3.1077u  
+    2.57000n    799.9998m      2.0211u  
+    2.58000n    799.9991m    934.5764n  
+    2.59000n    799.9985m      0.       
+    2.60000n    799.9978m     -1.2385u  
+    2.61000n    799.9971m     -2.3251u  
+    2.62000n    799.9965m     -3.4116u  
+    2.63000n    799.9958m     -4.4982u  
+    2.64000n    799.9951m     -5.5848u  
+    2.65000n    799.9945m     -6.6713u  
+    2.66000n    799.9938m     -7.7579u  
+    2.67000n    799.9932m     -8.8444u  
+    2.68000n    799.9925m     -9.8446u  
+    2.69000n    799.9932m     -8.7648u  
+    2.70000n    799.9939m     -7.6850u  
+    2.71000n    799.9945m     -6.6052u  
+    2.72000n    799.9952m     -5.5254u  
+    2.73000n    799.9958m     -4.4456u  
+    2.74000n    799.9965m     -3.3658u  
+    2.75000n    799.9972m     -2.2860u  
+    2.76000n    799.9978m     -1.2062u  
+    2.77000n    799.9985m      0.       
+    2.78000n    799.9991m    953.3982n  
+    2.79000n    799.9998m      2.0332u  
+    2.80000n    800.0004m      3.1130u  
+    2.81000n    800.0011m      4.1928u  
+    2.82000n    800.0018m      5.2726u  
+    2.83000n    800.0024m      6.3524u  
+    2.84000n    800.0031m      7.4322u  
+    2.85000n    800.0037m      8.5120u  
+    2.86000n    800.0044m      9.5918u  
+    2.87000n    800.0051m     10.6716u  
+    2.88000n    800.0057m     11.6582u  
+    2.89000n    800.0049m     10.3993u  
+    2.90000n    800.0041m      9.1405u  
+    2.91000n    800.0034m      7.8816u  
+    2.92000n    800.0026m      6.6228u  
+    2.93000n    800.0018m      5.3640u  
+    2.94000n    800.0011m      4.1051u  
+    2.95000n    800.0003m      2.8463u  
+    2.96000n    799.9995m      1.5874u  
+    2.97000n    799.9988m      0.       
+    2.98000n    799.9980m   -930.2544n  
+    2.99000n    799.9972m     -2.1891u  
+    3.00000n    799.9965m     -3.4479u  
+    3.01000n    799.9957m     -4.7068u  
+    3.02000n    799.9949m     -5.9656u  
+    3.03000n    799.9942m     -7.2245u  
+    3.04000n    799.9934m     -8.4833u  
+    3.05000n    799.9927m     -9.7422u  
+    3.06000n    799.9992m      1.0602u  
+    3.07000n    799.9997m      1.6201u  
+    3.08000n    799.9990m    715.2069n  
+    3.09000n    799.9991m    904.9380n  
+    3.10000n    799.9991m    956.4808n  
+    3.11000n    799.9991m    953.6898n  
+    3.12000n    799.9991m    953.6897n  
+    3.13000n    799.9991m    953.6902n  
+    3.14000n    799.9991m    953.6897n  
+    3.15000n    799.9991m    953.6893n  
+    3.16000n    799.9991m    953.6893n  
+    3.17000n    799.9991m    953.6895n  
+    3.18000n    799.9991m    953.6896n  
+    3.19000n    799.9991m    953.6898n  
+    3.20000n    799.9991m    953.6900n  
+    3.21000n    799.9991m    953.6901n  
+    3.22000n    799.9991m    953.6903n  
+    3.23000n    799.9991m    953.6905n  
+    3.24000n    799.9991m    953.6904n  
+    3.25000n    799.9991m    953.6904n  
+    3.26000n    799.9991m    953.6903n  
+    3.27000n    799.9991m    953.6902n  
+    3.28000n    799.9991m    953.6902n  
+    3.29000n    799.9991m    953.6901n  
+    3.30000n    799.9991m    953.6900n  
+    3.31000n    799.9991m    953.6900n  
+    3.32000n    799.9991m    953.6899n  
+    3.33000n    799.9991m    953.6898n  
+    3.34000n    799.9991m    953.6898n  
+    3.35000n    799.9991m    953.6897n  
+    3.36000n    799.9991m    953.6896n  
+    3.37000n    799.9991m    953.6896n  
+    3.38000n    799.9991m    953.6895n  
+    3.39000n    799.9991m    953.6894n  
+    3.40000n    799.9991m    953.6894n  
+    3.41000n    799.9991m    953.6893n  
+    3.42000n    799.9991m    953.6892n  
+    3.43000n    799.9991m    953.6892n  
+    3.44000n    799.9991m    953.6892n  
+    3.45000n    799.9991m    953.6893n  
+    3.46000n    799.9991m    953.6894n  
+    3.47000n    799.9991m    953.6894n  
+    3.48000n    799.9991m    953.6895n  
+    3.49000n    799.9991m    953.6896n  
+    3.50000n    799.9991m    953.6896n  
+    3.51000n    799.9991m    953.6897n  
+    3.52000n    799.9991m    953.6898n  
+    3.53000n    799.9991m    953.6898n  
+    3.54000n    799.9991m    953.6899n  
+    3.55000n    799.9991m    953.6900n  
+    3.56000n    799.9991m    953.6900n  
+    3.57000n    799.9991m    953.6901n  
+    3.58000n    799.9991m    953.6902n  
+    3.59000n    799.9991m    953.6902n  
+    3.60000n    799.9991m    953.6903n  
+    3.61000n    799.9991m    953.6904n  
+    3.62000n    799.9991m    953.6904n  
+    3.63000n    799.9991m    953.6905n  
+    3.64000n    799.9991m    953.6904n  
+    3.65000n    799.9991m    953.6903n  
+    3.66000n    799.9991m    953.6903n  
+    3.67000n    799.9991m    953.6902n  
+    3.68000n    799.9991m    953.6901n  
+    3.69000n    799.9991m    953.6901n  
+    3.70000n    799.9991m    953.6900n  
+    3.71000n    799.9991m    953.6899n  
+    3.72000n    799.9991m    953.6899n  
+    3.73000n    799.9991m    953.6898n  
+    3.74000n    799.9991m    953.6897n  
+    3.75000n    799.9991m    953.6897n  
+    3.76000n    799.9991m    953.6896n  
+    3.77000n    799.9991m    953.6895n  
+    3.78000n    799.9991m    953.6895n  
+    3.79000n    799.9991m    953.6894n  
+    3.80000n    799.9991m    953.6893n  
+    3.81000n    799.9991m    953.6893n  
+    3.82000n    799.9991m    953.6892n  
+    3.83000n    799.9991m    953.6892n  
+    3.84000n    799.9991m    953.6893n  
+    3.85000n    799.9991m    953.6893n  
+    3.86000n    799.9991m    953.6894n  
+    3.87000n    799.9991m    953.6895n  
+    3.88000n    799.9991m    953.6896n  
+    3.89000n    799.9991m    953.6896n  
+    3.90000n    799.9991m    953.6897n  
+    3.91000n    799.9991m    953.6898n  
+    3.92000n    799.9991m    953.6899n  
+    3.93000n    799.9991m    953.6899n  
+    3.94000n    799.9991m    953.6900n  
+    3.95000n    799.9991m    953.6901n  
+    3.96000n    799.9991m    953.6902n  
+    3.97000n    799.9991m    953.6903n  
+    3.98000n    799.9991m    953.6903n  
+    3.99000n    799.9991m    953.6904n  
+    4.00000n    799.9991m    953.6905n  
+y
+
+          ***** job concluded
+1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
+ ******  
+ $ netlist of inverter
+
+  ******  job statistics summary tnom=  25.000 temp=  25.000 *****
+  
+  
+ ******  Machine Information  ******
+ CPU:
+ model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
+ cpu MHz	: 2019.789
+  
+ OS:
+ Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
+ t.com) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC) ) #1 SMP Sun Jan 14
+  10:36:03 EST 2018
+
+
+  ******  HSPICE Threads Information  ******
+
+  Command Line Threads Count :     1
+  Available CPU Count        :    24
+  Actual Threads Count       :     1
+
+
+  ******  Circuit Statistics  ******
+  # nodes       =      44 # elements   =      19
+  # resistors   =       0 # capacitors =       0 # inductors   =       0
+  # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
+  # cccs        =       0 # ccvs       =       0 # volt_srcs   =       3
+  # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
+  # jfets       =       0 # mosfets    =      16 # U elements  =       0
+  # T elements  =       0 # W elements =       0 # B elements  =       0
+  # S elements  =       0 # P elements =       0 # va device   =       0
+  # vector_srcs =       0
+
+
+  ******  Runtime Statistics (seconds)  ******
+
+  analysis           time    # points   tot. iter  conv.iter
+  op point           0.00           1           4
+  transient          0.06         401         704         145 rev=         9
+  readin             0.01
+  errchk             0.00
+  setup              0.00
+  output             0.01
+
+
+           peak memory used        135.46 megabytes
+           total cpu time            0.08 seconds
+           total elapsed time        0.34 seconds
+           job started at     18:27:17 09/13/2020
+           job ended   at     18:27:17 09/13/2020
+
+
+ lic: Release hspice token(s) 
