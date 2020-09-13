@@ -17,24 +17,34 @@ xpfet out in vdd vdd pfet l=16n nfin=1000m
 xnfet out in gnd gnd nfet l=16n nfin=1000m
 .ends
 
+.subckt uut_grid vdd
++outin_00 outin_01 $ Inputs to uut_grid Subckt
++outin_10 outin_20 outin_11 outin_21 $ Outputs to uut_grid Subckt
 xinverter00 outin_00 outin_10 vdd inverter
 xinverter10 outin_10 outin_20 vdd inverter
 xinverter01 outin_01 outin_11 vdd inverter
 xinverter11 outin_11 outin_21 vdd inverter
+.ends
+xuut_grid vdd
++outin_00 outin_01 $ Inputs to uut_grid
++outin_10 outin_20 outin_11 outin_21 $ Outputs to uut_grid
++uut_grid
 
 $Output Loads
 xoutput_00 outin_30 outb_00 vdd inverter
 xoutput_10 outin_31 outb_10 vdd inverter
 
 $Measurements
-.measure tran inv_avg_power00 avg p(xinverter00) from=0ns to=4ns
-.measure tran peakpower00 max p(xinverter00)
-.measure tran inv_avg_power10 avg p(xinverter10) from=0ns to=4ns
-.measure tran peakpower10 max p(xinverter10)
-.measure tran inv_avg_power01 avg p(xinverter01) from=0ns to=4ns
-.measure tran peakpower01 max p(xinverter01)
-.measure tran inv_avg_power11 avg p(xinverter11) from=0ns to=4ns
-.measure tran peakpower11 max p(xinverter11)
+.measure tran inv_avg_power00 avg p(xuut_grid.xinverter00) from=0ns to=4ns
+.measure tran peakpower00 max p(xuut_grid.xinverter00)
+.measure tran inv_avg_power10 avg p(xuut_grid.xinverter10) from=0ns to=4ns
+.measure tran peakpower10 max p(xuut_grid.xinverter10)
+.measure tran inv_avg_power01 avg p(xuut_grid.xinverter01) from=0ns to=4ns
+.measure tran peakpower01 max p(xuut_grid.xinverter01)
+.measure tran inv_avg_power11 avg p(xuut_grid.xinverter11) from=0ns to=4ns
+.measure tran peakpower11 max p(xuut_grid.xinverter11)
+.measure tran uut_grid_avg_power avg p(xuut_grid) from=0ns to=4ns
+.measure tran uut_grid_max_power max p(xuut_grid)
 .measure tran source_power avg power
 .measure tran trf_delay_001 trig v(outin_00) val=0.425 rise=1 targ v(outin_10) val=0.425 fall=1
 .measure tran tfr_delay_001 trig v(outin_00) val=0.425 fall=1 targ v(outin_10) val=0.425 rise=1

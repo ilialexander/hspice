@@ -55,14 +55,45 @@ class subckts:
 
     def write_inverter(self, uut_size, serial_instance):
         '''Write inverter device'''
+        self.uut.write(".subckt uut_grid vdd\n")
+        self.uut.write("+")
+        for instance in range(uut_size):
+            instance = str(instance)
+            self.uut.write("outin_0" + instance + " ")
+        self.uut.write("$ Inputs to uut_grid Subckt\n")
+
+        self.uut.write("+")
+        for instance in range(uut_size):
+            for outin in range(serial_instance):
+                instance = str(instance)
+                inout = str(outin + 1)
+                self.uut.write("outin_" + inout + instance + " ")
+        self.uut.write("$ Outputs to uut_grid Subckt\n")
+                
         for instance in range(uut_size):
             for outin in range(serial_instance):
                 instance = str(instance)
                 inout = str(outin + 1)
                 outin = str(outin)
-                # declare subckt name, input, output, and source
                 self.uut.write("xinverter" + outin + instance + " " + "outin_" + outin  + instance + " " + "outin_" + inout + instance + " vdd " + "inverter\n")
-        self.uut.write("\n")
+        self.uut.write(".ends\n")
+
+        self.uut.write("xuut_grid vdd\n")
+        self.uut.write("+")
+        for instance in range(uut_size):
+            instance = str(instance)
+            self.uut.write("outin_0" + instance + " ")
+        self.uut.write("$ Inputs to uut_grid\n")
+
+        self.uut.write("+")
+        for instance in range(uut_size):
+            for outin in range(serial_instance):
+                instance = str(instance)
+                inout = str(outin + 1)
+                self.uut.write("outin_" + inout + instance + " ")
+        self.uut.write("$ Outputs to uut_grid\n")
+        self.uut.write("+uut_grid\n\n")
+
         return None
 
 
@@ -133,10 +164,12 @@ class subckts:
                 instance = str(instance)
                 outin = str(outin)
                 # automate to print per uut subckt, create subckt uut to calculate power of entire uut
-                self.uut.write(".measure tran inv_avg_power" + outin + instance  + " avg p(x" + "inverter" + outin + instance + ") from=0ns to=" + sim_time + "ns\n")
+                self.uut.write(".measure tran inv_avg_power" + outin + instance  + " avg p(xuut_grid.x" + "inverter" + outin + instance + ") from=0ns to=" + sim_time + "ns\n")
                 # automate to print per uut subckt
-                self.uut.write(".measure tran peakpower" + outin + instance  + " max p(x" + "inverter" + outin + instance + ")\n")
+                self.uut.write(".measure tran peakpower" + outin + instance  + " max p(xuut_grid.x" + "inverter" + outin + instance + ")\n")
 
+        self.uut.write(".measure tran uut_grid_avg_power avg p(xuut_grid) from=0ns to=" + sim_time + "ns\n")
+        self.uut.write(".measure tran uut_grid_max_power max p(xuut_grid)\n")
         self.uut.write(".measure tran source_power avg power\n")
         return None
 
