@@ -1,5 +1,3 @@
-merge
-create new branch plot_data
 take delay averages for rise_fall and fall_rise
 plot waves in python for all ptm model sizes
 plot delay per ptm model
