@@ -20,8 +20,12 @@ def main():
     timing_data = {}     # collects data to produce timing diagrams
     rise_fall_data = {}  # collects data to calculate rise_fall avg delay 
     fall_rise_data = {}  # collects data to calculate fall_rise avg delay 
-    peak_power_data = {} # collects peack power data
+    avg_delay_data = {}  # collects data to calculate rise_fall avg delay 
+    peak_power_data = {} # collects peak power data
+    subckt_peak_power_data = {} # collects subckt peak power data
     avg_power_data = {}  # collects average power data
+    subckt_avg_power_data = {}  # collects subckt average power data
+    
 
     for fet_params in uut_params:
         (subuut, fet_length, fet_voltage, fet_nfin) = fet_params
@@ -80,9 +84,30 @@ def main():
         peak_power_data[subuut] = subckts_modules.clean_data(0, 3, power_series)
         avg_power_data[subuut] = subckts_modules.clean_data(2, 3, power_series)
 
-        #print(timing_data[fet_params][subckts_modules.uut_subckt[0]])
+        list_rf_values = list(rise_fall_data[subuut].values())
+        list_fr_values = list(fall_rise_data[subuut].values())
+        delay_values = list_rf_values + list_fr_values 
+        avg_delay_data[subuut] = sum(delay_values) / len(delay_values)
+
+        model_uut_avg_power = []
+        for power_keys in list(avg_power_data[subuut].keys()):
+            if "model_uut" in power_keys:
+                model_uut_avg_power.append(avg_power_data[subuut][power_keys])
+        subckt_avg_power_data[subuut] = sum(model_uut_avg_power) / len(model_uut_avg_power)
+
+        model_uut_peak_power = []
+        for power_keys in list(peak_power_data[subuut].keys()):
+            if "model_uut" in power_keys:
+                model_uut_peak_power.append(peak_power_data[subuut][power_keys])
+        subckt_peak_power_data[subuut] = sum(model_uut_peak_power) / len(model_uut_peak_power)
+        #subckt_avg_power_data = {}  # collects subckt average power data
+    
+        #print(timing_data[subuut][subckts_modules.uut_subckt[0]])
         #print(subckts_modules.uut_subckt)
+        #print(peak_power_data[subuut])
+        #print(avg_power_data[subuut])
         #break
+    #print(avg_delay_data)
 
     #print(timing_series)
 #    print(timing_data[0][2][1])

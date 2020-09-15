@@ -150,7 +150,7 @@ class subckts:
 
     def analysis_type(self):
         '''Sets the type of analysis for the simulation'''
-        self.spice_file.write(".option post=2\n")
+        self.spice_file.write(".option post=2 ingold=2\n")
         # sets the simulation step and duration
         self.spice_file.write("." + self.sim_type + " " + self.sim_tinc + " " + self.sim_time + "ns\n\n")
         self.spice_file.write(".end")
@@ -174,7 +174,13 @@ class subckts:
             lis_flag = 0 # stop resding
         elif (lis_flag == 1):
             # append lines with data
-            lis_series.append(line.split())
+            lis_line_data = []
+            for datum in line.replace("=", " ").split(): # remove equal signs to capture negative numbers
+                try:
+                    lis_line_data.append(abs(float(datum))) # converts numeriral strings to floats
+                except:
+                    lis_line_data.append(datum) # adds names to list
+            lis_series.append(lis_line_data)
         # returns the flag and data collected
         return (lis_flag, lis_series)
 
@@ -216,7 +222,7 @@ class subckts:
         model_uut_data = {}
         for datum in series[start_index::step]:
             # selects datum and datum name
-            model_uut_data[datum[0][:-1]] = datum[1]
+            model_uut_data[datum[0]] = datum[1]
 
         return model_uut_data        
 

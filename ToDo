@@ -1,10 +1,9 @@
-convert data from SI prefixes to scientific notation
-take delay averages for rise_fall and fall_rise
+clean and set data for plotting
 plot waves in python for all ptm model sizes
 plot delay per ptm model
 plot power per ptm model
 clean/comment code
 create new branch dram
-work on dram cell
+work on sram cell
 create new branch cam
 work on cam cell

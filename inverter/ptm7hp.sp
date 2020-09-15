@@ -68,7 +68,7 @@ $ Measurements
 .print TRAN V(outin_11) V(outin_21)
 
 $ Simulation/Analysis Type
-.option post=2
+.option post=2 ingold=2
 .tran 10p 4ns
 
 .end

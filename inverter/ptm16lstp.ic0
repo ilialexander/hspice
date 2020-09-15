@@ -1,24 +1,24 @@
 * "simulator" "HSPICE" 
 * "version" "F-2011.09-SP2 64-BIT"
 * "format" "HSP"
-* "rundate" "22:56:13 09/14/2020 "
+* "rundate" "14:56:43 09/15/2020 "
 * "netlist" "ptm16lstp.sp "
 * "runtitle" "$ netlist of inverter"
-* time =    0.            
-* temperature =   25.0000        
+* time =  0.000e+00       
+* temperature =  2.500e+01       
 *** BEGIN: Saved Operating Point ***                     
 .option 
-+ gmindc=   1.0000p       
++ gmindc= 1.000e-12       
 .nodeset
-+ inb_0 = 850.0000m       
-+ inb_1 = 850.0000m       
-+ outb_00 = 849.9994m       
-+ outb_10 = 849.9994m       
-+ outin_00 = 575.7482n       
-+ outin_01 = 575.7482n       
-+ outin_10 = 849.9994m       
-+ outin_11 = 849.9994m       
-+ outin_20 = 575.7586n       
-+ outin_21 = 575.7586n       
-+ vdd = 850.0000m       
++ inb_0 = 8.500e-01       
++ inb_1 = 8.500e-01       
++ outb_00 = 8.500e-01       
++ outb_10 = 8.500e-01       
++ outin_00 = 5.757e-07       
++ outin_01 = 5.757e-07       
++ outin_10 = 8.500e-01       
++ outin_11 = 8.500e-01       
++ outin_20 = 5.758e-07       
++ outin_21 = 5.758e-07       
++ vdd = 8.500e-01       
 ***   END: Saved Operating Point ***                     
