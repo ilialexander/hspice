@@ -1,7 +1,6 @@
-clean and set data for plotting
-plot waves in python for all ptm model sizes
 plot delay per ptm model
 plot power per ptm model
+plot waves in python for all ptm model sizes
 clean/comment code
 create new branch dram
 work on sram cell

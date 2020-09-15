@@ -2,8 +2,8 @@
  Input File: ptm20lstp.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu
- lic: HOSTID:                      PID:      89639
+ lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu
+ lic: HOSTID:                      PID:      169624
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
@@ -29,8 +29,8 @@
  tran: time= 1.2673E-09 tot_iter=     239 conv_iter=      45 cpu clock= 6.00E-02
  tran: time= 1.6673E-09 tot_iter=     243 conv_iter=      47 cpu clock= 6.00E-02
  tran: time= 2.0000E-09 tot_iter=     247 conv_iter=      49 cpu clock= 6.00E-02
- tran: time= 2.4657E-09 tot_iter=     419 conv_iter=      88 cpu clock= 8.00E-02
- tran: time= 2.8657E-09 tot_iter=     423 conv_iter=      90 cpu clock= 8.00E-02
+ tran: time= 2.4657E-09 tot_iter=     419 conv_iter=      88 cpu clock= 7.00E-02
+ tran: time= 2.8657E-09 tot_iter=     423 conv_iter=      90 cpu clock= 7.00E-02
  tran: time= 3.2845E-09 tot_iter=     509 conv_iter=     110 cpu clock= 8.00E-02
  tran: time= 3.6845E-09 tot_iter=     513 conv_iter=     112 cpu clock= 8.00E-02
  tran: time= 4.0000E-09 tot_iter=     517 conv_iter=     114 cpu clock= 8.00E-02

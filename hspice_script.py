@@ -89,39 +89,19 @@ def main():
         delay_values = list_rf_values + list_fr_values 
         avg_delay_data[subuut] = sum(delay_values) / len(delay_values)
 
-        model_uut_avg_power = []
-        for power_keys in list(avg_power_data[subuut].keys()):
-            if "model_uut" in power_keys:
-                model_uut_avg_power.append(avg_power_data[subuut][power_keys])
-        subckt_avg_power_data[subuut] = sum(model_uut_avg_power) / len(model_uut_avg_power)
-
-        model_uut_peak_power = []
-        for power_keys in list(peak_power_data[subuut].keys()):
-            if "model_uut" in power_keys:
-                model_uut_peak_power.append(peak_power_data[subuut][power_keys])
-        subckt_peak_power_data[subuut] = sum(model_uut_peak_power) / len(model_uut_peak_power)
-        #subckt_avg_power_data = {}  # collects subckt average power data
+        avg_power_data[subuut]["subckt_avg_power"] = subckts_modules.get_power_avg(avg_power_data[subuut])
+        peak_power_data[subuut]["subckt_peak_power"] = subckts_modules.get_power_avg(peak_power_data[subuut])
     
-        #print(timing_data[subuut][subckts_modules.uut_subckt[0]])
-        #print(subckts_modules.uut_subckt)
-        #print(peak_power_data[subuut])
+        #print(timing_data[subuut])
         #print(avg_power_data[subuut])
+        #print(peak_power_data[subuut])
+        #print(avg_delay_data[subuut])
         #break
-    #print(avg_delay_data)
 
-    #print(timing_series)
-#    print(timing_data[0][2][1])
-
-    #trf_delays = delay_series[0::2]
-    #print(trf_delays[:])
-    #print(delay_series[1::2][:][:1])
-
-    #data = pd.DataFrame(timing_data[fet_params][subckts_modules.uut_subckt[3]], columns = ['Time', 'Voltage_in', 'Voltage_out'])
+    #data = pd.DataFrame(timing_data[subuut][subckts_modules.uut_subckt[3]], columns = ['Time', 'Voltage_in', 'Voltage_out'])
     #data_no_indices = data.to_string(index=False)
     #print(data_no_indices)
 
-#    print(data_no_indices)
-#    print(timing_data)
 
 if __name__ == '__main__':
     main()

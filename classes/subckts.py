@@ -227,6 +227,14 @@ class subckts:
         return model_uut_data        
 
 
+    def get_power_avg(self, subuut_power_data):
+        subuut_avg_power = []
+        for power_keys in list(subuut_power_data.keys()):
+            if "model_uut" in power_keys:
+                subuut_avg_power.append(subuut_power_data.pop(power_keys))
+        return sum(subuut_avg_power) / len(subuut_avg_power)
+
+
     def measure_delays(self):
         '''Measures all delays of model_uut_grid'''
         for instance in range(self.par_instances):
