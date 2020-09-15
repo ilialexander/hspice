@@ -1,16 +1,17 @@
 $DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
 .TITLE '$ netlist of inverter'
- inv_avg_power00  peakpower00      inv_avg_power10  peakpower10       
- inv_avg_power01  peakpower01      inv_avg_power11  peakpower11       
- model_uut_grid_avg_power model_uut_grid_max_power source_power      
- trf_delay_001    tfr_delay_001    trf_delay_002    tfr_delay_002     
- trf_delay_101    tfr_delay_101    trf_delay_102    tfr_delay_102     
- trf_delay_011    tfr_delay_011    trf_delay_111    tfr_delay_111     
- temper           alter#            
-  3.510e-06        7.672e-04        6.966e-06        1.513e-03        
-  2.238e-06        7.672e-04        1.759e-06        1.249e-03        
-  1.447e-05        2.586e-03        1.689e-05        2.239e-12        
- -1.042e-09       -1.993e-09       -1.998e-09        1.046e-09        
-  1.904e-12        2.002e-09        1.996e-09        2.239e-12        
- -2.042e-09        2.046e-09        1.904e-12         25.0000         
- 1                 
+ model_uut_peak_power00 model_uut_avg_power00 model_uut_peak_power10  
+ model_uut_avg_power10 model_uut_peak_power01 model_uut_avg_power01  
+ model_uut_peak_power11 model_uut_avg_power11 uut_peak_power    
+ uut_avg_power    source_peak_power source_avg_power trf_delay_001     
+ tfr_delay_001    trf_delay_002    tfr_delay_002    trf_delay_101     
+ tfr_delay_101    trf_delay_102    tfr_delay_102    trf_delay_011     
+ tfr_delay_011    trf_delay_111    tfr_delay_111    temper            
+ alter#            
+  7.672e-04        3.510e-06        1.513e-03        6.966e-06        
+  7.672e-04        2.238e-06        1.249e-03        1.759e-06        
+  2.586e-03        1.447e-05        2.691e-03        1.689e-05        
+  2.239e-12       -1.042e-09       -1.993e-09       -1.998e-09        
+  1.046e-09        1.904e-12        2.002e-09        1.996e-09        
+  2.239e-12       -2.042e-09        2.046e-09        1.904e-12        
+   25.0000        1                 

@@ -10,7 +10,7 @@
  lic:  
  lic: FLEXlm: v10.8 
  lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
- lic: HOSTID:                      PID:      17084 
+ lic: HOSTID:                      PID:      78222 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -2856,22 +2856,24 @@
  $ netlist of inverter
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- inv_avg_power00= 167.8428n  from=   0.          to=   4.0000n
- peakpower00=  18.3922u    at=   1.0841n
+ model_uut_peak_power00=  18.3922u    at=   1.0841n
              from=   0.         to=   4.0000n
- inv_avg_power10= 166.9069n  from=   0.          to=   4.0000n
- peakpower10=  25.3714u    at=   1.0912n
+ model_uut_avg_power00= 167.8428n  from=   0.          to=   4.0000n
+ model_uut_peak_power10=  25.3714u    at=   1.0912n
              from=   0.         to=   4.0000n
- inv_avg_power01=  83.5974n  from=   0.          to=   4.0000n
- peakpower01=  17.5339u    at=   2.0851n
+ model_uut_avg_power10= 166.9069n  from=   0.          to=   4.0000n
+ model_uut_peak_power01=  17.5339u    at=   2.0851n
              from=   0.         to=   4.0000n
- inv_avg_power11=  81.0051n  from=   0.          to=   4.0000n
- peakpower11=  22.6513u    at=   2.0944n
+ model_uut_avg_power01=  83.5974n  from=   0.          to=   4.0000n
+ model_uut_peak_power11=  22.6513u    at=   2.0944n
              from=   0.         to=   4.0000n
- model_uut_grid_avg_power= 499.3521n  from=   0.          to=   4.0000n
- model_uut_grid_max_power=  58.0403u    at=  39.6914p
+ model_uut_avg_power11=  81.0051n  from=   0.          to=   4.0000n
+ uut_peak_power=  58.0403u    at=  39.6914p
              from=   0.         to=   4.0000n
- source_power= 817.1548n  from=   0.          to=   4.0000n
+ uut_avg_power= 499.3521n  from=   0.          to=   4.0000n
+ source_peak_power=  65.5959u    at=  39.6914p
+             from=   0.         to=   4.0000n
+ source_avg_power= 817.1548n  from=   0.          to=   4.0000n
  trf_delay_001=   5.2601p  targ=  38.3916p   trig=  33.1315p
  tfr_delay_001=   6.8452p  targ=   1.0892n   trig=   1.0823n
  trf_delay_002=   6.6816p  targ=   2.0415n   trig=   2.0348n
@@ -4520,7 +4522,7 @@ y
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2506.796
+ cpu MHz	: 2704.882
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -4552,17 +4554,17 @@ y
   analysis           time    # points   tot. iter  conv.iter
   op point           0.00           1           4
   transient          0.05         401         519         115 rev=         5
-  readin             0.00
+  readin             0.01
   errchk             0.01
   setup              0.00
-  output             0.00
+  output             0.01
 
 
            peak memory used        135.46 megabytes
-           total cpu time            0.06 seconds
-           total elapsed time        0.32 seconds
-           job started at     18:27:18 09/13/2020
-           job ended   at     18:27:18 09/13/2020
+           total cpu time            0.08 seconds
+           total elapsed time        0.47 seconds
+           job started at     22:56:15 09/14/2020
+           job ended   at     22:56:15 09/14/2020
 
 
  lic: Release hspice token(s) 

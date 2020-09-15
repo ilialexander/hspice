@@ -5,7 +5,6 @@
      To delete a line break:                          J
 
   4. To repeat a motion, prepend it with a number:    3e
-     Move Backwards to first letter of word:          b
      Move Backwards to last letter of word:           ge
 
 
@@ -25,8 +24,7 @@
      To mark a position for (x = a-z) use:            mx
      To travel to marked postiontion:                 `x
 
-  2. Searches BACKWARD for the phrase:                ?[phrase]
-     Search for whole word Beginning or End:          \< | \> 
+  2. Search (/ | ?) for whole word Beginning or End:  \< | \> 
      Go back to older cursor positions:               CTRL-O 
      Go to newer cursor positions:                    CTRL-I 
 
@@ -34,14 +32,11 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			       Lesson 5 SUMMARY
 
-  1. Execute an external command with                :!command
-         Shows a directory listing                   :!ls
+  2. Writes the current file with name FILENAME       :w FILENAME  
+  3. Saves Visually selected lines in FILENAME:       v motion :w FILENAME  
 
-  2. Writes the current file with name FILENAME      :w FILENAME  
-  3. Saves Visually selected lines in FILENAME:      v motion :w FILENAME  
-
-  4. Puts lines from FILENAME below cursor           :r FILENAME  
-  5. Puts command's output below the cursor          :r !ls
+  4. Puts lines from FILENAME below cursor            :r FILENAME  
+  5. Puts command's output below the cursor           :r !ls
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,11 +51,19 @@
 	show partial matches for a search phrase:     is  | 'incsearch'	
 	highlight all matching phrases:               hls | 'hlsearch'	
 
-  3. To record and playback, register = a - z:        q{register}
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			       Lesson 10 SUMMARY
+
+  1. Yank to a register 'x':                          "xY | "xy{motion}
+     Uses same registers as q command.
+
+  2. To record and playback, register = a - z:        q{register}
      stdio.h
      fcntl.h
      unistd.h
      stdlib.h
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		       Lesson 7.1: GETTING HELP

@@ -17,9 +17,11 @@ def main():
 
     uut_params = uut_setup.set_fet_names(dir_name) # gets/sets fet names and creates uut directory
 
-    timing_data = [] # collects data to produce timing diagrams
-    delay_data = []  # collects data to calculate avg delay 
-    power_data = []  # collects data to present power
+    timing_data = {}     # collects data to produce timing diagrams
+    rise_fall_data = {}  # collects data to calculate rise_fall avg delay 
+    fall_rise_data = {}  # collects data to calculate fall_rise avg delay 
+    peak_power_data = {} # collects peack power data
+    avg_power_data = {}  # collects average power data
 
     for fet_params in uut_params:
         (subuut, fet_length, fet_voltage, fet_nfin) = fet_params
@@ -72,20 +74,29 @@ def main():
         (power_series, delay_series, timing_series) = subckts_modules.collect_data()
 
         # collect all data
-        timing_data.append(timing_series)
-        delay_data.append(delay_series)
-        power_data.append(power_series)
+        timing_data[subuut] = timing_series
+        rise_fall_data[subuut] = subckts_modules.clean_data(0, 2, delay_series)
+        fall_rise_data[subuut] = subckts_modules.clean_data(1, 2, delay_series)
+        peak_power_data[subuut] = subckts_modules.clean_data(0, 3, power_series)
+        avg_power_data[subuut] = subckts_modules.clean_data(2, 3, power_series)
 
-#    print(timing_data[0][1])
+        #print(timing_data[fet_params][subckts_modules.uut_subckt[0]])
+        #print(subckts_modules.uut_subckt)
+        #break
+
+    #print(timing_series)
 #    print(timing_data[0][2][1])
 
-    data = pd.DataFrame(timing_data[0], columns = ['Time', 'Voltage_in', 'Voltage_out'])
-    data_no_indices = data.to_string(index=False)
+    #trf_delays = delay_series[0::2]
+    #print(trf_delays[:])
+    #print(delay_series[1::2][:][:1])
+
+    #data = pd.DataFrame(timing_data[fet_params][subckts_modules.uut_subckt[3]], columns = ['Time', 'Voltage_in', 'Voltage_out'])
+    #data_no_indices = data.to_string(index=False)
+    #print(data_no_indices)
 
 #    print(data_no_indices)
 #    print(timing_data)
-#    print(delay_data)
-#    print(power_data)
 
 if __name__ == '__main__':
     main()

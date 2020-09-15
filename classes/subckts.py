@@ -57,11 +57,11 @@ class subckts:
     def write_outputs(self):
         '''Write realistic output load of system to .sp file'''
         for instance in range(self.par_instances):
-            inout = str(self.ser_instances) # connects model_uut outputs to realistic loads
+            inout = str(self.ser_instances) # connects model_uut output to realistic loads
             for output_tag in range(self.load_amount):
                 instance = str(instance) # instance of ouput to evaluate
                 output_tag = str(output_tag) # amount of load per output
-                # call instance of ouput load subckt in model_uut file
+                # call instance of ouput load subckt for model_uut
                 self.spice_file.write("xoutput_" + instance + output_tag + " outin_" + inout  + instance + " outb_" + instance + output_tag + " vdd " + "inverter\n")
         self.spice_file.write("\n")
         return None
@@ -84,7 +84,7 @@ class subckts:
 
     def write_inverter(self):
         '''Write inverter device'''
-        # declare model_uut subckt
+        # declare model_uut_grid subckt
         self.spice_file.write(".subckt model_uut_grid vdd\n")
         self.spice_file.write("+")
         for instance in range(self.par_instances):
@@ -185,19 +185,40 @@ class subckts:
         power_series = [] # reads all power data
         delay_series = [] # reads all delay data
         timing_series = [] # reads all timing data
+        uut_timing_series = {}
+        model_uut_count = 0
         with open(self.script_dir + "/" + self.uut + "/" + self.subuut + ".lis") as results:
             timing_flag = 0 # initializes flag
             delay_flag = 0 # initializes flag
             power_flag = 0 # initializes flag
+            old_timing_flag = 0 # initializes flag 
             for line in results:
                 # reads the power measurements from .lis file
                 (power_flag, power_series) = self.read_meas("transient analysis", "trf", line, power_flag, power_series)
                 # reads the delay measurements from .lis file
-                (delay_flag, delay_series) = self.read_meas("source_power", "x\n", line, delay_flag, delay_series)
+                (delay_flag, delay_series) = self.read_meas("source_avg_power", "x\n", line, delay_flag, delay_series)
                 # reads the timing measurements from .lis file
                 (timing_flag, timing_series) = self.read_meas("x\n", "y\n", line, timing_flag, timing_series)
+                if (old_timing_flag == 1) and (timing_flag == 0):
+                    timing_series.pop(0) # delete empty item
+                    timing_series.pop(1) # delete redundant item
+                    uut_timing_series[self.uut_subckt[model_uut_count]] = timing_series
+                    model_uut_count += 1 # move to next model_uut time_series
+                    timing_series = []
+                old_timing_flag = timing_flag
+
         # returns power, delay and timing data
-        return (power_series, delay_series, timing_series)
+        return (power_series, delay_series, uut_timing_series)
+
+
+    def clean_data(self, start_index, step, series):
+        '''Cleans the data for delays and power'''
+        model_uut_data = {}
+        for datum in series[start_index::step]:
+            # selects datum and datum name
+            model_uut_data[datum[0][:-1]] = datum[1]
+
+        return model_uut_data        
 
 
     def measure_delays(self):
@@ -218,34 +239,38 @@ class subckts:
 
 
     def measure_power(self):
-        '''Measures model_uut and individual unit powers'''
+        '''Measures model_uut_grid and individual unit powers'''
         for instance in range(self.par_instances):
             for outin in range(self.ser_instances):
                 instance = str(instance)
                 outin = str(outin)
-                # measures individual avg power
-                self.spice_file.write(".measure tran inv_avg_power" + outin + instance  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + instance + ") from=0ns to=" + self.sim_time + "ns\n")
                 # measures individual max power
-                self.spice_file.write(".measure tran peakpower" + outin + instance  + " max p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
+                self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
+                # measures individual avg power
+                self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n") # from=0ns to=" + self.sim_time + "ns\n")
 
-        # measures model_uut avg power
-        self.spice_file.write(".measure tran model_uut_grid_avg_power avg p(xmodel_uut_grid) from=0ns to=" + self.sim_time + "ns\n")
-        # measures model_uut max power
-        self.spice_file.write(".measure tran model_uut_grid_max_power max p(xmodel_uut_grid)\n")
-        # Serves more as a flag to collect data
-        self.spice_file.write(".measure tran source_power avg power\n") # measures source avg power
+        # measures model_uut_grid max power
+        self.spice_file.write(".measure tran uut_peak_power max p(xmodel_uut_grid)\n")
+        # measures model_uut_grid avg power
+        self.spice_file.write(".measure tran uut_avg_power avg p(xmodel_uut_grid)\n")
+        # Serve more as flag to collect data
+        self.spice_file.write(".measure tran source_peak_power max power\n") # measures source avg power
+        self.spice_file.write(".measure tran source_avg_power avg power\n") # measures source max power
         return None
 
 
     def print_wave(self):
         '''Prints each datapoint to .lis file'''
+        self.uut_subckt = []
         for instance in range(self.par_instances):
             for outin in range(self.ser_instances):
                 instance = str(instance)
                 inout = str(outin + 1)
                 outin = str(outin)
-                # prints data per input-output pair in model_uut subckts
+                # prints data per input-output pair in each model_uut subckt
                 self.spice_file.write(".print TRAN V(" + "outin_" + outin + instance + ") V(" + "outin_" + inout + instance + ")\n")
+                self.uut_subckt.append("xinverter" + outin + instance)
+                
         self.spice_file.write("\n")
         return None
 

@@ -38,17 +38,18 @@ xoutput_00 outin_20 outb_00 vdd inverter
 xoutput_10 outin_21 outb_10 vdd inverter
 
 $ Measurements
-.measure tran inv_avg_power00 avg p(xmodel_uut_grid.xinverter00) from=0ns to=4ns
-.measure tran peakpower00 max p(xmodel_uut_grid.xinverter00)
-.measure tran inv_avg_power10 avg p(xmodel_uut_grid.xinverter10) from=0ns to=4ns
-.measure tran peakpower10 max p(xmodel_uut_grid.xinverter10)
-.measure tran inv_avg_power01 avg p(xmodel_uut_grid.xinverter01) from=0ns to=4ns
-.measure tran peakpower01 max p(xmodel_uut_grid.xinverter01)
-.measure tran inv_avg_power11 avg p(xmodel_uut_grid.xinverter11) from=0ns to=4ns
-.measure tran peakpower11 max p(xmodel_uut_grid.xinverter11)
-.measure tran model_uut_grid_avg_power avg p(xmodel_uut_grid) from=0ns to=4ns
-.measure tran model_uut_grid_max_power max p(xmodel_uut_grid)
-.measure tran source_power avg power
+.measure tran model_uut_peak_power00 max p(xmodel_uut_grid.xinverter00)
+.measure tran model_uut_avg_power00 avg p(xmodel_uut_grid.xinverter00)
+.measure tran model_uut_peak_power10 max p(xmodel_uut_grid.xinverter10)
+.measure tran model_uut_avg_power10 avg p(xmodel_uut_grid.xinverter10)
+.measure tran model_uut_peak_power01 max p(xmodel_uut_grid.xinverter01)
+.measure tran model_uut_avg_power01 avg p(xmodel_uut_grid.xinverter01)
+.measure tran model_uut_peak_power11 max p(xmodel_uut_grid.xinverter11)
+.measure tran model_uut_avg_power11 avg p(xmodel_uut_grid.xinverter11)
+.measure tran uut_peak_power max p(xmodel_uut_grid)
+.measure tran uut_avg_power avg p(xmodel_uut_grid)
+.measure tran source_peak_power max power
+.measure tran source_avg_power avg power
 .measure tran trf_delay_001 trig v(outin_00) val=0.45 rise=1 targ v(outin_10) val=0.45 fall=1
 .measure tran tfr_delay_001 trig v(outin_00) val=0.45 fall=1 targ v(outin_10) val=0.45 rise=1
 .measure tran trf_delay_002 trig v(outin_00) val=0.45 rise=2 targ v(outin_10) val=0.45 fall=2
