@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "F-2011.09-SP2 64-BIT"
 * "format" "HSP"
-* "rundate" "18:30:40 09/15/2020 "
+* "rundate" "18:03:06 09/17/2020 "
 * "netlist" "ptm14hp.sp "
 * "runtitle" "$ netlist of inverter"
 * time =  0.000e+00       
@@ -11,14 +11,11 @@
 + gmindc= 1.000e-12       
 .nodeset
 + inb_0 = 8.000e-01       
-+ inb_1 = 8.000e-01       
-+ outb_00 = 7.992e-01       
-+ outb_10 = 7.992e-01       
++ outb_00 = 1.041e-03       
++ outb_01 = 1.041e-03       
++ outb_02 = 1.041e-03       
++ outb_03 = 1.041e-03       
 + outin_00 = 1.022e-03       
-+ outin_01 = 1.022e-03       
 + outin_10 = 7.992e-01       
-+ outin_11 = 7.992e-01       
-+ outin_20 = 1.041e-03       
-+ outin_21 = 1.041e-03       
 + vdd = 8.000e-01       
 ***   END: Saved Operating Point ***                     

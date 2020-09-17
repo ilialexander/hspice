@@ -42,7 +42,8 @@ class subckts:
             fall_time = str(fall_time)
             instance = str(instance)
             # sets input wave
-            self.spice_file.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(" + self.fet_voltage + "V " + "0V 0ns 50ps 50ps " + rise_time + "n " + fall_time + "n)\n")
+            self.spice_file.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(" + self.fet_voltage + "V " + "0V 0ns 1ps 1ps " + rise_time + "n " + fall_time + "n)\n")
+            #self.spice_file.write("vin_" + instance + " outin_0" + instance + " gnd  PULSE(" + self.fet_voltage + "V " + "0V 0ns 1ps 1ps " + rise_time + "n " + fall_time + "n)\n")
 
         # sets a more realistic input through inverter
         self.spice_file.write("$invert input sources\n")

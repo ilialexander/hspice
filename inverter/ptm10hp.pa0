@@ -1,25 +1,19 @@
        1 xinput_0.
-       2 xinput_1.
-       3 xmodel_uut_grid.
-       4 xoutput_00.
-       5 xoutput_10.
-       6 xinput_0.xpfet.
-       7 xinput_0.xnfet.
-       8 xinput_1.xpfet.
-       9 xinput_1.xnfet.
-      10 xmodel_uut_grid.xinverter00.
-      11 xmodel_uut_grid.xinverter10.
-      12 xmodel_uut_grid.xinverter01.
-      13 xmodel_uut_grid.xinverter11.
-      14 xoutput_00.xpfet.
-      15 xoutput_00.xnfet.
-      16 xoutput_10.xpfet.
-      17 xoutput_10.xnfet.
+       2 xmodel_uut_grid.
+       3 xoutput_00.
+       4 xoutput_01.
+       5 xoutput_02.
+       6 xoutput_03.
+       7 xinput_0.xpfet.
+       8 xinput_0.xnfet.
+       9 xmodel_uut_grid.xinverter00.
+      10 xoutput_00.xpfet.
+      11 xoutput_00.xnfet.
+      12 xoutput_01.xpfet.
+      13 xoutput_01.xnfet.
+      14 xoutput_02.xpfet.
+      15 xoutput_02.xnfet.
+      16 xoutput_03.xpfet.
+      17 xoutput_03.xnfet.
       18 xmodel_uut_grid.xinverter00.xpfet.
       19 xmodel_uut_grid.xinverter00.xnfet.
-      20 xmodel_uut_grid.xinverter10.xpfet.
-      21 xmodel_uut_grid.xinverter10.xnfet.
-      22 xmodel_uut_grid.xinverter01.xpfet.
-      23 xmodel_uut_grid.xinverter01.xnfet.
-      24 xmodel_uut_grid.xinverter11.xpfet.
-      25 xmodel_uut_grid.xinverter11.xnfet.
