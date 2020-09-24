@@ -38,17 +38,16 @@ class ptm:
 
     def get_fet_params(self, model_uut):
         '''Gets the FETs parameters'''
-        fet_size = model_uut.split("/")[1] # get size from model name
-        #pmodel_subpath = model_uut + self.pmodel
+        pmodel_subpath = model_uut + self.pmodel
         # search for pmodel path to read file
-        fet_voltage = self.fet_voltages[model_uut.replace("hp/", "").replace("lstp/", "")]
-        #pmodel_path = [path for path in self.models_paths if pmodel_subpath in path]
-        #with open(pmodel_path[0]) as pmodel:
-        #    for line in pmodel:
-        #        if "VDD" in line: # read line with nominal voltage
-        #            fet_voltage = line.split("VDD=")[1].replace("V","").replace("\n","")
+        #fet_voltage = self.fet_voltages[model_uut.replace("hp/", "").replace("lstp/", "")]
+        pmodel_path = [path for path in self.models_paths if pmodel_subpath in path]
+        with open(pmodel_path[0]) as pmodel:
+            for line in pmodel:
+                if "VDD" in line: # read line with nominal voltage
+                    fet_voltage = line.split("VDD=")[1].replace("V","").replace("\n","")
 
-        return (fet_size, fet_voltage)           
+        return fet_voltage           
 
 
     def get_subuut(self, model_subdir):
@@ -59,9 +58,9 @@ class ptm:
         # gets file names
         subuut = [subuut_name for subuut_name in self.models_list if parts in subuut_name]
         # get fet parameters from model files
-        (fet_length, fet_voltage) = self.get_fet_params(model_subdir) 
+        fet_voltage = self.get_fet_params(model_subdir) 
 
-        return (subuut[0], fet_length, fet_voltage, self.nfin)
+        return (subuut[0], fet_voltage, self.nfin)
 
 
     def set_fet_names(self, directory):

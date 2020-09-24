@@ -46,7 +46,7 @@ def main():
     
     #exit()
     for fet_params in uut_params:
-        (subuut, fet_length, fet_voltage, fet_nfin) = fet_params
+        (subuut, fet_voltage, fet_nfin) = fet_params
         with open(cwd + "/" + uut_setup.uut + "/" + subuut + ".sp", 'w+') as spice_file:
 
             uut = uut_setup.uut         # uut name
@@ -72,7 +72,7 @@ def main():
             subckts_modules.set_inverter_subckt()
 
             spice_file.write("$ Sources\n")
-            spice_file.write("vdd vdd  gnd " + fet_voltage + "V\n")
+            spice_file.write("vdd vdd  gnd vdd\n")
             subckts_modules.write_source()
  
             spice_file.write("$ Unit Under Test\n")
