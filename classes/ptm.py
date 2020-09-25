@@ -4,12 +4,11 @@ import os
 
 class ptm:
 
-    def __init__(self, uut, nmodel, pmodel, fet_voltages, nfin):
+    def __init__(self, uut, nmodel, pmodel, nfin):
         self.uut = uut       # unit under test
         self.nmodel = nmodel # n channel model name
         self.pmodel = pmodel # p channel model name
         self.nfin = nfin     # nfin amount, size?
-        self.fet_voltages = fet_voltages  # specific fet voltages
 
 
     def get_models_subdirs(self, directory):
@@ -40,7 +39,6 @@ class ptm:
         '''Gets the FETs parameters'''
         pmodel_subpath = model_uut + self.pmodel
         # search for pmodel path to read file
-        #fet_voltage = self.fet_voltages[model_uut.replace("hp/", "").replace("lstp/", "")]
         pmodel_path = [path for path in self.models_paths if pmodel_subpath in path]
         with open(pmodel_path[0]) as pmodel:
             for line in pmodel:
@@ -58,9 +56,9 @@ class ptm:
         # gets file names
         subuut = [subuut_name for subuut_name in self.models_list if parts in subuut_name]
         # get fet parameters from model files
-        fet_voltage = self.get_fet_params(model_subdir) 
+        #fet_voltage = self.get_fet_params(model_subdir) 
 
-        return (subuut[0], fet_voltage, self.nfin)
+        return (subuut[0], self.nfin)
 
 
     def set_fet_names(self, directory):

@@ -14,15 +14,7 @@ def main():
     cwd = os.getcwd() # gets the current_working_directoru
     dir_name = cwd + '/modelfiles/'
 
-    ptm_fet_voltages = { # tested voltages per stillmaker2017scaling
-        "20" : "0.90",
-        "16" : "0.85",
-        "14" : "0.80",
-        "10" : "0.75",
-         "7" : "0.70"
-    }
-
-    uut_setup = ptm("inverter", "nfet.pm", "pfet.pm", ptm_fet_voltages, "1000m")
+    uut_setup = ptm("inverter", "nfet.pm", "pfet.pm", "1000m")
 
     uut_params = uut_setup.set_fet_names(dir_name) # gets/sets fet names and creates uut directory
 
@@ -46,7 +38,7 @@ def main():
     
     #exit()
     for fet_params in uut_params:
-        (subuut, fet_voltage, fet_nfin) = fet_params
+        (subuut, fet_nfin) = fet_params
         with open(cwd + "/" + uut_setup.uut + "/" + subuut + ".sp", 'w+') as spice_file:
 
             uut = uut_setup.uut         # uut name
@@ -56,7 +48,8 @@ def main():
             parallel_instances = 1 # modules with unique inout
             serial_instances = 1   # modules connected output to input
             load_amount = 4        # load amount for 'realistic' results
-            grid_params = (spice_file, parallel_instances, serial_instances, load_amount)
+            fan_out_chain = 64      # load amount for fan out
+            grid_params = (spice_file, parallel_instances, serial_instances, load_amount, fan_out_chain)
 
             sim_type = "tran"      # simulation type, e.g., tran, dc
             sim_tinc = "1p"       # time step for simulations
@@ -72,7 +65,7 @@ def main():
             subckts_modules.set_inverter_subckt()
 
             spice_file.write("$ Sources\n")
-            spice_file.write("vdd vdd  gnd vdd\n")
+            spice_file.write("vdd vdd gnd vdd\n")
             subckts_modules.write_source()
  
             spice_file.write("$ Unit Under Test\n")
@@ -80,6 +73,8 @@ def main():
 
             spice_file.write("$ Output Loads\n")
             subckts_modules.write_outputs()
+            #exit()
+
 
             spice_file.write("$ Measurements\n")
             subckts_modules.measure_power()
@@ -102,45 +97,48 @@ def main():
         peak_power_data[subuut] = subckts_modules.clean_data(0, 3, power_series)
         avg_power_data[subuut] = subckts_modules.clean_data(2, 3, power_series)
 
+        print(subuut)
         list_rf_values = list(rise_fall_data[subuut].values())
+        print("Rise-Fall delay value:", list_rf_values)
         list_fr_values = list(fall_rise_data[subuut].values())
+        print("Fall-Rise delay value:", list_fr_values)
         delay_values = list_rf_values + list_fr_values # list_fr_values # 
-        avg_delay_data[subuut] = sum(delay_values) / len(delay_values)
+        #avg_delay_data[subuut] = sum(delay_values) / len(delay_values)
 
-        avg_power_data[subuut]["subckt_avg_power"] = subckts_modules.get_power_avg(avg_power_data[subuut])
-        peak_power_data[subuut]["subckt_peak_power"] = subckts_modules.get_power_avg(peak_power_data[subuut])
+        #avg_power_data[subuut]["subckt_avg_power"] = subckts_modules.get_power_avg(avg_power_data[subuut])
+        #peak_power_data[subuut]["subckt_peak_power"] = subckts_modules.get_power_avg(peak_power_data[subuut])
     
-        #print(avg_delay_data[subuut])
-        #print(timing_data[subuut])
-        #print(avg_power_data[subuut])
-        #print(peak_power_data[subuut])
-        if "hp" in subuut:
-            hp_delay.append(avg_delay_data[subuut] * 1e12)
-            hp_delay_size.append(int(subuut.replace("ptm","").replace("hp","")))
-        if "lstp" in subuut:
-            lstp_delay.append(avg_delay_data[subuut] * 1e12)
-            lstp_delay_size.append(int(subuut.replace("ptm","").replace("lstp","")))
+        ##print(avg_delay_data[subuut])
+        ##print(timing_data[subuut])
+        ##print(avg_power_data[subuut])
+        ##print(peak_power_data[subuut])
+        #if "hp" in subuut:
+        #    hp_delay.append(avg_delay_data[subuut] * 1e12)
+        #    hp_delay_size.append(int(subuut.replace("ptm","").replace("hp","")))
+        #if "lstp" in subuut:
+        #    lstp_delay.append(avg_delay_data[subuut] * 1e12)
+        #    lstp_delay_size.append(int(subuut.replace("ptm","").replace("lstp","")))
 
-        if "hp" in subuut:
-            hp_power.append(avg_power_data[subuut]["subckt_avg_power"] * 1e9)# * 1e12)
-            hp_power_size.append(int(subuut.replace("ptm","").replace("hp","")))
-        if "lstp" in subuut:
-            lstp_power.append(avg_power_data[subuut]["subckt_avg_power"] * 1e9)# * 1e12)
-            lstp_power_size.append(int(subuut.replace("ptm","").replace("lstp","")))
+        #if "hp" in subuut:
+        #    hp_power.append(avg_power_data[subuut]["source_avg_power"] * 1e6)# * 1e12)
+        #    hp_power_size.append(int(subuut.replace("ptm","").replace("hp","")))
+        #if "lstp" in subuut:
+        #    lstp_power.append(avg_power_data[subuut]["source_avg_power"] * 1e6)# * 1e12)
+        #    lstp_power_size.append(int(subuut.replace("ptm","").replace("lstp","")))
 
         #break
-    plt.figure(1)
-    plt.title("Average Power by FET size for \nHigh Performancd ('red') and Low Standby Power ('blue')")
-    plt.scatter(hp_power_size, hp_power, color = "red")
-    plt.scatter(lstp_power_size, lstp_power)
+    #plt.figure(1)
+    #plt.title("Average Power by FET size for \nHigh Performancd ('red') and Low Standby Power ('blue')")
+    #plt.scatter(hp_power_size, hp_power, color = "red")
+    #plt.scatter(lstp_power_size, lstp_power)
 
-    plt.figure(2)
-    plt.title("Average Delay by FET size for \nHigh Performancd ('red') and Low Standby Power ('blue')")
-    plt.scatter(hp_delay_size, hp_delay, color = "red")
-    plt.scatter(lstp_delay_size, lstp_delay)
-    plt.ylim(2,12)
-    plt.xlim(5,22)
-    plt.show()
+    #plt.figure(2)
+    #plt.title("Average Delay by FET size for \nHigh Performancd ('red') and Low Standby Power ('blue')")
+    #plt.scatter(hp_delay_size, hp_delay, color = "red")
+    #plt.scatter(lstp_delay_size, lstp_delay)
+    ##plt.ylim(2,12)
+    ##plt.xlim(5,22)
+    #plt.show()
 
     #data = pd.DataFrame(timing_data[subuut][subckts_modules.uut_subckt[3]], columns = ['Time', 'Voltage_in', 'Voltage_out'])
     #data_no_indices = data.to_string(index=False)

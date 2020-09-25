@@ -9,22 +9,21 @@ class subckts:
         self.uut = uut # unit under test
         self.script_name = script_name # name of running script
 
-        (spice_file, parallel_instances, serial_instances, load_amount) = grid_params
+        (spice_file, parallel_instances, serial_instances, load_amount, fan_out_chain) = grid_params
         self.spice_file = spice_file # name of unit under test, e.g. inverter
         self.par_instances = parallel_instances # grid columns
         self.ser_instances = serial_instances # grid rows
         self.load_amount = load_amount # load for realistic results
+        self.fan_out_chain = fan_out_chain # load for fan out driven
 
-        (subuut, fet_voltage, fet_nfin) = fet_params
+        (subuut, fet_nfin) = fet_params
         self.subuut = subuut # ptm under test
-        self.fet_voltage = fet_voltage # nominal voltage for ptm model
         self.fet_nfin = fet_nfin # fin size?? e.g. 1000m
 
         (sim_type, sim_tinc) = sim_params
         self.sim_type = sim_type # simulation type, e.g., tran, dc
         self.sim_tinc = sim_tinc # simulation time step
 
-        self.vdd_50 = str(float(self.fet_voltage) / 2) # 50% of vdd/nominal voltage
         self.sim_time = str(2 ** self.par_instances) # total simulation time
         self.script_path = self.script_dir + "/" + self.script_name # full path to working script
 
@@ -41,8 +40,8 @@ class subckts:
             fall_time = str(fall_time)
             instance = str(instance)
             # sets input wave
-            self.spice_file.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(vdd " + "0V 0ns 1ps 1ps " + rise_time + "n " + fall_time + "n)\n")
-            #self.spice_file.write("vin_" + instance + " outin_0" + instance + " gnd  PULSE(vdd" + "0V 0ns 1ps 1ps " + rise_time + "n " + fall_time + "n)\n")
+            self.spice_file.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(vdd " + "0V 0ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
+            #self.spice_file.write("vin_" + instance + " outin_0" + instance + " gnd  PULSE(vdd" + "0V 0ns 1p 1p " + rise_time + "n " + fall_time + "n)\n")
 
         # sets a more realistic input through inverter
         self.spice_file.write("$invert input sources\n")
@@ -63,8 +62,18 @@ class subckts:
                 output_tag = str(output_tag) # amount of load per output
                 # call instance of ouput load subckt for model_uut
                 self.spice_file.write("xoutput_" + instance + output_tag + " outin_" + inout  + instance + " outb_" + instance + output_tag + " vdd " + "inverter\n")
+                self.write_fan_out_4(self.load_amount, int(self.fan_out_chain/4), instance + output_tag)
         self.spice_file.write("\n")
         return None
+
+
+    def write_fan_out_4(self, output_tag, fan_out, outer_tag):
+        if fan_out == 1:
+            return None
+        else:
+            for value in range(output_tag):
+                self.spice_file.write("xoutput_" + outer_tag + str(value) + " outb_" + outer_tag + " outb_" + outer_tag + str(value) + " vdd " + "inverter\n")
+                self.write_fan_out_4(output_tag, int(fan_out/4), outer_tag + str(value))
 
 
 
@@ -145,6 +154,7 @@ class subckts:
         self.spice_file.write("$ " + self.script_path + "\n")
         # invoke library for ptm model to test
         self.spice_file.write(".lib '../models' " + self.subuut + "\n")
+        self.spice_file.write(".param vdd_50='vdd/2'"  "\n")
         return None
 
 
@@ -246,9 +256,11 @@ class subckts:
                     rise_fall = str(rise_fall + 1)
                     instance = str(instance)
                     # measures rise_fall delay
-                    self.spice_file.write(".measure tran trf_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=" + self.vdd_50 + " rise=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=" + self.vdd_50 + " fall=" + rise_fall + "\n")
+                    #self.spice_file.write(".measure tran trf_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=vdd_50 rise=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=vdd_50 fall=" + rise_fall + "\n")
+                    self.spice_file.write(".measure tran trf_delay trig v(" + "outb_01) val=vdd_50 rise=" + rise_fall + " targ v(" + "outb_012) val=vdd_50 fall=" + rise_fall + "\n")
                     # measures rise_fall delay
-                    self.spice_file.write(".measure tran tfr_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=" + self.vdd_50 + " fall=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=" + self.vdd_50 + " rise=" + rise_fall + "\n")
+                    #self.spice_file.write(".measure tran tfr_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=vdd_50 fall=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=vdd_50 rise=" + rise_fall + "\n")
+                    self.spice_file.write(".measure tran tfr_delay trig v(" + "outb_01) val=vdd_50 fall=" + rise_fall + " targ v(" + "outb_012) val=vdd_50 rise=" + rise_fall + "\n")
         return None
 
 
