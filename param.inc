@@ -28,7 +28,7 @@
 .param vddp=-0.83
 .param fin_height=21n
 .param fin_width=9n
-.param lg=12n
+.param lg=13n
 .endl
 
 .lib 7nm

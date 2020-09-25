@@ -3,6 +3,6 @@ $DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
  model_uut_peak_power00 model_uut_avg_power00 uut_peak_power    
  uut_avg_power    source_peak_power source_avg_power trf_delay         
  tfr_delay        temper           alter#            
-  5.525e-05        4.444e-07        5.525e-05        4.444e-07        
+  3.564e-05        5.067e-07        5.525e-05        4.444e-07        
   1.569e-03        2.006e-05        9.449e-12        1.066e-11        
   2.500e+01       1                 

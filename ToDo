@@ -1,3 +1,4 @@
+measure the average power through 1/T (integral(iavg*v)) from 0 to T
 plot waves in python for all ptm model sizes
 clean/comment code
 create new branch dram

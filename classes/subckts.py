@@ -41,7 +41,7 @@ class subckts:
             instance = str(instance)
             # sets input wave
             self.spice_file.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(vdd " + "0V 0ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
-            #self.spice_file.write("vin_" + instance + " outin_0" + instance + " gnd  PULSE(vdd" + "0V 0ns 1p 1p " + rise_time + "n " + fall_time + "n)\n")
+            #self.spice_file.write("vin_" + instance + " outin_0" + instance + " gnd  PULSE(vdd " + "0V 0ns 1p 1p " + rise_time + "n " + fall_time + "n)\n")
 
         # sets a more realistic input through inverter
         self.spice_file.write("$invert input sources\n")
@@ -271,9 +271,11 @@ class subckts:
                 instance = str(instance)
                 outin = str(outin)
                 # measures individual max power
-                self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
+                #self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
+                self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xoutput_012)\n")
                 # measures individual avg power
-                self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n") # from=0ns to=" + self.sim_time + "ns\n")
+                #self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n") # from=0ns to=" + self.sim_time + "ns\n")
+                self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xoutput_012)\n")
 
         # measures model_uut_grid max power
         self.spice_file.write(".measure tran uut_peak_power max p(xmodel_uut_grid)\n")

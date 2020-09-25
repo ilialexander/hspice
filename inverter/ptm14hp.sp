@@ -116,8 +116,8 @@ xoutput_0332 outb_033 outb_0332 vdd inverter
 xoutput_0333 outb_033 outb_0333 vdd inverter
 
 $ Measurements
-.measure tran model_uut_peak_power00 max p(xmodel_uut_grid.xinverter00)
-.measure tran model_uut_avg_power00 avg p(xmodel_uut_grid.xinverter00)
+.measure tran model_uut_peak_power00 max p(xoutput_012)
+.measure tran model_uut_avg_power00 avg p(xoutput_012)
 .measure tran uut_peak_power max p(xmodel_uut_grid)
 .measure tran uut_avg_power avg p(xmodel_uut_grid)
 .measure tran source_peak_power max power

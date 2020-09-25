@@ -10,7 +10,7 @@
  lic:  
  lic: FLEXlm: v10.8 
  lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
- lic: HOSTID:                      PID:      156476 
+ lic: HOSTID:                      PID:      95543 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -3110,9 +3110,9 @@
  $ netlist of inverter
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- model_uut_peak_power00= 7.4132e-05    at= 1.0032e-09
+ model_uut_peak_power00= 4.6452e-05    at= 1.0124e-09
              from= 0.0000e+00    to= 2.0000e-09
- model_uut_avg_power00= 2.3597e-07  from= 0.0000e+00     to= 2.0000e-09
+ model_uut_avg_power00= 2.7048e-07  from= 0.0000e+00     to= 2.0000e-09
  uut_peak_power= 7.4132e-05    at= 1.0032e-09
              from= 0.0000e+00    to= 2.0000e-09
  uut_avg_power= 2.3597e-07  from= 0.0000e+00     to= 2.0000e-09
@@ -5139,7 +5139,7 @@ y
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2618.687
+ cpu MHz	: 2784.203
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -5169,19 +5169,19 @@ y
   ******  Runtime Statistics (seconds)  ******
 
   analysis           time    # points   tot. iter  conv.iter
-  op point           0.02           1           4
-  transient          0.46        2001         418         114 rev=         3
-  readin             0.01
-  errchk             0.01
-  setup              0.01
+  op point           0.01           1           4
+  transient          0.48        2001         418         114 rev=         3
+  readin             0.00
+  errchk             0.02
+  setup              0.00
   output             0.00
 
 
            peak memory used        138.07 megabytes
-           total cpu time            0.50 seconds
-           total elapsed time        0.73 seconds
-           job started at     13:49:19 09/25/2020
-           job ended   at     13:49:19 09/25/2020
+           total cpu time            0.51 seconds
+           total elapsed time        0.74 seconds
+           job started at     16:44:09 09/25/2020
+           job ended   at     16:44:09 09/25/2020
 
 
  lic: Release hspice token(s) 
