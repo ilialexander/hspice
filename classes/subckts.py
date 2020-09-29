@@ -20,11 +20,11 @@ class subckts:
         self.subuut = subuut # ptm under test
         self.fet_nfin = fet_nfin # fin size?? e.g. 1000m
 
-        (sim_type, sim_tinc) = sim_params
+        (sim_type, sim_tinc, sim_time) = sim_params
         self.sim_type = sim_type # simulation type, e.g., tran, dc
         self.sim_tinc = sim_tinc # simulation time step
+        self.sim_time = sim_time # total simulation time
 
-        self.sim_time = str(2 ** self.par_instances) # total simulation time
         self.script_path = self.script_dir + "/" + self.script_name # full path to working script
 
 
@@ -40,17 +40,18 @@ class subckts:
             fall_time = str(fall_time)
             instance = str(instance)
             # sets input wave
-            self.spice_file.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(vdd " + "0V 0ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
+            #self.spice_file.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(vdd " + "0V 0ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
             #self.spice_file.write("vin_" + instance + " outin_0" + instance + " gnd  PULSE(vdd " + "0V 0ns 1p 1p " + rise_time + "n " + fall_time + "n)\n")
+            self.spice_file.write("vin_" + instance + " outin_0" + instance + " gnd  PULSE(vdd " + "0V 0ns " + self.sim_tinc + " " + self.sim_tinc + " .5n 1n)\n")
 
-        # sets a more realistic input through inverter
-        self.spice_file.write("$invert input sources\n")
-        for instance in range(self.par_instances):
-            instance = str(instance)
-            # sets wave inverted
-            self.spice_file.write("xinput_" + instance + " inb_" + instance + " outin_0" + instance + " vdd " + "inverter\n")
-        self.spice_file.write("\n")
-        return None
+        ## sets a more realistic input through inverter
+        #self.spice_file.write("$invert input sources\n")
+        #for instance in range(self.par_instances):
+        #    instance = str(instance)
+        #    # sets wave inverted
+        #    self.spice_file.write("xinput_" + instance + " inb_" + instance + " outin_0" + instance + " vdd " + "inverter\n")
+        #self.spice_file.write("\n")
+        #return None
 
 
     def write_outputs(self):
@@ -162,7 +163,7 @@ class subckts:
         '''Sets the type of analysis for the simulation'''
         self.spice_file.write(".option post=2 ingold=2\n")
         # sets the simulation step and duration
-        self.spice_file.write("." + self.sim_type + " " + self.sim_tinc + " " + self.sim_time + "ns\n\n")
+        self.spice_file.write("." + self.sim_type + " " + self.sim_tinc + " " + self.sim_time + "n\n\n")
         self.spice_file.write(".end")
         return None
 
@@ -272,10 +273,12 @@ class subckts:
                 outin = str(outin)
                 # measures individual max power
                 #self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
+                #self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xoutput_012)\n")
                 self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xoutput_012)\n")
                 # measures individual avg power
-                #self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n") # from=0ns to=" + self.sim_time + "ns\n")
-                self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xoutput_012)\n")
+                #self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
+                #self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xoutput_012)\n")
+                self.spice_file.write(".measure tran model_uut_avg_power012 avg p(xoutput_012)\n")
 
         # measures model_uut_grid max power
         self.spice_file.write(".measure tran uut_peak_power max p(xmodel_uut_grid)\n")

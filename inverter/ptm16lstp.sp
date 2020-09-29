@@ -13,10 +13,7 @@ xnfet out in gnd gnd nfet l=lg nfin=1000m
 $ Sources
 vdd vdd gnd vdd
 $all input sources
-vin_0 inb_0 gnd  PULSE(vdd 0V 0ns 1p 1p 1.0n 2n)
-$invert input sources
-xinput_0 inb_0 outin_00 vdd inverter
-
+vin_0 outin_00 gnd  PULSE(vdd 0V 0ns 1p 1p .5n 1n)
 $ Unit Under Test
 .subckt model_uut_grid vdd
 +outin_00 $inputs to model_uut_grid Subckt
@@ -117,7 +114,7 @@ xoutput_0333 outb_033 outb_0333 vdd inverter
 
 $ Measurements
 .measure tran model_uut_peak_power00 max p(xoutput_012)
-.measure tran model_uut_avg_power00 avg p(xoutput_012)
+.measure tran model_uut_avg_power012 avg p(xoutput_012)
 .measure tran uut_peak_power max p(xmodel_uut_grid)
 .measure tran uut_avg_power avg p(xmodel_uut_grid)
 .measure tran source_peak_power max power
@@ -128,6 +125,6 @@ $ Measurements
 
 $ Simulation/Analysis Type
 .option post=2 ingold=2
-.tran 1p 2ns
+.tran 1p 1nn
 
 .end

@@ -37,23 +37,25 @@ def main():
     #ptm_sizes = []
     
     #exit()
+    print(uut_params.sort())
     for fet_params in uut_params:
         (subuut, fet_nfin) = fet_params
         with open(cwd + "/" + uut_setup.uut + "/" + subuut + ".sp", 'w+') as spice_file:
 
-            uut = uut_setup.uut         # uut name
+            uut = uut_setup.uut    # uut name
             script_name = __file__ # working script name
             script_params = (cwd, script_name, uut)
 
             parallel_instances = 1 # modules with unique inout
             serial_instances = 1   # modules connected output to input
             load_amount = 4        # load amount for 'realistic' results
-            fan_out_chain = 64      # load amount for fan out
+            fan_out_chain = 64     # load amount for fan out
             grid_params = (spice_file, parallel_instances, serial_instances, load_amount, fan_out_chain)
 
             sim_type = "tran"      # simulation type, e.g., tran, dc
-            sim_tinc = "1p"       # time step for simulations
-            sim_params = (sim_type, sim_tinc)
+            sim_tinc = "1p"        # time step for simulations
+            sim_time = "1n"        # str(2 ** parallel_instances) # simulataion time
+            sim_params = (sim_type, sim_tinc, sim_time)
 
             # invokes subckts class
             subckts_modules = subckts(script_params, grid_params, fet_params, sim_params)
@@ -99,9 +101,7 @@ def main():
 
         print(subuut)
         list_rf_values = list(rise_fall_data[subuut].values())
-        print("Rise-Fall delay value:", list_rf_values)
         list_fr_values = list(fall_rise_data[subuut].values())
-        print("Fall-Rise delay value:", list_fr_values)
         delay_values = list_rf_values + list_fr_values # list_fr_values # 
         avg_delay_data[subuut] = sum(delay_values) / len(delay_values)
 
@@ -120,11 +120,13 @@ def main():
             lstp_delay_size.append(int(subuut.replace("ptm","").replace("lstp","")))
 
         if "hp" in subuut:
-            hp_power.append(avg_power_data[subuut]["model_uut_avg_power00"] * 1e6)# * 1e12)
+            hp_power.append(avg_power_data[subuut]["model_uut_avg_power012"] * 1e9)# * 1e12)
             hp_power_size.append(int(subuut.replace("ptm","").replace("hp","")))
+            print("HP power value:", avg_power_data[subuut]["model_uut_avg_power012"])
         if "lstp" in subuut:
-            lstp_power.append(avg_power_data[subuut]["model_uut_avg_power00"] * 1e6)# * 1e12)
+            lstp_power.append(avg_power_data[subuut]["model_uut_avg_power012"] * 1e9)# * 1e12)
             lstp_power_size.append(int(subuut.replace("ptm","").replace("lstp","")))
+            print("LSTP power value:", avg_power_data[subuut]["model_uut_avg_power012"])
 
         #break
     plt.figure(1)

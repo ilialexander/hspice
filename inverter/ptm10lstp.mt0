@@ -1,8 +1,8 @@
 $DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
 .TITLE '$ netlist of inverter'
- model_uut_peak_power00 model_uut_avg_power00 uut_peak_power    
+ model_uut_peak_power00 model_uut_avg_power012 uut_peak_power    
  uut_avg_power    source_peak_power source_avg_power trf_delay         
  tfr_delay        temper           alter#            
-  2.456e-05        1.622e-07        4.161e-05        1.485e-07        
-  6.984e-04        4.669e-06        5.657e-12        5.677e-12        
+  1.603e-05        2.439e-07        3.471e-05        2.144e-07        
+  4.504e-04        6.961e-06        6.953e-12        6.468e-12        
   2.500e+01       1                 
