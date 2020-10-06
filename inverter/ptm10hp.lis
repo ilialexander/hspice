@@ -9,8 +9,8 @@
   Command line options: ptm10hp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu 
- lic: HOSTID:                      PID:      151151 
+ lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
+ lic: HOSTID:                      PID:      144487 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -26,263 +26,266 @@
  circuit number to circuit name directory
    number circuitname                     definition         multiplier
         0 main circuit
-        1 xmodel_uut_grid.                model_uut_grid     1.00 
-        2 xoutput_00.                     inverter           1.00 
-        3 xoutput_000.                    inverter           1.00 
-        4 xoutput_0000.                   inverter           1.00 
-        5 xoutput_0001.                   inverter           1.00 
-        6 xoutput_0002.                   inverter           1.00 
-        7 xoutput_0003.                   inverter           1.00 
-        8 xoutput_001.                    inverter           1.00 
-        9 xoutput_0010.                   inverter           1.00 
-       10 xoutput_0011.                   inverter           1.00 
-       11 xoutput_0012.                   inverter           1.00 
-       12 xoutput_0013.                   inverter           1.00 
-       13 xoutput_002.                    inverter           1.00 
-       14 xoutput_0020.                   inverter           1.00 
-       15 xoutput_0021.                   inverter           1.00 
-       16 xoutput_0022.                   inverter           1.00 
-       17 xoutput_0023.                   inverter           1.00 
-       18 xoutput_003.                    inverter           1.00 
-       19 xoutput_0030.                   inverter           1.00 
-       20 xoutput_0031.                   inverter           1.00 
-       21 xoutput_0032.                   inverter           1.00 
-       22 xoutput_0033.                   inverter           1.00 
-       23 xoutput_01.                     inverter           1.00 
-       24 xoutput_010.                    inverter           1.00 
-       25 xoutput_0100.                   inverter           1.00 
-       26 xoutput_0101.                   inverter           1.00 
-       27 xoutput_0102.                   inverter           1.00 
-       28 xoutput_0103.                   inverter           1.00 
-       29 xoutput_011.                    inverter           1.00 
-       30 xoutput_0110.                   inverter           1.00 
-       31 xoutput_0111.                   inverter           1.00 
-       32 xoutput_0112.                   inverter           1.00 
-       33 xoutput_0113.                   inverter           1.00 
-       34 xoutput_012.                    inverter           1.00 
-       35 xoutput_0120.                   inverter           1.00 
-       36 xoutput_0121.                   inverter           1.00 
-       37 xoutput_0122.                   inverter           1.00 
-       38 xoutput_0123.                   inverter           1.00 
-       39 xoutput_013.                    inverter           1.00 
-       40 xoutput_0130.                   inverter           1.00 
-       41 xoutput_0131.                   inverter           1.00 
-       42 xoutput_0132.                   inverter           1.00 
-       43 xoutput_0133.                   inverter           1.00 
-       44 xoutput_02.                     inverter           1.00 
-       45 xoutput_020.                    inverter           1.00 
-       46 xoutput_0200.                   inverter           1.00 
-       47 xoutput_0201.                   inverter           1.00 
-       48 xoutput_0202.                   inverter           1.00 
-       49 xoutput_0203.                   inverter           1.00 
-       50 xoutput_021.                    inverter           1.00 
-       51 xoutput_0210.                   inverter           1.00 
-       52 xoutput_0211.                   inverter           1.00 
-       53 xoutput_0212.                   inverter           1.00 
-       54 xoutput_0213.                   inverter           1.00 
-       55 xoutput_022.                    inverter           1.00 
-       56 xoutput_0220.                   inverter           1.00 
-       57 xoutput_0221.                   inverter           1.00 
-       58 xoutput_0222.                   inverter           1.00 
-       59 xoutput_0223.                   inverter           1.00 
-       60 xoutput_023.                    inverter           1.00 
-       61 xoutput_0230.                   inverter           1.00 
-       62 xoutput_0231.                   inverter           1.00 
-       63 xoutput_0232.                   inverter           1.00 
-       64 xoutput_0233.                   inverter           1.00 
-       65 xoutput_03.                     inverter           1.00 
-       66 xoutput_030.                    inverter           1.00 
-       67 xoutput_0300.                   inverter           1.00 
-       68 xoutput_0301.                   inverter           1.00 
-       69 xoutput_0302.                   inverter           1.00 
-       70 xoutput_0303.                   inverter           1.00 
-       71 xoutput_031.                    inverter           1.00 
-       72 xoutput_0310.                   inverter           1.00 
-       73 xoutput_0311.                   inverter           1.00 
-       74 xoutput_0312.                   inverter           1.00 
-       75 xoutput_0313.                   inverter           1.00 
-       76 xoutput_032.                    inverter           1.00 
-       77 xoutput_0320.                   inverter           1.00 
-       78 xoutput_0321.                   inverter           1.00 
-       79 xoutput_0322.                   inverter           1.00 
-       80 xoutput_0323.                   inverter           1.00 
-       81 xoutput_033.                    inverter           1.00 
-       82 xoutput_0330.                   inverter           1.00 
-       83 xoutput_0331.                   inverter           1.00 
-       84 xoutput_0332.                   inverter           1.00 
-       85 xoutput_0333.                   inverter           1.00 
-       86 xmodel_uut_grid.xinverter00.    inverter           1.00 
-       87 xoutput_00.xpfet.               pfet               1.00 
-       88 xoutput_00.xnfet.               nfet               1.00 
-       89 xoutput_000.xpfet.              pfet               1.00 
-       90 xoutput_000.xnfet.              nfet               1.00 
-       91 xoutput_0000.xpfet.             pfet               1.00 
-       92 xoutput_0000.xnfet.             nfet               1.00 
-       93 xoutput_0001.xpfet.             pfet               1.00 
-       94 xoutput_0001.xnfet.             nfet               1.00 
-       95 xoutput_0002.xpfet.             pfet               1.00 
-       96 xoutput_0002.xnfet.             nfet               1.00 
-       97 xoutput_0003.xpfet.             pfet               1.00 
-       98 xoutput_0003.xnfet.             nfet               1.00 
-       99 xoutput_001.xpfet.              pfet               1.00 
-      100 xoutput_001.xnfet.              nfet               1.00 
-      101 xoutput_0010.xpfet.             pfet               1.00 
-      102 xoutput_0010.xnfet.             nfet               1.00 
-      103 xoutput_0011.xpfet.             pfet               1.00 
-      104 xoutput_0011.xnfet.             nfet               1.00 
-      105 xoutput_0012.xpfet.             pfet               1.00 
-      106 xoutput_0012.xnfet.             nfet               1.00 
-      107 xoutput_0013.xpfet.             pfet               1.00 
-      108 xoutput_0013.xnfet.             nfet               1.00 
-      109 xoutput_002.xpfet.              pfet               1.00 
-      110 xoutput_002.xnfet.              nfet               1.00 
-      111 xoutput_0020.xpfet.             pfet               1.00 
-      112 xoutput_0020.xnfet.             nfet               1.00 
-      113 xoutput_0021.xpfet.             pfet               1.00 
-      114 xoutput_0021.xnfet.             nfet               1.00 
-      115 xoutput_0022.xpfet.             pfet               1.00 
-      116 xoutput_0022.xnfet.             nfet               1.00 
-      117 xoutput_0023.xpfet.             pfet               1.00 
-      118 xoutput_0023.xnfet.             nfet               1.00 
-      119 xoutput_003.xpfet.              pfet               1.00 
-      120 xoutput_003.xnfet.              nfet               1.00 
-      121 xoutput_0030.xpfet.             pfet               1.00 
-      122 xoutput_0030.xnfet.             nfet               1.00 
-      123 xoutput_0031.xpfet.             pfet               1.00 
-      124 xoutput_0031.xnfet.             nfet               1.00 
-      125 xoutput_0032.xpfet.             pfet               1.00 
-      126 xoutput_0032.xnfet.             nfet               1.00 
-      127 xoutput_0033.xpfet.             pfet               1.00 
-      128 xoutput_0033.xnfet.             nfet               1.00 
-      129 xoutput_01.xpfet.               pfet               1.00 
-      130 xoutput_01.xnfet.               nfet               1.00 
-      131 xoutput_010.xpfet.              pfet               1.00 
-      132 xoutput_010.xnfet.              nfet               1.00 
-      133 xoutput_0100.xpfet.             pfet               1.00 
-      134 xoutput_0100.xnfet.             nfet               1.00 
-      135 xoutput_0101.xpfet.             pfet               1.00 
-      136 xoutput_0101.xnfet.             nfet               1.00 
-      137 xoutput_0102.xpfet.             pfet               1.00 
-      138 xoutput_0102.xnfet.             nfet               1.00 
-      139 xoutput_0103.xpfet.             pfet               1.00 
-      140 xoutput_0103.xnfet.             nfet               1.00 
-      141 xoutput_011.xpfet.              pfet               1.00 
-      142 xoutput_011.xnfet.              nfet               1.00 
-      143 xoutput_0110.xpfet.             pfet               1.00 
-      144 xoutput_0110.xnfet.             nfet               1.00 
-      145 xoutput_0111.xpfet.             pfet               1.00 
-      146 xoutput_0111.xnfet.             nfet               1.00 
-      147 xoutput_0112.xpfet.             pfet               1.00 
-      148 xoutput_0112.xnfet.             nfet               1.00 
-      149 xoutput_0113.xpfet.             pfet               1.00 
-      150 xoutput_0113.xnfet.             nfet               1.00 
-      151 xoutput_012.xpfet.              pfet               1.00 
-      152 xoutput_012.xnfet.              nfet               1.00 
-      153 xoutput_0120.xpfet.             pfet               1.00 
-      154 xoutput_0120.xnfet.             nfet               1.00 
-      155 xoutput_0121.xpfet.             pfet               1.00 
-      156 xoutput_0121.xnfet.             nfet               1.00 
-      157 xoutput_0122.xpfet.             pfet               1.00 
-      158 xoutput_0122.xnfet.             nfet               1.00 
-      159 xoutput_0123.xpfet.             pfet               1.00 
-      160 xoutput_0123.xnfet.             nfet               1.00 
-      161 xoutput_013.xpfet.              pfet               1.00 
-      162 xoutput_013.xnfet.              nfet               1.00 
-      163 xoutput_0130.xpfet.             pfet               1.00 
-      164 xoutput_0130.xnfet.             nfet               1.00 
-      165 xoutput_0131.xpfet.             pfet               1.00 
-      166 xoutput_0131.xnfet.             nfet               1.00 
-      167 xoutput_0132.xpfet.             pfet               1.00 
-      168 xoutput_0132.xnfet.             nfet               1.00 
-      169 xoutput_0133.xpfet.             pfet               1.00 
-      170 xoutput_0133.xnfet.             nfet               1.00 
-      171 xoutput_02.xpfet.               pfet               1.00 
-      172 xoutput_02.xnfet.               nfet               1.00 
-      173 xoutput_020.xpfet.              pfet               1.00 
-      174 xoutput_020.xnfet.              nfet               1.00 
-      175 xoutput_0200.xpfet.             pfet               1.00 
-      176 xoutput_0200.xnfet.             nfet               1.00 
-      177 xoutput_0201.xpfet.             pfet               1.00 
-      178 xoutput_0201.xnfet.             nfet               1.00 
-      179 xoutput_0202.xpfet.             pfet               1.00 
-      180 xoutput_0202.xnfet.             nfet               1.00 
-      181 xoutput_0203.xpfet.             pfet               1.00 
-      182 xoutput_0203.xnfet.             nfet               1.00 
-      183 xoutput_021.xpfet.              pfet               1.00 
-      184 xoutput_021.xnfet.              nfet               1.00 
-      185 xoutput_0210.xpfet.             pfet               1.00 
-      186 xoutput_0210.xnfet.             nfet               1.00 
-      187 xoutput_0211.xpfet.             pfet               1.00 
-      188 xoutput_0211.xnfet.             nfet               1.00 
-      189 xoutput_0212.xpfet.             pfet               1.00 
-      190 xoutput_0212.xnfet.             nfet               1.00 
-      191 xoutput_0213.xpfet.             pfet               1.00 
-      192 xoutput_0213.xnfet.             nfet               1.00 
-      193 xoutput_022.xpfet.              pfet               1.00 
-      194 xoutput_022.xnfet.              nfet               1.00 
-      195 xoutput_0220.xpfet.             pfet               1.00 
-      196 xoutput_0220.xnfet.             nfet               1.00 
-      197 xoutput_0221.xpfet.             pfet               1.00 
-      198 xoutput_0221.xnfet.             nfet               1.00 
-      199 xoutput_0222.xpfet.             pfet               1.00 
-      200 xoutput_0222.xnfet.             nfet               1.00 
-      201 xoutput_0223.xpfet.             pfet               1.00 
-      202 xoutput_0223.xnfet.             nfet               1.00 
-      203 xoutput_023.xpfet.              pfet               1.00 
-      204 xoutput_023.xnfet.              nfet               1.00 
-      205 xoutput_0230.xpfet.             pfet               1.00 
-      206 xoutput_0230.xnfet.             nfet               1.00 
-      207 xoutput_0231.xpfet.             pfet               1.00 
-      208 xoutput_0231.xnfet.             nfet               1.00 
-      209 xoutput_0232.xpfet.             pfet               1.00 
-      210 xoutput_0232.xnfet.             nfet               1.00 
-      211 xoutput_0233.xpfet.             pfet               1.00 
-      212 xoutput_0233.xnfet.             nfet               1.00 
-      213 xoutput_03.xpfet.               pfet               1.00 
-      214 xoutput_03.xnfet.               nfet               1.00 
-      215 xoutput_030.xpfet.              pfet               1.00 
-      216 xoutput_030.xnfet.              nfet               1.00 
-      217 xoutput_0300.xpfet.             pfet               1.00 
-      218 xoutput_0300.xnfet.             nfet               1.00 
-      219 xoutput_0301.xpfet.             pfet               1.00 
-      220 xoutput_0301.xnfet.             nfet               1.00 
-      221 xoutput_0302.xpfet.             pfet               1.00 
-      222 xoutput_0302.xnfet.             nfet               1.00 
-      223 xoutput_0303.xpfet.             pfet               1.00 
-      224 xoutput_0303.xnfet.             nfet               1.00 
-      225 xoutput_031.xpfet.              pfet               1.00 
-      226 xoutput_031.xnfet.              nfet               1.00 
-      227 xoutput_0310.xpfet.             pfet               1.00 
-      228 xoutput_0310.xnfet.             nfet               1.00 
-      229 xoutput_0311.xpfet.             pfet               1.00 
-      230 xoutput_0311.xnfet.             nfet               1.00 
-      231 xoutput_0312.xpfet.             pfet               1.00 
-      232 xoutput_0312.xnfet.             nfet               1.00 
-      233 xoutput_0313.xpfet.             pfet               1.00 
-      234 xoutput_0313.xnfet.             nfet               1.00 
-      235 xoutput_032.xpfet.              pfet               1.00 
-      236 xoutput_032.xnfet.              nfet               1.00 
-      237 xoutput_0320.xpfet.             pfet               1.00 
-      238 xoutput_0320.xnfet.             nfet               1.00 
-      239 xoutput_0321.xpfet.             pfet               1.00 
-      240 xoutput_0321.xnfet.             nfet               1.00 
-      241 xoutput_0322.xpfet.             pfet               1.00 
-      242 xoutput_0322.xnfet.             nfet               1.00 
-      243 xoutput_0323.xpfet.             pfet               1.00 
-      244 xoutput_0323.xnfet.             nfet               1.00 
-      245 xoutput_033.xpfet.              pfet               1.00 
-      246 xoutput_033.xnfet.              nfet               1.00 
-      247 xoutput_0330.xpfet.             pfet               1.00 
-      248 xoutput_0330.xnfet.             nfet               1.00 
-      249 xoutput_0331.xpfet.             pfet               1.00 
-      250 xoutput_0331.xnfet.             nfet               1.00 
-      251 xoutput_0332.xpfet.             pfet               1.00 
-      252 xoutput_0332.xnfet.             nfet               1.00 
-      253 xoutput_0333.xpfet.             pfet               1.00 
-      254 xoutput_0333.xnfet.             nfet               1.00 
-      255 xmodel_uut_grid.xinverter00.xpfet.
+        1 xinput_0.                       inverter           1.00 
+        2 xmodel_uut_grid.                model_uut_grid     1.00 
+        3 xoutput_00.                     inverter           1.00 
+        4 xoutput_000.                    inverter           1.00 
+        5 xoutput_0000.                   inverter           1.00 
+        6 xoutput_0001.                   inverter           1.00 
+        7 xoutput_0002.                   inverter           1.00 
+        8 xoutput_0003.                   inverter           1.00 
+        9 xoutput_001.                    inverter           1.00 
+       10 xoutput_0010.                   inverter           1.00 
+       11 xoutput_0011.                   inverter           1.00 
+       12 xoutput_0012.                   inverter           1.00 
+       13 xoutput_0013.                   inverter           1.00 
+       14 xoutput_002.                    inverter           1.00 
+       15 xoutput_0020.                   inverter           1.00 
+       16 xoutput_0021.                   inverter           1.00 
+       17 xoutput_0022.                   inverter           1.00 
+       18 xoutput_0023.                   inverter           1.00 
+       19 xoutput_003.                    inverter           1.00 
+       20 xoutput_0030.                   inverter           1.00 
+       21 xoutput_0031.                   inverter           1.00 
+       22 xoutput_0032.                   inverter           1.00 
+       23 xoutput_0033.                   inverter           1.00 
+       24 xoutput_01.                     inverter           1.00 
+       25 xoutput_010.                    inverter           1.00 
+       26 xoutput_0100.                   inverter           1.00 
+       27 xoutput_0101.                   inverter           1.00 
+       28 xoutput_0102.                   inverter           1.00 
+       29 xoutput_0103.                   inverter           1.00 
+       30 xoutput_011.                    inverter           1.00 
+       31 xoutput_0110.                   inverter           1.00 
+       32 xoutput_0111.                   inverter           1.00 
+       33 xoutput_0112.                   inverter           1.00 
+       34 xoutput_0113.                   inverter           1.00 
+       35 xoutput_012.                    inverter           1.00 
+       36 xoutput_0120.                   inverter           1.00 
+       37 xoutput_0121.                   inverter           1.00 
+       38 xoutput_0122.                   inverter           1.00 
+       39 xoutput_0123.                   inverter           1.00 
+       40 xoutput_013.                    inverter           1.00 
+       41 xoutput_0130.                   inverter           1.00 
+       42 xoutput_0131.                   inverter           1.00 
+       43 xoutput_0132.                   inverter           1.00 
+       44 xoutput_0133.                   inverter           1.00 
+       45 xoutput_02.                     inverter           1.00 
+       46 xoutput_020.                    inverter           1.00 
+       47 xoutput_0200.                   inverter           1.00 
+       48 xoutput_0201.                   inverter           1.00 
+       49 xoutput_0202.                   inverter           1.00 
+       50 xoutput_0203.                   inverter           1.00 
+       51 xoutput_021.                    inverter           1.00 
+       52 xoutput_0210.                   inverter           1.00 
+       53 xoutput_0211.                   inverter           1.00 
+       54 xoutput_0212.                   inverter           1.00 
+       55 xoutput_0213.                   inverter           1.00 
+       56 xoutput_022.                    inverter           1.00 
+       57 xoutput_0220.                   inverter           1.00 
+       58 xoutput_0221.                   inverter           1.00 
+       59 xoutput_0222.                   inverter           1.00 
+       60 xoutput_0223.                   inverter           1.00 
+       61 xoutput_023.                    inverter           1.00 
+       62 xoutput_0230.                   inverter           1.00 
+       63 xoutput_0231.                   inverter           1.00 
+       64 xoutput_0232.                   inverter           1.00 
+       65 xoutput_0233.                   inverter           1.00 
+       66 xoutput_03.                     inverter           1.00 
+       67 xoutput_030.                    inverter           1.00 
+       68 xoutput_0300.                   inverter           1.00 
+       69 xoutput_0301.                   inverter           1.00 
+       70 xoutput_0302.                   inverter           1.00 
+       71 xoutput_0303.                   inverter           1.00 
+       72 xoutput_031.                    inverter           1.00 
+       73 xoutput_0310.                   inverter           1.00 
+       74 xoutput_0311.                   inverter           1.00 
+       75 xoutput_0312.                   inverter           1.00 
+       76 xoutput_0313.                   inverter           1.00 
+       77 xoutput_032.                    inverter           1.00 
+       78 xoutput_0320.                   inverter           1.00 
+       79 xoutput_0321.                   inverter           1.00 
+       80 xoutput_0322.                   inverter           1.00 
+       81 xoutput_0323.                   inverter           1.00 
+       82 xoutput_033.                    inverter           1.00 
+       83 xoutput_0330.                   inverter           1.00 
+       84 xoutput_0331.                   inverter           1.00 
+       85 xoutput_0332.                   inverter           1.00 
+       86 xoutput_0333.                   inverter           1.00 
+       87 xinput_0.xpfet.                 pfet               1.00 
+       88 xinput_0.xnfet.                 nfet               1.00 
+       89 xmodel_uut_grid.xinverter00.    inverter           1.00 
+       90 xoutput_00.xpfet.               pfet               1.00 
+       91 xoutput_00.xnfet.               nfet               1.00 
+       92 xoutput_000.xpfet.              pfet               1.00 
+       93 xoutput_000.xnfet.              nfet               1.00 
+       94 xoutput_0000.xpfet.             pfet               1.00 
+       95 xoutput_0000.xnfet.             nfet               1.00 
+       96 xoutput_0001.xpfet.             pfet               1.00 
+       97 xoutput_0001.xnfet.             nfet               1.00 
+       98 xoutput_0002.xpfet.             pfet               1.00 
+       99 xoutput_0002.xnfet.             nfet               1.00 
+      100 xoutput_0003.xpfet.             pfet               1.00 
+      101 xoutput_0003.xnfet.             nfet               1.00 
+      102 xoutput_001.xpfet.              pfet               1.00 
+      103 xoutput_001.xnfet.              nfet               1.00 
+      104 xoutput_0010.xpfet.             pfet               1.00 
+      105 xoutput_0010.xnfet.             nfet               1.00 
+      106 xoutput_0011.xpfet.             pfet               1.00 
+      107 xoutput_0011.xnfet.             nfet               1.00 
+      108 xoutput_0012.xpfet.             pfet               1.00 
+      109 xoutput_0012.xnfet.             nfet               1.00 
+      110 xoutput_0013.xpfet.             pfet               1.00 
+      111 xoutput_0013.xnfet.             nfet               1.00 
+      112 xoutput_002.xpfet.              pfet               1.00 
+      113 xoutput_002.xnfet.              nfet               1.00 
+      114 xoutput_0020.xpfet.             pfet               1.00 
+      115 xoutput_0020.xnfet.             nfet               1.00 
+      116 xoutput_0021.xpfet.             pfet               1.00 
+      117 xoutput_0021.xnfet.             nfet               1.00 
+      118 xoutput_0022.xpfet.             pfet               1.00 
+      119 xoutput_0022.xnfet.             nfet               1.00 
+      120 xoutput_0023.xpfet.             pfet               1.00 
+      121 xoutput_0023.xnfet.             nfet               1.00 
+      122 xoutput_003.xpfet.              pfet               1.00 
+      123 xoutput_003.xnfet.              nfet               1.00 
+      124 xoutput_0030.xpfet.             pfet               1.00 
+      125 xoutput_0030.xnfet.             nfet               1.00 
+      126 xoutput_0031.xpfet.             pfet               1.00 
+      127 xoutput_0031.xnfet.             nfet               1.00 
+      128 xoutput_0032.xpfet.             pfet               1.00 
+      129 xoutput_0032.xnfet.             nfet               1.00 
+      130 xoutput_0033.xpfet.             pfet               1.00 
+      131 xoutput_0033.xnfet.             nfet               1.00 
+      132 xoutput_01.xpfet.               pfet               1.00 
+      133 xoutput_01.xnfet.               nfet               1.00 
+      134 xoutput_010.xpfet.              pfet               1.00 
+      135 xoutput_010.xnfet.              nfet               1.00 
+      136 xoutput_0100.xpfet.             pfet               1.00 
+      137 xoutput_0100.xnfet.             nfet               1.00 
+      138 xoutput_0101.xpfet.             pfet               1.00 
+      139 xoutput_0101.xnfet.             nfet               1.00 
+      140 xoutput_0102.xpfet.             pfet               1.00 
+      141 xoutput_0102.xnfet.             nfet               1.00 
+      142 xoutput_0103.xpfet.             pfet               1.00 
+      143 xoutput_0103.xnfet.             nfet               1.00 
+      144 xoutput_011.xpfet.              pfet               1.00 
+      145 xoutput_011.xnfet.              nfet               1.00 
+      146 xoutput_0110.xpfet.             pfet               1.00 
+      147 xoutput_0110.xnfet.             nfet               1.00 
+      148 xoutput_0111.xpfet.             pfet               1.00 
+      149 xoutput_0111.xnfet.             nfet               1.00 
+      150 xoutput_0112.xpfet.             pfet               1.00 
+      151 xoutput_0112.xnfet.             nfet               1.00 
+      152 xoutput_0113.xpfet.             pfet               1.00 
+      153 xoutput_0113.xnfet.             nfet               1.00 
+      154 xoutput_012.xpfet.              pfet               1.00 
+      155 xoutput_012.xnfet.              nfet               1.00 
+      156 xoutput_0120.xpfet.             pfet               1.00 
+      157 xoutput_0120.xnfet.             nfet               1.00 
+      158 xoutput_0121.xpfet.             pfet               1.00 
+      159 xoutput_0121.xnfet.             nfet               1.00 
+      160 xoutput_0122.xpfet.             pfet               1.00 
+      161 xoutput_0122.xnfet.             nfet               1.00 
+      162 xoutput_0123.xpfet.             pfet               1.00 
+      163 xoutput_0123.xnfet.             nfet               1.00 
+      164 xoutput_013.xpfet.              pfet               1.00 
+      165 xoutput_013.xnfet.              nfet               1.00 
+      166 xoutput_0130.xpfet.             pfet               1.00 
+      167 xoutput_0130.xnfet.             nfet               1.00 
+      168 xoutput_0131.xpfet.             pfet               1.00 
+      169 xoutput_0131.xnfet.             nfet               1.00 
+      170 xoutput_0132.xpfet.             pfet               1.00 
+      171 xoutput_0132.xnfet.             nfet               1.00 
+      172 xoutput_0133.xpfet.             pfet               1.00 
+      173 xoutput_0133.xnfet.             nfet               1.00 
+      174 xoutput_02.xpfet.               pfet               1.00 
+      175 xoutput_02.xnfet.               nfet               1.00 
+      176 xoutput_020.xpfet.              pfet               1.00 
+      177 xoutput_020.xnfet.              nfet               1.00 
+      178 xoutput_0200.xpfet.             pfet               1.00 
+      179 xoutput_0200.xnfet.             nfet               1.00 
+      180 xoutput_0201.xpfet.             pfet               1.00 
+      181 xoutput_0201.xnfet.             nfet               1.00 
+      182 xoutput_0202.xpfet.             pfet               1.00 
+      183 xoutput_0202.xnfet.             nfet               1.00 
+      184 xoutput_0203.xpfet.             pfet               1.00 
+      185 xoutput_0203.xnfet.             nfet               1.00 
+      186 xoutput_021.xpfet.              pfet               1.00 
+      187 xoutput_021.xnfet.              nfet               1.00 
+      188 xoutput_0210.xpfet.             pfet               1.00 
+      189 xoutput_0210.xnfet.             nfet               1.00 
+      190 xoutput_0211.xpfet.             pfet               1.00 
+      191 xoutput_0211.xnfet.             nfet               1.00 
+      192 xoutput_0212.xpfet.             pfet               1.00 
+      193 xoutput_0212.xnfet.             nfet               1.00 
+      194 xoutput_0213.xpfet.             pfet               1.00 
+      195 xoutput_0213.xnfet.             nfet               1.00 
+      196 xoutput_022.xpfet.              pfet               1.00 
+      197 xoutput_022.xnfet.              nfet               1.00 
+      198 xoutput_0220.xpfet.             pfet               1.00 
+      199 xoutput_0220.xnfet.             nfet               1.00 
+      200 xoutput_0221.xpfet.             pfet               1.00 
+      201 xoutput_0221.xnfet.             nfet               1.00 
+      202 xoutput_0222.xpfet.             pfet               1.00 
+      203 xoutput_0222.xnfet.             nfet               1.00 
+      204 xoutput_0223.xpfet.             pfet               1.00 
+      205 xoutput_0223.xnfet.             nfet               1.00 
+      206 xoutput_023.xpfet.              pfet               1.00 
+      207 xoutput_023.xnfet.              nfet               1.00 
+      208 xoutput_0230.xpfet.             pfet               1.00 
+      209 xoutput_0230.xnfet.             nfet               1.00 
+      210 xoutput_0231.xpfet.             pfet               1.00 
+      211 xoutput_0231.xnfet.             nfet               1.00 
+      212 xoutput_0232.xpfet.             pfet               1.00 
+      213 xoutput_0232.xnfet.             nfet               1.00 
+      214 xoutput_0233.xpfet.             pfet               1.00 
+      215 xoutput_0233.xnfet.             nfet               1.00 
+      216 xoutput_03.xpfet.               pfet               1.00 
+      217 xoutput_03.xnfet.               nfet               1.00 
+      218 xoutput_030.xpfet.              pfet               1.00 
+      219 xoutput_030.xnfet.              nfet               1.00 
+      220 xoutput_0300.xpfet.             pfet               1.00 
+      221 xoutput_0300.xnfet.             nfet               1.00 
+      222 xoutput_0301.xpfet.             pfet               1.00 
+      223 xoutput_0301.xnfet.             nfet               1.00 
+      224 xoutput_0302.xpfet.             pfet               1.00 
+      225 xoutput_0302.xnfet.             nfet               1.00 
+      226 xoutput_0303.xpfet.             pfet               1.00 
+      227 xoutput_0303.xnfet.             nfet               1.00 
+      228 xoutput_031.xpfet.              pfet               1.00 
+      229 xoutput_031.xnfet.              nfet               1.00 
+      230 xoutput_0310.xpfet.             pfet               1.00 
+      231 xoutput_0310.xnfet.             nfet               1.00 
+      232 xoutput_0311.xpfet.             pfet               1.00 
+      233 xoutput_0311.xnfet.             nfet               1.00 
+      234 xoutput_0312.xpfet.             pfet               1.00 
+      235 xoutput_0312.xnfet.             nfet               1.00 
+      236 xoutput_0313.xpfet.             pfet               1.00 
+      237 xoutput_0313.xnfet.             nfet               1.00 
+      238 xoutput_032.xpfet.              pfet               1.00 
+      239 xoutput_032.xnfet.              nfet               1.00 
+      240 xoutput_0320.xpfet.             pfet               1.00 
+      241 xoutput_0320.xnfet.             nfet               1.00 
+      242 xoutput_0321.xpfet.             pfet               1.00 
+      243 xoutput_0321.xnfet.             nfet               1.00 
+      244 xoutput_0322.xpfet.             pfet               1.00 
+      245 xoutput_0322.xnfet.             nfet               1.00 
+      246 xoutput_0323.xpfet.             pfet               1.00 
+      247 xoutput_0323.xnfet.             nfet               1.00 
+      248 xoutput_033.xpfet.              pfet               1.00 
+      249 xoutput_033.xnfet.              nfet               1.00 
+      250 xoutput_0330.xpfet.             pfet               1.00 
+      251 xoutput_0330.xnfet.             nfet               1.00 
+      252 xoutput_0331.xpfet.             pfet               1.00 
+      253 xoutput_0331.xnfet.             nfet               1.00 
+      254 xoutput_0332.xpfet.             pfet               1.00 
+      255 xoutput_0332.xnfet.             nfet               1.00 
+      256 xoutput_0333.xpfet.             pfet               1.00 
+      257 xoutput_0333.xnfet.             nfet               1.00 
+      258 xmodel_uut_grid.xinverter00.xpfet.
                                             pfet               1.00 
-      256 xmodel_uut_grid.xinverter00.xnfet.
+      259 xmodel_uut_grid.xinverter00.xnfet.
                                             nfet               1.00 
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
  ******  
@@ -3072,1056 +3075,1057 @@
  ***** operating point status is voltage   simulation time is   0.000e+00
       node    =voltage        node    =voltage        node    =voltage
 
- +  0:outb_00 = 7.500e-01   0:outb_000= 1.327e-05   0:outb_000= 7.500e-01
- +  0:outb_000= 7.500e-01   0:outb_000= 7.500e-01   0:outb_000= 7.500e-01
- +  0:outb_001= 1.327e-05   0:outb_001= 7.500e-01   0:outb_001= 7.500e-01
- +  0:outb_001= 7.500e-01   0:outb_001= 7.500e-01   0:outb_002= 1.327e-05
- +  0:outb_002= 7.500e-01   0:outb_002= 7.500e-01   0:outb_002= 7.500e-01
- +  0:outb_002= 7.500e-01   0:outb_003= 1.327e-05   0:outb_003= 7.500e-01
- +  0:outb_003= 7.500e-01   0:outb_003= 7.500e-01   0:outb_003= 7.500e-01
- +  0:outb_01 = 7.500e-01   0:outb_010= 1.327e-05   0:outb_010= 7.500e-01
- +  0:outb_010= 7.500e-01   0:outb_010= 7.500e-01   0:outb_010= 7.500e-01
- +  0:outb_011= 1.327e-05   0:outb_011= 7.500e-01   0:outb_011= 7.500e-01
- +  0:outb_011= 7.500e-01   0:outb_011= 7.500e-01   0:outb_012= 1.327e-05
- +  0:outb_012= 7.500e-01   0:outb_012= 7.500e-01   0:outb_012= 7.500e-01
- +  0:outb_012= 7.500e-01   0:outb_013= 1.327e-05   0:outb_013= 7.500e-01
- +  0:outb_013= 7.500e-01   0:outb_013= 7.500e-01   0:outb_013= 7.500e-01
- +  0:outb_02 = 7.500e-01   0:outb_020= 1.327e-05   0:outb_020= 7.500e-01
- +  0:outb_020= 7.500e-01   0:outb_020= 7.500e-01   0:outb_020= 7.500e-01
- +  0:outb_021= 1.327e-05   0:outb_021= 7.500e-01   0:outb_021= 7.500e-01
- +  0:outb_021= 7.500e-01   0:outb_021= 7.500e-01   0:outb_022= 1.327e-05
- +  0:outb_022= 7.500e-01   0:outb_022= 7.500e-01   0:outb_022= 7.500e-01
- +  0:outb_022= 7.500e-01   0:outb_023= 1.327e-05   0:outb_023= 7.500e-01
- +  0:outb_023= 7.500e-01   0:outb_023= 7.500e-01   0:outb_023= 7.500e-01
- +  0:outb_03 = 7.500e-01   0:outb_030= 1.327e-05   0:outb_030= 7.500e-01
- +  0:outb_030= 7.500e-01   0:outb_030= 7.500e-01   0:outb_030= 7.500e-01
- +  0:outb_031= 1.327e-05   0:outb_031= 7.500e-01   0:outb_031= 7.500e-01
- +  0:outb_031= 7.500e-01   0:outb_031= 7.500e-01   0:outb_032= 1.327e-05
- +  0:outb_032= 7.500e-01   0:outb_032= 7.500e-01   0:outb_032= 7.500e-01
- +  0:outb_032= 7.500e-01   0:outb_033= 1.327e-05   0:outb_033= 7.500e-01
- +  0:outb_033= 7.500e-01   0:outb_033= 7.500e-01   0:outb_033= 7.500e-01
- +  0:outin_00= 7.500e-01   0:outin_10= 1.327e-05   0:vdd     = 7.500e-01
+ +  0:inb_0   = 7.500e-01   0:outb_00 = 1.327e-05   0:outb_000= 7.500e-01
+ +  0:outb_000= 1.327e-05   0:outb_000= 1.327e-05   0:outb_000= 1.327e-05
+ +  0:outb_000= 1.327e-05   0:outb_001= 7.500e-01   0:outb_001= 1.327e-05
+ +  0:outb_001= 1.327e-05   0:outb_001= 1.327e-05   0:outb_001= 1.327e-05
+ +  0:outb_002= 7.500e-01   0:outb_002= 1.327e-05   0:outb_002= 1.327e-05
+ +  0:outb_002= 1.327e-05   0:outb_002= 1.327e-05   0:outb_003= 7.500e-01
+ +  0:outb_003= 1.327e-05   0:outb_003= 1.327e-05   0:outb_003= 1.327e-05
+ +  0:outb_003= 1.327e-05   0:outb_01 = 1.327e-05   0:outb_010= 7.500e-01
+ +  0:outb_010= 1.327e-05   0:outb_010= 1.327e-05   0:outb_010= 1.327e-05
+ +  0:outb_010= 1.327e-05   0:outb_011= 7.500e-01   0:outb_011= 1.327e-05
+ +  0:outb_011= 1.327e-05   0:outb_011= 1.327e-05   0:outb_011= 1.327e-05
+ +  0:outb_012= 7.500e-01   0:outb_012= 1.327e-05   0:outb_012= 1.327e-05
+ +  0:outb_012= 1.327e-05   0:outb_012= 1.327e-05   0:outb_013= 7.500e-01
+ +  0:outb_013= 1.327e-05   0:outb_013= 1.327e-05   0:outb_013= 1.327e-05
+ +  0:outb_013= 1.327e-05   0:outb_02 = 1.327e-05   0:outb_020= 7.500e-01
+ +  0:outb_020= 1.327e-05   0:outb_020= 1.327e-05   0:outb_020= 1.327e-05
+ +  0:outb_020= 1.327e-05   0:outb_021= 7.500e-01   0:outb_021= 1.327e-05
+ +  0:outb_021= 1.327e-05   0:outb_021= 1.327e-05   0:outb_021= 1.327e-05
+ +  0:outb_022= 7.500e-01   0:outb_022= 1.327e-05   0:outb_022= 1.327e-05
+ +  0:outb_022= 1.327e-05   0:outb_022= 1.327e-05   0:outb_023= 7.500e-01
+ +  0:outb_023= 1.327e-05   0:outb_023= 1.327e-05   0:outb_023= 1.327e-05
+ +  0:outb_023= 1.327e-05   0:outb_03 = 1.327e-05   0:outb_030= 7.500e-01
+ +  0:outb_030= 1.327e-05   0:outb_030= 1.327e-05   0:outb_030= 1.327e-05
+ +  0:outb_030= 1.327e-05   0:outb_031= 7.500e-01   0:outb_031= 1.327e-05
+ +  0:outb_031= 1.327e-05   0:outb_031= 1.327e-05   0:outb_031= 1.327e-05
+ +  0:outb_032= 7.500e-01   0:outb_032= 1.327e-05   0:outb_032= 1.327e-05
+ +  0:outb_032= 1.327e-05   0:outb_032= 1.327e-05   0:outb_033= 7.500e-01
+ +  0:outb_033= 1.327e-05   0:outb_033= 1.327e-05   0:outb_033= 1.327e-05
+ +  0:outb_033= 1.327e-05   0:outin_00= 1.327e-05   0:outin_10= 7.500e-01
+ +  0:vdd     = 7.500e-01
 
  ******  
  $ netlist of inverter
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- model_uut_peak_power00= 3.0522e-05    at= 5.0882e-10
+ model_uut_peak_power00= 3.0090e-05    at= 9.9299e-12
              from= 0.0000e+00    to= 1.0000e-09
- model_uut_avg_power012= 3.3904e-07  from= 0.0000e+00     to= 1.0000e-09
- uut_peak_power= 6.4235e-05    at= 5.0208e-10
+ model_uut_avg_power012= 3.3545e-07  from= 0.0000e+00     to= 1.0000e-09
+ uut_peak_power= 4.9912e-05    at= 5.0346e-10
              from= 0.0000e+00    to= 1.0000e-09
- uut_avg_power= 2.6371e-07  from= 0.0000e+00     to= 1.0000e-09
- source_peak_power= 1.1794e-03    at= 9.8617e-12
+ uut_avg_power= 2.8802e-07  from= 0.0000e+00     to= 1.0000e-09
+ source_peak_power= 1.1690e-03    at= 1.1414e-11
              from= 0.0000e+00    to= 1.0000e-09
- source_avg_power= 1.1361e-05  from= 0.0000e+00     to= 1.0000e-09
- trf_delay= 3.8566e-12  targ= 5.1120e-10   trig= 5.0735e-10
- tfr_delay= 3.8538e-12  targ= 9.8184e-12   trig= 5.9647e-12
+ source_avg_power= 1.1180e-05  from= 0.0000e+00     to= 1.0000e-09
+ trf_delay= 3.8246e-12  targ= 1.1063e-11   trig= 7.2385e-12
+ tfr_delay= 3.9590e-12  targ= 5.1275e-10   trig= 5.0879e-10
 x
 
         time    voltage      voltage    
                  outin_00     outin_10  
-  0.0000e+00    7.500e-01    1.327e-05  
-  1.0000e-12    0.000e+00    1.081e-01  
-  2.0000e-12    0.000e+00    2.961e-01  
-  3.0000e-12    0.000e+00    4.468e-01  
-  4.0000e-12    0.000e+00    5.755e-01  
-  5.0000e-12    0.000e+00    6.401e-01  
-  6.0000e-12    0.000e+00    6.647e-01  
-  7.0000e-12    0.000e+00    6.809e-01  
-  8.0000e-12    0.000e+00    6.894e-01  
-  9.0000e-12    0.000e+00    7.031e-01  
-  1.0000e-11    0.000e+00    7.190e-01  
-  1.1000e-11    0.000e+00    7.281e-01  
-  1.2000e-11    0.000e+00    7.392e-01  
-  1.3000e-11    0.000e+00    7.492e-01  
-  1.4000e-11    0.000e+00    7.476e-01  
-  1.5000e-11    0.000e+00    7.451e-01  
-  1.6000e-11    0.000e+00    7.442e-01  
-  1.7000e-11    0.000e+00    7.449e-01  
-  1.8000e-11    0.000e+00    7.462e-01  
-  1.9000e-11    0.000e+00    7.472e-01  
-  2.0000e-11    0.000e+00    7.481e-01  
-  2.1000e-11    0.000e+00    7.488e-01  
-  2.2000e-11    0.000e+00    7.495e-01  
-  2.3000e-11    0.000e+00    7.497e-01  
-  2.4000e-11    0.000e+00    7.497e-01  
-  2.5000e-11    0.000e+00    7.498e-01  
-  2.6000e-11    0.000e+00    7.499e-01  
-  2.7000e-11    0.000e+00    7.499e-01  
-  2.8000e-11    0.000e+00    7.500e-01  
-  2.9000e-11    0.000e+00    7.501e-01  
-  3.0000e-11    0.000e+00    7.501e-01  
-  3.1000e-11    0.000e+00    7.501e-01  
-  3.2000e-11    0.000e+00    7.500e-01  
-  3.3000e-11    0.000e+00    7.500e-01  
-  3.4000e-11    0.000e+00    7.500e-01  
-  3.5000e-11    0.000e+00    7.499e-01  
-  3.6000e-11    0.000e+00    7.499e-01  
-  3.7000e-11    0.000e+00    7.499e-01  
-  3.8000e-11    0.000e+00    7.499e-01  
-  3.9000e-11    0.000e+00    7.499e-01  
-  4.0000e-11    0.000e+00    7.500e-01  
-  4.1000e-11    0.000e+00    7.500e-01  
-  4.2000e-11    0.000e+00    7.500e-01  
-  4.3000e-11    0.000e+00    7.501e-01  
-  4.4000e-11    0.000e+00    7.501e-01  
-  4.5000e-11    0.000e+00    7.501e-01  
-  4.6000e-11    0.000e+00    7.501e-01  
-  4.7000e-11    0.000e+00    7.501e-01  
-  4.8000e-11    0.000e+00    7.500e-01  
-  4.9000e-11    0.000e+00    7.500e-01  
-  5.0000e-11    0.000e+00    7.500e-01  
-  5.1000e-11    0.000e+00    7.500e-01  
-  5.2000e-11    0.000e+00    7.499e-01  
-  5.3000e-11    0.000e+00    7.499e-01  
-  5.4000e-11    0.000e+00    7.499e-01  
-  5.5000e-11    0.000e+00    7.499e-01  
-  5.6000e-11    0.000e+00    7.499e-01  
-  5.7000e-11    0.000e+00    7.499e-01  
-  5.8000e-11    0.000e+00    7.499e-01  
-  5.9000e-11    0.000e+00    7.499e-01  
-  6.0000e-11    0.000e+00    7.499e-01  
-  6.1000e-11    0.000e+00    7.500e-01  
-  6.2000e-11    0.000e+00    7.500e-01  
-  6.3000e-11    0.000e+00    7.500e-01  
-  6.4000e-11    0.000e+00    7.500e-01  
-  6.5000e-11    0.000e+00    7.500e-01  
-  6.6000e-11    0.000e+00    7.500e-01  
-  6.7000e-11    0.000e+00    7.501e-01  
-  6.8000e-11    0.000e+00    7.501e-01  
-  6.9000e-11    0.000e+00    7.501e-01  
-  7.0000e-11    0.000e+00    7.501e-01  
-  7.1000e-11    0.000e+00    7.501e-01  
-  7.2000e-11    0.000e+00    7.501e-01  
-  7.3000e-11    0.000e+00    7.501e-01  
-  7.4000e-11    0.000e+00    7.500e-01  
-  7.5000e-11    0.000e+00    7.500e-01  
-  7.6000e-11    0.000e+00    7.500e-01  
-  7.7000e-11    0.000e+00    7.500e-01  
-  7.8000e-11    0.000e+00    7.500e-01  
-  7.9000e-11    0.000e+00    7.500e-01  
-  8.0000e-11    0.000e+00    7.500e-01  
-  8.1000e-11    0.000e+00    7.499e-01  
-  8.2000e-11    0.000e+00    7.499e-01  
-  8.3000e-11    0.000e+00    7.499e-01  
-  8.4000e-11    0.000e+00    7.499e-01  
-  8.5000e-11    0.000e+00    7.499e-01  
-  8.6000e-11    0.000e+00    7.499e-01  
-  8.7000e-11    0.000e+00    7.499e-01  
-  8.8000e-11    0.000e+00    7.499e-01  
-  8.9000e-11    0.000e+00    7.499e-01  
-  9.0000e-11    0.000e+00    7.499e-01  
-  9.1000e-11    0.000e+00    7.499e-01  
-  9.2000e-11    0.000e+00    7.499e-01  
-  9.3000e-11    0.000e+00    7.499e-01  
-  9.4000e-11    0.000e+00    7.500e-01  
-  9.5000e-11    0.000e+00    7.500e-01  
-  9.6000e-11    0.000e+00    7.500e-01  
-  9.7000e-11    0.000e+00    7.500e-01  
-  9.8000e-11    0.000e+00    7.500e-01  
-  9.9000e-11    0.000e+00    7.500e-01  
-  1.0000e-10    0.000e+00    7.500e-01  
-  1.0100e-10    0.000e+00    7.500e-01  
-  1.0200e-10    0.000e+00    7.501e-01  
-  1.0300e-10    0.000e+00    7.501e-01  
-  1.0400e-10    0.000e+00    7.501e-01  
-  1.0500e-10    0.000e+00    7.501e-01  
-  1.0600e-10    0.000e+00    7.501e-01  
-  1.0700e-10    0.000e+00    7.501e-01  
-  1.0800e-10    0.000e+00    7.501e-01  
-  1.0900e-10    0.000e+00    7.501e-01  
-  1.1000e-10    0.000e+00    7.501e-01  
-  1.1100e-10    0.000e+00    7.500e-01  
-  1.1200e-10    0.000e+00    7.500e-01  
-  1.1300e-10    0.000e+00    7.500e-01  
-  1.1400e-10    0.000e+00    7.500e-01  
-  1.1500e-10    0.000e+00    7.500e-01  
-  1.1600e-10    0.000e+00    7.500e-01  
-  1.1700e-10    0.000e+00    7.500e-01  
-  1.1800e-10    0.000e+00    7.500e-01  
-  1.1900e-10    0.000e+00    7.500e-01  
-  1.2000e-10    0.000e+00    7.500e-01  
-  1.2100e-10    0.000e+00    7.499e-01  
-  1.2200e-10    0.000e+00    7.499e-01  
-  1.2300e-10    0.000e+00    7.499e-01  
-  1.2400e-10    0.000e+00    7.499e-01  
-  1.2500e-10    0.000e+00    7.499e-01  
-  1.2600e-10    0.000e+00    7.499e-01  
-  1.2700e-10    0.000e+00    7.499e-01  
-  1.2800e-10    0.000e+00    7.499e-01  
-  1.2900e-10    0.000e+00    7.499e-01  
-  1.3000e-10    0.000e+00    7.499e-01  
-  1.3100e-10    0.000e+00    7.499e-01  
-  1.3200e-10    0.000e+00    7.499e-01  
-  1.3300e-10    0.000e+00    7.499e-01  
-  1.3400e-10    0.000e+00    7.499e-01  
-  1.3500e-10    0.000e+00    7.499e-01  
-  1.3600e-10    0.000e+00    7.499e-01  
-  1.3700e-10    0.000e+00    7.499e-01  
-  1.3800e-10    0.000e+00    7.499e-01  
-  1.3900e-10    0.000e+00    7.500e-01  
-  1.4000e-10    0.000e+00    7.500e-01  
-  1.4100e-10    0.000e+00    7.500e-01  
-  1.4200e-10    0.000e+00    7.500e-01  
-  1.4300e-10    0.000e+00    7.500e-01  
-  1.4400e-10    0.000e+00    7.500e-01  
-  1.4500e-10    0.000e+00    7.500e-01  
-  1.4600e-10    0.000e+00    7.500e-01  
-  1.4700e-10    0.000e+00    7.500e-01  
-  1.4800e-10    0.000e+00    7.500e-01  
-  1.4900e-10    0.000e+00    7.500e-01  
-  1.5000e-10    0.000e+00    7.501e-01  
-  1.5100e-10    0.000e+00    7.501e-01  
-  1.5200e-10    0.000e+00    7.501e-01  
-  1.5300e-10    0.000e+00    7.501e-01  
-  1.5400e-10    0.000e+00    7.501e-01  
-  1.5500e-10    0.000e+00    7.501e-01  
-  1.5600e-10    0.000e+00    7.501e-01  
-  1.5700e-10    0.000e+00    7.501e-01  
-  1.5800e-10    0.000e+00    7.501e-01  
-  1.5900e-10    0.000e+00    7.501e-01  
-  1.6000e-10    0.000e+00    7.501e-01  
-  1.6100e-10    0.000e+00    7.501e-01  
-  1.6200e-10    0.000e+00    7.500e-01  
-  1.6300e-10    0.000e+00    7.500e-01  
-  1.6400e-10    0.000e+00    7.500e-01  
-  1.6500e-10    0.000e+00    7.500e-01  
-  1.6600e-10    0.000e+00    7.500e-01  
-  1.6700e-10    0.000e+00    7.500e-01  
-  1.6800e-10    0.000e+00    7.500e-01  
-  1.6900e-10    0.000e+00    7.500e-01  
-  1.7000e-10    0.000e+00    7.500e-01  
-  1.7100e-10    0.000e+00    7.500e-01  
-  1.7200e-10    0.000e+00    7.500e-01  
-  1.7300e-10    0.000e+00    7.500e-01  
-  1.7400e-10    0.000e+00    7.500e-01  
-  1.7500e-10    0.000e+00    7.499e-01  
-  1.7600e-10    0.000e+00    7.499e-01  
-  1.7700e-10    0.000e+00    7.499e-01  
-  1.7800e-10    0.000e+00    7.499e-01  
-  1.7900e-10    0.000e+00    7.499e-01  
-  1.8000e-10    0.000e+00    7.499e-01  
-  1.8100e-10    0.000e+00    7.499e-01  
-  1.8200e-10    0.000e+00    7.499e-01  
-  1.8300e-10    0.000e+00    7.499e-01  
-  1.8400e-10    0.000e+00    7.499e-01  
-  1.8500e-10    0.000e+00    7.499e-01  
-  1.8600e-10    0.000e+00    7.499e-01  
-  1.8700e-10    0.000e+00    7.499e-01  
-  1.8800e-10    0.000e+00    7.499e-01  
-  1.8900e-10    0.000e+00    7.499e-01  
-  1.9000e-10    0.000e+00    7.499e-01  
-  1.9100e-10    0.000e+00    7.499e-01  
-  1.9200e-10    0.000e+00    7.499e-01  
-  1.9300e-10    0.000e+00    7.499e-01  
-  1.9400e-10    0.000e+00    7.499e-01  
-  1.9500e-10    0.000e+00    7.499e-01  
-  1.9600e-10    0.000e+00    7.499e-01  
-  1.9700e-10    0.000e+00    7.499e-01  
-  1.9800e-10    0.000e+00    7.500e-01  
-  1.9900e-10    0.000e+00    7.500e-01  
-  2.0000e-10    0.000e+00    7.500e-01  
-  2.0100e-10    0.000e+00    7.500e-01  
-  2.0200e-10    0.000e+00    7.500e-01  
-  2.0300e-10    0.000e+00    7.500e-01  
-  2.0400e-10    0.000e+00    7.500e-01  
-  2.0500e-10    0.000e+00    7.500e-01  
-  2.0600e-10    0.000e+00    7.500e-01  
-  2.0700e-10    0.000e+00    7.500e-01  
-  2.0800e-10    0.000e+00    7.500e-01  
-  2.0900e-10    0.000e+00    7.500e-01  
-  2.1000e-10    0.000e+00    7.500e-01  
-  2.1100e-10    0.000e+00    7.500e-01  
-  2.1200e-10    0.000e+00    7.501e-01  
-  2.1300e-10    0.000e+00    7.501e-01  
-  2.1400e-10    0.000e+00    7.501e-01  
-  2.1500e-10    0.000e+00    7.501e-01  
-  2.1600e-10    0.000e+00    7.501e-01  
-  2.1700e-10    0.000e+00    7.501e-01  
-  2.1800e-10    0.000e+00    7.501e-01  
-  2.1900e-10    0.000e+00    7.501e-01  
-  2.2000e-10    0.000e+00    7.501e-01  
-  2.2100e-10    0.000e+00    7.501e-01  
-  2.2200e-10    0.000e+00    7.501e-01  
-  2.2300e-10    0.000e+00    7.501e-01  
-  2.2400e-10    0.000e+00    7.501e-01  
-  2.2500e-10    0.000e+00    7.501e-01  
-  2.2600e-10    0.000e+00    7.500e-01  
-  2.2700e-10    0.000e+00    7.500e-01  
-  2.2800e-10    0.000e+00    7.500e-01  
-  2.2900e-10    0.000e+00    7.500e-01  
-  2.3000e-10    0.000e+00    7.500e-01  
-  2.3100e-10    0.000e+00    7.500e-01  
-  2.3200e-10    0.000e+00    7.500e-01  
-  2.3300e-10    0.000e+00    7.500e-01  
-  2.3400e-10    0.000e+00    7.500e-01  
-  2.3500e-10    0.000e+00    7.500e-01  
-  2.3600e-10    0.000e+00    7.500e-01  
-  2.3700e-10    0.000e+00    7.500e-01  
-  2.3800e-10    0.000e+00    7.500e-01  
-  2.3900e-10    0.000e+00    7.500e-01  
-  2.4000e-10    0.000e+00    7.500e-01  
-  2.4100e-10    0.000e+00    7.500e-01  
-  2.4200e-10    0.000e+00    7.499e-01  
-  2.4300e-10    0.000e+00    7.499e-01  
-  2.4400e-10    0.000e+00    7.499e-01  
-  2.4500e-10    0.000e+00    7.499e-01  
-  2.4600e-10    0.000e+00    7.499e-01  
-  2.4700e-10    0.000e+00    7.499e-01  
-  2.4800e-10    0.000e+00    7.499e-01  
-  2.4900e-10    0.000e+00    7.499e-01  
-  2.5000e-10    0.000e+00    7.499e-01  
-  2.5100e-10    0.000e+00    7.499e-01  
-  2.5200e-10    0.000e+00    7.499e-01  
-  2.5300e-10    0.000e+00    7.499e-01  
-  2.5400e-10    0.000e+00    7.499e-01  
-  2.5500e-10    0.000e+00    7.499e-01  
-  2.5600e-10    0.000e+00    7.499e-01  
-  2.5700e-10    0.000e+00    7.499e-01  
-  2.5800e-10    0.000e+00    7.499e-01  
-  2.5900e-10    0.000e+00    7.499e-01  
-  2.6000e-10    0.000e+00    7.499e-01  
-  2.6100e-10    0.000e+00    7.499e-01  
-  2.6200e-10    0.000e+00    7.499e-01  
-  2.6300e-10    0.000e+00    7.499e-01  
-  2.6400e-10    0.000e+00    7.499e-01  
-  2.6500e-10    0.000e+00    7.499e-01  
-  2.6600e-10    0.000e+00    7.499e-01  
-  2.6700e-10    0.000e+00    7.499e-01  
-  2.6800e-10    0.000e+00    7.499e-01  
-  2.6900e-10    0.000e+00    7.500e-01  
-  2.7000e-10    0.000e+00    7.500e-01  
-  2.7100e-10    0.000e+00    7.500e-01  
-  2.7200e-10    0.000e+00    7.500e-01  
-  2.7300e-10    0.000e+00    7.500e-01  
-  2.7400e-10    0.000e+00    7.500e-01  
-  2.7500e-10    0.000e+00    7.500e-01  
-  2.7600e-10    0.000e+00    7.500e-01  
-  2.7700e-10    0.000e+00    7.500e-01  
-  2.7800e-10    0.000e+00    7.500e-01  
-  2.7900e-10    0.000e+00    7.500e-01  
-  2.8000e-10    0.000e+00    7.500e-01  
-  2.8100e-10    0.000e+00    7.500e-01  
-  2.8200e-10    0.000e+00    7.500e-01  
-  2.8300e-10    0.000e+00    7.500e-01  
-  2.8400e-10    0.000e+00    7.500e-01  
-  2.8500e-10    0.000e+00    7.500e-01  
-  2.8600e-10    0.000e+00    7.501e-01  
-  2.8700e-10    0.000e+00    7.501e-01  
-  2.8800e-10    0.000e+00    7.501e-01  
-  2.8900e-10    0.000e+00    7.501e-01  
-  2.9000e-10    0.000e+00    7.501e-01  
-  2.9100e-10    0.000e+00    7.501e-01  
-  2.9200e-10    0.000e+00    7.501e-01  
-  2.9300e-10    0.000e+00    7.501e-01  
-  2.9400e-10    0.000e+00    7.501e-01  
-  2.9500e-10    0.000e+00    7.501e-01  
-  2.9600e-10    0.000e+00    7.501e-01  
-  2.9700e-10    0.000e+00    7.501e-01  
-  2.9800e-10    0.000e+00    7.501e-01  
-  2.9900e-10    0.000e+00    7.501e-01  
-  3.0000e-10    0.000e+00    7.501e-01  
-  3.0100e-10    0.000e+00    7.501e-01  
-  3.0200e-10    0.000e+00    7.501e-01  
-  3.0300e-10    0.000e+00    7.500e-01  
-  3.0400e-10    0.000e+00    7.500e-01  
-  3.0500e-10    0.000e+00    7.500e-01  
-  3.0600e-10    0.000e+00    7.500e-01  
-  3.0700e-10    0.000e+00    7.500e-01  
-  3.0800e-10    0.000e+00    7.500e-01  
-  3.0900e-10    0.000e+00    7.500e-01  
-  3.1000e-10    0.000e+00    7.500e-01  
-  3.1100e-10    0.000e+00    7.500e-01  
-  3.1200e-10    0.000e+00    7.500e-01  
-  3.1300e-10    0.000e+00    7.500e-01  
-  3.1400e-10    0.000e+00    7.500e-01  
-  3.1500e-10    0.000e+00    7.500e-01  
-  3.1600e-10    0.000e+00    7.500e-01  
-  3.1700e-10    0.000e+00    7.500e-01  
-  3.1800e-10    0.000e+00    7.500e-01  
-  3.1900e-10    0.000e+00    7.500e-01  
-  3.2000e-10    0.000e+00    7.500e-01  
-  3.2100e-10    0.000e+00    7.499e-01  
-  3.2200e-10    0.000e+00    7.499e-01  
-  3.2300e-10    0.000e+00    7.499e-01  
-  3.2400e-10    0.000e+00    7.499e-01  
-  3.2500e-10    0.000e+00    7.499e-01  
-  3.2600e-10    0.000e+00    7.499e-01  
-  3.2700e-10    0.000e+00    7.499e-01  
-  3.2800e-10    0.000e+00    7.499e-01  
-  3.2900e-10    0.000e+00    7.499e-01  
-  3.3000e-10    0.000e+00    7.499e-01  
-  3.3100e-10    0.000e+00    7.499e-01  
-  3.3200e-10    0.000e+00    7.499e-01  
-  3.3300e-10    0.000e+00    7.499e-01  
-  3.3400e-10    0.000e+00    7.499e-01  
-  3.3500e-10    0.000e+00    7.499e-01  
-  3.3600e-10    0.000e+00    7.499e-01  
-  3.3700e-10    0.000e+00    7.499e-01  
-  3.3800e-10    0.000e+00    7.499e-01  
-  3.3900e-10    0.000e+00    7.499e-01  
-  3.4000e-10    0.000e+00    7.499e-01  
-  3.4100e-10    0.000e+00    7.499e-01  
-  3.4200e-10    0.000e+00    7.499e-01  
-  3.4300e-10    0.000e+00    7.499e-01  
-  3.4400e-10    0.000e+00    7.499e-01  
-  3.4500e-10    0.000e+00    7.499e-01  
-  3.4600e-10    0.000e+00    7.499e-01  
-  3.4700e-10    0.000e+00    7.499e-01  
-  3.4800e-10    0.000e+00    7.499e-01  
-  3.4900e-10    0.000e+00    7.499e-01  
-  3.5000e-10    0.000e+00    7.499e-01  
-  3.5100e-10    0.000e+00    7.500e-01  
-  3.5200e-10    0.000e+00    7.500e-01  
-  3.5300e-10    0.000e+00    7.500e-01  
-  3.5400e-10    0.000e+00    7.500e-01  
-  3.5500e-10    0.000e+00    7.500e-01  
-  3.5600e-10    0.000e+00    7.500e-01  
-  3.5700e-10    0.000e+00    7.500e-01  
-  3.5800e-10    0.000e+00    7.500e-01  
-  3.5900e-10    0.000e+00    7.500e-01  
-  3.6000e-10    0.000e+00    7.500e-01  
-  3.6100e-10    0.000e+00    7.500e-01  
-  3.6200e-10    0.000e+00    7.500e-01  
-  3.6300e-10    0.000e+00    7.500e-01  
-  3.6400e-10    0.000e+00    7.500e-01  
-  3.6500e-10    0.000e+00    7.500e-01  
-  3.6600e-10    0.000e+00    7.500e-01  
-  3.6700e-10    0.000e+00    7.500e-01  
-  3.6800e-10    0.000e+00    7.500e-01  
-  3.6900e-10    0.000e+00    7.500e-01  
-  3.7000e-10    0.000e+00    7.501e-01  
-  3.7100e-10    0.000e+00    7.501e-01  
-  3.7200e-10    0.000e+00    7.501e-01  
-  3.7300e-10    0.000e+00    7.501e-01  
-  3.7400e-10    0.000e+00    7.501e-01  
-  3.7500e-10    0.000e+00    7.501e-01  
-  3.7600e-10    0.000e+00    7.501e-01  
-  3.7700e-10    0.000e+00    7.501e-01  
-  3.7800e-10    0.000e+00    7.501e-01  
-  3.7900e-10    0.000e+00    7.501e-01  
-  3.8000e-10    0.000e+00    7.501e-01  
-  3.8100e-10    0.000e+00    7.501e-01  
-  3.8200e-10    0.000e+00    7.501e-01  
-  3.8300e-10    0.000e+00    7.501e-01  
-  3.8400e-10    0.000e+00    7.501e-01  
-  3.8500e-10    0.000e+00    7.501e-01  
-  3.8600e-10    0.000e+00    7.501e-01  
-  3.8700e-10    0.000e+00    7.501e-01  
-  3.8800e-10    0.000e+00    7.501e-01  
-  3.8900e-10    0.000e+00    7.500e-01  
-  3.9000e-10    0.000e+00    7.500e-01  
-  3.9100e-10    0.000e+00    7.500e-01  
-  3.9200e-10    0.000e+00    7.500e-01  
-  3.9300e-10    0.000e+00    7.500e-01  
-  3.9400e-10    0.000e+00    7.500e-01  
-  3.9500e-10    0.000e+00    7.500e-01  
-  3.9600e-10    0.000e+00    7.500e-01  
-  3.9700e-10    0.000e+00    7.500e-01  
-  3.9800e-10    0.000e+00    7.500e-01  
-  3.9900e-10    0.000e+00    7.500e-01  
-  4.0000e-10    0.000e+00    7.500e-01  
-  4.0100e-10    0.000e+00    7.500e-01  
-  4.0200e-10    0.000e+00    7.500e-01  
-  4.0300e-10    0.000e+00    7.500e-01  
-  4.0400e-10    0.000e+00    7.500e-01  
-  4.0500e-10    0.000e+00    7.500e-01  
-  4.0600e-10    0.000e+00    7.500e-01  
-  4.0700e-10    0.000e+00    7.500e-01  
-  4.0800e-10    0.000e+00    7.500e-01  
-  4.0900e-10    0.000e+00    7.500e-01  
-  4.1000e-10    0.000e+00    7.499e-01  
-  4.1100e-10    0.000e+00    7.499e-01  
-  4.1200e-10    0.000e+00    7.499e-01  
-  4.1300e-10    0.000e+00    7.499e-01  
-  4.1400e-10    0.000e+00    7.499e-01  
-  4.1500e-10    0.000e+00    7.499e-01  
-  4.1600e-10    0.000e+00    7.499e-01  
-  4.1700e-10    0.000e+00    7.499e-01  
-  4.1800e-10    0.000e+00    7.499e-01  
-  4.1900e-10    0.000e+00    7.499e-01  
-  4.2000e-10    0.000e+00    7.499e-01  
-  4.2100e-10    0.000e+00    7.499e-01  
-  4.2200e-10    0.000e+00    7.499e-01  
-  4.2300e-10    0.000e+00    7.499e-01  
-  4.2400e-10    0.000e+00    7.499e-01  
-  4.2500e-10    0.000e+00    7.499e-01  
-  4.2600e-10    0.000e+00    7.499e-01  
-  4.2700e-10    0.000e+00    7.499e-01  
-  4.2800e-10    0.000e+00    7.499e-01  
-  4.2900e-10    0.000e+00    7.499e-01  
-  4.3000e-10    0.000e+00    7.499e-01  
-  4.3100e-10    0.000e+00    7.499e-01  
-  4.3200e-10    0.000e+00    7.499e-01  
-  4.3300e-10    0.000e+00    7.499e-01  
-  4.3400e-10    0.000e+00    7.499e-01  
-  4.3500e-10    0.000e+00    7.499e-01  
-  4.3600e-10    0.000e+00    7.499e-01  
-  4.3700e-10    0.000e+00    7.499e-01  
-  4.3800e-10    0.000e+00    7.499e-01  
-  4.3900e-10    0.000e+00    7.499e-01  
-  4.4000e-10    0.000e+00    7.499e-01  
-  4.4100e-10    0.000e+00    7.499e-01  
-  4.4200e-10    0.000e+00    7.499e-01  
-  4.4300e-10    0.000e+00    7.500e-01  
-  4.4400e-10    0.000e+00    7.500e-01  
-  4.4500e-10    0.000e+00    7.500e-01  
-  4.4600e-10    0.000e+00    7.500e-01  
-  4.4700e-10    0.000e+00    7.500e-01  
-  4.4800e-10    0.000e+00    7.500e-01  
-  4.4900e-10    0.000e+00    7.500e-01  
-  4.5000e-10    0.000e+00    7.500e-01  
-  4.5100e-10    0.000e+00    7.500e-01  
-  4.5200e-10    0.000e+00    7.500e-01  
-  4.5300e-10    0.000e+00    7.500e-01  
-  4.5400e-10    0.000e+00    7.500e-01  
-  4.5500e-10    0.000e+00    7.500e-01  
-  4.5600e-10    0.000e+00    7.500e-01  
-  4.5700e-10    0.000e+00    7.500e-01  
-  4.5800e-10    0.000e+00    7.500e-01  
-  4.5900e-10    0.000e+00    7.500e-01  
-  4.6000e-10    0.000e+00    7.500e-01  
-  4.6100e-10    0.000e+00    7.500e-01  
-  4.6200e-10    0.000e+00    7.500e-01  
-  4.6300e-10    0.000e+00    7.500e-01  
-  4.6400e-10    0.000e+00    7.500e-01  
-  4.6500e-10    0.000e+00    7.501e-01  
-  4.6600e-10    0.000e+00    7.501e-01  
-  4.6700e-10    0.000e+00    7.501e-01  
-  4.6800e-10    0.000e+00    7.501e-01  
-  4.6900e-10    0.000e+00    7.501e-01  
-  4.7000e-10    0.000e+00    7.501e-01  
-  4.7100e-10    0.000e+00    7.501e-01  
-  4.7200e-10    0.000e+00    7.501e-01  
-  4.7300e-10    0.000e+00    7.501e-01  
-  4.7400e-10    0.000e+00    7.501e-01  
-  4.7500e-10    0.000e+00    7.501e-01  
-  4.7600e-10    0.000e+00    7.501e-01  
-  4.7700e-10    0.000e+00    7.501e-01  
-  4.7800e-10    0.000e+00    7.501e-01  
-  4.7900e-10    0.000e+00    7.501e-01  
-  4.8000e-10    0.000e+00    7.500e-01  
-  4.8100e-10    0.000e+00    7.500e-01  
-  4.8200e-10    0.000e+00    7.500e-01  
-  4.8300e-10    0.000e+00    7.500e-01  
-  4.8400e-10    0.000e+00    7.500e-01  
-  4.8500e-10    0.000e+00    7.500e-01  
-  4.8600e-10    0.000e+00    7.500e-01  
-  4.8700e-10    0.000e+00    7.500e-01  
-  4.8800e-10    0.000e+00    7.500e-01  
-  4.8900e-10    0.000e+00    7.500e-01  
-  4.9000e-10    0.000e+00    7.500e-01  
-  4.9100e-10    0.000e+00    7.500e-01  
-  4.9200e-10    0.000e+00    7.499e-01  
-  4.9300e-10    0.000e+00    7.499e-01  
-  4.9400e-10    0.000e+00    7.499e-01  
-  4.9500e-10    0.000e+00    7.499e-01  
-  4.9600e-10    0.000e+00    7.499e-01  
-  4.9700e-10    0.000e+00    7.499e-01  
-  4.9800e-10    0.000e+00    7.499e-01  
-  4.9900e-10    0.000e+00    7.499e-01  
-  5.0000e-10    0.000e+00    7.499e-01  
-  5.0100e-10    0.000e+00    7.499e-01  
-  5.0200e-10    7.500e-01    7.422e-01  
-  5.0300e-10    7.500e-01    5.249e-01  
-  5.0400e-10    7.500e-01    3.409e-01  
-  5.0500e-10    7.500e-01    1.884e-01  
-  5.0600e-10    7.500e-01    9.795e-02  
-  5.0700e-10    7.500e-01    6.358e-02  
-  5.0800e-10    7.500e-01    5.774e-02  
-  5.0900e-10    7.500e-01    5.038e-02  
-  5.1000e-10    7.500e-01    4.144e-02  
-  5.1100e-10    7.500e-01    2.978e-02  
-  5.1200e-10    7.500e-01    1.979e-02  
-  5.1300e-10    7.500e-01    1.325e-02  
-  5.1400e-10    7.500e-01    2.514e-03  
-  5.1500e-10    7.500e-01    5.557e-04  
-  5.1600e-10    7.500e-01    5.438e-03  
-  5.1700e-10    7.500e-01    5.934e-03  
-  5.1800e-10    7.500e-01    5.674e-03  
-  5.1900e-10    7.500e-01    3.840e-03  
-  5.2000e-10    7.500e-01    2.942e-03  
-  5.2100e-10    7.500e-01    1.887e-03  
-  5.2200e-10    7.500e-01    8.845e-04  
-  5.2300e-10    7.500e-01    7.155e-04  
-  5.2400e-10    7.500e-01    5.372e-04  
-  5.2500e-10    7.500e-01    2.720e-04  
-  5.2600e-10    7.500e-01    6.866e-06  
-  5.2700e-10    7.500e-01   -5.502e-05  
-  5.2800e-10    7.500e-01    3.657e-05  
-  5.2900e-10    7.500e-01    1.282e-04  
-  5.3000e-10    7.500e-01    1.623e-04  
-  5.3100e-10    7.500e-01    8.048e-05  
-  5.3200e-10    7.500e-01   -1.325e-06  
-  5.3300e-10    7.500e-01   -8.313e-05  
-  5.3400e-10    7.500e-01   -1.441e-04  
-  5.3500e-10    7.500e-01   -8.429e-05  
-  5.3600e-10    7.500e-01   -2.449e-05  
-  5.3700e-10    7.500e-01    3.531e-05  
-  5.3800e-10    7.500e-01    9.511e-05  
-  5.3900e-10    7.500e-01    1.549e-04  
-  5.4000e-10    7.500e-01    1.427e-04  
-  5.4100e-10    7.500e-01    9.771e-05  
-  5.4200e-10    7.500e-01    5.273e-05  
-  5.4300e-10    7.500e-01    7.756e-06  
-  5.4400e-10    7.500e-01   -3.722e-05  
-  5.4500e-10    7.500e-01   -8.220e-05  
-  5.4600e-10    7.500e-01   -1.272e-04  
-  5.4700e-10    7.500e-01   -1.198e-04  
-  5.4800e-10    7.500e-01   -8.431e-05  
-  5.4900e-10    7.500e-01   -4.883e-05  
-  5.5000e-10    7.500e-01   -1.336e-05  
-  5.5100e-10    7.500e-01    2.212e-05  
-  5.5200e-10    7.500e-01    5.760e-05  
-  5.5300e-10    7.500e-01    9.307e-05  
-  5.5400e-10    7.500e-01    1.285e-04  
-  5.5500e-10    7.500e-01    1.640e-04  
-  5.5600e-10    7.500e-01    1.393e-04  
-  5.5700e-10    7.500e-01    1.109e-04  
-  5.5800e-10    7.500e-01    8.249e-05  
-  5.5900e-10    7.500e-01    5.410e-05  
-  5.6000e-10    7.500e-01    2.571e-05  
-  5.6100e-10    7.500e-01   -2.687e-06  
-  5.6200e-10    7.500e-01   -3.108e-05  
-  5.6300e-10    7.500e-01   -5.947e-05  
-  5.6400e-10    7.500e-01   -8.787e-05  
-  5.6500e-10    7.500e-01   -1.163e-04  
-  5.6600e-10    7.500e-01   -1.305e-04  
-  5.6700e-10    7.500e-01   -1.071e-04  
-  5.6800e-10    7.500e-01   -8.369e-05  
-  5.6900e-10    7.500e-01   -6.027e-05  
-  5.7000e-10    7.500e-01   -3.686e-05  
-  5.7100e-10    7.500e-01   -1.344e-05  
-  5.7200e-10    7.500e-01    9.978e-06  
-  5.7300e-10    7.500e-01    3.340e-05  
-  5.7400e-10    7.500e-01    5.681e-05  
-  5.7500e-10    7.500e-01    8.023e-05  
-  5.7600e-10    7.500e-01    1.036e-04  
-  5.7700e-10    7.500e-01    1.271e-04  
-  5.7800e-10    7.500e-01    1.505e-04  
-  5.7900e-10    7.500e-01    1.505e-04  
-  5.8000e-10    7.500e-01    1.308e-04  
-  5.8100e-10    7.500e-01    1.111e-04  
-  5.8200e-10    7.500e-01    9.131e-05  
-  5.8300e-10    7.500e-01    7.156e-05  
-  5.8400e-10    7.500e-01    5.182e-05  
-  5.8500e-10    7.500e-01    3.207e-05  
-  5.8600e-10    7.500e-01    1.233e-05  
-  5.8700e-10    7.500e-01   -7.419e-06  
-  5.8800e-10    7.500e-01   -2.716e-05  
-  5.8900e-10    7.500e-01   -4.691e-05  
-  5.9000e-10    7.500e-01   -6.666e-05  
-  5.9100e-10    7.500e-01   -8.640e-05  
-  5.9200e-10    7.500e-01   -1.061e-04  
-  5.9300e-10    7.500e-01   -1.259e-04  
-  5.9400e-10    7.500e-01   -1.220e-04  
-  5.9500e-10    7.500e-01   -1.050e-04  
-  5.9600e-10    7.500e-01   -8.802e-05  
-  5.9700e-10    7.500e-01   -7.106e-05  
-  5.9800e-10    7.500e-01   -5.409e-05  
-  5.9900e-10    7.500e-01   -3.712e-05  
-  6.0000e-10    7.500e-01   -2.016e-05  
-  6.0100e-10    7.500e-01   -3.191e-06  
-  6.0200e-10    7.500e-01    1.377e-05  
-  6.0300e-10    7.500e-01    3.074e-05  
-  6.0400e-10    7.500e-01    4.771e-05  
-  6.0500e-10    7.500e-01    6.467e-05  
-  6.0600e-10    7.500e-01    8.164e-05  
-  6.0700e-10    7.500e-01    9.860e-05  
-  6.0800e-10    7.500e-01    1.156e-04  
-  6.0900e-10    7.500e-01    1.325e-04  
-  6.1000e-10    7.500e-01    1.495e-04  
-  6.1100e-10    7.500e-01    1.502e-04  
-  6.1200e-10    7.500e-01    1.354e-04  
-  6.1300e-10    7.500e-01    1.205e-04  
-  6.1400e-10    7.500e-01    1.057e-04  
-  6.1500e-10    7.500e-01    9.080e-05  
-  6.1600e-10    7.500e-01    7.594e-05  
-  6.1700e-10    7.500e-01    6.107e-05  
-  6.1800e-10    7.500e-01    4.621e-05  
-  6.1900e-10    7.500e-01    3.135e-05  
-  6.2000e-10    7.500e-01    1.648e-05  
-  6.2100e-10    7.500e-01    1.622e-06  
-  6.2200e-10    7.500e-01   -1.324e-05  
-  6.2300e-10    7.500e-01   -2.810e-05  
-  6.2400e-10    7.500e-01   -4.297e-05  
-  6.2500e-10    7.500e-01   -5.783e-05  
-  6.2600e-10    7.500e-01   -7.269e-05  
-  6.2700e-10    7.500e-01   -8.755e-05  
-  6.2800e-10    7.500e-01   -1.024e-04  
-  6.2900e-10    7.500e-01   -1.173e-04  
-  6.3000e-10    7.500e-01   -1.280e-04  
-  6.3100e-10    7.500e-01   -1.148e-04  
-  6.3200e-10    7.500e-01   -1.016e-04  
-  6.3300e-10    7.500e-01   -8.834e-05  
-  6.3400e-10    7.500e-01   -7.512e-05  
-  6.3500e-10    7.500e-01   -6.190e-05  
-  6.3600e-10    7.500e-01   -4.868e-05  
-  6.3700e-10    7.500e-01   -3.546e-05  
-  6.3800e-10    7.500e-01   -2.224e-05  
-  6.3900e-10    7.500e-01   -9.021e-06  
-  6.4000e-10    7.500e-01    4.199e-06  
-  6.4100e-10    7.500e-01    1.742e-05  
-  6.4200e-10    7.500e-01    3.064e-05  
-  6.4300e-10    7.500e-01    4.386e-05  
-  6.4400e-10    7.500e-01    5.708e-05  
-  6.4500e-10    7.500e-01    7.030e-05  
-  6.4600e-10    7.500e-01    8.352e-05  
-  6.4700e-10    7.500e-01    9.674e-05  
-  6.4800e-10    7.500e-01    1.100e-04  
-  6.4900e-10    7.500e-01    1.232e-04  
-  6.5000e-10    7.500e-01    1.364e-04  
-  6.5100e-10    7.500e-01    1.496e-04  
-  6.5200e-10    7.500e-01    1.484e-04  
-  6.5300e-10    7.500e-01    1.364e-04  
-  6.5400e-10    7.500e-01    1.245e-04  
-  6.5500e-10    7.500e-01    1.126e-04  
-  6.5600e-10    7.500e-01    1.006e-04  
-  6.5700e-10    7.500e-01    8.872e-05  
-  6.5800e-10    7.500e-01    7.679e-05  
-  6.5900e-10    7.500e-01    6.486e-05  
-  6.6000e-10    7.500e-01    5.294e-05  
-  6.6100e-10    7.500e-01    4.101e-05  
-  6.6200e-10    7.500e-01    2.908e-05  
-  6.6300e-10    7.500e-01    1.715e-05  
-  6.6400e-10    7.500e-01    5.225e-06  
-  6.6500e-10    7.500e-01   -6.703e-06  
-  6.6600e-10    7.500e-01   -1.863e-05  
-  6.6700e-10    7.500e-01   -3.056e-05  
-  6.6800e-10    7.500e-01   -4.249e-05  
-  6.6900e-10    7.500e-01   -5.441e-05  
-  6.7000e-10    7.500e-01   -6.634e-05  
-  6.7100e-10    7.500e-01   -7.827e-05  
-  6.7200e-10    7.500e-01   -9.020e-05  
-  6.7300e-10    7.500e-01   -1.021e-04  
-  6.7400e-10    7.500e-01   -1.141e-04  
-  6.7500e-10    7.500e-01   -1.260e-04  
-  6.7600e-10    7.500e-01   -1.182e-04  
-  6.7700e-10    7.500e-01   -1.073e-04  
-  6.7800e-10    7.500e-01   -9.644e-05  
-  6.7900e-10    7.500e-01   -8.554e-05  
-  6.8000e-10    7.500e-01   -7.465e-05  
-  6.8100e-10    7.500e-01   -6.375e-05  
-  6.8200e-10    7.500e-01   -5.285e-05  
-  6.8300e-10    7.500e-01   -4.196e-05  
-  6.8400e-10    7.500e-01   -3.106e-05  
-  6.8500e-10    7.500e-01   -2.016e-05  
-  6.8600e-10    7.500e-01   -9.266e-06  
-  6.8700e-10    7.500e-01    1.630e-06  
-  6.8800e-10    7.500e-01    1.253e-05  
-  6.8900e-10    7.500e-01    2.342e-05  
-  6.9000e-10    7.500e-01    3.432e-05  
-  6.9100e-10    7.500e-01    4.522e-05  
-  6.9200e-10    7.500e-01    5.611e-05  
-  6.9300e-10    7.500e-01    6.701e-05  
-  6.9400e-10    7.500e-01    7.791e-05  
-  6.9500e-10    7.500e-01    8.880e-05  
-  6.9600e-10    7.500e-01    9.970e-05  
-  6.9700e-10    7.500e-01    1.106e-04  
-  6.9800e-10    7.500e-01    1.215e-04  
-  6.9900e-10    7.500e-01    1.324e-04  
-  7.0000e-10    7.500e-01    1.433e-04  
-  7.0100e-10    7.500e-01    1.521e-04  
-  7.0200e-10    7.500e-01    1.421e-04  
-  7.0300e-10    7.500e-01    1.320e-04  
-  7.0400e-10    7.500e-01    1.220e-04  
-  7.0500e-10    7.500e-01    1.119e-04  
-  7.0600e-10    7.500e-01    1.018e-04  
-  7.0700e-10    7.500e-01    9.177e-05  
-  7.0800e-10    7.500e-01    8.171e-05  
-  7.0900e-10    7.500e-01    7.164e-05  
-  7.1000e-10    7.500e-01    6.158e-05  
-  7.1100e-10    7.500e-01    5.152e-05  
-  7.1200e-10    7.500e-01    4.146e-05  
-  7.1300e-10    7.500e-01    3.140e-05  
-  7.1400e-10    7.500e-01    2.134e-05  
-  7.1500e-10    7.500e-01    1.127e-05  
-  7.1600e-10    7.500e-01    1.212e-06  
-  7.1700e-10    7.500e-01   -8.850e-06  
-  7.1800e-10    7.500e-01   -1.891e-05  
-  7.1900e-10    7.500e-01   -2.897e-05  
-  7.2000e-10    7.500e-01   -3.903e-05  
-  7.2100e-10    7.500e-01   -4.910e-05  
-  7.2200e-10    7.500e-01   -5.916e-05  
-  7.2300e-10    7.500e-01   -6.922e-05  
-  7.2400e-10    7.500e-01   -7.928e-05  
-  7.2500e-10    7.500e-01   -8.934e-05  
-  7.2600e-10    7.500e-01   -9.940e-05  
-  7.2700e-10    7.500e-01   -1.095e-04  
-  7.2800e-10    7.500e-01   -1.195e-04  
-  7.2900e-10    7.500e-01   -1.221e-04  
-  7.3000e-10    7.500e-01   -1.127e-04  
-  7.3100e-10    7.500e-01   -1.033e-04  
-  7.3200e-10    7.500e-01   -9.392e-05  
-  7.3300e-10    7.500e-01   -8.454e-05  
-  7.3400e-10    7.500e-01   -7.516e-05  
-  7.3500e-10    7.500e-01   -6.578e-05  
-  7.3600e-10    7.500e-01   -5.640e-05  
-  7.3700e-10    7.500e-01   -4.702e-05  
-  7.3800e-10    7.500e-01   -3.764e-05  
-  7.3900e-10    7.500e-01   -2.826e-05  
-  7.4000e-10    7.500e-01   -1.888e-05  
-  7.4100e-10    7.500e-01   -9.498e-06  
-  7.4200e-10    7.500e-01    0.000e+00  
-  7.4300e-10    7.500e-01    9.262e-06  
-  7.4400e-10    7.500e-01    1.864e-05  
-  7.4500e-10    7.500e-01    2.802e-05  
-  7.4600e-10    7.500e-01    3.740e-05  
-  7.4700e-10    7.500e-01    4.678e-05  
-  7.4800e-10    7.500e-01    5.616e-05  
-  7.4900e-10    7.500e-01    6.554e-05  
-  7.5000e-10    7.500e-01    7.492e-05  
-  7.5100e-10    7.500e-01    8.430e-05  
-  7.5200e-10    7.500e-01    9.368e-05  
-  7.5300e-10    7.500e-01    1.031e-04  
-  7.5400e-10    7.500e-01    1.124e-04  
-  7.5500e-10    7.500e-01    1.218e-04  
-  7.5600e-10    7.500e-01    1.312e-04  
-  7.5700e-10    7.500e-01    1.406e-04  
-  7.5800e-10    7.500e-01    1.500e-04  
-  7.5900e-10    7.500e-01    1.438e-04  
-  7.6000e-10    7.500e-01    1.350e-04  
-  7.6100e-10    7.500e-01    1.262e-04  
-  7.6200e-10    7.500e-01    1.173e-04  
-  7.6300e-10    7.500e-01    1.085e-04  
-  7.6400e-10    7.500e-01    9.971e-05  
-  7.6500e-10    7.500e-01    9.089e-05  
-  7.6600e-10    7.500e-01    8.207e-05  
-  7.6700e-10    7.500e-01    7.326e-05  
-  7.6800e-10    7.500e-01    6.444e-05  
-  7.6900e-10    7.500e-01    5.562e-05  
-  7.7000e-10    7.500e-01    4.681e-05  
-  7.7100e-10    7.500e-01    3.799e-05  
-  7.7200e-10    7.500e-01    2.917e-05  
-  7.7300e-10    7.500e-01    2.036e-05  
-  7.7400e-10    7.500e-01    1.154e-05  
-  7.7500e-10    7.500e-01    2.724e-06  
-  7.7600e-10    7.500e-01   -6.092e-06  
-  7.7700e-10    7.500e-01   -1.491e-05  
-  7.7800e-10    7.500e-01   -2.373e-05  
-  7.7900e-10    7.500e-01   -3.254e-05  
-  7.8000e-10    7.500e-01   -4.136e-05  
-  7.8100e-10    7.500e-01   -5.018e-05  
-  7.8200e-10    7.500e-01   -5.899e-05  
-  7.8300e-10    7.500e-01   -6.781e-05  
-  7.8400e-10    7.500e-01   -7.663e-05  
-  7.8500e-10    7.500e-01   -8.544e-05  
-  7.8600e-10    7.500e-01   -9.426e-05  
-  7.8700e-10    7.500e-01   -1.031e-04  
-  7.8800e-10    7.500e-01   -1.119e-04  
-  7.8900e-10    7.500e-01   -1.207e-04  
-  7.9000e-10    7.500e-01   -1.188e-04  
-  7.9100e-10    7.500e-01   -1.105e-04  
-  7.9200e-10    7.500e-01   -1.021e-04  
-  7.9300e-10    7.500e-01   -9.376e-05  
-  7.9400e-10    7.500e-01   -8.541e-05  
-  7.9500e-10    7.500e-01   -7.706e-05  
-  7.9600e-10    7.500e-01   -6.871e-05  
-  7.9700e-10    7.500e-01   -6.037e-05  
-  7.9800e-10    7.500e-01   -5.202e-05  
-  7.9900e-10    7.500e-01   -4.367e-05  
-  8.0000e-10    7.500e-01   -3.533e-05  
-  8.0100e-10    7.500e-01   -2.698e-05  
-  8.0200e-10    7.500e-01   -1.863e-05  
-  8.0300e-10    7.500e-01   -1.028e-05  
-  8.0400e-10    7.500e-01   -1.937e-06  
-  8.0500e-10    7.500e-01    6.410e-06  
-  8.0600e-10    7.500e-01    1.476e-05  
-  8.0700e-10    7.500e-01    2.310e-05  
-  8.0800e-10    7.500e-01    3.145e-05  
-  8.0900e-10    7.500e-01    3.980e-05  
-  8.1000e-10    7.500e-01    4.815e-05  
-  8.1100e-10    7.500e-01    5.649e-05  
-  8.1200e-10    7.500e-01    6.484e-05  
-  8.1300e-10    7.500e-01    7.319e-05  
-  8.1400e-10    7.500e-01    8.154e-05  
-  8.1500e-10    7.500e-01    8.988e-05  
-  8.1600e-10    7.500e-01    9.823e-05  
-  8.1700e-10    7.500e-01    1.066e-04  
-  8.1800e-10    7.500e-01    1.149e-04  
-  8.1900e-10    7.500e-01    1.233e-04  
-  8.2000e-10    7.500e-01    1.316e-04  
-  8.2100e-10    7.500e-01    1.400e-04  
-  8.2200e-10    7.500e-01    1.483e-04  
-  8.2300e-10    7.500e-01    1.432e-04  
-  8.2400e-10    7.500e-01    1.352e-04  
-  8.2500e-10    7.500e-01    1.273e-04  
-  8.2600e-10    7.500e-01    1.193e-04  
-  8.2700e-10    7.500e-01    1.114e-04  
-  8.2800e-10    7.500e-01    1.034e-04  
-  8.2900e-10    7.500e-01    9.545e-05  
-  8.3000e-10    7.500e-01    8.750e-05  
-  8.3100e-10    7.500e-01    7.954e-05  
-  8.3200e-10    7.500e-01    7.159e-05  
-  8.3300e-10    7.500e-01    6.364e-05  
-  8.3400e-10    7.500e-01    5.569e-05  
-  8.3500e-10    7.500e-01    4.773e-05  
-  8.3600e-10    7.500e-01    3.978e-05  
-  8.3700e-10    7.500e-01    3.183e-05  
-  8.3800e-10    7.500e-01    2.388e-05  
-  8.3900e-10    7.500e-01    1.592e-05  
-  8.4000e-10    7.500e-01    7.972e-06  
-  8.4100e-10    7.500e-01    0.000e+00  
-  8.4200e-10    7.500e-01   -7.932e-06  
-  8.4300e-10    7.500e-01   -1.588e-05  
-  8.4400e-10    7.500e-01   -2.384e-05  
-  8.4500e-10    7.500e-01   -3.179e-05  
-  8.4600e-10    7.500e-01   -3.974e-05  
-  8.4700e-10    7.500e-01   -4.769e-05  
-  8.4800e-10    7.500e-01   -5.565e-05  
-  8.4900e-10    7.500e-01   -6.360e-05  
-  8.5000e-10    7.500e-01   -7.155e-05  
-  8.5100e-10    7.500e-01   -7.950e-05  
-  8.5200e-10    7.500e-01   -8.746e-05  
-  8.5300e-10    7.500e-01   -9.541e-05  
-  8.5400e-10    7.500e-01   -1.034e-04  
-  8.5500e-10    7.500e-01   -1.113e-04  
-  8.5600e-10    7.500e-01   -1.193e-04  
-  8.5700e-10    7.500e-01   -1.180e-04  
-  8.5800e-10    7.500e-01   -1.104e-04  
-  8.5900e-10    7.500e-01   -1.028e-04  
-  8.6000e-10    7.500e-01   -9.516e-05  
-  8.6100e-10    7.500e-01   -8.754e-05  
-  8.6200e-10    7.500e-01   -7.993e-05  
-  8.6300e-10    7.500e-01   -7.231e-05  
-  8.6400e-10    7.500e-01   -6.469e-05  
-  8.6500e-10    7.500e-01   -5.707e-05  
-  8.6600e-10    7.500e-01   -4.946e-05  
-  8.6700e-10    7.500e-01   -4.184e-05  
-  8.6800e-10    7.500e-01   -3.422e-05  
-  8.6900e-10    7.500e-01   -2.660e-05  
-  8.7000e-10    7.500e-01   -1.899e-05  
-  8.7100e-10    7.500e-01   -1.137e-05  
-  8.7200e-10    7.500e-01   -3.753e-06  
-  8.7300e-10    7.500e-01    3.865e-06  
-  8.7400e-10    7.500e-01    1.148e-05  
-  8.7500e-10    7.500e-01    1.910e-05  
-  8.7600e-10    7.500e-01    2.672e-05  
-  8.7700e-10    7.500e-01    3.433e-05  
-  8.7800e-10    7.500e-01    4.195e-05  
-  8.7900e-10    7.500e-01    4.957e-05  
-  8.8000e-10    7.500e-01    5.719e-05  
-  8.8100e-10    7.500e-01    6.480e-05  
-  8.8200e-10    7.500e-01    7.242e-05  
-  8.8300e-10    7.500e-01    8.004e-05  
-  8.8400e-10    7.500e-01    8.766e-05  
-  8.8500e-10    7.500e-01    9.527e-05  
-  8.8600e-10    7.500e-01    1.029e-04  
-  8.8700e-10    7.500e-01    1.105e-04  
-  8.8800e-10    7.500e-01    1.181e-04  
-  8.8900e-10    7.500e-01    1.257e-04  
-  8.9000e-10    7.500e-01    1.334e-04  
-  8.9100e-10    7.500e-01    1.410e-04  
-  8.9200e-10    7.500e-01    1.480e-04  
-  8.9300e-10    7.500e-01    1.407e-04  
-  8.9400e-10    7.500e-01    1.334e-04  
-  8.9500e-10    7.500e-01    1.261e-04  
-  8.9600e-10    7.500e-01    1.187e-04  
-  8.9700e-10    7.500e-01    1.114e-04  
-  8.9800e-10    7.500e-01    1.041e-04  
-  8.9900e-10    7.500e-01    9.673e-05  
-  9.0000e-10    7.500e-01    8.940e-05  
-  9.0100e-10    7.500e-01    8.207e-05  
-  9.0200e-10    7.500e-01    7.474e-05  
-  9.0300e-10    7.500e-01    6.741e-05  
-  9.0400e-10    7.500e-01    6.008e-05  
-  9.0500e-10    7.500e-01    5.274e-05  
-  9.0600e-10    7.500e-01    4.541e-05  
-  9.0700e-10    7.500e-01    3.808e-05  
-  9.0800e-10    7.500e-01    3.075e-05  
-  9.0900e-10    7.500e-01    2.342e-05  
-  9.1000e-10    7.500e-01    1.609e-05  
-  9.1100e-10    7.500e-01    8.758e-06  
-  9.1200e-10    7.500e-01    1.427e-06  
-  9.1300e-10    7.500e-01   -5.904e-06  
-  9.1400e-10    7.500e-01   -1.323e-05  
-  9.1500e-10    7.500e-01   -2.057e-05  
-  9.1600e-10    7.500e-01   -2.790e-05  
-  9.1700e-10    7.500e-01   -3.523e-05  
-  9.1800e-10    7.500e-01   -4.256e-05  
-  9.1900e-10    7.500e-01   -4.989e-05  
-  9.2000e-10    7.500e-01   -5.722e-05  
-  9.2100e-10    7.500e-01   -6.455e-05  
-  9.2200e-10    7.500e-01   -7.188e-05  
-  9.2300e-10    7.500e-01   -7.921e-05  
-  9.2400e-10    7.500e-01   -8.655e-05  
-  9.2500e-10    7.500e-01   -9.388e-05  
-  9.2600e-10    7.500e-01   -1.012e-04  
-  9.2700e-10    7.500e-01   -1.085e-04  
-  9.2800e-10    7.500e-01   -1.159e-04  
-  9.2900e-10    7.500e-01   -1.192e-04  
-  9.3000e-10    7.500e-01   -1.121e-04  
-  9.3100e-10    7.500e-01   -1.050e-04  
-  9.3200e-10    7.500e-01   -9.790e-05  
-  9.3300e-10    7.500e-01   -9.082e-05  
-  9.3400e-10    7.500e-01   -8.373e-05  
-  9.3500e-10    7.500e-01   -7.665e-05  
-  9.3600e-10    7.500e-01   -6.956e-05  
-  9.3700e-10    7.500e-01   -6.248e-05  
-  9.3800e-10    7.500e-01   -5.539e-05  
-  9.3900e-10    7.500e-01   -4.831e-05  
-  9.4000e-10    7.500e-01   -4.122e-05  
-  9.4100e-10    7.500e-01   -3.414e-05  
-  9.4200e-10    7.500e-01   -2.705e-05  
-  9.4300e-10    7.500e-01   -1.997e-05  
-  9.4400e-10    7.500e-01   -1.289e-05  
-  9.4500e-10    7.500e-01   -5.801e-06  
-  9.4600e-10    7.500e-01    1.283e-06  
-  9.4700e-10    7.500e-01    8.368e-06  
-  9.4800e-10    7.500e-01    1.545e-05  
-  9.4900e-10    7.500e-01    2.254e-05  
-  9.5000e-10    7.500e-01    2.962e-05  
-  9.5100e-10    7.500e-01    3.671e-05  
-  9.5200e-10    7.500e-01    4.379e-05  
-  9.5300e-10    7.500e-01    5.087e-05  
-  9.5400e-10    7.500e-01    5.796e-05  
-  9.5500e-10    7.500e-01    6.504e-05  
-  9.5600e-10    7.500e-01    7.213e-05  
-  9.5700e-10    7.500e-01    7.921e-05  
-  9.5800e-10    7.500e-01    8.630e-05  
-  9.5900e-10    7.500e-01    9.338e-05  
-  9.6000e-10    7.500e-01    1.005e-04  
-  9.6100e-10    7.500e-01    1.076e-04  
-  9.6200e-10    7.500e-01    1.146e-04  
-  9.6300e-10    7.500e-01    1.217e-04  
-  9.6400e-10    7.500e-01    1.288e-04  
-  9.6500e-10    7.500e-01    1.359e-04  
-  9.6600e-10    7.500e-01    1.430e-04  
-  9.6700e-10    7.500e-01    1.435e-04  
-  9.6800e-10    7.500e-01    1.356e-04  
-  9.6900e-10    7.500e-01    1.276e-04  
-  9.7000e-10    7.500e-01    1.196e-04  
-  9.7100e-10    7.500e-01    1.116e-04  
-  9.7200e-10    7.500e-01    1.036e-04  
-  9.7300e-10    7.500e-01    9.567e-05  
-  9.7400e-10    7.500e-01    8.769e-05  
-  9.7500e-10    7.500e-01    7.971e-05  
-  9.7600e-10    7.500e-01    7.173e-05  
-  9.7700e-10    7.500e-01    6.375e-05  
-  9.7800e-10    7.500e-01    5.577e-05  
-  9.7900e-10    7.500e-01    4.780e-05  
-  9.8000e-10    7.500e-01    3.982e-05  
-  9.8100e-10    7.500e-01    3.184e-05  
-  9.8200e-10    7.500e-01    2.386e-05  
-  9.8300e-10    7.500e-01    1.588e-05  
-  9.8400e-10    7.500e-01    7.902e-06  
-  9.8500e-10    7.500e-01    0.000e+00  
-  9.8600e-10    7.500e-01   -8.056e-06  
-  9.8700e-10    7.500e-01   -1.603e-05  
-  9.8800e-10    7.500e-01   -2.401e-05  
-  9.8900e-10    7.500e-01   -3.199e-05  
-  9.9000e-10    7.500e-01   -3.997e-05  
-  9.9100e-10    7.500e-01   -4.795e-05  
-  9.9200e-10    7.500e-01   -5.593e-05  
-  9.9300e-10    7.500e-01   -6.391e-05  
-  9.9400e-10    7.500e-01   -7.189e-05  
-  9.9500e-10    7.500e-01   -7.987e-05  
-  9.9600e-10    7.500e-01   -8.784e-05  
-  9.9700e-10    7.500e-01   -9.582e-05  
-  9.9800e-10    7.500e-01   -1.038e-04  
-  9.9900e-10    7.500e-01   -1.118e-04  
-  1.0000e-09    7.500e-01   -1.198e-04  
+  0.0000e+00    1.327e-05    7.500e-01  
+  1.0000e-12    2.977e-01    7.584e-01  
+  2.0000e-12    6.794e-01    6.785e-01  
+  3.0000e-12    7.249e-01    4.916e-01  
+  4.0000e-12    7.304e-01    3.194e-01  
+  5.0000e-12    7.320e-01    1.745e-01  
+  6.0000e-12    7.379e-01    9.663e-02  
+  7.0000e-12    7.452e-01    7.062e-02  
+  8.0000e-12    7.483e-01    5.818e-02  
+  9.0000e-12    7.488e-01    4.979e-02  
+  1.0000e-11    7.485e-01    4.084e-02  
+  1.1000e-11    7.481e-01    2.817e-02  
+  1.2000e-11    7.485e-01    1.951e-02  
+  1.3000e-11    7.489e-01    1.171e-02  
+  1.4000e-11    7.484e-01    1.743e-03  
+  1.5000e-11    7.500e-01    2.086e-03  
+  1.6000e-11    7.505e-01    5.413e-03  
+  1.7000e-11    7.501e-01    6.115e-03  
+  1.8000e-11    7.499e-01    5.371e-03  
+  1.9000e-11    7.497e-01    3.762e-03  
+  2.0000e-11    7.499e-01    2.866e-03  
+  2.1000e-11    7.498e-01    1.805e-03  
+  2.2000e-11    7.498e-01    7.350e-04  
+  2.3000e-11    7.499e-01    6.295e-04  
+  2.4000e-11    7.500e-01    5.241e-04  
+  2.5000e-11    7.500e-01    3.254e-04  
+  2.6000e-11    7.500e-01    9.251e-05  
+  2.7000e-11    7.499e-01   -1.404e-04  
+  2.8000e-11    7.499e-01   -9.611e-05  
+  2.9000e-11    7.500e-01    1.093e-05  
+  3.0000e-11    7.500e-01    1.180e-04  
+  3.1000e-11    7.501e-01    2.233e-04  
+  3.2000e-11    7.500e-01    1.399e-04  
+  3.3000e-11    7.500e-01    5.651e-05  
+  3.4000e-11    7.500e-01   -2.689e-05  
+  3.5000e-11    7.499e-01   -1.103e-04  
+  3.6000e-11    7.499e-01   -1.891e-04  
+  3.7000e-11    7.499e-01   -1.278e-04  
+  3.8000e-11    7.500e-01   -6.656e-05  
+  3.9000e-11    7.500e-01   -5.284e-06  
+  4.0000e-11    7.500e-01    5.599e-05  
+  4.1000e-11    7.500e-01    1.173e-04  
+  4.2000e-11    7.501e-01    1.785e-04  
+  4.3000e-11    7.501e-01    1.909e-04  
+  4.4000e-11    7.500e-01    1.429e-04  
+  4.5000e-11    7.500e-01    9.495e-05  
+  4.6000e-11    7.500e-01    4.700e-05  
+  4.7000e-11    7.500e-01   -9.493e-07  
+  4.8000e-11    7.500e-01   -4.890e-05  
+  4.9000e-11    7.499e-01   -9.685e-05  
+  5.0000e-11    7.499e-01   -1.448e-04  
+  5.1000e-11    7.499e-01   -1.729e-04  
+  5.2000e-11    7.499e-01   -1.350e-04  
+  5.3000e-11    7.499e-01   -9.718e-05  
+  5.4000e-11    7.500e-01   -5.933e-05  
+  5.5000e-11    7.500e-01   -2.148e-05  
+  5.6000e-11    7.500e-01    1.637e-05  
+  5.7000e-11    7.500e-01    5.423e-05  
+  5.8000e-11    7.500e-01    9.208e-05  
+  5.9000e-11    7.500e-01    1.299e-04  
+  6.0000e-11    7.500e-01    1.678e-04  
+  6.1000e-11    7.501e-01    2.043e-04  
+  6.2000e-11    7.500e-01    1.735e-04  
+  6.3000e-11    7.500e-01    1.426e-04  
+  6.4000e-11    7.500e-01    1.118e-04  
+  6.5000e-11    7.500e-01    8.095e-05  
+  6.6000e-11    7.500e-01    5.012e-05  
+  6.7000e-11    7.500e-01    1.928e-05  
+  6.8000e-11    7.500e-01   -1.155e-05  
+  6.9000e-11    7.500e-01   -4.239e-05  
+  7.0000e-11    7.499e-01   -7.323e-05  
+  7.1000e-11    7.499e-01   -1.041e-04  
+  7.2000e-11    7.499e-01   -1.349e-04  
+  7.3000e-11    7.499e-01   -1.657e-04  
+  7.4000e-11    7.499e-01   -1.582e-04  
+  7.5000e-11    7.499e-01   -1.324e-04  
+  7.6000e-11    7.499e-01   -1.067e-04  
+  7.7000e-11    7.499e-01   -8.091e-05  
+  7.8000e-11    7.500e-01   -5.514e-05  
+  7.9000e-11    7.500e-01   -2.937e-05  
+  8.0000e-11    7.500e-01   -3.600e-06  
+  8.1000e-11    7.500e-01    2.217e-05  
+  8.2000e-11    7.500e-01    4.794e-05  
+  8.3000e-11    7.500e-01    7.371e-05  
+  8.4000e-11    7.500e-01    9.948e-05  
+  8.5000e-11    7.500e-01    1.252e-04  
+  8.6000e-11    7.500e-01    1.510e-04  
+  8.7000e-11    7.500e-01    1.768e-04  
+  8.8000e-11    7.501e-01    1.977e-04  
+  8.9000e-11    7.500e-01    1.750e-04  
+  9.0000e-11    7.500e-01    1.523e-04  
+  9.1000e-11    7.500e-01    1.295e-04  
+  9.2000e-11    7.500e-01    1.068e-04  
+  9.3000e-11    7.500e-01    8.409e-05  
+  9.4000e-11    7.500e-01    6.137e-05  
+  9.5000e-11    7.500e-01    3.865e-05  
+  9.6000e-11    7.500e-01    1.593e-05  
+  9.7000e-11    7.500e-01    1.408e-05  
+  9.8000e-11    7.500e-01    1.389e-05  
+  9.9000e-11    7.500e-01    1.370e-05  
+  1.0000e-10    7.500e-01    1.351e-05  
+  1.0100e-10    7.500e-01    1.332e-05  
+  1.0200e-10    7.500e-01    1.313e-05  
+  1.0300e-10    7.500e-01    1.294e-05  
+  1.0400e-10    7.500e-01    1.275e-05  
+  1.0500e-10    7.500e-01    1.256e-05  
+  1.0600e-10    7.500e-01    1.237e-05  
+  1.0700e-10    7.500e-01    1.237e-05  
+  1.0800e-10    7.500e-01    1.246e-05  
+  1.0900e-10    7.500e-01    1.255e-05  
+  1.1000e-10    7.500e-01    1.265e-05  
+  1.1100e-10    7.500e-01    1.274e-05  
+  1.1200e-10    7.500e-01    1.283e-05  
+  1.1300e-10    7.500e-01    1.292e-05  
+  1.1400e-10    7.500e-01    1.302e-05  
+  1.1500e-10    7.500e-01    1.311e-05  
+  1.1600e-10    7.500e-01    1.320e-05  
+  1.1700e-10    7.500e-01    1.330e-05  
+  1.1800e-10    7.500e-01    1.339e-05  
+  1.1900e-10    7.500e-01    1.348e-05  
+  1.2000e-10    7.500e-01    1.357e-05  
+  1.2100e-10    7.500e-01    1.367e-05  
+  1.2200e-10    7.500e-01    1.376e-05  
+  1.2300e-10    7.500e-01    1.385e-05  
+  1.2400e-10    7.500e-01    1.395e-05  
+  1.2500e-10    7.500e-01    1.404e-05  
+  1.2600e-10    7.500e-01    1.413e-05  
+  1.2700e-10    7.500e-01    1.423e-05  
+  1.2800e-10    7.500e-01    1.416e-05  
+  1.2900e-10    7.500e-01    1.408e-05  
+  1.3000e-10    7.500e-01    1.401e-05  
+  1.3100e-10    7.500e-01    1.393e-05  
+  1.3200e-10    7.500e-01    1.385e-05  
+  1.3300e-10    7.500e-01    1.378e-05  
+  1.3400e-10    7.500e-01    1.370e-05  
+  1.3500e-10    7.500e-01    1.363e-05  
+  1.3600e-10    7.500e-01    1.355e-05  
+  1.3700e-10    7.500e-01    1.348e-05  
+  1.3800e-10    7.500e-01    1.340e-05  
+  1.3900e-10    7.500e-01    1.332e-05  
+  1.4000e-10    7.500e-01    1.325e-05  
+  1.4100e-10    7.500e-01    1.317e-05  
+  1.4200e-10    7.500e-01    1.310e-05  
+  1.4300e-10    7.500e-01    1.302e-05  
+  1.4400e-10    7.500e-01    1.294e-05  
+  1.4500e-10    7.500e-01    1.287e-05  
+  1.4600e-10    7.500e-01    1.279e-05  
+  1.4700e-10    7.500e-01    1.272e-05  
+  1.4800e-10    7.500e-01    1.264e-05  
+  1.4900e-10    7.500e-01    1.256e-05  
+  1.5000e-10    7.500e-01    1.249e-05  
+  1.5100e-10    7.500e-01    1.241e-05  
+  1.5200e-10    7.500e-01    1.234e-05  
+  1.5300e-10    7.500e-01    1.234e-05  
+  1.5400e-10    7.500e-01    1.238e-05  
+  1.5500e-10    7.500e-01    1.242e-05  
+  1.5600e-10    7.500e-01    1.246e-05  
+  1.5700e-10    7.500e-01    1.250e-05  
+  1.5800e-10    7.500e-01    1.253e-05  
+  1.5900e-10    7.500e-01    1.257e-05  
+  1.6000e-10    7.500e-01    1.261e-05  
+  1.6100e-10    7.500e-01    1.265e-05  
+  1.6200e-10    7.500e-01    1.269e-05  
+  1.6300e-10    7.500e-01    1.272e-05  
+  1.6400e-10    7.500e-01    1.276e-05  
+  1.6500e-10    7.500e-01    1.280e-05  
+  1.6600e-10    7.500e-01    1.284e-05  
+  1.6700e-10    7.500e-01    1.288e-05  
+  1.6800e-10    7.500e-01    1.291e-05  
+  1.6900e-10    7.500e-01    1.295e-05  
+  1.7000e-10    7.500e-01    1.299e-05  
+  1.7100e-10    7.500e-01    1.303e-05  
+  1.7200e-10    7.500e-01    1.307e-05  
+  1.7300e-10    7.500e-01    1.310e-05  
+  1.7400e-10    7.500e-01    1.314e-05  
+  1.7500e-10    7.500e-01    1.318e-05  
+  1.7600e-10    7.500e-01    1.322e-05  
+  1.7700e-10    7.500e-01    1.326e-05  
+  1.7800e-10    7.500e-01    1.330e-05  
+  1.7900e-10    7.500e-01    1.333e-05  
+  1.8000e-10    7.500e-01    1.337e-05  
+  1.8100e-10    7.500e-01    1.341e-05  
+  1.8200e-10    7.500e-01    1.345e-05  
+  1.8300e-10    7.500e-01    1.349e-05  
+  1.8400e-10    7.500e-01    1.352e-05  
+  1.8500e-10    7.500e-01    1.356e-05  
+  1.8600e-10    7.500e-01    1.360e-05  
+  1.8700e-10    7.500e-01    1.364e-05  
+  1.8800e-10    7.500e-01    1.368e-05  
+  1.8900e-10    7.500e-01    1.371e-05  
+  1.9000e-10    7.500e-01    1.375e-05  
+  1.9100e-10    7.500e-01    1.379e-05  
+  1.9200e-10    7.500e-01    1.383e-05  
+  1.9300e-10    7.500e-01    1.387e-05  
+  1.9400e-10    7.500e-01    1.390e-05  
+  1.9500e-10    7.500e-01    1.394e-05  
+  1.9600e-10    7.500e-01    1.398e-05  
+  1.9700e-10    7.500e-01    1.402e-05  
+  1.9800e-10    7.500e-01    1.406e-05  
+  1.9900e-10    7.500e-01    1.409e-05  
+  2.0000e-10    7.500e-01    1.413e-05  
+  2.0100e-10    7.500e-01    1.417e-05  
+  2.0200e-10    7.500e-01    1.421e-05  
+  2.0300e-10    7.500e-01    1.419e-05  
+  2.0400e-10    7.500e-01    1.415e-05  
+  2.0500e-10    7.500e-01    1.412e-05  
+  2.0600e-10    7.500e-01    1.408e-05  
+  2.0700e-10    7.500e-01    1.404e-05  
+  2.0800e-10    7.500e-01    1.400e-05  
+  2.0900e-10    7.500e-01    1.396e-05  
+  2.1000e-10    7.500e-01    1.393e-05  
+  2.1100e-10    7.500e-01    1.389e-05  
+  2.1200e-10    7.500e-01    1.385e-05  
+  2.1300e-10    7.500e-01    1.381e-05  
+  2.1400e-10    7.500e-01    1.377e-05  
+  2.1500e-10    7.500e-01    1.374e-05  
+  2.1600e-10    7.500e-01    1.370e-05  
+  2.1700e-10    7.500e-01    1.366e-05  
+  2.1800e-10    7.500e-01    1.362e-05  
+  2.1900e-10    7.500e-01    1.358e-05  
+  2.2000e-10    7.500e-01    1.355e-05  
+  2.2100e-10    7.500e-01    1.351e-05  
+  2.2200e-10    7.500e-01    1.347e-05  
+  2.2300e-10    7.500e-01    1.343e-05  
+  2.2400e-10    7.500e-01    1.340e-05  
+  2.2500e-10    7.500e-01    1.336e-05  
+  2.2600e-10    7.500e-01    1.332e-05  
+  2.2700e-10    7.500e-01    1.328e-05  
+  2.2800e-10    7.500e-01    1.324e-05  
+  2.2900e-10    7.500e-01    1.321e-05  
+  2.3000e-10    7.500e-01    1.317e-05  
+  2.3100e-10    7.500e-01    1.313e-05  
+  2.3200e-10    7.500e-01    1.309e-05  
+  2.3300e-10    7.500e-01    1.305e-05  
+  2.3400e-10    7.500e-01    1.302e-05  
+  2.3500e-10    7.500e-01    1.298e-05  
+  2.3600e-10    7.500e-01    1.294e-05  
+  2.3700e-10    7.500e-01    1.290e-05  
+  2.3800e-10    7.500e-01    1.286e-05  
+  2.3900e-10    7.500e-01    1.283e-05  
+  2.4000e-10    7.500e-01    1.279e-05  
+  2.4100e-10    7.500e-01    1.275e-05  
+  2.4200e-10    7.500e-01    1.271e-05  
+  2.4300e-10    7.500e-01    1.267e-05  
+  2.4400e-10    7.500e-01    1.264e-05  
+  2.4500e-10    7.500e-01    1.260e-05  
+  2.4600e-10    7.500e-01    1.256e-05  
+  2.4700e-10    7.500e-01    1.252e-05  
+  2.4800e-10    7.500e-01    1.249e-05  
+  2.4900e-10    7.500e-01    1.245e-05  
+  2.5000e-10    7.500e-01    1.241e-05  
+  2.5100e-10    7.500e-01    1.237e-05  
+  2.5200e-10    7.500e-01    1.233e-05  
+  2.5300e-10    7.500e-01    1.235e-05  
+  2.5400e-10    7.500e-01    1.239e-05  
+  2.5500e-10    7.500e-01    1.243e-05  
+  2.5600e-10    7.500e-01    1.246e-05  
+  2.5700e-10    7.500e-01    1.250e-05  
+  2.5800e-10    7.500e-01    1.254e-05  
+  2.5900e-10    7.500e-01    1.258e-05  
+  2.6000e-10    7.500e-01    1.262e-05  
+  2.6100e-10    7.500e-01    1.265e-05  
+  2.6200e-10    7.500e-01    1.269e-05  
+  2.6300e-10    7.500e-01    1.273e-05  
+  2.6400e-10    7.500e-01    1.277e-05  
+  2.6500e-10    7.500e-01    1.280e-05  
+  2.6600e-10    7.500e-01    1.284e-05  
+  2.6700e-10    7.500e-01    1.288e-05  
+  2.6800e-10    7.500e-01    1.292e-05  
+  2.6900e-10    7.500e-01    1.296e-05  
+  2.7000e-10    7.500e-01    1.299e-05  
+  2.7100e-10    7.500e-01    1.303e-05  
+  2.7200e-10    7.500e-01    1.307e-05  
+  2.7300e-10    7.500e-01    1.311e-05  
+  2.7400e-10    7.500e-01    1.314e-05  
+  2.7500e-10    7.500e-01    1.318e-05  
+  2.7600e-10    7.500e-01    1.322e-05  
+  2.7700e-10    7.500e-01    1.326e-05  
+  2.7800e-10    7.500e-01    1.330e-05  
+  2.7900e-10    7.500e-01    1.333e-05  
+  2.8000e-10    7.500e-01    1.337e-05  
+  2.8100e-10    7.500e-01    1.341e-05  
+  2.8200e-10    7.500e-01    1.345e-05  
+  2.8300e-10    7.500e-01    1.348e-05  
+  2.8400e-10    7.500e-01    1.352e-05  
+  2.8500e-10    7.500e-01    1.356e-05  
+  2.8600e-10    7.500e-01    1.360e-05  
+  2.8700e-10    7.500e-01    1.363e-05  
+  2.8800e-10    7.500e-01    1.367e-05  
+  2.8900e-10    7.500e-01    1.371e-05  
+  2.9000e-10    7.500e-01    1.375e-05  
+  2.9100e-10    7.500e-01    1.379e-05  
+  2.9200e-10    7.500e-01    1.382e-05  
+  2.9300e-10    7.500e-01    1.386e-05  
+  2.9400e-10    7.500e-01    1.390e-05  
+  2.9500e-10    7.500e-01    1.394e-05  
+  2.9600e-10    7.500e-01    1.397e-05  
+  2.9700e-10    7.500e-01    1.401e-05  
+  2.9800e-10    7.500e-01    1.405e-05  
+  2.9900e-10    7.500e-01    1.409e-05  
+  3.0000e-10    7.500e-01    1.413e-05  
+  3.0100e-10    7.500e-01    1.416e-05  
+  3.0200e-10    7.500e-01    1.420e-05  
+  3.0300e-10    7.500e-01    1.418e-05  
+  3.0400e-10    7.500e-01    1.415e-05  
+  3.0500e-10    7.500e-01    1.411e-05  
+  3.0600e-10    7.500e-01    1.407e-05  
+  3.0700e-10    7.500e-01    1.403e-05  
+  3.0800e-10    7.500e-01    1.400e-05  
+  3.0900e-10    7.500e-01    1.396e-05  
+  3.1000e-10    7.500e-01    1.392e-05  
+  3.1100e-10    7.500e-01    1.388e-05  
+  3.1200e-10    7.500e-01    1.385e-05  
+  3.1300e-10    7.500e-01    1.381e-05  
+  3.1400e-10    7.500e-01    1.377e-05  
+  3.1500e-10    7.500e-01    1.373e-05  
+  3.1600e-10    7.500e-01    1.370e-05  
+  3.1700e-10    7.500e-01    1.366e-05  
+  3.1800e-10    7.500e-01    1.362e-05  
+  3.1900e-10    7.500e-01    1.358e-05  
+  3.2000e-10    7.500e-01    1.354e-05  
+  3.2100e-10    7.500e-01    1.351e-05  
+  3.2200e-10    7.500e-01    1.347e-05  
+  3.2300e-10    7.500e-01    1.343e-05  
+  3.2400e-10    7.500e-01    1.339e-05  
+  3.2500e-10    7.500e-01    1.336e-05  
+  3.2600e-10    7.500e-01    1.332e-05  
+  3.2700e-10    7.500e-01    1.328e-05  
+  3.2800e-10    7.500e-01    1.324e-05  
+  3.2900e-10    7.500e-01    1.321e-05  
+  3.3000e-10    7.500e-01    1.317e-05  
+  3.3100e-10    7.500e-01    1.313e-05  
+  3.3200e-10    7.500e-01    1.309e-05  
+  3.3300e-10    7.500e-01    1.306e-05  
+  3.3400e-10    7.500e-01    1.302e-05  
+  3.3500e-10    7.500e-01    1.298e-05  
+  3.3600e-10    7.500e-01    1.294e-05  
+  3.3700e-10    7.500e-01    1.291e-05  
+  3.3800e-10    7.500e-01    1.287e-05  
+  3.3900e-10    7.500e-01    1.283e-05  
+  3.4000e-10    7.500e-01    1.279e-05  
+  3.4100e-10    7.500e-01    1.275e-05  
+  3.4200e-10    7.500e-01    1.272e-05  
+  3.4300e-10    7.500e-01    1.268e-05  
+  3.4400e-10    7.500e-01    1.264e-05  
+  3.4500e-10    7.500e-01    1.260e-05  
+  3.4600e-10    7.500e-01    1.257e-05  
+  3.4700e-10    7.500e-01    1.253e-05  
+  3.4800e-10    7.500e-01    1.249e-05  
+  3.4900e-10    7.500e-01    1.245e-05  
+  3.5000e-10    7.500e-01    1.242e-05  
+  3.5100e-10    7.500e-01    1.238e-05  
+  3.5200e-10    7.500e-01    1.234e-05  
+  3.5300e-10    7.500e-01    1.236e-05  
+  3.5400e-10    7.500e-01    1.240e-05  
+  3.5500e-10    7.500e-01    1.243e-05  
+  3.5600e-10    7.500e-01    1.247e-05  
+  3.5700e-10    7.500e-01    1.251e-05  
+  3.5800e-10    7.500e-01    1.255e-05  
+  3.5900e-10    7.500e-01    1.258e-05  
+  3.6000e-10    7.500e-01    1.262e-05  
+  3.6100e-10    7.500e-01    1.266e-05  
+  3.6200e-10    7.500e-01    1.270e-05  
+  3.6300e-10    7.500e-01    1.273e-05  
+  3.6400e-10    7.500e-01    1.277e-05  
+  3.6500e-10    7.500e-01    1.281e-05  
+  3.6600e-10    7.500e-01    1.285e-05  
+  3.6700e-10    7.500e-01    1.288e-05  
+  3.6800e-10    7.500e-01    1.292e-05  
+  3.6900e-10    7.500e-01    1.296e-05  
+  3.7000e-10    7.500e-01    1.300e-05  
+  3.7100e-10    7.500e-01    1.303e-05  
+  3.7200e-10    7.500e-01    1.307e-05  
+  3.7300e-10    7.500e-01    1.311e-05  
+  3.7400e-10    7.500e-01    1.315e-05  
+  3.7500e-10    7.500e-01    1.318e-05  
+  3.7600e-10    7.500e-01    1.322e-05  
+  3.7700e-10    7.500e-01    1.326e-05  
+  3.7800e-10    7.500e-01    1.329e-05  
+  3.7900e-10    7.500e-01    1.333e-05  
+  3.8000e-10    7.500e-01    1.337e-05  
+  3.8100e-10    7.500e-01    1.341e-05  
+  3.8200e-10    7.500e-01    1.344e-05  
+  3.8300e-10    7.500e-01    1.348e-05  
+  3.8400e-10    7.500e-01    1.352e-05  
+  3.8500e-10    7.500e-01    1.356e-05  
+  3.8600e-10    7.500e-01    1.359e-05  
+  3.8700e-10    7.500e-01    1.363e-05  
+  3.8800e-10    7.500e-01    1.367e-05  
+  3.8900e-10    7.500e-01    1.371e-05  
+  3.9000e-10    7.500e-01    1.374e-05  
+  3.9100e-10    7.500e-01    1.378e-05  
+  3.9200e-10    7.500e-01    1.382e-05  
+  3.9300e-10    7.500e-01    1.386e-05  
+  3.9400e-10    7.500e-01    1.389e-05  
+  3.9500e-10    7.500e-01    1.393e-05  
+  3.9600e-10    7.500e-01    1.397e-05  
+  3.9700e-10    7.500e-01    1.401e-05  
+  3.9800e-10    7.500e-01    1.404e-05  
+  3.9900e-10    7.500e-01    1.408e-05  
+  4.0000e-10    7.500e-01    1.412e-05  
+  4.0100e-10    7.500e-01    1.416e-05  
+  4.0200e-10    7.500e-01    1.419e-05  
+  4.0300e-10    7.500e-01    1.418e-05  
+  4.0400e-10    7.500e-01    1.414e-05  
+  4.0500e-10    7.500e-01    1.410e-05  
+  4.0600e-10    7.500e-01    1.406e-05  
+  4.0700e-10    7.500e-01    1.403e-05  
+  4.0800e-10    7.500e-01    1.399e-05  
+  4.0900e-10    7.500e-01    1.395e-05  
+  4.1000e-10    7.500e-01    1.392e-05  
+  4.1100e-10    7.500e-01    1.388e-05  
+  4.1200e-10    7.500e-01    1.384e-05  
+  4.1300e-10    7.500e-01    1.380e-05  
+  4.1400e-10    7.500e-01    1.377e-05  
+  4.1500e-10    7.500e-01    1.373e-05  
+  4.1600e-10    7.500e-01    1.369e-05  
+  4.1700e-10    7.500e-01    1.365e-05  
+  4.1800e-10    7.500e-01    1.362e-05  
+  4.1900e-10    7.500e-01    1.358e-05  
+  4.2000e-10    7.500e-01    1.354e-05  
+  4.2100e-10    7.500e-01    1.351e-05  
+  4.2200e-10    7.500e-01    1.347e-05  
+  4.2300e-10    7.500e-01    1.343e-05  
+  4.2400e-10    7.500e-01    1.339e-05  
+  4.2500e-10    7.500e-01    1.336e-05  
+  4.2600e-10    7.500e-01    1.332e-05  
+  4.2700e-10    7.500e-01    1.328e-05  
+  4.2800e-10    7.500e-01    1.324e-05  
+  4.2900e-10    7.500e-01    1.321e-05  
+  4.3000e-10    7.500e-01    1.317e-05  
+  4.3100e-10    7.500e-01    1.313e-05  
+  4.3200e-10    7.500e-01    1.309e-05  
+  4.3300e-10    7.500e-01    1.306e-05  
+  4.3400e-10    7.500e-01    1.302e-05  
+  4.3500e-10    7.500e-01    1.298e-05  
+  4.3600e-10    7.500e-01    1.295e-05  
+  4.3700e-10    7.500e-01    1.291e-05  
+  4.3800e-10    7.500e-01    1.287e-05  
+  4.3900e-10    7.500e-01    1.283e-05  
+  4.4000e-10    7.500e-01    1.280e-05  
+  4.4100e-10    7.500e-01    1.276e-05  
+  4.4200e-10    7.500e-01    1.272e-05  
+  4.4300e-10    7.500e-01    1.268e-05  
+  4.4400e-10    7.500e-01    1.265e-05  
+  4.4500e-10    7.500e-01    1.261e-05  
+  4.4600e-10    7.500e-01    1.257e-05  
+  4.4700e-10    7.500e-01    1.253e-05  
+  4.4800e-10    7.500e-01    1.250e-05  
+  4.4900e-10    7.500e-01    1.246e-05  
+  4.5000e-10    7.500e-01    1.242e-05  
+  4.5100e-10    7.500e-01    1.239e-05  
+  4.5200e-10    7.500e-01    1.235e-05  
+  4.5300e-10    7.500e-01    1.237e-05  
+  4.5400e-10    7.500e-01    1.240e-05  
+  4.5500e-10    7.500e-01    1.244e-05  
+  4.5600e-10    7.500e-01    1.248e-05  
+  4.5700e-10    7.500e-01    1.252e-05  
+  4.5800e-10    7.500e-01    1.256e-05  
+  4.5900e-10    7.500e-01    1.259e-05  
+  4.6000e-10    7.500e-01    1.263e-05  
+  4.6100e-10    7.500e-01    1.267e-05  
+  4.6200e-10    7.500e-01    1.271e-05  
+  4.6300e-10    7.500e-01    1.275e-05  
+  4.6400e-10    7.500e-01    1.279e-05  
+  4.6500e-10    7.500e-01    1.282e-05  
+  4.6600e-10    7.500e-01    1.286e-05  
+  4.6700e-10    7.500e-01    1.290e-05  
+  4.6800e-10    7.500e-01    1.294e-05  
+  4.6900e-10    7.500e-01    1.298e-05  
+  4.7000e-10    7.500e-01    1.301e-05  
+  4.7100e-10    7.500e-01    1.305e-05  
+  4.7200e-10    7.500e-01    1.309e-05  
+  4.7300e-10    7.500e-01    1.313e-05  
+  4.7400e-10    7.500e-01    1.317e-05  
+  4.7500e-10    7.500e-01    1.321e-05  
+  4.7600e-10    7.500e-01    1.324e-05  
+  4.7700e-10    7.500e-01    1.328e-05  
+  4.7800e-10    7.500e-01    1.332e-05  
+  4.7900e-10    7.500e-01    1.336e-05  
+  4.8000e-10    7.500e-01    1.340e-05  
+  4.8100e-10    7.500e-01    1.343e-05  
+  4.8200e-10    7.500e-01    1.347e-05  
+  4.8300e-10    7.500e-01    1.351e-05  
+  4.8400e-10    7.500e-01    1.355e-05  
+  4.8500e-10    7.500e-01    1.359e-05  
+  4.8600e-10    7.500e-01    1.362e-05  
+  4.8700e-10    7.500e-01    1.366e-05  
+  4.8800e-10    7.500e-01    1.370e-05  
+  4.8900e-10    7.500e-01    1.374e-05  
+  4.9000e-10    7.500e-01    1.378e-05  
+  4.9100e-10    7.500e-01    1.382e-05  
+  4.9200e-10    7.500e-01    1.385e-05  
+  4.9300e-10    7.500e-01    1.389e-05  
+  4.9400e-10    7.500e-01    1.393e-05  
+  4.9500e-10    7.500e-01    1.397e-05  
+  4.9600e-10    7.500e-01    1.401e-05  
+  4.9700e-10    7.500e-01    1.404e-05  
+  4.9800e-10    7.500e-01    1.408e-05  
+  4.9900e-10    7.500e-01    1.412e-05  
+  5.0000e-10    7.500e-01    1.416e-05  
+  5.0100e-10    7.500e-01    1.420e-05  
+  5.0200e-10    6.983e-01   -7.113e-03  
+  5.0300e-10    1.312e-01   -1.590e-03  
+  5.0400e-10    2.117e-02    1.628e-01  
+  5.0500e-10    1.611e-02    3.348e-01  
+  5.0600e-10    1.448e-02    4.761e-01  
+  5.0700e-10    1.290e-02    5.907e-01  
+  5.0800e-10    7.881e-03    6.480e-01  
+  5.0900e-10    3.279e-03    6.682e-01  
+  5.1000e-10    9.427e-04    6.808e-01  
+  5.1100e-10    1.382e-03    6.914e-01  
+  5.1200e-10    1.970e-03    7.051e-01  
+  5.1300e-10    2.338e-03    7.215e-01  
+  5.1400e-10    1.197e-03    7.298e-01  
+  5.1500e-10    1.473e-03    7.412e-01  
+  5.1600e-10    1.062e-03    7.493e-01  
+  5.1700e-10   -3.775e-04    7.470e-01  
+  5.1800e-10   -2.262e-04    7.448e-01  
+  5.1900e-10   -8.208e-05    7.443e-01  
+  5.2000e-10    9.073e-05    7.450e-01  
+  5.2100e-10    3.480e-04    7.465e-01  
+  5.2200e-10    1.396e-04    7.474e-01  
+  5.2300e-10    2.626e-05    7.482e-01  
+  5.2400e-10    1.158e-04    7.489e-01  
+  5.2500e-10    2.013e-04    7.496e-01  
+  5.2600e-10    9.404e-05    7.497e-01  
+  5.2700e-10   -1.324e-05    7.497e-01  
+  5.2800e-10   -1.115e-04    7.498e-01  
+  5.2900e-10   -4.445e-05    7.499e-01  
+  5.3000e-10    2.264e-05    7.500e-01  
+  5.3100e-10    8.973e-05    7.501e-01  
+  5.3200e-10    1.330e-04    7.501e-01  
+  5.3300e-10    8.297e-05    7.501e-01  
+  5.3400e-10    3.291e-05    7.500e-01  
+  5.3500e-10   -1.714e-05    7.499e-01  
+  5.3600e-10   -6.720e-05    7.499e-01  
+  5.3700e-10   -1.108e-04    7.498e-01  
+  5.3800e-10   -7.363e-05    7.499e-01  
+  5.3900e-10   -3.651e-05    7.499e-01  
+  5.4000e-10    6.121e-07    7.500e-01  
+  5.4100e-10    3.774e-05    7.500e-01  
+  5.4200e-10    7.486e-05    7.501e-01  
+  5.4300e-10    1.120e-04    7.501e-01  
+  5.4400e-10    1.296e-04    7.501e-01  
+  5.4500e-10    1.037e-04    7.501e-01  
+  5.4600e-10    7.789e-05    7.501e-01  
+  5.4700e-10    5.206e-05    7.500e-01  
+  5.4800e-10    2.622e-05    7.500e-01  
+  5.4900e-10    1.398e-05    7.500e-01  
+  5.5000e-10    1.371e-05    7.500e-01  
+  5.5100e-10    1.343e-05    7.500e-01  
+  5.5200e-10    1.316e-05    7.500e-01  
+  5.5300e-10    1.288e-05    7.500e-01  
+  5.5400e-10    1.261e-05    7.500e-01  
+  5.5500e-10    1.247e-05    7.500e-01  
+  5.5600e-10    1.261e-05    7.500e-01  
+  5.5700e-10    1.274e-05    7.500e-01  
+  5.5800e-10    1.287e-05    7.500e-01  
+  5.5900e-10    1.301e-05    7.500e-01  
+  5.6000e-10    1.314e-05    7.500e-01  
+  5.6100e-10    1.327e-05    7.500e-01  
+  5.6200e-10    1.341e-05    7.500e-01  
+  5.6300e-10    1.354e-05    7.500e-01  
+  5.6400e-10    1.367e-05    7.500e-01  
+  5.6500e-10    1.380e-05    7.500e-01  
+  5.6600e-10    1.394e-05    7.500e-01  
+  5.6700e-10    1.407e-05    7.500e-01  
+  5.6800e-10    1.402e-05    7.500e-01  
+  5.6900e-10    1.392e-05    7.500e-01  
+  5.7000e-10    1.383e-05    7.500e-01  
+  5.7100e-10    1.373e-05    7.500e-01  
+  5.7200e-10    1.363e-05    7.500e-01  
+  5.7300e-10    1.354e-05    7.500e-01  
+  5.7400e-10    1.344e-05    7.500e-01  
+  5.7500e-10    1.335e-05    7.500e-01  
+  5.7600e-10    1.325e-05    7.500e-01  
+  5.7700e-10    1.316e-05    7.500e-01  
+  5.7800e-10    1.306e-05    7.500e-01  
+  5.7900e-10    1.297e-05    7.500e-01  
+  5.8000e-10    1.287e-05    7.500e-01  
+  5.8100e-10    1.277e-05    7.500e-01  
+  5.8200e-10    1.268e-05    7.500e-01  
+  5.8300e-10    1.258e-05    7.500e-01  
+  5.8400e-10    1.249e-05    7.500e-01  
+  5.8500e-10    1.247e-05    7.500e-01  
+  5.8600e-10    1.250e-05    7.500e-01  
+  5.8700e-10    1.253e-05    7.500e-01  
+  5.8800e-10    1.256e-05    7.500e-01  
+  5.8900e-10    1.260e-05    7.500e-01  
+  5.9000e-10    1.263e-05    7.500e-01  
+  5.9100e-10    1.266e-05    7.500e-01  
+  5.9200e-10    1.270e-05    7.500e-01  
+  5.9300e-10    1.273e-05    7.500e-01  
+  5.9400e-10    1.276e-05    7.500e-01  
+  5.9500e-10    1.279e-05    7.500e-01  
+  5.9600e-10    1.283e-05    7.500e-01  
+  5.9700e-10    1.286e-05    7.500e-01  
+  5.9800e-10    1.289e-05    7.500e-01  
+  5.9900e-10    1.292e-05    7.500e-01  
+  6.0000e-10    1.296e-05    7.500e-01  
+  6.0100e-10    1.299e-05    7.500e-01  
+  6.0200e-10    1.302e-05    7.500e-01  
+  6.0300e-10    1.306e-05    7.500e-01  
+  6.0400e-10    1.309e-05    7.500e-01  
+  6.0500e-10    1.312e-05    7.500e-01  
+  6.0600e-10    1.315e-05    7.500e-01  
+  6.0700e-10    1.319e-05    7.500e-01  
+  6.0800e-10    1.322e-05    7.500e-01  
+  6.0900e-10    1.325e-05    7.500e-01  
+  6.1000e-10    1.328e-05    7.500e-01  
+  6.1100e-10    1.332e-05    7.500e-01  
+  6.1200e-10    1.335e-05    7.500e-01  
+  6.1300e-10    1.338e-05    7.500e-01  
+  6.1400e-10    1.342e-05    7.500e-01  
+  6.1500e-10    1.345e-05    7.500e-01  
+  6.1600e-10    1.348e-05    7.500e-01  
+  6.1700e-10    1.351e-05    7.500e-01  
+  6.1800e-10    1.355e-05    7.500e-01  
+  6.1900e-10    1.358e-05    7.500e-01  
+  6.2000e-10    1.361e-05    7.500e-01  
+  6.2100e-10    1.364e-05    7.500e-01  
+  6.2200e-10    1.368e-05    7.500e-01  
+  6.2300e-10    1.371e-05    7.500e-01  
+  6.2400e-10    1.374e-05    7.500e-01  
+  6.2500e-10    1.378e-05    7.500e-01  
+  6.2600e-10    1.381e-05    7.500e-01  
+  6.2700e-10    1.384e-05    7.500e-01  
+  6.2800e-10    1.387e-05    7.500e-01  
+  6.2900e-10    1.391e-05    7.500e-01  
+  6.3000e-10    1.394e-05    7.500e-01  
+  6.3100e-10    1.397e-05    7.500e-01  
+  6.3200e-10    1.400e-05    7.500e-01  
+  6.3300e-10    1.404e-05    7.500e-01  
+  6.3400e-10    1.407e-05    7.500e-01  
+  6.3500e-10    1.406e-05    7.500e-01  
+  6.3600e-10    1.403e-05    7.500e-01  
+  6.3700e-10    1.400e-05    7.500e-01  
+  6.3800e-10    1.397e-05    7.500e-01  
+  6.3900e-10    1.393e-05    7.500e-01  
+  6.4000e-10    1.390e-05    7.500e-01  
+  6.4100e-10    1.387e-05    7.500e-01  
+  6.4200e-10    1.384e-05    7.500e-01  
+  6.4300e-10    1.380e-05    7.500e-01  
+  6.4400e-10    1.377e-05    7.500e-01  
+  6.4500e-10    1.374e-05    7.500e-01  
+  6.4600e-10    1.371e-05    7.500e-01  
+  6.4700e-10    1.367e-05    7.500e-01  
+  6.4800e-10    1.364e-05    7.500e-01  
+  6.4900e-10    1.361e-05    7.500e-01  
+  6.5000e-10    1.358e-05    7.500e-01  
+  6.5100e-10    1.354e-05    7.500e-01  
+  6.5200e-10    1.351e-05    7.500e-01  
+  6.5300e-10    1.348e-05    7.500e-01  
+  6.5400e-10    1.345e-05    7.500e-01  
+  6.5500e-10    1.341e-05    7.500e-01  
+  6.5600e-10    1.338e-05    7.500e-01  
+  6.5700e-10    1.335e-05    7.500e-01  
+  6.5800e-10    1.331e-05    7.500e-01  
+  6.5900e-10    1.328e-05    7.500e-01  
+  6.6000e-10    1.325e-05    7.500e-01  
+  6.6100e-10    1.322e-05    7.500e-01  
+  6.6200e-10    1.318e-05    7.500e-01  
+  6.6300e-10    1.315e-05    7.500e-01  
+  6.6400e-10    1.312e-05    7.500e-01  
+  6.6500e-10    1.309e-05    7.500e-01  
+  6.6600e-10    1.305e-05    7.500e-01  
+  6.6700e-10    1.302e-05    7.500e-01  
+  6.6800e-10    1.299e-05    7.500e-01  
+  6.6900e-10    1.296e-05    7.500e-01  
+  6.7000e-10    1.292e-05    7.500e-01  
+  6.7100e-10    1.289e-05    7.500e-01  
+  6.7200e-10    1.286e-05    7.500e-01  
+  6.7300e-10    1.283e-05    7.500e-01  
+  6.7400e-10    1.279e-05    7.500e-01  
+  6.7500e-10    1.276e-05    7.500e-01  
+  6.7600e-10    1.273e-05    7.500e-01  
+  6.7700e-10    1.269e-05    7.500e-01  
+  6.7800e-10    1.266e-05    7.500e-01  
+  6.7900e-10    1.263e-05    7.500e-01  
+  6.8000e-10    1.260e-05    7.500e-01  
+  6.8100e-10    1.256e-05    7.500e-01  
+  6.8200e-10    1.253e-05    7.500e-01  
+  6.8300e-10    1.250e-05    7.500e-01  
+  6.8400e-10    1.247e-05    7.500e-01  
+  6.8500e-10    1.247e-05    7.500e-01  
+  6.8600e-10    1.250e-05    7.500e-01  
+  6.8700e-10    1.254e-05    7.500e-01  
+  6.8800e-10    1.257e-05    7.500e-01  
+  6.8900e-10    1.260e-05    7.500e-01  
+  6.9000e-10    1.263e-05    7.500e-01  
+  6.9100e-10    1.267e-05    7.500e-01  
+  6.9200e-10    1.270e-05    7.500e-01  
+  6.9300e-10    1.273e-05    7.500e-01  
+  6.9400e-10    1.276e-05    7.500e-01  
+  6.9500e-10    1.280e-05    7.500e-01  
+  6.9600e-10    1.283e-05    7.500e-01  
+  6.9700e-10    1.286e-05    7.500e-01  
+  6.9800e-10    1.289e-05    7.500e-01  
+  6.9900e-10    1.293e-05    7.500e-01  
+  7.0000e-10    1.296e-05    7.500e-01  
+  7.0100e-10    1.299e-05    7.500e-01  
+  7.0200e-10    1.302e-05    7.500e-01  
+  7.0300e-10    1.306e-05    7.500e-01  
+  7.0400e-10    1.309e-05    7.500e-01  
+  7.0500e-10    1.312e-05    7.500e-01  
+  7.0600e-10    1.315e-05    7.500e-01  
+  7.0700e-10    1.319e-05    7.500e-01  
+  7.0800e-10    1.322e-05    7.500e-01  
+  7.0900e-10    1.325e-05    7.500e-01  
+  7.1000e-10    1.328e-05    7.500e-01  
+  7.1100e-10    1.332e-05    7.500e-01  
+  7.1200e-10    1.335e-05    7.500e-01  
+  7.1300e-10    1.338e-05    7.500e-01  
+  7.1400e-10    1.341e-05    7.500e-01  
+  7.1500e-10    1.345e-05    7.500e-01  
+  7.1600e-10    1.348e-05    7.500e-01  
+  7.1700e-10    1.351e-05    7.500e-01  
+  7.1800e-10    1.354e-05    7.500e-01  
+  7.1900e-10    1.358e-05    7.500e-01  
+  7.2000e-10    1.361e-05    7.500e-01  
+  7.2100e-10    1.364e-05    7.500e-01  
+  7.2200e-10    1.367e-05    7.500e-01  
+  7.2300e-10    1.371e-05    7.500e-01  
+  7.2400e-10    1.374e-05    7.500e-01  
+  7.2500e-10    1.377e-05    7.500e-01  
+  7.2600e-10    1.380e-05    7.500e-01  
+  7.2700e-10    1.384e-05    7.500e-01  
+  7.2800e-10    1.387e-05    7.500e-01  
+  7.2900e-10    1.390e-05    7.500e-01  
+  7.3000e-10    1.393e-05    7.500e-01  
+  7.3100e-10    1.397e-05    7.500e-01  
+  7.3200e-10    1.400e-05    7.500e-01  
+  7.3300e-10    1.403e-05    7.500e-01  
+  7.3400e-10    1.406e-05    7.500e-01  
+  7.3500e-10    1.406e-05    7.500e-01  
+  7.3600e-10    1.403e-05    7.500e-01  
+  7.3700e-10    1.399e-05    7.500e-01  
+  7.3800e-10    1.396e-05    7.500e-01  
+  7.3900e-10    1.393e-05    7.500e-01  
+  7.4000e-10    1.390e-05    7.500e-01  
+  7.4100e-10    1.386e-05    7.500e-01  
+  7.4200e-10    1.383e-05    7.500e-01  
+  7.4300e-10    1.380e-05    7.500e-01  
+  7.4400e-10    1.377e-05    7.500e-01  
+  7.4500e-10    1.374e-05    7.500e-01  
+  7.4600e-10    1.370e-05    7.500e-01  
+  7.4700e-10    1.367e-05    7.500e-01  
+  7.4800e-10    1.364e-05    7.500e-01  
+  7.4900e-10    1.361e-05    7.500e-01  
+  7.5000e-10    1.357e-05    7.500e-01  
+  7.5100e-10    1.354e-05    7.500e-01  
+  7.5200e-10    1.351e-05    7.500e-01  
+  7.5300e-10    1.348e-05    7.500e-01  
+  7.5400e-10    1.344e-05    7.500e-01  
+  7.5500e-10    1.341e-05    7.500e-01  
+  7.5600e-10    1.338e-05    7.500e-01  
+  7.5700e-10    1.335e-05    7.500e-01  
+  7.5800e-10    1.331e-05    7.500e-01  
+  7.5900e-10    1.328e-05    7.500e-01  
+  7.6000e-10    1.325e-05    7.500e-01  
+  7.6100e-10    1.322e-05    7.500e-01  
+  7.6200e-10    1.318e-05    7.500e-01  
+  7.6300e-10    1.315e-05    7.500e-01  
+  7.6400e-10    1.312e-05    7.500e-01  
+  7.6500e-10    1.309e-05    7.500e-01  
+  7.6600e-10    1.306e-05    7.500e-01  
+  7.6700e-10    1.302e-05    7.500e-01  
+  7.6800e-10    1.299e-05    7.500e-01  
+  7.6900e-10    1.296e-05    7.500e-01  
+  7.7000e-10    1.293e-05    7.500e-01  
+  7.7100e-10    1.289e-05    7.500e-01  
+  7.7200e-10    1.286e-05    7.500e-01  
+  7.7300e-10    1.283e-05    7.500e-01  
+  7.7400e-10    1.280e-05    7.500e-01  
+  7.7500e-10    1.276e-05    7.500e-01  
+  7.7600e-10    1.273e-05    7.500e-01  
+  7.7700e-10    1.270e-05    7.500e-01  
+  7.7800e-10    1.267e-05    7.500e-01  
+  7.7900e-10    1.263e-05    7.500e-01  
+  7.8000e-10    1.260e-05    7.500e-01  
+  7.8100e-10    1.257e-05    7.500e-01  
+  7.8200e-10    1.254e-05    7.500e-01  
+  7.8300e-10    1.250e-05    7.500e-01  
+  7.8400e-10    1.247e-05    7.500e-01  
+  7.8500e-10    1.248e-05    7.500e-01  
+  7.8600e-10    1.251e-05    7.500e-01  
+  7.8700e-10    1.254e-05    7.500e-01  
+  7.8800e-10    1.257e-05    7.500e-01  
+  7.8900e-10    1.261e-05    7.500e-01  
+  7.9000e-10    1.264e-05    7.500e-01  
+  7.9100e-10    1.267e-05    7.500e-01  
+  7.9200e-10    1.270e-05    7.500e-01  
+  7.9300e-10    1.274e-05    7.500e-01  
+  7.9400e-10    1.277e-05    7.500e-01  
+  7.9500e-10    1.280e-05    7.500e-01  
+  7.9600e-10    1.283e-05    7.500e-01  
+  7.9700e-10    1.286e-05    7.500e-01  
+  7.9800e-10    1.290e-05    7.500e-01  
+  7.9900e-10    1.293e-05    7.500e-01  
+  8.0000e-10    1.296e-05    7.500e-01  
+  8.0100e-10    1.299e-05    7.500e-01  
+  8.0200e-10    1.303e-05    7.500e-01  
+  8.0300e-10    1.306e-05    7.500e-01  
+  8.0400e-10    1.309e-05    7.500e-01  
+  8.0500e-10    1.312e-05    7.500e-01  
+  8.0600e-10    1.315e-05    7.500e-01  
+  8.0700e-10    1.319e-05    7.500e-01  
+  8.0800e-10    1.322e-05    7.500e-01  
+  8.0900e-10    1.325e-05    7.500e-01  
+  8.1000e-10    1.328e-05    7.500e-01  
+  8.1100e-10    1.332e-05    7.500e-01  
+  8.1200e-10    1.335e-05    7.500e-01  
+  8.1300e-10    1.338e-05    7.500e-01  
+  8.1400e-10    1.341e-05    7.500e-01  
+  8.1500e-10    1.345e-05    7.500e-01  
+  8.1600e-10    1.348e-05    7.500e-01  
+  8.1700e-10    1.351e-05    7.500e-01  
+  8.1800e-10    1.354e-05    7.500e-01  
+  8.1900e-10    1.357e-05    7.500e-01  
+  8.2000e-10    1.361e-05    7.500e-01  
+  8.2100e-10    1.364e-05    7.500e-01  
+  8.2200e-10    1.367e-05    7.500e-01  
+  8.2300e-10    1.370e-05    7.500e-01  
+  8.2400e-10    1.374e-05    7.500e-01  
+  8.2500e-10    1.377e-05    7.500e-01  
+  8.2600e-10    1.380e-05    7.500e-01  
+  8.2700e-10    1.383e-05    7.500e-01  
+  8.2800e-10    1.387e-05    7.500e-01  
+  8.2900e-10    1.390e-05    7.500e-01  
+  8.3000e-10    1.393e-05    7.500e-01  
+  8.3100e-10    1.396e-05    7.500e-01  
+  8.3200e-10    1.399e-05    7.500e-01  
+  8.3300e-10    1.403e-05    7.500e-01  
+  8.3400e-10    1.406e-05    7.500e-01  
+  8.3500e-10    1.405e-05    7.500e-01  
+  8.3600e-10    1.402e-05    7.500e-01  
+  8.3700e-10    1.399e-05    7.500e-01  
+  8.3800e-10    1.396e-05    7.500e-01  
+  8.3900e-10    1.393e-05    7.500e-01  
+  8.4000e-10    1.389e-05    7.500e-01  
+  8.4100e-10    1.386e-05    7.500e-01  
+  8.4200e-10    1.383e-05    7.500e-01  
+  8.4300e-10    1.380e-05    7.500e-01  
+  8.4400e-10    1.376e-05    7.500e-01  
+  8.4500e-10    1.373e-05    7.500e-01  
+  8.4600e-10    1.370e-05    7.500e-01  
+  8.4700e-10    1.367e-05    7.500e-01  
+  8.4800e-10    1.364e-05    7.500e-01  
+  8.4900e-10    1.360e-05    7.500e-01  
+  8.5000e-10    1.357e-05    7.500e-01  
+  8.5100e-10    1.354e-05    7.500e-01  
+  8.5200e-10    1.351e-05    7.500e-01  
+  8.5300e-10    1.347e-05    7.500e-01  
+  8.5400e-10    1.344e-05    7.500e-01  
+  8.5500e-10    1.341e-05    7.500e-01  
+  8.5600e-10    1.338e-05    7.500e-01  
+  8.5700e-10    1.335e-05    7.500e-01  
+  8.5800e-10    1.331e-05    7.500e-01  
+  8.5900e-10    1.328e-05    7.500e-01  
+  8.6000e-10    1.325e-05    7.500e-01  
+  8.6100e-10    1.322e-05    7.500e-01  
+  8.6200e-10    1.319e-05    7.500e-01  
+  8.6300e-10    1.315e-05    7.500e-01  
+  8.6400e-10    1.312e-05    7.500e-01  
+  8.6500e-10    1.309e-05    7.500e-01  
+  8.6600e-10    1.306e-05    7.500e-01  
+  8.6700e-10    1.302e-05    7.500e-01  
+  8.6800e-10    1.299e-05    7.500e-01  
+  8.6900e-10    1.296e-05    7.500e-01  
+  8.7000e-10    1.293e-05    7.500e-01  
+  8.7100e-10    1.290e-05    7.500e-01  
+  8.7200e-10    1.286e-05    7.500e-01  
+  8.7300e-10    1.283e-05    7.500e-01  
+  8.7400e-10    1.280e-05    7.500e-01  
+  8.7500e-10    1.277e-05    7.500e-01  
+  8.7600e-10    1.273e-05    7.500e-01  
+  8.7700e-10    1.270e-05    7.500e-01  
+  8.7800e-10    1.267e-05    7.500e-01  
+  8.7900e-10    1.264e-05    7.500e-01  
+  8.8000e-10    1.261e-05    7.500e-01  
+  8.8100e-10    1.257e-05    7.500e-01  
+  8.8200e-10    1.254e-05    7.500e-01  
+  8.8300e-10    1.251e-05    7.500e-01  
+  8.8400e-10    1.248e-05    7.500e-01  
+  8.8500e-10    1.248e-05    7.500e-01  
+  8.8600e-10    1.251e-05    7.500e-01  
+  8.8700e-10    1.255e-05    7.500e-01  
+  8.8800e-10    1.258e-05    7.500e-01  
+  8.8900e-10    1.261e-05    7.500e-01  
+  8.9000e-10    1.264e-05    7.500e-01  
+  8.9100e-10    1.267e-05    7.500e-01  
+  8.9200e-10    1.271e-05    7.500e-01  
+  8.9300e-10    1.274e-05    7.500e-01  
+  8.9400e-10    1.277e-05    7.500e-01  
+  8.9500e-10    1.280e-05    7.500e-01  
+  8.9600e-10    1.283e-05    7.500e-01  
+  8.9700e-10    1.287e-05    7.500e-01  
+  8.9800e-10    1.290e-05    7.500e-01  
+  8.9900e-10    1.293e-05    7.500e-01  
+  9.0000e-10    1.296e-05    7.500e-01  
+  9.0100e-10    1.300e-05    7.500e-01  
+  9.0200e-10    1.303e-05    7.500e-01  
+  9.0300e-10    1.306e-05    7.500e-01  
+  9.0400e-10    1.309e-05    7.500e-01  
+  9.0500e-10    1.312e-05    7.500e-01  
+  9.0600e-10    1.316e-05    7.500e-01  
+  9.0700e-10    1.319e-05    7.500e-01  
+  9.0800e-10    1.322e-05    7.500e-01  
+  9.0900e-10    1.325e-05    7.500e-01  
+  9.1000e-10    1.328e-05    7.500e-01  
+  9.1100e-10    1.332e-05    7.500e-01  
+  9.1200e-10    1.335e-05    7.500e-01  
+  9.1300e-10    1.338e-05    7.500e-01  
+  9.1400e-10    1.341e-05    7.500e-01  
+  9.1500e-10    1.344e-05    7.500e-01  
+  9.1600e-10    1.348e-05    7.500e-01  
+  9.1700e-10    1.351e-05    7.500e-01  
+  9.1800e-10    1.354e-05    7.500e-01  
+  9.1900e-10    1.357e-05    7.500e-01  
+  9.2000e-10    1.360e-05    7.500e-01  
+  9.2100e-10    1.364e-05    7.500e-01  
+  9.2200e-10    1.367e-05    7.500e-01  
+  9.2300e-10    1.370e-05    7.500e-01  
+  9.2400e-10    1.373e-05    7.500e-01  
+  9.2500e-10    1.376e-05    7.500e-01  
+  9.2600e-10    1.380e-05    7.500e-01  
+  9.2700e-10    1.383e-05    7.500e-01  
+  9.2800e-10    1.386e-05    7.500e-01  
+  9.2900e-10    1.389e-05    7.500e-01  
+  9.3000e-10    1.393e-05    7.500e-01  
+  9.3100e-10    1.396e-05    7.500e-01  
+  9.3200e-10    1.399e-05    7.500e-01  
+  9.3300e-10    1.402e-05    7.500e-01  
+  9.3400e-10    1.405e-05    7.500e-01  
+  9.3500e-10    1.405e-05    7.500e-01  
+  9.3600e-10    1.402e-05    7.500e-01  
+  9.3700e-10    1.398e-05    7.500e-01  
+  9.3800e-10    1.395e-05    7.500e-01  
+  9.3900e-10    1.392e-05    7.500e-01  
+  9.4000e-10    1.389e-05    7.500e-01  
+  9.4100e-10    1.386e-05    7.500e-01  
+  9.4200e-10    1.382e-05    7.500e-01  
+  9.4300e-10    1.379e-05    7.500e-01  
+  9.4400e-10    1.376e-05    7.500e-01  
+  9.4500e-10    1.373e-05    7.500e-01  
+  9.4600e-10    1.370e-05    7.500e-01  
+  9.4700e-10    1.367e-05    7.500e-01  
+  9.4800e-10    1.363e-05    7.500e-01  
+  9.4900e-10    1.360e-05    7.500e-01  
+  9.5000e-10    1.357e-05    7.500e-01  
+  9.5100e-10    1.354e-05    7.500e-01  
+  9.5200e-10    1.351e-05    7.500e-01  
+  9.5300e-10    1.347e-05    7.500e-01  
+  9.5400e-10    1.344e-05    7.500e-01  
+  9.5500e-10    1.341e-05    7.500e-01  
+  9.5600e-10    1.338e-05    7.500e-01  
+  9.5700e-10    1.335e-05    7.500e-01  
+  9.5800e-10    1.331e-05    7.500e-01  
+  9.5900e-10    1.328e-05    7.500e-01  
+  9.6000e-10    1.325e-05    7.500e-01  
+  9.6100e-10    1.322e-05    7.500e-01  
+  9.6200e-10    1.319e-05    7.500e-01  
+  9.6300e-10    1.315e-05    7.500e-01  
+  9.6400e-10    1.312e-05    7.500e-01  
+  9.6500e-10    1.309e-05    7.500e-01  
+  9.6600e-10    1.306e-05    7.500e-01  
+  9.6700e-10    1.303e-05    7.500e-01  
+  9.6800e-10    1.299e-05    7.500e-01  
+  9.6900e-10    1.296e-05    7.500e-01  
+  9.7000e-10    1.293e-05    7.500e-01  
+  9.7100e-10    1.290e-05    7.500e-01  
+  9.7200e-10    1.287e-05    7.500e-01  
+  9.7300e-10    1.283e-05    7.500e-01  
+  9.7400e-10    1.280e-05    7.500e-01  
+  9.7500e-10    1.277e-05    7.500e-01  
+  9.7600e-10    1.274e-05    7.500e-01  
+  9.7700e-10    1.271e-05    7.500e-01  
+  9.7800e-10    1.267e-05    7.500e-01  
+  9.7900e-10    1.264e-05    7.500e-01  
+  9.8000e-10    1.261e-05    7.500e-01  
+  9.8100e-10    1.258e-05    7.500e-01  
+  9.8200e-10    1.255e-05    7.500e-01  
+  9.8300e-10    1.251e-05    7.500e-01  
+  9.8400e-10    1.248e-05    7.500e-01  
+  9.8500e-10    1.253e-05    7.500e-01  
+  9.8600e-10    1.263e-05    7.500e-01  
+  9.8700e-10    1.273e-05    7.500e-01  
+  9.8800e-10    1.283e-05    7.500e-01  
+  9.8900e-10    1.294e-05    7.500e-01  
+  9.9000e-10    1.304e-05    7.500e-01  
+  9.9100e-10    1.314e-05    7.500e-01  
+  9.9200e-10    1.324e-05    7.500e-01  
+  9.9300e-10    1.334e-05    7.500e-01  
+  9.9400e-10    1.344e-05    7.500e-01  
+  9.9500e-10    1.355e-05    7.500e-01  
+  9.9600e-10    1.365e-05    7.500e-01  
+  9.9700e-10    1.375e-05    7.500e-01  
+  9.9800e-10    1.385e-05    7.500e-01  
+  9.9900e-10    1.395e-05    7.500e-01  
+  1.0000e-09    1.406e-05    7.500e-01  
 y
 
           ***** job concluded
@@ -4135,7 +4139,7 @@ y
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 1797.382
+ cpu MHz	: 2663.460
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -4151,12 +4155,12 @@ y
 
 
   ******  Circuit Statistics  ******
-  # nodes       =     428 # elements   =     172
+  # nodes       =     433 # elements   =     174
   # resistors   =       0 # capacitors =       0 # inductors   =       0
   # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
   # cccs        =       0 # ccvs       =       0 # volt_srcs   =       2
   # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
-  # jfets       =       0 # mosfets    =     170 # U elements  =       0
+  # jfets       =       0 # mosfets    =     172 # U elements  =       0
   # T elements  =       0 # W elements =       0 # B elements  =       0
   # S elements  =       0 # P elements =       0 # va device   =       0
   # vector_srcs =       0
@@ -4166,7 +4170,7 @@ y
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.01           1           4
-  transient          0.44        1001         350          91 rev=         2
+  transient          0.39        1001         359          94 rev=         2
   readin             0.00
   errchk             0.02
   setup              0.00
@@ -4174,10 +4178,10 @@ y
 
 
            peak memory used        138.07 megabytes
-           total cpu time            0.47 seconds
-           total elapsed time        0.70 seconds
-           job started at     15:37:03 09/29/2020
-           job ended   at     15:37:04 09/29/2020
+           total cpu time            0.42 seconds
+           total elapsed time        0.66 seconds
+           job started at     14:00:30 10/06/2020
+           job ended   at     14:00:31 10/06/2020
 
 
  lic: Release hspice token(s) 

@@ -28,6 +28,7 @@ class subckts:
         self.script_path = self.script_dir + "/" + self.script_name # full path to working script
 
 
+
     '''Inputs and Outputs LOADS'''
 
     def write_source(self):
@@ -35,23 +36,21 @@ class subckts:
         # input sources are porportional to the amount of instances
         self.spice_file.write("$all input sources\n")
         for instance in range(self.par_instances):
-            fall_time = (2) * (2 ** instance) # time from highest value to lowest, it provides a virtual binary count
+            fall_time = (2) * (2 ** instance) / 2 # time from highest value to lowest, it provides a virtual binary count
             rise_time = str(fall_time / 2)    # time from lowest value to lowest
             fall_time = str(fall_time)
             instance = str(instance)
             # sets input wave
-            #self.spice_file.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(vdd " + "0V 0ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
-            #self.spice_file.write("vin_" + instance + " outin_0" + instance + " gnd  PULSE(vdd " + "0V 0ns 1p 1p " + rise_time + "n " + fall_time + "n)\n")
-            self.spice_file.write("vin_" + instance + " outin_0" + instance + " gnd  PULSE(vdd " + "0V 0ns " + self.sim_tinc + " " + self.sim_tinc + " .5n 1n)\n")
+            self.spice_file.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(vdd " + "0V 0ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
 
-        ## sets a more realistic input through inverter
-        #self.spice_file.write("$invert input sources\n")
-        #for instance in range(self.par_instances):
-        #    instance = str(instance)
-        #    # sets wave inverted
-        #    self.spice_file.write("xinput_" + instance + " inb_" + instance + " outin_0" + instance + " vdd " + "inverter\n")
-        #self.spice_file.write("\n")
-        #return None
+        # sets a more realistic input through inverter
+        self.spice_file.write("$invert input sources\n")
+        for instance in range(self.par_instances):
+            instance = str(instance)
+            # sets wave inverted
+            self.spice_file.write("xinput_" + instance + " inb_" + instance + " outin_0" + instance + " vdd " + "inverter\n")
+        self.spice_file.write("\n")
+        return None
 
 
     def write_outputs(self):
@@ -177,23 +176,22 @@ class subckts:
         return None
 
 
-    def read_meas(self, start_str, end_str, line, lis_flag, lis_series):
+    def read_meas(self, start_str, end_str, line, lis_flag):
         '''Reads the measurements from .lis file'''
+        lis_line_data = []
         if (start_str in line):
             lis_flag = 1 # start reading
         elif (end_str in line) and (lis_flag == 1):
             lis_flag = 0 # stop resding
         elif (lis_flag == 1):
             # append lines with data
-            lis_line_data = []
             for datum in line.replace("=", " ").split(): # remove equal signs to capture negative numbers
                 try:
                     lis_line_data.append(abs(float(datum))) # converts numeriral strings to floats
                 except:
                     lis_line_data.append(datum) # adds names to list
-            lis_series.append(lis_line_data)
         # returns the flag and data collected
-        return (lis_flag, lis_series)
+        return (lis_flag, lis_line_data)
 
 
     def collect_data(self):
@@ -203,29 +201,45 @@ class subckts:
         delay_series = [] # reads all delay data
         timing_series = [] # reads all timing data
         uut_timing_series = {}
-        model_uut_count = 0
         with open(self.script_dir + "/" + self.uut + "/" + self.subuut + ".lis") as results:
             timing_flag = 0 # initializes flag
             delay_flag = 0 # initializes flag
             power_flag = 0 # initializes flag
             old_timing_flag = 0 # initializes flag 
+            timing_len = 0
             for line in results:
                 # reads the power measurements from .lis file
-                (power_flag, power_series) = self.read_meas("transient analysis", "trf", line, power_flag, power_series)
+                (power_flag, power_line_data) = self.read_meas("transient analysis", "trf", line, power_flag)
+                if (power_flag) and len(power_line_data):
+                    power_series.append(power_line_data)
                 # reads the delay measurements from .lis file
-                (delay_flag, delay_series) = self.read_meas("source_avg_power", "x\n", line, delay_flag, delay_series)
+                (delay_flag, delay_line_data) = self.read_meas("source_avg_power", "x\n", line, delay_flag)
+                if (delay_flag) and len(delay_line_data):
+                    delay_series.append(delay_line_data)
                 # reads the timing measurements from .lis file
-                (timing_flag, timing_series) = self.read_meas("x\n", "y\n", line, timing_flag, timing_series)
+                (timing_flag, timing_line_data) = self.read_meas("x\n", "y\n", line, timing_flag)
+                if (timing_flag == 1) and len(timing_line_data):
+                    if timing_len:# == len(timing_line_data):
+                        for i in range(timing_len):
+                            try:
+                                if not(i):
+                                    timing_series[i].append(timing_line_data[i] * 1e9)
+                                else:
+                                    timing_series[i].append(timing_line_data[i])
+                            except:
+                                continue
+                    else:
+                        timing_len = len(timing_line_data)
+                        timing_series = [[] for i in range(timing_len)]
                 if (old_timing_flag == 1) and (timing_flag == 0):
-                    timing_series.pop(0) # delete empty item
-                    timing_series.pop(1) # delete redundant item
-                    uut_timing_series[self.uut_subckt[model_uut_count]] = timing_series
-                    model_uut_count += 1 # move to next model_uut time_series
-                    timing_series = []
+                    for i in range(1, timing_len - 1):
+                        timing_series[i].pop(0) # delete redundant item
+                    #uut_timing_series[self.subuut] = timing_series
+                    #timing_series = []
                 old_timing_flag = timing_flag
 
         # returns power, delay and timing data
-        return (power_series, delay_series, uut_timing_series)
+        return (power_series, delay_series, timing_series)
 
 
     def clean_data(self, start_index, step, series):
@@ -267,19 +281,20 @@ class subckts:
 
     def measure_power(self):
         '''Measures model_uut_grid and individual unit powers'''
+        #self.spice_file.write("v_012 outb_012 gnd 0\n")
         for instance in range(self.par_instances):
             for outin in range(self.ser_instances):
                 instance = str(instance)
                 outin = str(outin)
                 # measures individual max power
                 #self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
-                #self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xoutput_012)\n")
-                self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xoutput_012)\n")
                 # measures individual avg power
                 #self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
-                #self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xoutput_012)\n")
-                self.spice_file.write(".measure tran model_uut_avg_power012 avg p(xoutput_012)\n")
 
+        # measures peak power for an inverter in the middle of the FO4
+        self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xoutput_012)\n")
+        # measures avg power for an inverter in the middle of the FO4
+        self.spice_file.write(".measure tran model_uut_avg_power012 avg p(xoutput_012)\n")
         # measures model_uut_grid max power
         self.spice_file.write(".measure tran uut_peak_power max p(xmodel_uut_grid)\n")
         # measures model_uut_grid avg power

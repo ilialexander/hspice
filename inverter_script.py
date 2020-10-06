@@ -27,17 +27,19 @@ def main():
     avg_power_data = {}  # collects average power data
     subckt_avg_power_data = {}  # collects subckt average power data
     hp_delay = []
-    hp_delay_size = []
     lstp_delay = []
-    lstp_delay_size = []
     hp_power = []
-    hp_power_size = []
     lstp_power = []
-    lstp_power_size = []
-    #ptm_sizes = []
+
+    hp_timing_in = []
+    hp_timing_out = []
+    lstp_timing_in = []
+    lstp_timing_out = []
+    timing_steps = []
+
+    ptm_sizes = []
     
     #exit()
-    print(uut_params.sort())
     for fet_params in uut_params:
         (subuut, fet_nfin) = fet_params
         with open(cwd + "/" + uut_setup.uut + "/" + subuut + ".sp", 'w+') as spice_file:
@@ -75,7 +77,6 @@ def main():
 
             spice_file.write("$ Output Loads\n")
             subckts_modules.write_outputs()
-            #exit()
 
 
             spice_file.write("$ Measurements\n")
@@ -89,6 +90,7 @@ def main():
         # run hspice
         subckts_modules.run_hspice()
 
+        #exit()
         # collect all series
         (power_series, delay_series, timing_series) = subckts_modules.collect_data()
 
@@ -99,47 +101,45 @@ def main():
         peak_power_data[subuut] = subckts_modules.clean_data(0, 3, power_series)
         avg_power_data[subuut] = subckts_modules.clean_data(2, 3, power_series)
 
-        print(subuut)
+        #print(subuut)
         list_rf_values = list(rise_fall_data[subuut].values())
         list_fr_values = list(fall_rise_data[subuut].values())
         delay_values = list_rf_values + list_fr_values # list_fr_values # 
         avg_delay_data[subuut] = sum(delay_values) / len(delay_values)
 
-        #avg_power_data[subuut]["subckt_avg_power"] = subckts_modules.get_power_avg(avg_power_data[subuut])
-        #peak_power_data[subuut]["subckt_peak_power"] = subckts_modules.get_power_avg(peak_power_data[subuut])
-    
-        ##print(avg_delay_data[subuut])
-        ##print(timing_data[subuut])
-        ##print(avg_power_data[subuut])
-        ##print(peak_power_data[subuut])
+        #print(timing_data[subuut].values())
         if "hp" in subuut:
+            ptm_sizes.append(int(subuut.replace("ptm","").replace("hp","")))
             hp_delay.append(avg_delay_data[subuut] * 1e12)
-            hp_delay_size.append(int(subuut.replace("ptm","").replace("hp","")))
+            #print("HP delay value:", avg_delay_data[subuut])
+            hp_power.append(avg_power_data[subuut]["model_uut_avg_power012"] * 1e9)# * 1e12)
+            #print("HP power value:", avg_power_data[subuut]["model_uut_avg_power012"])
+
         if "lstp" in subuut:
             lstp_delay.append(avg_delay_data[subuut] * 1e12)
-            lstp_delay_size.append(int(subuut.replace("ptm","").replace("lstp","")))
-
-        if "hp" in subuut:
-            hp_power.append(avg_power_data[subuut]["model_uut_avg_power012"] * 1e9)# * 1e12)
-            hp_power_size.append(int(subuut.replace("ptm","").replace("hp","")))
-            print("HP power value:", avg_power_data[subuut]["model_uut_avg_power012"])
-        if "lstp" in subuut:
+            #print("LSTP delay value:", avg_delay_data[subuut])
             lstp_power.append(avg_power_data[subuut]["model_uut_avg_power012"] * 1e9)# * 1e12)
-            lstp_power_size.append(int(subuut.replace("ptm","").replace("lstp","")))
-            print("LSTP power value:", avg_power_data[subuut]["model_uut_avg_power012"])
+            #print("LSTP power value:", avg_power_data[subuut]["model_uut_avg_power012"])
 
+        #exit()
         #break
     plt.figure(1)
-    plt.title("Average Power by FET size for \nHigh Performancd ('red') and Low Standby Power ('blue')")
-    plt.scatter(hp_power_size, hp_power, color = "red")
-    plt.scatter(lstp_power_size, lstp_power)
+    plt.title("Average Power by FET size for \nHigh Performance ('red') and Low Standby Power ('blue')")
+    plt.scatter(ptm_sizes, hp_power, color = "red")
+    plt.scatter(ptm_sizes, lstp_power)
 
     plt.figure(2)
-    plt.title("Average Delay by FET size for \nHigh Performancd ('red') and Low Standby Power ('blue')")
-    plt.scatter(hp_delay_size, hp_delay, color = "red")
-    plt.scatter(lstp_delay_size, lstp_delay)
-    #plt.ylim(2,12)
-    #plt.xlim(5,22)
+    plt.title("Average Delay by FET size for \nHigh Performance ('red') and Low Standby Power ('blue')")
+    plt.scatter(ptm_sizes, hp_delay, color = "red")
+    plt.scatter(ptm_sizes, lstp_delay)
+
+    plt.figure(3)
+    plt.title("Signal in to the FO4 chain inverter \nHigh Performance")
+    for fet_params in uut_params:
+        (subuut, fet_nfin) = fet_params
+        if "hp" in subuut:
+            plt.plot(timing_data[subuut][0], timing_data[subuut][1])
+ 
     plt.show()
 
     #data = pd.DataFrame(timing_data[subuut][subckts_modules.uut_subckt[3]], columns = ['Time', 'Voltage_in', 'Voltage_out'])

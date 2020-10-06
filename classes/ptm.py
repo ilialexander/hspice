@@ -72,7 +72,7 @@ class ptm:
         for model in models_files:
             if self.pmodel not in model:
                 uut_params.append(self.get_subuut(model))
-
+        uut_params.sort()
         return uut_params
 
 
