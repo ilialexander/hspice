@@ -43,7 +43,7 @@ class subckts:
             # sets input wave
             self.spice_file.write("vin_" + instance + " inb_" + instance + " gnd  PULSE(vdd " + "0V 0ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
 
-        # sets a more realistic input through inverter
+        # sets a more realistic input through inverter load
         self.spice_file.write("$invert input sources\n")
         for instance in range(self.par_instances):
             instance = str(instance)
@@ -62,17 +62,21 @@ class subckts:
                 output_tag = str(output_tag) # amount of load per output
                 # call instance of ouput load subckt for model_uut
                 self.spice_file.write("xoutput_" + instance + output_tag + " outin_" + inout  + instance + " outb_" + instance + output_tag + " vdd " + "inverter\n")
+                # creates FO4 chain of inverters
                 self.write_fan_out_4(self.load_amount, int(self.fan_out_chain/4), instance + output_tag)
         self.spice_file.write("\n")
         return None
 
 
     def write_fan_out_4(self, output_tag, fan_out, outer_tag):
+        '''Writes an FO4 Chain, outer layer must be divisible by 4'''
         if fan_out == 1:
             return None
         else:
             for value in range(output_tag):
+                # call instance of fo4 load
                 self.spice_file.write("xoutput_" + outer_tag + str(value) + " outb_" + outer_tag + " outb_" + outer_tag + str(value) + " vdd " + "inverter\n")
+                # creates each layer of fo4, e.g., 16, 64, 256
                 self.write_fan_out_4(output_tag, int(fan_out/4), outer_tag + str(value))
 
 
@@ -154,6 +158,7 @@ class subckts:
         self.spice_file.write("$ " + self.script_path + "\n")
         # invoke library for ptm model to test
         self.spice_file.write(".lib '../models' " + self.subuut + "\n")
+        # gets 50% of vdd of delay calculation
         self.spice_file.write(".param vdd_50='vdd/2'"  "\n")
         return None
 
@@ -200,7 +205,6 @@ class subckts:
         power_series = [] # reads all power data
         delay_series = [] # reads all delay data
         timing_series = [] # reads all timing data
-        uut_timing_series = {}
         with open(self.script_dir + "/" + self.uut + "/" + self.subuut + ".lis") as results:
             timing_flag = 0 # initializes flag
             delay_flag = 0 # initializes flag
@@ -223,19 +227,17 @@ class subckts:
                         for i in range(timing_len):
                             try:
                                 if not(i):
-                                    timing_series[i].append(timing_line_data[i] * 1e9)
+                                    timing_series[i].append(timing_line_data[i] * 1e9) # 1e9 makes diagram visualization better
                                 else:
                                     timing_series[i].append(timing_line_data[i])
                             except:
                                 continue
                     else:
-                        timing_len = len(timing_line_data)
-                        timing_series = [[] for i in range(timing_len)]
+                        timing_len = len(timing_line_data) # gets width of measurments to create proper matrix
+                        timing_series = [[] for i in range(timing_len)] # creates a matrix of proper width
                 if (old_timing_flag == 1) and (timing_flag == 0):
                     for i in range(1, timing_len - 1):
                         timing_series[i].pop(0) # delete redundant item
-                    #uut_timing_series[self.subuut] = timing_series
-                    #timing_series = []
                 old_timing_flag = timing_flag
 
         # returns power, delay and timing data
@@ -252,6 +254,7 @@ class subckts:
         return model_uut_data        
 
 
+    '''NOT IN USE'''
     def get_power_avg(self, subuut_power_data):
         subuut_avg_power = []
         for power_keys in list(subuut_power_data.keys()):
@@ -271,11 +274,13 @@ class subckts:
                     rise_fall = str(rise_fall + 1)
                     instance = str(instance)
                     # measures rise_fall delay
-                    #self.spice_file.write(".measure tran trf_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=vdd_50 rise=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=vdd_50 fall=" + rise_fall + "\n")
-                    self.spice_file.write(".measure tran trf_delay trig v(" + "outb_01) val=vdd_50 rise=" + rise_fall + " targ v(" + "outb_012) val=vdd_50 fall=" + rise_fall + "\n")
+                    self.spice_file.write(".measure tran trf_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=vdd_50 rise=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=vdd_50 fall=" + rise_fall + "\n")
                     # measures rise_fall delay
-                    #self.spice_file.write(".measure tran tfr_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=vdd_50 fall=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=vdd_50 rise=" + rise_fall + "\n")
-                    self.spice_file.write(".measure tran tfr_delay trig v(" + "outb_01) val=vdd_50 fall=" + rise_fall + " targ v(" + "outb_012) val=vdd_50 rise=" + rise_fall + "\n")
+                    self.spice_file.write(".measure tran tfr_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=vdd_50 fall=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=vdd_50 rise=" + rise_fall + "\n")
+        # measures delay for inverter in fo4 chain
+        self.spice_file.write(".measure tran fo4_inverter_rf_delay trig v(" + "outb_01) val=vdd_50 rise=" + rise_fall + " targ v(" + "outb_012) val=vdd_50 fall=" + rise_fall + "\n")
+        # measures delay for inverter in fo4 chain
+        self.spice_file.write(".measure tran fo4_inverter_fr_delay trig v(" + "outb_01) val=vdd_50 fall=" + rise_fall + " targ v(" + "outb_012) val=vdd_50 rise=" + rise_fall + "\n")
         return None
 
 
@@ -287,14 +292,14 @@ class subckts:
                 instance = str(instance)
                 outin = str(outin)
                 # measures individual max power
-                #self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
+                self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
                 # measures individual avg power
-                #self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
+                self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
 
         # measures peak power for an inverter in the middle of the FO4
-        self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xoutput_012)\n")
+        self.spice_file.write(".measure tran fo4_inverter_peak_power" + outin + instance  + " max p(xoutput_012)\n")
         # measures avg power for an inverter in the middle of the FO4
-        self.spice_file.write(".measure tran model_uut_avg_power012 avg p(xoutput_012)\n")
+        self.spice_file.write(".measure tran fo4_inverter_avg_power avg p(xoutput_012)\n")
         # measures model_uut_grid max power
         self.spice_file.write(".measure tran uut_peak_power max p(xmodel_uut_grid)\n")
         # measures model_uut_grid avg power

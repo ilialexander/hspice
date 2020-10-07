@@ -55,8 +55,6 @@ class ptm:
         parts = "".join(parts)
         # gets file names
         subuut = [subuut_name for subuut_name in self.models_list if parts in subuut_name]
-        # get fet parameters from model files
-        #fet_voltage = self.get_fet_params(model_subdir) 
 
         return (subuut[0], self.nfin)
 

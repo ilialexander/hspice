@@ -116,14 +116,18 @@ xoutput_0332 outb_033 outb_0332 vdd inverter
 xoutput_0333 outb_033 outb_0333 vdd inverter
 
 $ Measurements
-.measure tran model_uut_peak_power00 max p(xoutput_012)
-.measure tran model_uut_avg_power012 avg p(xoutput_012)
+.measure tran model_uut_peak_power00 max p(xmodel_uut_grid.xinverter00)
+.measure tran model_uut_avg_power00 avg p(xmodel_uut_grid.xinverter00)
+.measure tran fo4_inverter_peak_power00 max p(xoutput_012)
+.measure tran fo4_inverter_avg_power avg p(xoutput_012)
 .measure tran uut_peak_power max p(xmodel_uut_grid)
 .measure tran uut_avg_power avg p(xmodel_uut_grid)
 .measure tran source_peak_power max power
 .measure tran source_avg_power avg power
-.measure tran trf_delay trig v(outb_01) val=vdd_50 rise=1 targ v(outb_012) val=vdd_50 fall=1
-.measure tran tfr_delay trig v(outb_01) val=vdd_50 fall=1 targ v(outb_012) val=vdd_50 rise=1
+.measure tran trf_delay_001 trig v(outin_00) val=vdd_50 rise=1 targ v(outin_10) val=vdd_50 fall=1
+.measure tran tfr_delay_001 trig v(outin_00) val=vdd_50 fall=1 targ v(outin_10) val=vdd_50 rise=1
+.measure tran fo4_inverter_rf_delay trig v(outb_01) val=vdd_50 rise=1 targ v(outb_012) val=vdd_50 fall=1
+.measure tran fo4_inverter_fr_delay trig v(outb_01) val=vdd_50 fall=1 targ v(outb_012) val=vdd_50 rise=1
 .print TRAN V(outin_00) V(outin_10)
 
 $ Simulation/Analysis Type

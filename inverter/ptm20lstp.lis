@@ -10,7 +10,7 @@
  lic:  
  lic: FLEXlm: v10.8 
  lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
- lic: HOSTID:                      PID:      144633 
+ lic: HOSTID:                      PID:      68456 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -3110,17 +3110,22 @@
  $ netlist of inverter
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- model_uut_peak_power00= 2.4016e-05    at= 3.4484e-11
+ model_uut_peak_power00= 3.8400e-05    at= 6.4720e-12
              from= 0.0000e+00    to= 1.0000e-09
- model_uut_avg_power012= 7.5567e-07  from= 0.0000e+00     to= 1.0000e-09
+ model_uut_avg_power00= 7.0637e-07  from= 0.0000e+00     to= 1.0000e-09
+ fo4_inverter_peak_power00= 2.4016e-05    at= 3.4484e-11
+             from= 0.0000e+00    to= 1.0000e-09
+ fo4_inverter_avg_power= 7.5567e-07  from= 0.0000e+00     to= 1.0000e-09
  uut_peak_power= 3.8400e-05    at= 6.4720e-12
              from= 0.0000e+00    to= 1.0000e-09
  uut_avg_power= 7.0637e-07  from= 0.0000e+00     to= 1.0000e-09
  source_peak_power= 5.4347e-04    at= 5.4339e-10
              from= 0.0000e+00    to= 1.0000e-09
  source_avg_power= 1.9770e-05  from= 0.0000e+00     to= 1.0000e-09
- trf_delay= 1.4210e-11  targ= 4.0136e-11   trig= 2.5925e-11
- tfr_delay= 1.4444e-11  targ= 5.4187e-10   trig= 5.2743e-10
+ trf_delay_001= 9.1608e-12  targ= 1.2799e-11   trig= 3.6385e-12
+ tfr_delay_001= 9.6994e-12  targ= 5.1448e-10   trig= 5.0478e-10
+ fo4_inverter_rf_delay= 1.4210e-11  targ= 4.0136e-11   trig= 2.5925e-11
+ fo4_inverter_fr_delay= 1.4444e-11  targ= 5.4187e-10   trig= 5.2743e-10
 x
 
         time    voltage      voltage    
@@ -4139,7 +4144,7 @@ y
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2899.960
+ cpu MHz	: 2532.320
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -4170,18 +4175,18 @@ y
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.01           1           4
-  transient          0.40        1001         317          92 rev=         2
-  readin             0.01
-  errchk             0.01
+  transient          0.43        1001         317          92 rev=         2
+  readin             0.00
+  errchk             0.02
   setup              0.00
   output             0.00
 
 
            peak memory used        138.07 megabytes
-           total cpu time            0.43 seconds
-           total elapsed time        0.66 seconds
-           job started at     14:00:35 10/06/2020
-           job ended   at     14:00:36 10/06/2020
+           total cpu time            0.46 seconds
+           total elapsed time        0.70 seconds
+           job started at     13:27:30 10/07/2020
+           job ended   at     13:27:31 10/07/2020
 
 
  lic: Release hspice token(s) 
