@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 
-class subckts:
+class inverter:
 
     def __init__(self, script_params, grid_params, fet_params, sim_params):
         (script_dir, script_name, uut) = script_params 
@@ -82,7 +82,7 @@ class subckts:
 
 
     '''UUTs'''
-    def set_inverter_subckt(self):
+    def set_cells_subckts(self):
         '''Write inverter subckt'''
         # declare subckt name, input, output, and source
         self.spice_file.write(".subckt inverter in out vdd\n")
@@ -95,7 +95,7 @@ class subckts:
         self.spice_file.write("\n")
         return None
 
-    def write_inverter(self):
+    def write_uut(self):
         '''Write inverter device'''
         # declare model_uut_grid subckt
         self.spice_file.write(".subckt model_uut_grid vdd\n")

@@ -1,0 +1,40 @@
+***** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******
+ Input File: ptm10lstp.sp
+ lic:
+ lic: FLEXlm: v10.8
+ lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu
+ lic: HOSTID:                      PID:      157646
+ lic: Using FLEXlm license file:
+ lic: 27000@license0.rc.usf.edu
+ lic: Checkout 1 hspice
+ lic: License/Maintenance for hspice will expire on 18-jul-2021/2019.06
+ lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu
+ lic:
+ init: begin read circuit files,  cpu clock=  2.00E-02
+       option post     =     2.00
+       option ingold   =     2.00
+ init: end read circuit files,  cpu clock=  2.00E-02 memory=       154 kb
+ init: begin check errors,  cpu clock=  2.00E-02
+ **warning**  No DC path to ground from node        4:                wl_00
+ init: end check errors,  cpu clock=  3.00E-02 memory=       155 kb
+ init: begin setup matrix, pivot=     0 cpu clock=  3.00E-02
+       establish matrix -- done,  cpu clock=  3.00E-02 memory=       178 kb
+       re-order matrix -- done,  cpu clock=  3.00E-02 memory=       174 kb
+ init: end setup matrix,  cpu clock=  3.00E-02 memory=       218 kb
+ dcop: begin dcop,  cpu clock=  3.00E-02
+ dcop: end dcop,  cpu clock=  3.00E-02 memory=       218 kb  tot_iter=       8
+ output: ptm10lstp.tr0
+ sweep: tran tran0    begin, stop_t=  2.00E-09 #sweeps=2001 cpu clock=  3.00E-02
+ tran: time= 2.0402E-10 tot_iter=      56 conv_iter=      18 cpu clock= 3.00E-02
+ tran: time= 4.0075E-10 tot_iter=     141 conv_iter=      47 cpu clock= 3.00E-02
+ tran: time= 6.0901E-10 tot_iter=     282 conv_iter=      87 cpu clock= 4.00E-02
+ tran: time= 8.1479E-10 tot_iter=     366 conv_iter=     113 cpu clock= 4.00E-02
+ tran: time= 1.0000E-09 tot_iter=     376 conv_iter=     117 cpu clock= 4.00E-02
+ tran: time= 1.2353E-09 tot_iter=     467 conv_iter=     148 cpu clock= 5.00E-02
+ tran: time= 1.4095E-09 tot_iter=     548 conv_iter=     176 cpu clock= 5.00E-02
+ tran: time= 1.6018E-09 tot_iter=     636 conv_iter=     203 cpu clock= 5.00E-02
+ tran: time= 1.8052E-09 tot_iter=     720 conv_iter=     228 cpu clock= 6.00E-02
+ tran: time= 2.0000E-09 tot_iter=     730 conv_iter=     232 cpu clock= 6.00E-02
+ sweep: tran tran0    end,  cpu clock=  6.00E-02 memory=       218 kb
+>info:         ***** hspice job concluded
+ lic: Release hspice token(s)

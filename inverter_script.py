@@ -6,7 +6,7 @@ exec(open("python.py").read())
 module('load', 'apps/synopsys/hspice/F-2011.09-SP2')
 
 from classes.ptm import ptm
-from classes.subckts import subckts
+from classes.inverter import inverter
 
 def main():
     # For the given path, get the full path list of transistors models
@@ -41,7 +41,7 @@ def main():
             parallel_instances = 1 # modules with unique inout
             serial_instances = 1   # modules connected output to input
             load_amount = 4        # load amount for 'realistic' results
-            fan_out_chain = 64     # load amount for fan out
+            fan_out_chain = 64     # fan out grid extension
             grid_params = (spice_file, parallel_instances, serial_instances, load_amount, fan_out_chain)
 
             sim_type = "tran"      # simulation type, e.g., tran, dc
@@ -50,20 +50,20 @@ def main():
             sim_params = (sim_type, sim_tinc, sim_time)
 
             # invokes subckts class
-            subckts_modules = subckts(script_params, grid_params, fet_params, sim_params)
+            subckts_modules = inverter(script_params, grid_params, fet_params, sim_params)
 
             # set .sp header and calls library
             subckts_modules.set_library()
 
             spice_file.write("$ UUT individual unit\n")
-            subckts_modules.set_inverter_subckt()
+            subckts_modules.set_cells_subckts()
 
             spice_file.write("$ Sources\n")
             spice_file.write("vdd vdd gnd vdd\n")
             subckts_modules.write_source()
  
             spice_file.write("$ Unit Under Test\n")
-            subckts_modules.write_inverter()
+            subckts_modules.write_uut()
 
             spice_file.write("$ Output Loads\n")
             subckts_modules.write_outputs()

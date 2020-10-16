@@ -3,7 +3,7 @@
  lic:
  lic: FLEXlm: v10.8
  lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu
- lic: HOSTID:                      PID:      68377
+ lic: HOSTID:                      PID:      172245
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
@@ -26,14 +26,14 @@
  sweep: tran tran0    begin, stop_t=  1.00E-09 #sweeps=1001 cpu clock=  6.00E-02
  tran: time= 1.0244E-10 tot_iter=     128 conv_iter=      30 cpu clock= 2.30E-01
  tran: time= 2.3037E-10 tot_iter=     135 conv_iter=      33 cpu clock= 2.40E-01
- tran: time= 3.3037E-10 tot_iter=     140 conv_iter=      35 cpu clock= 2.50E-01
- tran: time= 4.1807E-10 tot_iter=     144 conv_iter=      37 cpu clock= 2.60E-01
- tran: time= 5.0100E-10 tot_iter=     148 conv_iter=      39 cpu clock= 2.70E-01
- tran: time= 6.0526E-10 tot_iter=     297 conv_iter=      77 cpu clock= 4.50E-01
- tran: time= 7.0652E-10 tot_iter=     312 conv_iter=      82 cpu clock= 4.70E-01
- tran: time= 8.1860E-10 tot_iter=     324 conv_iter=      86 cpu clock= 4.90E-01
- tran: time= 9.1058E-10 tot_iter=     334 conv_iter=      90 cpu clock= 5.00E-01
- tran: time= 1.0000E-09 tot_iter=     338 conv_iter=      92 cpu clock= 5.00E-01
- sweep: tran tran0    end,  cpu clock=  5.00E-01 memory=      1981 kb
+ tran: time= 3.3037E-10 tot_iter=     140 conv_iter=      35 cpu clock= 2.40E-01
+ tran: time= 4.1807E-10 tot_iter=     144 conv_iter=      37 cpu clock= 2.50E-01
+ tran: time= 5.0100E-10 tot_iter=     148 conv_iter=      39 cpu clock= 2.60E-01
+ tran: time= 6.0526E-10 tot_iter=     297 conv_iter=      77 cpu clock= 4.20E-01
+ tran: time= 7.0652E-10 tot_iter=     312 conv_iter=      82 cpu clock= 4.40E-01
+ tran: time= 8.1860E-10 tot_iter=     324 conv_iter=      86 cpu clock= 4.50E-01
+ tran: time= 9.1058E-10 tot_iter=     334 conv_iter=      90 cpu clock= 4.60E-01
+ tran: time= 1.0000E-09 tot_iter=     338 conv_iter=      92 cpu clock= 4.60E-01
+ sweep: tran tran0    end,  cpu clock=  4.60E-01 memory=      1981 kb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)
