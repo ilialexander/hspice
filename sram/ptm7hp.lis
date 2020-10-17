@@ -9,8 +9,8 @@
   Command line options: ptm7hp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
- lic: HOSTID:                      PID:      157693 
+ lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu 
+ lic: HOSTID:                      PID:      80691 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -27,15 +27,15 @@
    number circuitname                     definition         multiplier
         0 main circuit
         1 xwl_0.                          inverter           1.00 
-        2 xbl_0.                          inverter           1.00 
-        3 xblb_0.                         inverter           1.00 
+        2 xblb_0.                         inverter           1.00 
+        3 xbl_0.                          inverter           1.00 
         4 xmodel_uut_grid.                model_uut_grid     1.00 
         5 xwl_0.xpfet.                    pfet               1.00 
         6 xwl_0.xnfet.                    nfet               1.00 
-        7 xbl_0.xpfet.                    pfet               1.00 
-        8 xbl_0.xnfet.                    nfet               1.00 
-        9 xblb_0.xpfet.                   pfet               1.00 
-       10 xblb_0.xnfet.                   nfet               1.00 
+        7 xblb_0.xpfet.                   pfet               1.00 
+        8 xblb_0.xnfet.                   nfet               1.00 
+        9 xbl_0.xpfet.                    pfet               1.00 
+       10 xbl_0.xnfet.                    nfet               1.00 
        11 xmodel_uut_grid.xsram00.        sram               1.00 
        12 xmodel_uut_grid.xsram00.xnfet_bl.
                                             nfet               1.00 
@@ -3511,7 +3511,7 @@
    LNIGBACC =      0 
    NNIGBACC =      0 
    PNIGBACC =      0 
-  **info** (ptm7hp.sp:24) DC voltage reset to initial transient source value              in source        0:vin_bl_0            new dc=  0.7000D+00
+  **info** (ptm7hp.sp:24) DC voltage reset to initial transient source value              in source        0:vin_blb_0           new dc=  0.7000D+00
   
   **warning**  No connections on node bl_10; Node ignored.
   **warning** (../models:179) Only 1 connection at node bl_10 called in element xmodel_uut_grid.xsram00.xnfet_bl.mnfet.
@@ -3535,8 +3535,8 @@
  ***** operating point status is voltage   simulation time is   0.000e+00
      node    =voltage       node    =voltage       node    =voltage
 
- + 0:bl_0    = 4.370e-05  0:bl_10   = 0.000e+00  0:blb_0   = 4.370e-05
- + 0:blb_10  = 0.000e+00  0:in_bl_0 = 7.000e-01  0:in_wl_0 = 7.000e-01
+ + 0:bl_0    = 7.000e-01  0:bl_10   = 0.000e+00  0:blb_0   = 4.370e-05
+ + 0:blb_10  = 0.000e+00  0:in_blb_0= 7.000e-01  0:in_wl_0 = 7.000e-01
  + 0:vdd     = 7.000e-01  0:wl_0    = 4.370e-05  4:bl_10   = 3.432e-01
  + 4:blb_10  = 3.432e-01  4:wl_00   = 1.049e-01 11:q       = 3.432e-01
  +11:qb      = 3.432e-01
@@ -3553,7 +3553,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2833.703
+ cpu MHz	: 2715.453
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -3584,18 +3584,18 @@
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.00           1           6
-  transient          0.04        2001         824         205 rev=         7
-  readin             0.01
+  transient          0.03        2001         629         196 rev=         5
+  readin             0.00
   errchk             0.01
   setup              0.00
   output             0.00
 
 
            peak memory used        135.46 megabytes
-           total cpu time            0.06 seconds
-           total elapsed time        0.28 seconds
-           job started at     13:53:11 10/16/2020
-           job ended   at     13:53:11 10/16/2020
+           total cpu time            0.04 seconds
+           total elapsed time        0.27 seconds
+           job started at     13:09:08 10/17/2020
+           job ended   at     13:09:09 10/17/2020
 
 
  lic: Release hspice token(s) 

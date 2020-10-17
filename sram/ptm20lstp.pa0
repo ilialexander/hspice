@@ -1,13 +1,13 @@
        1 xwl_0.
-       2 xbl_0.
-       3 xblb_0.
+       2 xblb_0.
+       3 xbl_0.
        4 xmodel_uut_grid.
        5 xwl_0.xpfet.
        6 xwl_0.xnfet.
-       7 xbl_0.xpfet.
-       8 xbl_0.xnfet.
-       9 xblb_0.xpfet.
-      10 xblb_0.xnfet.
+       7 xblb_0.xpfet.
+       8 xblb_0.xnfet.
+       9 xbl_0.xpfet.
+      10 xbl_0.xnfet.
       11 xmodel_uut_grid.xsram00.
       12 xmodel_uut_grid.xsram00.xnfet_bl.
       13 xmodel_uut_grid.xsram00.xnfet_blb.

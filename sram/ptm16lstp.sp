@@ -21,9 +21,9 @@ vdd vdd gnd vdd
 $bl sources
 vin_wl_0 in_wl_0  gnd  pulse(vdd 0v 0.25ns 1p 1p 0.5n 1.0n)
 xwl_0 in_wl_0 wl_0 vdd inverter
-vin_bl_0 in_bl_0  gnd  pulse(vdd 0v 0ns 1p 1p 0.5n 1.0n)
-xbl_0 in_bl_0 bl_0 vdd inverter
-xblb_0 vdd  blb_0 vdd inverter
+vin_blb_0 in_blb_0  gnd  pulse(vdd 0v 0ns 1p 1p 0.5n 1.0n)
+xblb_0 in_blb_0 blb_0 vdd inverter
+xbl_0 gnd bl_0 vdd inverter
 
 $ Unit Under Test
 .subckt model_uut_grid vdd

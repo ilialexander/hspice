@@ -35,7 +35,7 @@ def main():
     for fet_params in uut_params:
         (subuut, fet_nfin) = fet_params
         with open(cwd + "/" + uut_setup.uut + "/" + subuut + ".sp", 'w+') as spice_file:
-            data = 0
+            data = 1
             uut = uut_setup.uut    # uut name
             script_name = __file__ # working script name
             script_params = (cwd, script_name, uut)

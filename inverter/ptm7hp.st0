@@ -2,8 +2,8 @@
  Input File: ptm7hp.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu
- lic: HOSTID:                      PID:      172294
+ lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu
+ lic: HOSTID:                      PID:      68478
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
@@ -26,14 +26,14 @@
  sweep: tran tran0    begin, stop_t=  1.00E-09 #sweeps=1001 cpu clock=  5.00E-02
  tran: time= 1.1979E-10 tot_iter=     150 conv_iter=      33 cpu clock= 2.40E-01
  tran: time= 2.0256E-10 tot_iter=     159 conv_iter=      36 cpu clock= 2.50E-01
- tran: time= 3.2278E-10 tot_iter=     167 conv_iter=      39 cpu clock= 2.60E-01
- tran: time= 4.2278E-10 tot_iter=     171 conv_iter=      41 cpu clock= 2.60E-01
- tran: time= 5.0100E-10 tot_iter=     175 conv_iter=      43 cpu clock= 2.60E-01
- tran: time= 6.3190E-10 tot_iter=     336 conv_iter=      79 cpu clock= 4.30E-01
- tran: time= 7.2105E-10 tot_iter=     342 conv_iter=      81 cpu clock= 4.40E-01
- tran: time= 8.2105E-10 tot_iter=     348 conv_iter=      83 cpu clock= 4.40E-01
- tran: time= 9.2105E-10 tot_iter=     353 conv_iter=      85 cpu clock= 4.50E-01
- tran: time= 1.0000E-09 tot_iter=     358 conv_iter=      87 cpu clock= 4.60E-01
- sweep: tran tran0    end,  cpu clock=  4.60E-01 memory=      1981 kb
+ tran: time= 3.2278E-10 tot_iter=     167 conv_iter=      39 cpu clock= 2.50E-01
+ tran: time= 4.2278E-10 tot_iter=     171 conv_iter=      41 cpu clock= 2.50E-01
+ tran: time= 5.0100E-10 tot_iter=     175 conv_iter=      43 cpu clock= 2.50E-01
+ tran: time= 6.3190E-10 tot_iter=     336 conv_iter=      79 cpu clock= 4.40E-01
+ tran: time= 7.2105E-10 tot_iter=     342 conv_iter=      81 cpu clock= 4.50E-01
+ tran: time= 8.2105E-10 tot_iter=     348 conv_iter=      83 cpu clock= 4.50E-01
+ tran: time= 9.2105E-10 tot_iter=     353 conv_iter=      85 cpu clock= 4.60E-01
+ tran: time= 1.0000E-09 tot_iter=     358 conv_iter=      87 cpu clock= 4.70E-01
+ sweep: tran tran0    end,  cpu clock=  4.70E-01 memory=      1981 kb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)

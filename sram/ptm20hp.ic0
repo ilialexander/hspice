@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "F-2011.09-SP2 64-BIT"
 * "format" "HSP"
-* "rundate" "13:53:10 10/16/2020 "
+* "rundate" "13:09:08 10/17/2020 "
 * "netlist" "ptm20hp.sp "
 * "runtitle" "$ netlist of sram"
 * time =  0.000e+00       
@@ -10,11 +10,11 @@
 .option 
 + gmindc= 1.000e-12       
 .nodeset
-+ bl_0 = 3.093e-05       
++ bl_0 = 9.000e-01       
 + bl_10 = 0.000e+00       
 + blb_0 = 3.093e-05       
 + blb_10 = 0.000e+00       
-+ in_bl_0 = 9.000e-01       
++ in_blb_0 = 9.000e-01       
 + in_wl_0 = 9.000e-01       
 + vdd = 9.000e-01       
 + wl_0 = 3.093e-05       

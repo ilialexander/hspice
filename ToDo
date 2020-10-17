@@ -1,3 +1,5 @@
+fix wl, bl, and blb names in uut
+need to reorganize rows and colums for sources
 edit write_uut method
 
 create new branch cam

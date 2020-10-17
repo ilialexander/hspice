@@ -47,11 +47,11 @@ class sram(inverter):
             if data == 1:
                 self.spice_file.write("vin_blb_" + instance + " in_blb_" + instance + "  gnd  pulse(vdd " + "0v 0ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
                 self.spice_file.write("xblb_" + instance + " in_blb_" + instance + " blb_" + instance + " vdd " + "inverter\n")
-                self.spice_file.write("xbl_" + instance + " vdd bl_" + instance + " vdd " + "inverter\n")
+                self.spice_file.write("xbl_" + instance + " gnd bl_" + instance + " vdd " + "inverter\n")
             else:
                 self.spice_file.write("vin_bl_" + instance + " in_bl_" + instance + "  gnd  pulse(vdd " + "0v 0ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
                 self.spice_file.write("xbl_" + instance + " in_bl_" + instance + " bl_" + instance + " vdd " + "inverter\n")
-                self.spice_file.write("xblb_" + instance + " vdd  blb_" + instance + " vdd " + "inverter\n")
+                self.spice_file.write("xblb_" + instance + " gnd  blb_" + instance + " vdd " + "inverter\n")
 
         self.spice_file.write("\n")
         return None

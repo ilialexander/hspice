@@ -2,8 +2,8 @@
  Input File: ptm16lstp.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu
- lic: HOSTID:                      PID:      157664
+ lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu
+ lic: HOSTID:                      PID:      80655
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
@@ -18,23 +18,23 @@
  **warning**  No DC path to ground from node        4:                wl_00
  init: end check errors,  cpu clock=  3.00E-02 memory=       155 kb
  init: begin setup matrix, pivot=     0 cpu clock=  3.00E-02
-       establish matrix -- done,  cpu clock=  3.00E-02 memory=       178 kb
-       re-order matrix -- done,  cpu clock=  3.00E-02 memory=       174 kb
- init: end setup matrix,  cpu clock=  3.00E-02 memory=       218 kb
+       establish matrix -- done,  cpu clock=  3.00E-02 memory=       177 kb
+       re-order matrix -- done,  cpu clock=  3.00E-02 memory=       173 kb
+ init: end setup matrix,  cpu clock=  3.00E-02 memory=       217 kb
  dcop: begin dcop,  cpu clock=  3.00E-02
- dcop: end dcop,  cpu clock=  3.00E-02 memory=       218 kb  tot_iter=       7
+ dcop: end dcop,  cpu clock=  4.00E-02 memory=       217 kb  tot_iter=       7
  output: ptm16lstp.tr0
- sweep: tran tran0    begin, stop_t=  2.00E-09 #sweeps=2001 cpu clock=  3.00E-02
+ sweep: tran tran0    begin, stop_t=  2.00E-09 #sweeps=2001 cpu clock=  4.00E-02
  tran: time= 2.0155E-10 tot_iter=      74 conv_iter=      22 cpu clock= 4.00E-02
  tran: time= 4.2824E-10 tot_iter=     164 conv_iter=      52 cpu clock= 4.00E-02
- tran: time= 6.2163E-10 tot_iter=     345 conv_iter=      88 cpu clock= 5.00E-02
- tran: time= 8.2432E-10 tot_iter=     433 conv_iter=     114 cpu clock= 5.00E-02
- tran: time= 1.0000E-09 tot_iter=     443 conv_iter=     118 cpu clock= 5.00E-02
- tran: time= 1.2500E-09 tot_iter=     528 conv_iter=     147 cpu clock= 6.00E-02
- tran: time= 1.4115E-09 tot_iter=     613 conv_iter=     175 cpu clock= 6.00E-02
- tran: time= 1.6048E-09 tot_iter=     708 conv_iter=     204 cpu clock= 6.00E-02
- tran: time= 1.8172E-09 tot_iter=     798 conv_iter=     232 cpu clock= 7.00E-02
- tran: time= 2.0000E-09 tot_iter=     810 conv_iter=     237 cpu clock= 7.00E-02
- sweep: tran tran0    end,  cpu clock=  7.00E-02 memory=       218 kb
+ tran: time= 6.1034E-10 tot_iter=     274 conv_iter=      84 cpu clock= 5.00E-02
+ tran: time= 8.0889E-10 tot_iter=     359 conv_iter=     111 cpu clock= 5.00E-02
+ tran: time= 1.0000E-09 tot_iter=     374 conv_iter=     117 cpu clock= 5.00E-02
+ tran: time= 1.2275E-09 tot_iter=     453 conv_iter=     144 cpu clock= 6.00E-02
+ tran: time= 1.4540E-09 tot_iter=     532 conv_iter=     170 cpu clock= 6.00E-02
+ tran: time= 1.6057E-09 tot_iter=     622 conv_iter=     198 cpu clock= 6.00E-02
+ tran: time= 1.8034E-09 tot_iter=     709 conv_iter=     225 cpu clock= 6.00E-02
+ tran: time= 2.0000E-09 tot_iter=     724 conv_iter=     231 cpu clock= 6.00E-02
+ sweep: tran tran0    end,  cpu clock=  6.00E-02 memory=       217 kb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)

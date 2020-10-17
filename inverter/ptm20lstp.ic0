@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "F-2011.09-SP2 64-BIT"
 * "format" "HSP"
-* "rundate" "14:08:30 10/16/2020 "
+* "rundate" "12:59:02 10/17/2020 "
 * "netlist" "ptm20lstp.sp "
 * "runtitle" "$ netlist of inverter"
 * time =  0.000e+00       

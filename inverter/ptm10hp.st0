@@ -2,8 +2,8 @@
  Input File: ptm10hp.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu
- lic: HOSTID:                      PID:      172208
+ lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu
+ lic: HOSTID:                      PID:      68319
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
@@ -13,8 +13,8 @@
  init: begin read circuit files,  cpu clock=  2.00E-02
        option post     =     2.00
        option ingold   =     2.00
- init: end read circuit files,  cpu clock=  3.00E-02 memory=       158 kb
- init: begin check errors,  cpu clock=  3.00E-02
+ init: end read circuit files,  cpu clock=  2.00E-02 memory=       158 kb
+ init: begin check errors,  cpu clock=  2.00E-02
  init: end check errors,  cpu clock=  4.00E-02 memory=      1238 kb
  init: begin setup matrix, pivot=     0 cpu clock=  4.00E-02
        establish matrix -- done,  cpu clock=  4.00E-02 memory=      1536 kb
