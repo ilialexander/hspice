@@ -35,7 +35,7 @@ class sram(inverter):
     def write_source(self, data):
         '''write sourse system to .sp file'''
         # input sources are porportional to the amount of instances
-        self.spice_file.write("$bl sources\n")
+        self.spice_file.write("$Sources\n")
         for instance in range(self.par_instances):
             fall_time = (2) * (2 ** instance) / 2 # time from highest value to lowest, it provides a virtual binary count
             rise_time = str(fall_time / 2)    # time from lowest value to lowest
@@ -67,21 +67,8 @@ class sram(inverter):
                 # call instance of ouput load subckt for model_uut
                 self.spice_file.write("xoutput_" + instance + output_tag + " outin_" + inout  + instance + " outb_" + instance + output_tag + " vdd " + "inverter\n")
                 # creates FO4 chain of inverters
-                self.write_fan_out_4(self.load_amount, int(self.fan_out_chain/4), instance + output_tag)
         self.spice_file.write("\n")
         return None
-
-
-    def write_fan_out_4(self, output_tag, fan_out, outer_tag):
-        '''Writes an FO4 Chain, outer layer must be divisible by 4'''
-        if fan_out == 1:
-            return None
-        else:
-            for value in range(output_tag):
-                # call instance of fo4 load
-                self.spice_file.write("xoutput_" + outer_tag + str(value) + " outb_" + outer_tag + " outb_" + outer_tag + str(value) + " vdd " + "inverter\n")
-                # creates each layer of fo4, e.g., 16, 64, 256
-                self.write_fan_out_4(output_tag, int(fan_out/4), outer_tag + str(value))
 
 
 
@@ -114,53 +101,12 @@ class sram(inverter):
 
     def write_uut(self):
         '''Write inverter device'''
-        # declare model_uut_grid subckt
-        self.spice_file.write(".subckt model_uut_grid vdd\n")
-        self.spice_file.write("+")
-        for instance in range(self.par_instances):
-            instance = str(instance)
-            # declare subckt inputs
-            self.spice_file.write("wl" + instance + " ")
-        self.spice_file.write("$inputs to model_uut_grid Subckt\n")
-
-        self.spice_file.write("+")
         for instance in range(self.par_instances):
             for outin in range(self.ser_instances):
                 instance = str(instance)
-                inout = str(outin + 1)
-                self.spice_file.write("bl" + instance + " ")
-                self.spice_file.write("blb" + instance + " ")
-        self.spice_file.write("$inout to model_uut_grid Subckt\n")
-                
-        for instance in range(self.par_instances):
-            for outin in range(self.ser_instances):
-                instance = str(instance)
-                inout = str(outin + 1)
-                outin = str(outin)
+                inout = str(outin)
                 # invoke inverters
-                self.spice_file.write("xsram" + outin + instance + " " + "wl_" + outin  + instance + " " + "bl_" + inout + instance + " " + "blb_" + inout + instance + " vdd " + "sram\n")
-        self.spice_file.write(".ends\n")
-
-        # invoke model_uut_grid
-        self.spice_file.write("$invoke UUT grid\n")
-        self.spice_file.write("xmodel_uut_grid vdd\n")
-        self.spice_file.write("+")
-        for instance in range(self.par_instances):
-            instance = str(instance)
-            # declare inputs
-            self.spice_file.write("wl_" + instance + " ")
-        self.spice_file.write("$inputs to model_uut_grid\n")
-
-        self.spice_file.write("+")
-        for instance in range(self.par_instances):
-            for outin in range(self.ser_instances):
-                instance = str(instance)
-                inout = str(outin + 1)
-                # declare inout
-                self.spice_file.write("bl_" + inout + instance + " ")
-                self.spice_file.write("blb_" + inout + instance + " ")
-        self.spice_file.write("$outputs to model_uut_grid\n")
-        self.spice_file.write("+model_uut_grid\n\n")
+                self.spice_file.write("xsram" + inout + instance + " " + "wl_" + instance + " " + "bl_" + inout + " " + "blb_" + inout + " vdd " + "sram\n")
         return None
 
 

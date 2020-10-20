@@ -18,7 +18,7 @@ xqb q  qb vdd inverter
 .ends
 $ Sources
 vdd vdd gnd vdd
-$bl sources
+$Sources
 vin_wl_0 in_wl_0  gnd  pulse(vdd 0v 0.25ns 1p 1p 0.5n 1.0n)
 xwl_0 in_wl_0 wl_0 vdd inverter
 vin_blb_0 in_blb_0  gnd  pulse(vdd 0v 0ns 1p 1p 0.5n 1.0n)
@@ -26,19 +26,9 @@ xblb_0 in_blb_0 blb_0 vdd inverter
 xbl_0 gnd bl_0 vdd inverter
 
 $ Unit Under Test
-.subckt model_uut_grid vdd
-+wl0 $inputs to model_uut_grid Subckt
-+bl0 blb0 $inout to model_uut_grid Subckt
-xsram00 wl_00 bl_10 blb_10 vdd sram
-.ends
-$invoke UUT grid
-xmodel_uut_grid vdd
-+wl_0 $inputs to model_uut_grid
-+bl_10 blb_10 $outputs to model_uut_grid
-+model_uut_grid
-
+xsram00 wl_0 bl_0 blb_0 vdd sram
 $ Simulation/Analysis Type
 .option post=2 ingold=2
-.tran 1p 2nn
+.tran 1p 2n
 
 .end

@@ -9,8 +9,8 @@
   Command line options: ptm14hp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu 
- lic: HOSTID:                      PID:      80638 
+ lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
+ lic: HOSTID:                      PID:      153482 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -29,28 +29,21 @@
         1 xwl_0.                          inverter           1.00 
         2 xblb_0.                         inverter           1.00 
         3 xbl_0.                          inverter           1.00 
-        4 xmodel_uut_grid.                model_uut_grid     1.00 
+        4 xsram00.                        sram               1.00 
         5 xwl_0.xpfet.                    pfet               1.00 
         6 xwl_0.xnfet.                    nfet               1.00 
         7 xblb_0.xpfet.                   pfet               1.00 
         8 xblb_0.xnfet.                   nfet               1.00 
         9 xbl_0.xpfet.                    pfet               1.00 
        10 xbl_0.xnfet.                    nfet               1.00 
-       11 xmodel_uut_grid.xsram00.        sram               1.00 
-       12 xmodel_uut_grid.xsram00.xnfet_bl.
-                                            nfet               1.00 
-       13 xmodel_uut_grid.xsram00.xnfet_blb.
-                                            nfet               1.00 
-       14 xmodel_uut_grid.xsram00.xq.     inverter           1.00 
-       15 xmodel_uut_grid.xsram00.xqb.    inverter           1.00 
-       16 xmodel_uut_grid.xsram00.xq.xpfet.
-                                            pfet               1.00 
-       17 xmodel_uut_grid.xsram00.xq.xnfet.
-                                            nfet               1.00 
-       18 xmodel_uut_grid.xsram00.xqb.xpfet.
-                                            pfet               1.00 
-       19 xmodel_uut_grid.xsram00.xqb.xnfet.
-                                            nfet               1.00 
+       11 xsram00.xnfet_bl.               nfet               1.00 
+       12 xsram00.xnfet_blb.              nfet               1.00 
+       13 xsram00.xq.                     inverter           1.00 
+       14 xsram00.xqb.                    inverter           1.00 
+       15 xsram00.xq.xpfet.               pfet               1.00 
+       16 xsram00.xq.xnfet.               nfet               1.00 
+       17 xsram00.xqb.xpfet.              pfet               1.00 
+       18 xsram00.xqb.xnfet.              nfet               1.00 
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
  ******  
  $ netlist of sram
@@ -3513,11 +3506,6 @@
    PNIGBACC =      0 
   **info** (ptm14hp.sp:24) DC voltage reset to initial transient source value              in source        0:vin_blb_0           new dc=  0.8000D+00
   
-  **warning**  No connections on node bl_10; Node ignored.
-  **warning** (../models:145) Only 1 connection at node bl_10 called in element xmodel_uut_grid.xsram00.xnfet_bl.mnfet.
- **warning**  No DC path to ground from node        4:wl_00            defined in subckt model_uut_grid  ; Connected by HSPICE with gdcpath
-
-
       
  **info** set option symb=1 internally to help for convergence.
  *****************************************************************
@@ -3535,11 +3523,9 @@
  ***** operating point status is voltage   simulation time is   0.000e+00
      node    =voltage       node    =voltage       node    =voltage
 
- + 0:bl_0    = 8.000e-01  0:bl_10   = 0.000e+00  0:blb_0   = 1.358e-05
- + 0:blb_10  = 0.000e+00  0:in_blb_0= 8.000e-01  0:in_wl_0 = 8.000e-01
- + 0:vdd     = 8.000e-01  0:wl_0    = 1.358e-05  4:bl_10   = 3.914e-01
- + 4:blb_10  = 3.914e-01  4:wl_00   = 6.902e-02 11:q       = 3.914e-01
- +11:qb      = 3.914e-01
+ + 0:bl_0    = 8.000e-01  0:blb_0   = 1.858e-05  0:in_blb_0= 8.000e-01
+ + 0:in_wl_0 = 8.000e-01  0:vdd     = 8.000e-01  0:wl_0    = 1.358e-05
+ + 4:q       = 3.914e-01  4:qb      = 3.914e-01
 
 
           ***** job concluded
@@ -3553,7 +3539,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2618.515
+ cpu MHz	: 2535.585
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -3569,8 +3555,8 @@
 
 
   ******  Circuit Statistics  ******
-  # nodes       =      38 # elements   =      17
-  # resistors   =       2 # capacitors =       0 # inductors   =       0
+  # nodes       =      33 # elements   =      15
+  # resistors   =       0 # capacitors =       0 # inductors   =       0
   # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
   # cccs        =       0 # ccvs       =       0 # volt_srcs   =       3
   # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
@@ -3584,18 +3570,18 @@
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.00           1           7
-  transient          0.04        2001         805         214 rev=         6
-  readin             0.00
+  transient          0.08        2001         704         217 rev=         8
+  readin             0.01
   errchk             0.01
   setup              0.00
   output             0.00
 
 
            peak memory used        135.46 megabytes
-           total cpu time            0.05 seconds
-           total elapsed time        0.28 seconds
-           job started at     13:09:07 10/17/2020
-           job ended   at     13:09:07 10/17/2020
+           total cpu time            0.10 seconds
+           total elapsed time        0.32 seconds
+           job started at     12:56:35 10/20/2020
+           job ended   at     12:56:35 10/20/2020
 
 
  lic: Release hspice token(s) 

@@ -48,7 +48,7 @@ def main():
 
             sim_type = "tran"      # simulation type, e.g., tran, dc
             sim_tinc = "1p"        # time step for simulations
-            sim_time = "2n"        # str(2 ** parallel_instances) # simulataion time
+            sim_time = "2"        # str(2 ** parallel_instances) # simulataion time
             sim_params = (sim_type, sim_tinc, sim_time)
 
             # invokes subckts class

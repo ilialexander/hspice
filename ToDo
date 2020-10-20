@@ -1,6 +1,13 @@
-fix wl, bl, and blb names in uut
-need to reorganize rows and colums for sources
-edit write_uut method
-
+build sense amplifier
+measure write, and read delay
+measure write, hold and read power
+measure average power
+plot measurements
+clean and comment code
 create new branch cam
-work on cam cell
+create cam
+measure write, read and match delay
+measure write, hold, read and match power
+measure total average power
+plot measurements
+clean and comment code

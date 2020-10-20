@@ -1,19 +1,18 @@
        1 xwl_0.
        2 xblb_0.
        3 xbl_0.
-       4 xmodel_uut_grid.
+       4 xsram00.
        5 xwl_0.xpfet.
        6 xwl_0.xnfet.
        7 xblb_0.xpfet.
        8 xblb_0.xnfet.
        9 xbl_0.xpfet.
       10 xbl_0.xnfet.
-      11 xmodel_uut_grid.xsram00.
-      12 xmodel_uut_grid.xsram00.xnfet_bl.
-      13 xmodel_uut_grid.xsram00.xnfet_blb.
-      14 xmodel_uut_grid.xsram00.xq.
-      15 xmodel_uut_grid.xsram00.xqb.
-      16 xmodel_uut_grid.xsram00.xq.xpfet.
-      17 xmodel_uut_grid.xsram00.xq.xnfet.
-      18 xmodel_uut_grid.xsram00.xqb.xpfet.
-      19 xmodel_uut_grid.xsram00.xqb.xnfet.
+      11 xsram00.xnfet_bl.
+      12 xsram00.xnfet_blb.
+      13 xsram00.xq.
+      14 xsram00.xqb.
+      15 xsram00.xq.xpfet.
+      16 xsram00.xq.xnfet.
+      17 xsram00.xqb.xpfet.
+      18 xsram00.xqb.xnfet.
