@@ -35,7 +35,7 @@ def main():
     for fet_params in uut_params:
         (subuut, fet_nfin) = fet_params
         with open(cwd + "/" + uut_setup.uut + "/" + subuut + ".sp", 'w+') as spice_file:
-            data = 1
+            data = 0
             uut = uut_setup.uut    # uut name
             script_name = __file__ # working script name
             script_params = (cwd, script_name, uut)
@@ -71,9 +71,9 @@ def main():
 #            subckts_modules.write_outputs()
 #
 #
-#            spice_file.write("$ Measurements\n")
+            spice_file.write("$ Measurements\n")
 #            subckts_modules.measure_power()
-#            subckts_modules.measure_delays()
+            subckts_modules.measure_delays()
 #            subckts_modules.print_wave()
 #
             spice_file.write("$ Simulation/Analysis Type\n")

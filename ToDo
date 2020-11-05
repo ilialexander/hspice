@@ -1,7 +1,6 @@
-build sense amplifier
-measure write, and read delay
+measure read delay
 measure write, hold and read power
-measure average power
+measure uut average power
 plot measurements
 clean and comment code
 create new branch cam

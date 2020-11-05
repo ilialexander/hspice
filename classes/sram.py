@@ -38,20 +38,31 @@ class sram(inverter):
         self.spice_file.write("$Sources\n")
         for instance in range(self.par_instances):
             fall_time = (2) * (2 ** instance) / 2 # time from highest value to lowest, it provides a virtual binary count
-            rise_time = str(fall_time / 2)    # time from lowest value to lowest
-            fall_time = str(fall_time)
-            instance = str(instance)
+            rise_time_str = str(fall_time / 2)    # time from lowest value to lowest
+            fall_time_str = str(fall_time)
+            ins_str = str(instance)
             # sets input wave
-            self.spice_file.write("vin_wl_" + instance + " in_wl_" + instance + "  gnd  pulse(vdd " + "0v 0.25ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
-            self.spice_file.write("xwl_" + instance + " in_wl_" + instance + " wl_" + instance + " vdd " + "inverter\n")
+            self.spice_file.write("vin_wl_" + ins_str + " in_wl_" + ins_str + "  gnd  pulse(vdd " + "0v 0.25ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
+            self.spice_file.write("xwl_" + ins_str + " in_wl_" + ins_str + " wl_" + ins_str + " vdd gnd " + "inverter\n")
+
+        for outin in range(self.ser_instances):
+            fall_time = (2) * (2 ** instance) / 2 # time from highest value to lowest, it provides a virtual binary count
+            rise_time_str = str(fall_time / 2)    # time from lowest value to lowest
+            fall_time_str = str(fall_time)
+            inout = str(outin)
+            # sets input wave
             if data == 1:
-                self.spice_file.write("vin_blb_" + instance + " in_blb_" + instance + "  gnd  pulse(vdd " + "0v 0ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
-                self.spice_file.write("xblb_" + instance + " in_blb_" + instance + " blb_" + instance + " vdd " + "inverter\n")
-                self.spice_file.write("xbl_" + instance + " gnd bl_" + instance + " vdd " + "inverter\n")
+                self.spice_file.write("xdata_" + inout + " vdd data_" + inout + " vdd gnd " + "inverter\n")
             else:
-                self.spice_file.write("vin_bl_" + instance + " in_bl_" + instance + "  gnd  pulse(vdd " + "0v 0ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time + "n " + fall_time + "n)\n")
-                self.spice_file.write("xbl_" + instance + " in_bl_" + instance + " bl_" + instance + " vdd " + "inverter\n")
-                self.spice_file.write("xblb_" + instance + " gnd  blb_" + instance + " vdd " + "inverter\n")
+                self.spice_file.write("xdata_" + inout + " gnd data_" + inout + " vdd gnd " + "inverter\n")
+
+            fall_time = (2) * (2 ** instance) # time from highest value to lowest, it provides a virtual binary count
+            rise_time_str = str(fall_time / 2)    # time from lowest value to lowest
+            fall_time_str = str(fall_time)
+            self.spice_file.write("vin_we_" + ins_str + " in_we_" + ins_str + "  gnd  pulse(vdd " + "0v 0n " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
+            self.spice_file.write("xwe_" + ins_str + " in_we_" + ins_str + " we_" + ins_str + " vdd gnd " + "inverter\n")
+            self.spice_file.write("vin_sae" + inout + " in_sae_" + inout + "  gnd  pulse(vdd " + "0v 1.5ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
+            self.spice_file.write("xsae_" + inout + " in_sae_" + inout + " sae_" + inout + " vdd gnd " + "inverter\n")
 
         self.spice_file.write("\n")
         return None
@@ -62,10 +73,10 @@ class sram(inverter):
         for instance in range(self.par_instances):
             inout = str(self.ser_instances) # connects model_uut output to realistic loads
             for output_tag in range(self.load_amount):
-                instance = str(instance) # instance of ouput to evaluate
+                ins_str = str(instance) # instance of ouput to evaluate
                 output_tag = str(output_tag) # amount of load per output
                 # call instance of ouput load subckt for model_uut
-                self.spice_file.write("xoutput_" + instance + output_tag + " outin_" + inout  + instance + " outb_" + instance + output_tag + " vdd " + "inverter\n")
+                self.spice_file.write("xoutput_" + ins_str + output_tag + " outin_" + inout  + ins_str + " outb_" + ins_str + output_tag + " vdd gnd " + "inverter\n")
                 # creates FO4 chain of inverters
         self.spice_file.write("\n")
         return None
@@ -74,39 +85,76 @@ class sram(inverter):
 
     '''UUTs'''
     def set_cells_subckts(self):
-        '''Write inverter subckt'''
+        '''Set inverter subckt'''
         # declare subckt name, input, output, and source
-        self.spice_file.write(".subckt inverter in out vdd\n")
-        self.spice_file.write("$fets" + "\n")
+        self.spice_file.write(".subckt inverter in out vdd gnd\n")
         # call pfet model name, and decaler its input, output, and source
         self.spice_file.write("xpfet out in vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
         # call nfet model name, and decaler its input, output, and source
         self.spice_file.write("xnfet out in gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write(".ends\n") # end subckt declaration
-        self.spice_file.write("\n")
+        self.spice_file.write(".ends\n\n")
 
-        '''Write sram subckt'''
+        '''Set blline conditioning subckt'''
+        # declare blline conditioning/pre-charge subckt
+        self.spice_file.write(".subckt prec sae bl bbl vdd\n")
+        self.spice_file.write("xsae   bl  sae vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xsae_b bbl sae vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write(".ends\n\n")
+
+        '''Set write subckt'''
+        # declare write subckt
+        self.spice_file.write(".subckt writing we data bl bbl vdd\n")
+        # sets bl access transistor
+        self.spice_file.write("xwrite_bl  bl  we dbl  gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        # sets bbl access transistor
+        self.spice_file.write("xwrite_bbl bbl we dbbl gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        # sets data access transistor
+        self.spice_file.write("xwrite_dbl  dbl  data gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        # sets datab access transistor
+        self.spice_file.write("xwrite_dbbl dbbl datab gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        # sets datab
+        self.spice_file.write("xq  data datab vdd gnd inverter\n")
+        self.spice_file.write(".ends\n\n")
+
+        '''Set sram subckt'''
         # declare sram subckt
-        self.spice_file.write(".subckt sram wl bl blb vdd\n")
+        self.spice_file.write(".subckt sram wl bl bbl vdd\n")
         # sets bl access transistor
         self.spice_file.write("xnfet_bl  bl  wl q  q  nfet l=lg nfin=" + self.fet_nfin + "\n")
-        # sets blb access transistor
-        self.spice_file.write("xnfet_blb blb wl qb qb nfet l=lg nfin=" + self.fet_nfin + "\n")
+        # sets bbl access transistor
+        self.spice_file.write("xnfet_bbl bbl wl qb qb nfet l=lg nfin=" + self.fet_nfin + "\n")
         # sets q | left latch
-        self.spice_file.write("xq  qb q  vdd inverter\n")
+        self.spice_file.write("xq  qb q  vdd gnd inverter\n")
         # sets qb | right latch
-        self.spice_file.write("xqb q  qb vdd inverter\n")
+        self.spice_file.write("xqb q  qb vdd gnd inverter\n")
+        self.spice_file.write(".ends\n\n")
+
+        '''Set sense amplifier'''
+        # declare samp subckt
+        self.spice_file.write(".subckt sa sae bl bbl sa_out sa_outb vdd\n")
+        self.spice_file.write("xpdiff  sa_outb sa_outb vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xpdiffb sa_out  sa_outb vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xndiff  sa_outb bl  gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xndiffb sa_out  bbl gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xngnd_acc gnd_acc sae gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write(".ends\n")
         return None
 
     def write_uut(self):
         '''Write inverter device'''
-        for instance in range(self.par_instances):
-            for outin in range(self.ser_instances):
-                instance = str(instance)
-                inout = str(outin)
-                # invoke inverters
-                self.spice_file.write("xsram" + inout + instance + " " + "wl_" + instance + " " + "bl_" + inout + " " + "blb_" + inout + " vdd " + "sram\n")
+        for outin in range(self.ser_instances):
+            inout = str(outin)
+            # invoke pre-charge subckt 
+            self.spice_file.write("xprec_" + inout + " " + "sae_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " vdd " + "prec\n")
+            for instance in range(self.par_instances):
+                ins_str = str(instance)
+                # invoke srams subckt 
+                self.spice_file.write("xsram_" + inout + ins_str + " " + "wl_" + ins_str + " " + "bl_" + inout + " " + "bbl_" + inout + " vdd " + "sram\n")
+
+            # invoke writing subckt 
+            self.spice_file.write("xwriting_" + inout + " " + "we_" + inout + " " + "data_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " vdd " + "writing\n")
+            # invoke sense-amplifier subckt 
+            self.spice_file.write("xsa_" + inout + " " + "sae_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " " + "sa_out" + inout + " " + "sa_outb" + inout + " vdd " + "sa\n")
         return None
 
 
@@ -122,8 +170,11 @@ class sram(inverter):
         self.spice_file.write("$ " + self.script_path + "\n")
         # invoke library for ptm model to test
         self.spice_file.write(".lib '../models' " + self.subuut + "\n")
-        # gets 50% of vdd of delay calculation
-        self.spice_file.write(".param vdd_50='vdd/2'"  "\n")
+        # gets XX% of vdd for delay calculation
+        self.spice_file.write(".param vdd_50='vdd*.5'"  "\n")
+        self.spice_file.write(".param vdd_10='vdd*.1'"  "\n")
+        self.spice_file.write(".param vdd_15='vdd*.15'"  "\n")
+        self.spice_file.write(".param vdd_90='vdd*.9'"  "\n")
         return None
 
 
@@ -218,8 +269,8 @@ class sram(inverter):
         return model_uut_data        
 
 
-    '''NOT IN USE'''
     def get_power_avg(self, subuut_power_data):
+        '''NOT IN USE'''
         subuut_avg_power = []
         for power_keys in list(subuut_power_data.keys()):
             if "model_uut" in power_keys:
@@ -232,19 +283,16 @@ class sram(inverter):
         for instance in range(self.par_instances):
             rise_fall_count = 2 ** ((self.par_instances - instance) - 1) # calculates the amount of rises and falls of a signal
             for outin in range(self.ser_instances):
-                inout = str(outin + 1)
-                outin = str(outin)
+                inout = str(outin)
                 for rise_fall in range(rise_fall_count):
-                    rise_fall = str(rise_fall + 1)
-                    instance = str(instance)
-                    # measures rise_fall delay
-                    self.spice_file.write(".measure tran trf_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=vdd_50 rise=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=vdd_50 fall=" + rise_fall + "\n")
-                    # measures rise_fall delay
-                    self.spice_file.write(".measure tran tfr_delay_" + outin + instance + rise_fall + " trig v(" + "outin_" + outin + instance + ") val=vdd_50 fall=" + rise_fall + " targ v(" + "outin_" + inout + instance + ") val=vdd_50 rise=" + rise_fall + "\n")
-        # measures delay for inverter in fo4 chain
-        self.spice_file.write(".measure tran fo4_inverter_rf_delay trig v(" + "outb_01) val=vdd_50 rise=" + rise_fall + " targ v(" + "outb_012) val=vdd_50 fall=" + rise_fall + "\n")
-        # measures delay for inverter in fo4 chain
-        self.spice_file.write(".measure tran fo4_inverter_fr_delay trig v(" + "outb_01) val=vdd_50 fall=" + rise_fall + " targ v(" + "outb_012) val=vdd_50 rise=" + rise_fall + "\n")
+        #            rise_fall = str(rise_fall + 1)
+                    ins_str = str(instance)
+                    # measures write q delay
+                    self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(bbl_" + inout + ") val=vdd_90 fall=1 targ v(xsram_" + inout + ins_str + ".q) val=vdd_90 rise=1\n")
+                    # measures write qb delay
+                    self.spice_file.write(".measure tran write_qb_delay_" + inout + ins_str + "  trig v(bbl_" + inout + ") val=vdd_90 fall=1 targ v(xsram_" + inout + ins_str + ".qb) val=vdd_10 fall=1\n")
+                    # measures read qb delay
+                    self.spice_file.write(".measure tran read_qb_delay_" + inout + ins_str + "  trig v(wl_" + inout + ") val=vdd_10 rise=3 targ v(xsram_" + inout + ins_str + ".qb) val=vdd_15 rise=1\n")
         return None
 
 
@@ -253,24 +301,24 @@ class sram(inverter):
         #self.spice_file.write("v_012 outb_012 gnd 0\n")
         for instance in range(self.par_instances):
             for outin in range(self.ser_instances):
-                instance = str(instance)
+                ins_str = str(instance)
                 outin = str(outin)
                 # measures individual max power
-                self.spice_file.write(".measure tran model_uut_peak_power" + outin + instance  + " max p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
+                self.spice_file.write(".measure tran model_uut_peak_power" + outin + ins_str  + " max p(xmodel_uut_grid.x" + "inverter" + outin + ins_str + ")\n")
                 # measures individual avg power
-                self.spice_file.write(".measure tran model_uut_avg_power" + outin + instance  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + instance + ")\n")
+                self.spice_file.write(".measure tran model_uut_avg_power" + outin + ins_str  + " avg p(xmodel_uut_grid.x" + "inverter" + outin + ins_str + ")\n")
 
-        # measures peak power for an inverter in the middle of the FO4
-        self.spice_file.write(".measure tran fo4_inverter_peak_power" + outin + instance  + " max p(xoutput_012)\n")
-        # measures avg power for an inverter in the middle of the FO4
-        self.spice_file.write(".measure tran fo4_inverter_avg_power avg p(xoutput_012)\n")
-        # measures model_uut_grid max power
-        self.spice_file.write(".measure tran uut_peak_power max p(xmodel_uut_grid)\n")
-        # measures model_uut_grid avg power
-        self.spice_file.write(".measure tran uut_avg_power avg p(xmodel_uut_grid)\n")
-        # Serve more as flag to collect data
-        self.spice_file.write(".measure tran source_peak_power max power\n") # measures source avg power
-        self.spice_file.write(".measure tran source_avg_power avg power\n") # measures source max power
+#        # measures peak power for an inverter in the middle of the FO4
+#        self.spice_file.write(".measure tran fo4_inverter_peak_power" + outin + ins_str  + " max p(xoutput_012)\n")
+#        # measures avg power for an inverter in the middle of the FO4
+#        self.spice_file.write(".measure tran fo4_inverter_avg_power avg p(xoutput_012)\n")
+#        # measures model_uut_grid max power
+#        self.spice_file.write(".measure tran uut_peak_power max p(xmodel_uut_grid)\n")
+#        # measures model_uut_grid avg power
+#        self.spice_file.write(".measure tran uut_avg_power avg p(xmodel_uut_grid)\n")
+#        # Serve more as flag to collect data
+#        self.spice_file.write(".measure tran source_peak_power max power\n") # measures source avg power
+#        self.spice_file.write(".measure tran source_avg_power avg power\n") # measures source max power
         return None
 
 
@@ -279,16 +327,13 @@ class sram(inverter):
         self.uut_subckt = []
         for instance in range(self.par_instances):
             for outin in range(self.ser_instances):
-                instance = str(instance)
+                ins_str = str(instance)
                 inout = str(outin + 1)
                 outin = str(outin)
                 # prints data per input-output pair in each model_uut subckt
-                self.spice_file.write(".print TRAN V(" + "outin_" + outin + instance + ") V(" + "outin_" + inout + instance + ")\n")
-                self.uut_subckt.append("xinverter" + outin + instance)
+                self.spice_file.write(".print TRAN V(" + "outin_" + outin + ins_str + ") V(" + "outin_" + inout + ins_str + ")\n")
+                self.uut_subckt.append("xinverter" + outin + ins_str)
                 
         self.spice_file.write("\n")
         return None
-
-
-#   def write_dram(self, instance):
 
