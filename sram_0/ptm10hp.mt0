@@ -1,0 +1,4 @@
+$DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
+.TITLE '$ netlist of sram_0'
+ write_q_delay_00 read_q_delay_00  temper           alter#            
+    failed           failed         2.500e+01       1                 

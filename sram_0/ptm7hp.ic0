@@ -1,0 +1,35 @@
+* "simulator" "HSPICE" 
+* "version" "F-2011.09-SP2 64-BIT"
+* "format" "HSP"
+* "rundate" "16:31:51 11/06/2020 "
+* "netlist" "ptm7hp.sp "
+* "runtitle" "$ netlist of sram_0"
+* time =  0.000e+00       
+* temperature =  2.500e+01       
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc= 1.000e-12       
+.nodeset
++ bbl_0 = 7.000e-01       
++ bl_0 = 7.000e-01       
++ data_0 = 7.000e-01       
++ in_sae_0 = 7.000e-01       
++ in_we_0 = 7.000e-01       
++ in_wl_0 = 7.000e-01       
++ sa_out_0 = 0.000e+00       
++ sa_outb_0 = 0.000e+00       
++ sae_0 = 4.370e-05       
++ saeb_0 = 7.000e-01       
++ vdd = 7.000e-01       
++ we_0 = 4.370e-05       
++ wl_0 = 4.370e-05       
++ xuut_grid.sa_out_0 = 3.130e-01       
++ xuut_grid.sa_outb_0 = 3.130e-01       
++ xuut_grid.xsram_00.q = 3.432e-01       
++ xuut_grid.xsram_00.qb = 3.432e-01       
++ xuut_grid.xwriting_0.datab = 4.376e-05       
++ xuut_grid.xwriting_0.dbbl = 6.793e-02       
++ xuut_grid.xwriting_0.dbl = 4.037e-05       
++ xuut_grid.xsa_0.gnd_acc = 3.130e-01       
++ xuut_grid.xsa_0.vdd_acc = 3.401e-01       
+***   END: Saved Operating Point ***                     
