@@ -1,4 +1,10 @@
 $DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
 .TITLE '$ netlist of sram_1'
+ uut_peak_power   uut_avg_power    prec_max_power_0 prec_avg_power_0  
+ sram_max_power_00 sram_avg_power_00 writing_max_power_0  
+ writing_avg_power_0 sa_max_power_0   sa_avg_power_0    
  write_q_delay_00 read_q_delay_00  temper           alter#            
-  3.619e-11        2.033e-11        2.500e+01       1                 
+  4.498e-05        2.015e-05        3.222e-05        8.995e-06        
+  2.255e-05        4.525e-06        2.927e-05        6.561e-06        
+  1.657e-05        6.502e-08        3.619e-11        2.033e-11        
+  2.500e+01       1                 

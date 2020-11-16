@@ -10,12 +10,12 @@
  lic:  
  lic: FLEXlm: v10.8 
  lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu 
- lic: HOSTID:                      PID:      169813 
+ lic: HOSTID:                      PID:      158365 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
  lic: License/Maintenance for hspice will expire on 18-jul-2021/2019.06 
- lic: 2(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu 
+ lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu 
  lic:   
   **warning** (../modelfiles/hp/10nfet.pm:4) Model nfet device geometries will not be checked against the limits set by lmin, lmax, nfinmin and nfinmax. To enable this check, add a period(.) to the model name(i.e. enable model selector).
   **warning** (ptm10hp.sp:10) Global net name, "gnd", in subckt pin list. The pin will be connected to the local net. Recommend to not use global net names in subckt pin lists.
@@ -7713,6 +7713,21 @@
  $ netlist of sram_1
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
+ uut_peak_power= 6.8249e-05    at= 2.6041e-10
+             from= 0.0000e+00    to= 2.0000e-09
+ uut_avg_power= 3.1534e-05  from= 0.0000e+00     to= 2.0000e-09
+ prec_max_power_0= 4.4500e-05    at= 7.5216e-10
+             from= 0.0000e+00    to= 2.0000e-09
+ prec_avg_power_0= 1.3338e-05  from= 0.0000e+00     to= 2.0000e-09
+ sram_max_power_00= 3.2723e-05    at= 1.2521e-09
+             from= 0.0000e+00    to= 2.0000e-09
+ sram_avg_power_00= 8.5597e-06  from= 0.0000e+00     to= 2.0000e-09
+ writing_max_power_0= 3.1943e-05    at= 2.5134e-10
+             from= 0.0000e+00    to= 2.0000e-09
+ writing_avg_power_0= 9.6058e-06  from= 0.0000e+00     to= 2.0000e-09
+ sa_max_power_0= 2.6246e-05    at= 1.5048e-09
+             from= 0.0000e+00    to= 2.0000e-09
+ sa_avg_power_0= 3.0736e-08  from= 0.0000e+00     to= 2.0000e-09
  write_q_delay_00= 1.0699e-11  targ= 2.6173e-10   trig= 2.5103e-10
  read_q_delay_00= 5.6328e-12  targ= 1.5068e-09   trig= 1.5012e-09
 
@@ -7727,7 +7742,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2629.687
+ cpu MHz	: 2819.523
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -7758,18 +7773,18 @@
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.01           1          31
-  transient          0.15        2001         674         199 rev=         6
+  transient          0.16        2001         674         199 rev=         6
   readin             0.01
-  errchk             0.02
+  errchk             0.01
   setup              0.00
   output             0.00
 
 
            peak memory used        135.46 megabytes
            total cpu time            0.19 seconds
-           total elapsed time        0.43 seconds
-           job started at     16:31:43 11/06/2020
-           job ended   at     16:31:43 11/06/2020
+           total elapsed time        0.42 seconds
+           job started at     15:56:39 11/16/2020
+           job ended   at     15:56:40 11/16/2020
 
 
  lic: Release hspice token(s) 

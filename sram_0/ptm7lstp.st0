@@ -3,7 +3,7 @@
  lic:
  lic: FLEXlm: v10.8
  lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu
- lic: HOSTID:                      PID:      170112
+ lic: HOSTID:                      PID:      158532
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
@@ -21,11 +21,11 @@
        re-order matrix -- done,  cpu clock=  4.00E-02 memory=       344 kb
  init: end setup matrix,  cpu clock=  4.00E-02 memory=       441 kb
  dcop: begin dcop,  cpu clock=  4.00E-02
- dcop: end dcop,  cpu clock=  5.00E-02 memory=       441 kb  tot_iter=      10
+ dcop: end dcop,  cpu clock=  4.00E-02 memory=       441 kb  tot_iter=      10
  output: ptm7lstp.mt0
- sweep: tran tran0    begin, stop_t=  2.00E-09 #sweeps=2001 cpu clock=  5.00E-02
+ sweep: tran tran0    begin, stop_t=  2.00E-09 #sweeps=2001 cpu clock=  4.00E-02
  tran: time= 2.0792E-10 tot_iter=      74 conv_iter=      22 cpu clock= 6.00E-02
- tran: time= 4.1753E-10 tot_iter=     304 conv_iter=      64 cpu clock= 1.20E-01
+ tran: time= 4.1753E-10 tot_iter=     304 conv_iter=      64 cpu clock= 1.10E-01
  tran: time= 6.1510E-10 tot_iter=     312 conv_iter=      68 cpu clock= 1.20E-01
  tran: time= 8.1073E-10 tot_iter=     410 conv_iter=      96 cpu clock= 1.40E-01
  tran: time= 1.0010E-09 tot_iter=     422 conv_iter=     101 cpu clock= 1.50E-01

@@ -1,5 +1,3 @@
-measure write delay
-measure read delay
 measure write, hold and read power
 plot measurements
 clean and comment code

@@ -21,10 +21,11 @@ class sram(inverter):
         self.subuut = subuut # ptm under test
         self.fet_nfin = fet_nfin # fin size?? e.g. 1000m
 
-        (sim_type, sim_tinc, sim_time) = sim_params
+        (sim_type, sim_tinc, sim_time, data) = sim_params
         self.sim_type = sim_type # simulation type, e.g., tran, dc
         self.sim_tinc = sim_tinc # simulation time step
         self.sim_time = sim_time # total simulation time
+        self.data = data         # data to write in sram cell
 
         self.script_path = self.script_dir + "/" + self.script_name # full path to working script
 
@@ -32,7 +33,7 @@ class sram(inverter):
 
     '''Inputs and Outputs LOADS'''
 
-    def write_source(self, data):
+    def write_source(self):
         '''write sourse system to .sp file'''
         # input sources are porportional to the amount of instances
         self.spice_file.write("$Sources\n")
@@ -51,7 +52,7 @@ class sram(inverter):
             fall_time_str = str(fall_time)
             inout = str(outin)
             # sets input wave
-            if data == 1:
+            if self.data == 1:
                 self.spice_file.write("xdata_" + inout + " vdd data_" + inout + " vdd gnd " + "inverter\n")
             else:
                 self.spice_file.write("xdata_" + inout + " gnd data_" + inout + " vdd gnd " + "inverter\n")
@@ -144,7 +145,7 @@ class sram(inverter):
         return None
 
     def write_uut(self):
-        '''Write inverter device'''
+        '''Write sram device'''
         self.spice_file.write(".subckt uut_grid vdd\n")
         self.spice_file.write("+")
         for outin in range(self.ser_instances):
@@ -329,38 +330,47 @@ class sram(inverter):
             for outin in range(self.ser_instances):
                 inout = str(outin)
                 for rise_fall in range(rise_fall_count):
-        #            rise_fall = str(rise_fall + 1)
                     ins_str = str(instance)
-                    # measures write q delay
-                    self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xsram_" + inout + ins_str + ".q) val=vdd_90 rise=1\n")
-                    # measures read delay
-                    self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.sa_out_" + inout + ") val=vdd_90 rise=1\n")
+                    if self.data == 1:
+                        # measures write q delay
+                        self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xsram_" + inout + ins_str + ".q) val=vdd_90 rise=1\n")
+                        # measures read delay
+                        self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.sa_out_" + inout + ") val=vdd_90 rise=1\n")
+                    else:
+                        # measures write q delay
+                        self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xsram_" + inout + ins_str + ".qb) val=vdd_90 rise=1\n")
+                        # measures read delay
+                        self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.sa_outb_" + inout + ") val=vdd_90 rise=1\n")
         return None
 
 
     def measure_power(self):
         '''Measures uut_grid and individual unit powers'''
-        #self.spice_file.write("v_012 outb_012 gnd 0\n")
-        for instance in range(self.par_instances):
-            for outin in range(self.ser_instances):
+        # measures uut max power
+        self.spice_file.write(".measure tran uut_peak_power max p(xuut_grid)\n")
+        # measures uut avg power
+        self.spice_file.write(".measure tran uut_avg_power avg p(xuut_grid)\n")
+        for outin in range(self.ser_instances):
+            inout = str(outin)
+            # measures precharge max power
+            self.spice_file.write(".measure tran prec_max_power_" + inout + " max p(xuut_grid.xprec_" + inout + ")\n")
+            # measures precharge avg power
+            self.spice_file.write(".measure tran prec_avg_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ")\n")
+            for instance in range(self.par_instances):
                 ins_str = str(instance)
-                outin = str(outin)
-                # measures individual max power
-                self.spice_file.write(".measure tran model_uut_peak_power" + outin + ins_str  + " max p(xuut_grid.x" + "inverter" + outin + ins_str + ")\n")
-                # measures individual avg power
-                self.spice_file.write(".measure tran model_uut_avg_power" + outin + ins_str  + " avg p(xuut_grid.x" + "inverter" + outin + ins_str + ")\n")
+                # measures sram max power
+                self.spice_file.write(".measure tran sram_max_power_" + inout + ins_str + " max p(xuut_grid.xsram_" + inout + ins_str + ")\n")
+                # measures sram avg power
+                self.spice_file.write(".measure tran sram_avg_power_" + inout + ins_str + " avg p(xuut_grid.xsram_" + inout + ins_str + ")\n")
+            # measures writing max power
+            self.spice_file.write(".measure tran writing_max_power_" + inout + " max p(xuut_grid.xwriting_" + inout + ")\n")
+            # measures writing avg power
+            self.spice_file.write(".measure tran writing_avg_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ")\n")
+            # measures sa max power
+            self.spice_file.write(".measure tran sa_max_power_" + inout + " max p(xuut_grid.xsa_" + inout + ")\n")
+            # measures sa avg power
+            self.spice_file.write(".measure tran sa_avg_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ")\n")
 
-#        # measures peak power for an inverter in the middle of the FO4
-#        self.spice_file.write(".measure tran fo4_inverter_peak_power" + outin + ins_str  + " max p(xoutput_012)\n")
-#        # measures avg power for an inverter in the middle of the FO4
-#        self.spice_file.write(".measure tran fo4_inverter_avg_power avg p(xoutput_012)\n")
-#        # measures uut_grid max power
-#        self.spice_file.write(".measure tran uut_peak_power max p(xuut_grid)\n")
-#        # measures uut_grid avg power
-#        self.spice_file.write(".measure tran uut_avg_power avg p(xuut_grid)\n")
-#        # Serve more as flag to collect data
-#        self.spice_file.write(".measure tran source_peak_power max power\n") # measures source avg power
-#        self.spice_file.write(".measure tran source_avg_power avg power\n") # measures source max power
         return None
 
 

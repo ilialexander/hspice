@@ -49,7 +49,7 @@ def main():
                 sim_type = "tran"      # simulation type, e.g., tran, dc
                 sim_tinc = "1p"        # time step for simulations
                 sim_time = "2"        # str(2 ** parallel_instances) # simulataion time
-                sim_params = (sim_type, sim_tinc, sim_time)
+                sim_params = (sim_type, sim_tinc, sim_time, data)
     
                 # invokes subckts class
                 subckts_modules = sram(script_params, grid_params, fet_params, sim_params)
@@ -62,7 +62,7 @@ def main():
     
                 spice_file.write("$ Sources\n")
                 spice_file.write("vdd vdd gnd vdd\n")
-                subckts_modules.write_source(data)
+                subckts_modules.write_source()
      
                 spice_file.write("$ Unit Under Test\n")
                 subckts_modules.write_uut()
@@ -72,7 +72,7 @@ def main():
     #
     #
                 spice_file.write("$ Measurements\n")
-    #            subckts_modules.measure_power()
+                subckts_modules.measure_power()
                 subckts_modules.measure_delays()
     #            subckts_modules.print_wave()
     #

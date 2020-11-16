@@ -69,8 +69,18 @@ xuut_grid vdd
 +uut_grid
 
 $ Measurements
-.measure tran write_q_delay_00 trig v(wl_0) val=vdd_10 rise=1 targ v(xuut_grid.xsram_00.q) val=vdd_90 rise=1
-.measure tran read_q_delay_00  trig v(sae_0) val=vdd_10 rise=1 targ v(xuut_grid.sa_out_0) val=vdd_90 rise=1
+.measure tran uut_peak_power max p(xuut_grid)
+.measure tran uut_avg_power avg p(xuut_grid)
+.measure tran prec_max_power_0 max p(xuut_grid.xprec_0)
+.measure tran prec_avg_power_0 avg p(xuut_grid.xprec_0)
+.measure tran sram_max_power_00 max p(xuut_grid.xsram_00)
+.measure tran sram_avg_power_00 avg p(xuut_grid.xsram_00)
+.measure tran writing_max_power_0 max p(xuut_grid.xwriting_0)
+.measure tran writing_avg_power_0 avg p(xuut_grid.xwriting_0)
+.measure tran sa_max_power_0 max p(xuut_grid.xsa_0)
+.measure tran sa_avg_power_0 avg p(xuut_grid.xsa_0)
+.measure tran write_q_delay_00 trig v(wl_0) val=vdd_10 rise=1 targ v(xuut_grid.xsram_00.qb) val=vdd_90 rise=1
+.measure tran read_q_delay_00  trig v(sae_0) val=vdd_10 rise=1 targ v(xuut_grid.sa_outb_0) val=vdd_90 rise=1
 $ Simulation/Analysis Type
 .option post=2 ingold=2
 .tran 1p 2n
