@@ -10,7 +10,7 @@
  lic:  
  lic: FLEXlm: v10.8 
  lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu 
- lic: HOSTID:                      PID:      158452 
+ lic: HOSTID:                      PID:      135338 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -7713,23 +7713,21 @@
  $ netlist of sram_0
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- uut_peak_power= 2.9859e-05    at= 3.0881e-10
-             from= 0.0000e+00    to= 2.0000e-09
- uut_avg_power= 1.4475e-05  from= 0.0000e+00     to= 2.0000e-09
- prec_max_power_0= 2.5570e-05    at= 7.5232e-10
-             from= 0.0000e+00    to= 2.0000e-09
- prec_avg_power_0= 6.5862e-06  from= 0.0000e+00     to= 2.0000e-09
- sram_max_power_00= 1.8917e-05    at= 1.2536e-09
-             from= 0.0000e+00    to= 2.0000e-09
- sram_avg_power_00= 2.7295e-06  from= 0.0000e+00     to= 2.0000e-09
- writing_max_power_0= 2.1461e-05    at= 1.0018e-09
-             from= 0.0000e+00    to= 2.0000e-09
- writing_avg_power_0= 5.1371e-06  from= 0.0000e+00     to= 2.0000e-09
- sa_max_power_0= 1.2658e-05    at= 1.5091e-09
-             from= 0.0000e+00    to= 2.0000e-09
- sa_avg_power_0= 2.1664e-08  from= 0.0000e+00     to= 2.0000e-09
- write_q_delay_00= 5.6421e-11  targ= 3.0788e-10   trig= 2.5146e-10
- read_q_delay_00= 9.9051e-12  targ= 1.5117e-09   trig= 1.5018e-09
+ uut_avg_power= 6.8770e-06  from= 0.0000e+00     to= 1.0000e-09
+ prec_avg_write_power_0= 1.7743e-05  from= 0.0000e+00     to= 2.7000e-10
+ prec_avg_hold_power_0=-5.0918e-12  from= 2.7000e-10     to= 5.0000e-10
+ prec_avg_read_power_0= 1.4396e-07  from= 5.0000e-10     to= 7.8000e-10
+ sram_avg_write_power_00= 2.0794e-06  from= 0.0000e+00     to= 2.7000e-10
+ sram_avg_hold_power_00=-3.5953e-12  from= 2.7000e-10     to= 5.0000e-10
+ sram_avg_read_power_00= 1.1514e-07  from= 5.0000e-10     to= 7.8000e-10
+ writing_avg_write_power_0= 5.1116e-06  from= 0.0000e+00     to= 2.7000e-10
+ writing_avg_hold_power_0=-3.3716e-12  from= 2.7000e-10     to= 5.0000e-10
+ writing_avg_read_power_0= 1.3535e-11  from= 5.0000e-10     to= 7.8000e-10
+ sa_avg_writing_power_0= 4.3941e-10  from= 0.0000e+00     to= 2.7000e-10
+ sa_avg_hold_power_0= 5.4754e-12  from= 2.7000e-10     to= 5.0000e-10
+ sa_avg_read_power_0= 2.3320e-07  from= 5.0000e-10     to= 7.8000e-10
+ write_q_delay_00= 5.6681e-11  targ= 5.7378e-11   trig= 6.9697e-13
+ read_q_delay_00= 1.0007e-11  targ= 5.1179e-10   trig= 5.0178e-10
 
           ***** job concluded
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
@@ -7742,7 +7740,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2568.671
+ cpu MHz	: 2603.304
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -7772,19 +7770,19 @@
   ******  Runtime Statistics (seconds)  ******
 
   analysis           time    # points   tot. iter  conv.iter
-  op point           0.01           1          10
-  transient          0.17        2001         751         218 rev=         7
-  readin             0.00
-  errchk             0.01
-  setup              0.00
+  op point           0.00           1          10
+  transient          0.14        1001         568         148 rev=         6
+  readin             0.01
+  errchk             0.02
+  setup              0.01
   output             0.00
 
 
            peak memory used        135.46 megabytes
-           total cpu time            0.19 seconds
-           total elapsed time        0.44 seconds
-           job started at     15:56:45 11/16/2020
-           job ended   at     15:56:45 11/16/2020
+           total cpu time            0.18 seconds
+           total elapsed time        0.41 seconds
+           job started at     18:35:34 11/17/2020
+           job ended   at     18:35:34 11/17/2020
 
 
  lic: Release hspice token(s) 

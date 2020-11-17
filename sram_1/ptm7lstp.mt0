@@ -1,10 +1,13 @@
 $DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
 .TITLE '$ netlist of sram_1'
- uut_peak_power   uut_avg_power    prec_max_power_0 prec_avg_power_0  
- sram_max_power_00 sram_avg_power_00 writing_max_power_0  
- writing_avg_power_0 sa_max_power_0   sa_avg_power_0    
+ uut_avg_power    prec_avg_write_power_0 prec_avg_hold_power_0  
+ prec_avg_read_power_0 sram_avg_write_power_00 sram_avg_hold_power_00  
+ sram_avg_read_power_00 writing_avg_write_power_0  
+ writing_avg_hold_power_0 writing_avg_read_power_0  
+ sa_avg_writing_power_0 sa_avg_hold_power_0 sa_avg_read_power_0  
  write_q_delay_00 read_q_delay_00  temper           alter#            
-  2.216e-05        1.088e-05        1.970e-05        4.874e-06        
-  1.401e-05        2.027e-06        1.575e-05        3.960e-06        
-  9.260e-06        1.634e-08        7.532e-11        9.773e-12        
-  2.500e+01       1                 
+  5.123e-06        1.251e-05        2.070e-10        1.083e-07        
+  1.463e-06        3.046e-11        8.526e-08        4.593e-06        
+  2.110e-11        1.636e-11        3.474e-10        3.676e-12        
+  1.772e-07        7.534e-11        1.014e-11        2.500e+01        
+ 1                 
