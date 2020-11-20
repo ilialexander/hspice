@@ -16,24 +16,24 @@
 .endl
 
 .lib 14nm
-.param vdd=0.8
-.param vddp=-0.8
+.param vdd=0.82
+.param vddp=-0.82
 .param fin_height=23n
 .param fin_width=10n
 .param lg=18n
 .endl
 
 .lib 10nm
-.param vdd=0.75
-.param vddp=-0.75
+.param vdd=0.82
+.param vddp=-0.82
 .param fin_height=21n
 .param fin_width=9n
 .param lg=14n
 .endl
 
 .lib 7nm
-.param vdd=0.7
-.param vddp=-0.7
+.param vdd=0.8
+.param vddp=-0.8
 .param fin_height=18n
 .param fin_width=7n
 .param lg=10n

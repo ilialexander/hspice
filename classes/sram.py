@@ -273,35 +273,35 @@ class sram(inverter):
             timing_len = 0
             for line in results:
                 # reads the power measurements from .lis file
-                (power_flag, power_line_data) = self.read_meas("transient analysis", "trf", line, power_flag)
+                (power_flag, power_line_data) = self.read_meas("transient analysis", "write_q", line, power_flag)
                 if (power_flag) and len(power_line_data):
                     power_series.append(power_line_data)
                 # reads the delay measurements from .lis file
-                (delay_flag, delay_line_data) = self.read_meas("source_avg_power", "x\n", line, delay_flag)
+                (delay_flag, delay_line_data) = self.read_meas("sa_avg_read_power", "uut_avg_power", line, delay_flag)
                 if (delay_flag) and len(delay_line_data):
                     delay_series.append(delay_line_data)
                 # reads the timing measurements from .lis file
-                (timing_flag, timing_line_data) = self.read_meas("x\n", "y\n", line, timing_flag)
-                if (timing_flag == 1) and len(timing_line_data):
-                    if timing_len:# == len(timing_line_data):
-                        for i in range(timing_len):
-                            try:
-                                if not(i):
-                                    timing_series[i].append(timing_line_data[i] * 1e9) # 1e9 makes diagram visualization better
-                                else:
-                                    timing_series[i].append(timing_line_data[i])
-                            except:
-                                continue
-                    else:
-                        timing_len = len(timing_line_data) # gets width of measurments to create proper matrix
-                        timing_series = [[] for i in range(timing_len)] # creates a matrix of proper width
-                if (old_timing_flag == 1) and (timing_flag == 0):
-                    for i in range(1, timing_len - 1):
-                        timing_series[i].pop(0) # delete redundant item
-                old_timing_flag = timing_flag
-
-        # returns power, delay and timing data
-        return (power_series, delay_series, timing_series)
+#                (timing_flag, timing_line_data) = self.read_meas("x\n", "y\n", line, timing_flag)
+#                if (timing_flag == 1) and len(timing_line_data):
+#                    if timing_len:# == len(timing_line_data):
+#                        for i in range(timing_len):
+#                            try:
+#                                if not(i):
+#                                    timing_series[i].append(timing_line_data[i] * 1e9) # 1e9 makes diagram visualization better
+#                                else:
+#                                    timing_series[i].append(timing_line_data[i])
+#                            except:
+#                                continue
+#                    else:
+#                        timing_len = len(timing_line_data) # gets width of measurments to create proper matrix
+#                        timing_series = [[] for i in range(timing_len)] # creates a matrix of proper width
+#                if (old_timing_flag == 1) and (timing_flag == 0):
+#                    for i in range(1, timing_len - 1):
+#                        timing_series[i].pop(0) # delete redundant item
+#                old_timing_flag = timing_flag
+#
+#        # returns power, delay and timing data
+        return (power_series, delay_series)
 
 
     def clean_data(self, start_index, step, series):
@@ -341,13 +341,16 @@ class sram(inverter):
                         self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xsram_" + inout + ins_str + ".qb) val=vdd_90 rise=1\n")
                         # measures read delay
                         self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.sa_outb_" + inout + ") val=vdd_90 rise=1\n")
+        self.spice_file.write(".measure tran uut_avg_power avg p(xuut_grid)\n")
         return None
 
 
     def measure_power(self):
         '''Measures uut_grid and individual unit powers'''
         # measures uut avg power
-        self.spice_file.write(".measure tran uut_avg_power avg p(xuut_grid)\n")
+        self.spice_file.write(".measure tran uut_avg_write_power avg p(xuut_grid) from=0 to=0.27ns\n")
+        self.spice_file.write(".measure tran uut_avg_hold_power avg p(xuut_grid) from=0.27ns to=0.5ns\n")
+        self.spice_file.write(".measure tran uut_avg_read_power avg p(xuut_grid) from=0.5ns to=0.78ns\n")
         for outin in range(self.ser_instances):
             inout = str(outin)
             # measures precharge avg power
@@ -372,18 +375,18 @@ class sram(inverter):
         return None
 
 
-    def print_wave(self):
-        '''Prints each datapoint to .lis file'''
-        self.uut_subckt = []
-        for instance in range(self.par_instances):
-            for outin in range(self.ser_instances):
-                ins_str = str(instance)
-                inout = str(outin + 1)
-                outin = str(outin)
-                # prints data per input-output pair in each model_uut subckt
-                self.spice_file.write(".print TRAN V(" + "outin_" + outin + ins_str + ") V(" + "outin_" + inout + ins_str + ")\n")
-                self.uut_subckt.append("xinverter" + outin + ins_str)
-                
-        self.spice_file.write("\n")
-        return None
+#    def print_wave(self):
+#        '''Prints each datapoint to .lis file'''
+#        self.uut_subckt = []
+#        for instance in range(self.par_instances):
+#            for outin in range(self.ser_instances):
+#                ins_str = str(instance)
+#                inout = str(outin + 1)
+#                outin = str(outin)
+#                # prints data per input-output pair in each model_uut subckt
+#                self.spice_file.write(".print TRAN V(" + "outin_" + outin + ins_str + ") V(" + "outin_" + inout + ins_str + ")\n")
+#                self.uut_subckt.append("xinverter" + outin + ins_str)
+#                
+#        self.spice_file.write("\n")
+#        return None
 
