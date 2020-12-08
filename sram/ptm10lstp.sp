@@ -32,14 +32,14 @@ xq  qb q  vdd gnd inverter
 xqb q  qb vdd gnd inverter
 .ends
 
-.subckt sa sae saeb bl bbl sa_out sa_outb vdd
-xpvdd_acc vdd_acc saeb vdd vdd pfet l=lg nfin=1000m
+.subckt sa sae saeb bl bbl d_out vdd
 xngnd_acc gnd_acc sae  gnd gnd nfet l=lg nfin=1000m
 xneq  sa_outb saeb sa_out sa_out nfet l=lg nfin=1000m
-xpdiff  sa_outb sa_out  vdd_acc vdd pfet l=lg nfin=1000m
-xpdiffb sa_out  sa_outb vdd_acc vdd pfet l=lg nfin=1000m
+xpdiff  sa_outb sa_out  vdd vdd pfet l=lg nfin=1000m
+xpdiffb sa_out  sa_outb vdd vdd pfet l=lg nfin=1000m
 xndiff  sa_outb bl  gnd_acc gnd nfet l=lg nfin=1000m
 xndiffb sa_out  bbl gnd_acc gnd nfet l=lg nfin=1000m
+xd_out sa_outb  d_out vdd gnd inverter
 .ends
 $ Sources
 vdd vdd gnd vdd
@@ -56,16 +56,16 @@ xsaeb_0 sae_0 saeb_0 vdd gnd inverter
 $ Unit Under Test
 .subckt uut_grid vdd
 +sae_0 saeb_0 bl_0 bbl_0 we_0 data_0 wl_0 $inputs to uut_grid Subckt
-+sa_out_1 sa_outb_1 $outputs to uut_grid Subckt
++d_out_1 $outputs to uut_grid Subckt
 xprec_0 sae_0 bl_0 bbl_0 vdd prec
 xsram_00 wl_0 bl_0 bbl_0 vdd sram
 xwriting_0 we_0 data_0 bl_0 bbl_0 vdd writing
-xsa_0 sae_0 saeb_0 bl_0 bbl_0 sa_out_0 sa_outb_0 vdd sa
+xsa_0 sae_0 saeb_0 bl_0 bbl_0 d_out_0 vdd sa
 .ends
 $invoke UUT grid
 xuut_grid vdd
 +sae_0 saeb_0 bl_0 bbl_0 we_0 data_0 wl_0 $inputs to uut_grid
-+sa_out_0 sa_outb_0 $outputs to uut_grid
++d_out_0 $outputs to uut_grid
 +uut_grid
 
 $ Measurements
@@ -85,7 +85,7 @@ $ Measurements
 .measure tran sa_avg_hold_power_0 avg p(xuut_grid.xsa_0) from=0.27ns to=0.5ns
 .measure tran sa_avg_read_power_0 avg p(xuut_grid.xsa_0) from=0.5ns to=0.78ns
 .measure tran write_q_delay_00 trig v(wl_0) val=vdd_10 rise=1 targ v(xuut_grid.xsram_00.q) val=vdd_90 rise=1
-.measure tran read_q_delay_00  trig v(sae_0) val=vdd_10 rise=1 targ v(xuut_grid.sa_out_0) val=vdd_90 rise=1
+.measure tran read_q_delay_00  trig v(sae_0) val=vdd_10 rise=1 targ v(xuut_grid.d_out_0) val=vdd_90 rise=1
 .measure tran uut_avg_power avg p(xuut_grid)
 $ Simulation/Analysis Type
 .option post=2 ingold=2

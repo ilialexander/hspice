@@ -121,10 +121,14 @@ def main():
 #
     plt.figure(2)
     plt.title("Average Delay by FET size for \nHigh Performance ('red') and Low Standby Power ('blue')")
-    plt.scatter(ptm_sizes, hp_write_delay, color = "red")
-    plt.scatter(ptm_sizes, lstp_write_delay, color = "blue")
-    plt.scatter(ptm_sizes, hp_read_delay, color = "green")
-    plt.scatter(ptm_sizes, lstp_read_delay, color = "magenta")
+    plt.scatter(ptm_sizes, lstp_write_delay, color = "blue", label = "LSTP Write")
+    plt.scatter(ptm_sizes, lstp_read_delay, color = "green", label = "LSTP Read")
+    plt.scatter(ptm_sizes, hp_write_delay, color = "red", label = "HP Write")
+    plt.scatter(ptm_sizes, hp_read_delay, color = "black", label = "HP Read")
+    plt.xlabel("Width (nm)")
+    plt.ylabel("Delay (ps)")
+    plt.legend()
+
 
 #    color_list = ["magenta", "red", "blue", "green", "black"]
 #    plt.figure(3)

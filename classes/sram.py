@@ -133,14 +133,14 @@ class sram(inverter):
 
         '''Set sense amplifier'''
         # declare samp subckt
-        self.spice_file.write(".subckt sa sae saeb bl bbl sa_out sa_outb vdd\n")
-        self.spice_file.write("xpvdd_acc vdd_acc saeb vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write(".subckt sa sae saeb bl bbl d_out vdd\n")
         self.spice_file.write("xngnd_acc gnd_acc sae  gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write("xneq  sa_outb saeb sa_out sa_out nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xpdiff  sa_outb sa_out  vdd_acc vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xpdiffb sa_out  sa_outb vdd_acc vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xpdiff  sa_outb sa_out  vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xpdiffb sa_out  sa_outb vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write("xndiff  sa_outb bl  gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write("xndiffb sa_out  bbl gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xd_out sa_outb  d_out vdd gnd inverter\n")
         self.spice_file.write(".ends\n")
         return None
 
@@ -162,7 +162,7 @@ class sram(inverter):
             instance = str(instance)
             inout = str(outin + 1)
             # declare subckt outputs
-            self.spice_file.write("sa_out_" + inout + " " + "sa_outb_" + inout + " ")
+            self.spice_file.write("d_out_" + inout + " ")
         self.spice_file.write("$outputs to uut_grid Subckt\n")
 
         for outin in range(self.ser_instances):
@@ -177,7 +177,7 @@ class sram(inverter):
             # invoke writing subckt 
             self.spice_file.write("xwriting_" + inout + " " + "we_" + inout + " " + "data_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " vdd " + "writing\n")
             # invoke sense-amplifier subckt 
-            self.spice_file.write("xsa_" + inout + " " + "sae_" + inout + " " + "saeb_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " " + "sa_out_" + inout + " " + "sa_outb_" + inout + " vdd " + "sa\n")
+            self.spice_file.write("xsa_" + inout + " " + "sae_" + inout + " " + "saeb_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " " + "d_out_" + inout + " "+ "vdd" + " sa\n")
         self.spice_file.write(".ends\n")
 
         # invoke uut_grid
@@ -197,7 +197,7 @@ class sram(inverter):
         for outin in range(self.ser_instances):
             inout = str(outin)
             # declare subckt outputs
-            self.spice_file.write("sa_out_" + inout + " " + "sa_outb_" + inout + " ")
+            self.spice_file.write("d_out_" + inout + " ")
         self.spice_file.write("$outputs to uut_grid\n")
         self.spice_file.write("+uut_grid\n\n")
         return None
@@ -335,12 +335,12 @@ class sram(inverter):
                         # measures write q delay
                         self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xsram_" + inout + ins_str + ".q) val=vdd_90 rise=1\n")
                         # measures read delay
-                        self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.sa_out_" + inout + ") val=vdd_90 rise=1\n")
+                        self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.d_out_" + inout + ") val=vdd_90 rise=1\n")
                     else:
                         # measures write q delay
                         self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xsram_" + inout + ins_str + ".qb) val=vdd_90 rise=1\n")
                         # measures read delay
-                        self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.sa_outb_" + inout + ") val=vdd_90 rise=1\n")
+                        self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.d_out_" + inout + ") val=vdd_90 rise=1\n")
         self.spice_file.write(".measure tran uut_avg_power avg p(xuut_grid)\n")
         return None
 

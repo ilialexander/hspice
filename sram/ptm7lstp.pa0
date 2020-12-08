@@ -29,16 +29,18 @@
       29 xuut_grid.xwriting_0.xwrite_dbl.
       30 xuut_grid.xwriting_0.xwrite_dbbl.
       31 xuut_grid.xwriting_0.xq.
-      32 xuut_grid.xsa_0.xpvdd_acc.
-      33 xuut_grid.xsa_0.xngnd_acc.
-      34 xuut_grid.xsa_0.xneq.
-      35 xuut_grid.xsa_0.xpdiff.
-      36 xuut_grid.xsa_0.xpdiffb.
-      37 xuut_grid.xsa_0.xndiff.
-      38 xuut_grid.xsa_0.xndiffb.
+      32 xuut_grid.xsa_0.xngnd_acc.
+      33 xuut_grid.xsa_0.xneq.
+      34 xuut_grid.xsa_0.xpdiff.
+      35 xuut_grid.xsa_0.xpdiffb.
+      36 xuut_grid.xsa_0.xndiff.
+      37 xuut_grid.xsa_0.xndiffb.
+      38 xuut_grid.xsa_0.xd_out.
       39 xuut_grid.xsram_00.xq.xpfet.
       40 xuut_grid.xsram_00.xq.xnfet.
       41 xuut_grid.xsram_00.xqb.xpfet.
       42 xuut_grid.xsram_00.xqb.xnfet.
       43 xuut_grid.xwriting_0.xq.xpfet.
       44 xuut_grid.xwriting_0.xq.xnfet.
+      45 xuut_grid.xsa_0.xd_out.xpfet.
+      46 xuut_grid.xsa_0.xd_out.xnfet.
