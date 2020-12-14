@@ -10,7 +10,7 @@
  lic:  
  lic: FLEXlm: v10.8 
  lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu 
- lic: HOSTID:                      PID:      168508 
+ lic: HOSTID:                      PID:      92970 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -9064,7 +9064,7 @@
    LNIGBACC =      0 
    NNIGBACC =      0 
    PNIGBACC =      0 
-  **info** (ptm10hp.sp:52) DC voltage reset to initial transient source value              in source        0:vin_sae0            new dc=  0.8200D+00
+  **info** (ptm10hp.sp:52) DC voltage reset to initial transient source value              in source        0:vin_sae0            new dc=  0.7500D+00
   
   **warning**  No connections on node d_out_0; Node ignored.
       
@@ -9084,36 +9084,36 @@
  ***** operating point status is voltage   simulation time is   0.000e+00
      node    =voltage       node    =voltage       node    =voltage
 
- + 0:bbl_0   = 8.200e-01  0:bl_0    = 8.200e-01  0:d_out_0 = 0.000e+00
- + 0:data_0  = 1.612e-05  0:in_sae_0= 8.200e-01  0:in_we_0 = 8.200e-01
- + 0:in_wl_0 = 8.200e-01  0:sae_0   = 1.612e-05  0:saeb_0  = 8.200e-01
- + 0:vdd     = 8.200e-01  0:we_0    = 1.612e-05  0:wl_0    = 1.612e-05
- + 6:d_out_0 = 7.838e-05 18:q       = 4.024e-01 18:qb      = 4.024e-01
- +19:datab   = 8.200e-01 19:dbbl    = 1.601e-05 19:dbl     = 6.296e-02
- +20:gnd_acc = 7.593e-01 20:sa_out  = 7.678e-01 20:sa_outb = 7.678e-01
+ + 0:bbl_0   = 7.500e-01  0:bl_0    = 7.500e-01  0:d_out_0 = 0.000e+00
+ + 0:data_0  = 1.327e-05  0:in_sae_0= 7.500e-01  0:in_we_0 = 7.500e-01
+ + 0:in_wl_0 = 7.500e-01  0:sae_0   = 1.327e-05  0:saeb_0  = 7.500e-01
+ + 0:vdd     = 7.500e-01  0:we_0    = 1.327e-05  0:wl_0    = 1.327e-05
+ + 6:d_out_0 = 5.663e-05 18:q       = 3.682e-01 18:qb      = 3.682e-01
+ +19:datab   = 7.500e-01 19:dbbl    = 1.361e-05 19:dbl     = 5.811e-02
+ +20:gnd_acc = 6.940e-01 20:sa_out  = 7.024e-01 20:sa_outb = 7.023e-01
 
  ******  
  $ netlist of sram
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- uut_avg_write_power= 6.9667e-05  from= 0.0000e+00     to= 2.7000e-10
- uut_avg_hold_power= 6.3417e-08  from= 2.7000e-10     to= 5.0000e-10
- uut_avg_read_power= 1.5427e-06  from= 5.0000e-10     to= 7.8000e-10
- prec_avg_write_power_0= 4.5723e-05  from= 0.0000e+00     to= 2.7000e-10
- prec_avg_hold_power_0=-1.8027e-10  from= 2.7000e-10     to= 5.0000e-10
- prec_avg_read_power_0= 2.1539e-07  from= 5.0000e-10     to= 7.8000e-10
- sram_avg_write_power_00= 1.2112e-05  from= 0.0000e+00     to= 2.7000e-10
- sram_avg_hold_power_00= 1.3753e-08  from= 2.7000e-10     to= 5.0000e-10
- sram_avg_read_power_00= 2.0724e-07  from= 5.0000e-10     to= 7.8000e-10
- writing_avg_write_power_0= 1.1731e-05  from= 0.0000e+00     to= 2.7000e-10
- writing_avg_hold_power_0= 9.6751e-09  from= 2.7000e-10     to= 5.0000e-10
- writing_avg_read_power_0= 5.5677e-09  from= 5.0000e-10     to= 7.8000e-10
- sa_avg_writing_power_0= 1.0068e-07  from= 0.0000e+00     to= 2.7000e-10
- sa_avg_hold_power_0= 4.0169e-08  from= 2.7000e-10     to= 5.0000e-10
- sa_avg_read_power_0= 1.1145e-06  from= 5.0000e-10     to= 7.8000e-10
- write_q_delay_00= 8.0817e-12  targ= 8.2684e-12   trig= 1.8669e-13
- read_q_delay_00= 4.7426e-12  targ= 5.0586e-10   trig= 5.0112e-10
- uut_avg_power= 1.9324e-05  from= 0.0000e+00     to= 1.0000e-09
+ uut_avg_write_power= 5.8369e-05  from= 0.0000e+00     to= 2.0000e-11
+ uut_avg_hold_power= 4.6808e-08  from= 2.7000e-10     to= 5.0000e-10
+ uut_avg_read_power= 2.1587e-06  from= 4.8000e-10     to= 5.5000e-10
+ prec_avg_write_power_0= 2.7428e-05  from= 0.0000e+00     to= 2.0000e-11
+ prec_avg_hold_power_0=-6.0790e-11  from= 2.7000e-10     to= 5.0000e-10
+ prec_avg_read_power_0= 8.5843e-08  from= 4.8000e-10     to= 5.5000e-10
+ sram_avg_write_power_00= 1.5640e-05  from= 0.0000e+00     to= 2.0000e-11
+ sram_avg_hold_power_00= 1.0515e-08  from= 2.7000e-10     to= 5.0000e-10
+ sram_avg_read_power_00= 6.0195e-07  from= 4.8000e-10     to= 5.5000e-10
+ writing_avg_write_power_0= 1.5242e-05  from= 0.0000e+00     to= 2.0000e-11
+ writing_avg_hold_power_0= 7.5157e-09  from= 2.7000e-10     to= 5.0000e-10
+ writing_avg_read_power_0= 5.1108e-09  from= 4.8000e-10     to= 5.5000e-10
+ sa_avg_writing_power_0= 5.9441e-08  from= 0.0000e+00     to= 2.0000e-11
+ sa_avg_hold_power_0= 2.8839e-08  from= 2.7000e-10     to= 5.0000e-10
+ sa_avg_read_power_0= 1.4658e-06  from= 4.8000e-10     to= 5.5000e-10
+ write_q_delay_00= 8.9116e-12  targ= 9.1171e-12   trig= 2.0551e-13
+ read_q_delay_00= 5.2521e-12  targ= 5.0641e-10   trig= 5.0116e-10
+ uut_avg_power= 1.4923e-05  from= 0.0000e+00     to= 1.0000e-09
 
           ***** job concluded
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
@@ -9126,7 +9126,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2699.984
+ cpu MHz	: 2285.078
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -9156,19 +9156,19 @@
   ******  Runtime Statistics (seconds)  ******
 
   analysis           time    # points   tot. iter  conv.iter
-  op point           0.03           1         104
-  transient          0.13        1001         546         134 rev=         3
+  op point           0.05           1         104
+  transient          0.12        1001         520         133 rev=         2
   readin             0.01
   errchk             0.02
   setup              0.00
-  output             0.00
+  output             0.01
 
 
            peak memory used        135.46 megabytes
-           total cpu time            0.19 seconds
-           total elapsed time        0.43 seconds
-           job started at     10:28:22 12/08/2020
-           job ended   at     10:28:23 12/08/2020
+           total cpu time            0.20 seconds
+           total elapsed time        0.46 seconds
+           job started at     15:07:18 12/14/2020
+           job ended   at     15:07:19 12/14/2020
 
 
  lic: Release hspice token(s) 

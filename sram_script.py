@@ -24,8 +24,12 @@ def main():
     hp_read_delay = []        # collects hp delay data to graph
     lstp_write_delay = []      # collects lstp delay data to graph
     lstp_read_delay = []      # collects lstp delay data to graph
-    hp_power = []        # collects hp power data to graph
-    lstp_power = []      # collects lstp power data to graph
+    write_hp_power = []        # collects hp write power data to graph
+    write_lstp_power = []      # collects lstp write power data to graph
+    hold_hp_power = []        # collects hp hold power data to graph
+    hold_lstp_power = []      # collects lstp hold power data to graph
+    read_hp_power = []        # collects hp read power data to graph
+    read_lstp_power = []      # collects lstp read power data to graph
 
     timing_data = {}     # collects data to produce timing diagrams
     hp_timing_in = []    # stores the signal in data
@@ -69,32 +73,22 @@ def main():
             spice_file.write("$ Unit Under Test\n")
             subckts_modules.write_uut()
 
-#            spice_file.write("$ Output Loads\n")
-#            subckts_modules.write_outputs()
-#
-#
             spice_file.write("$ Measurements\n")
             subckts_modules.measure_power()
             subckts_modules.measure_delays()
-#            subckts_modules.print_wave()
-#
+
             spice_file.write("$ Simulation/Analysis Type\n")
             subckts_modules.analysis_type()
-#
+
         # run hspice
         subckts_modules.run_hspice()
 
         # collect all series
         (power_series, delay_series) = subckts_modules.collect_data()
-#
-#        # collects all timing data
-#        timing_data[subuut] = timing_series
-#
+
         # collects delay values and calculates delay average
         write_delay = list(subckts_modules.clean_data(0, 2, delay_series).values())[-1]
         read_delay = list(subckts_modules.clean_data(1, 2, delay_series).values())[-1]
-        print(write_delay)
-        print(read_delay)
 
         if "hp" in subuut:
             hp_subuuts.append(subuut) # collects all hp subuut names
@@ -104,7 +98,9 @@ def main():
             hp_write_delay.append(write_delay * 1e12)
             hp_read_delay.append(read_delay * 1e12)
             # collects all hp powers
-#            hp_power.append(subckts_modules.clean_data(2, 3, power_series)["fo4_inverter_avg_power"] * 1e9)# * 1e12)
+            write_hp_power.append(power_series[7][1] * 1e9)
+            read_hp_power.append(power_series[9][1] * 1e9)
+            hold_hp_power.append(power_series[8][1] * 1e9)
 
         if "lstp" in subuut:
             lstp_subuuts.append(subuut) # collects all lstp subuut names
@@ -112,53 +108,56 @@ def main():
             lstp_write_delay.append(write_delay * 1e12)
             lstp_read_delay.append(read_delay * 1e12)
             # collects all lstp powers
-#            lstp_power.append(subckts_modules.clean_data(2, 3, power_series)["fo4_inverter_avg_power"] * 1e9)# * 1e12)
+            write_lstp_power.append(power_series[7][1] * 1e9)
+            read_lstp_power.append(power_series[9][1] * 1e6)
+            hold_lstp_power.append(power_series[8][1] * 1e9)
 
-#    plt.figure(1)
-#    plt.title("Average Power by FET size for \nHigh Performance ('red') and Low Standby Power ('blue')")
-#    plt.scatter(ptm_sizes, hp_power, color = "red")
-#    plt.scatter(ptm_sizes, lstp_power)
-#
-    plt.figure(2)
+    plt.figure(6)
+    plt.title("Average Write Power by FET Size")
+    plt.scatter(ptm_sizes, write_hp_power, color = "red", label = "High Performance")
+    plt.xlabel("Width (nm)")
+    plt.ylabel("Power (nw)")
+    plt.legend()
+
+#    plt.figure(2)
+#    plt.title("Average Write Power by FET Size")
+#    plt.scatter(ptm_sizes, write_lstp_power, color = "blue", label = "Low Standby Power")
+#    plt.xlabel("Width (nm)")
+#    plt.ylabel("Power (nw)")
+#    plt.legend()
+
+    plt.figure(3)
+    plt.title("Average Read Power by FET Size")
+    plt.scatter(ptm_sizes, read_hp_power, color = "red", label = "High Performance")
+#    plt.scatter(ptm_sizes, read_lstp_power, color = "blue", label = "Low Standby Power")
+    plt.xlabel("Width (nm")
+    plt.ylabel("Power (nw)")
+    plt.legend()
+
+    plt.figure(4)
+    plt.title("Average Hold Power by FET Size")
+    plt.scatter(ptm_sizes, hold_hp_power, color = "red", label = "High Performance")
+    plt.xlabel("Width (nm)")
+    plt.ylabel("Power (nw)")
+    plt.legend()
+
+#    plt.figure(5)
+#    plt.title("Average Hold Power by FET Size")
+#    plt.scatter(ptm_sizes, hold_lstp_power, color = "blue", label = "Low Standby Power")
+#    plt.xlabel("Width (nm)")
+#    plt.ylabel("Power (nw)")
+#    plt.legend()
+
+    plt.figure(1)
     plt.title("Average Delay by FET size for \nHigh Performance ('red') and Low Standby Power ('blue')")
-    plt.scatter(ptm_sizes, lstp_write_delay, color = "blue", label = "LSTP Write")
-    plt.scatter(ptm_sizes, lstp_read_delay, color = "green", label = "LSTP Read")
+#    plt.scatter(ptm_sizes, lstp_write_delay, color = "blue", label = "LSTP Write")
+#    plt.scatter(ptm_sizes, lstp_read_delay, color = "green", label = "LSTP Read")
     plt.scatter(ptm_sizes, hp_write_delay, color = "red", label = "HP Write")
     plt.scatter(ptm_sizes, hp_read_delay, color = "black", label = "HP Read")
     plt.xlabel("Width (nm)")
     plt.ylabel("Delay (ps)")
     plt.legend()
 
-
-#    color_list = ["magenta", "red", "blue", "green", "black"]
-#    plt.figure(3)
-#    plt.title("Signal In to the FO4 chain inverter \nHigh Performance")
-#    plt.xlim(0, 1)
-#    plt.ylim(0, .91)
-#    for subuut, color in zip(hp_subuuts, color_list):
-#        plt.plot(timing_data[subuut][0], timing_data[subuut][1], color = color)
-#
-#    plt.figure(4)
-#    plt.title("Signal Out of the FO4 chain inverter \nHigh Performance")
-#    plt.xlim(0, 1)
-#    plt.ylim(0, .91)
-#    for subuut, color in zip(hp_subuuts, color_list):
-#        plt.plot(timing_data[subuut][0], timing_data[subuut][2], color = color)
-# 
-#    plt.figure(5)
-#    plt.title("Signal In to the FO4 chain inverter \nLow Standby Power")
-#    plt.xlim(0, 1)
-#    plt.ylim(0, .91)
-#    for subuut, color in zip(lstp_subuuts, color_list):
-#        plt.plot(timing_data[subuut][0], timing_data[subuut][1], color = color)
-#
-#    plt.figure(6)
-#    plt.title("Signal Out of the FO4 chain inverter \nLow Standby Power")
-#    plt.xlim(0, 1)
-#    plt.ylim(0, .91)
-#    for subuut, color in zip(lstp_subuuts, color_list):
-#        plt.plot(timing_data[subuut][0], timing_data[subuut][2], color = color)
-#
     plt.show()
 
 

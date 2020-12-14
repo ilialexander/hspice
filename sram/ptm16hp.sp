@@ -69,21 +69,21 @@ xuut_grid vdd
 +uut_grid
 
 $ Measurements
-.measure tran uut_avg_write_power avg p(xuut_grid) from=0 to=0.27ns
+.measure tran uut_avg_write_power avg p(xuut_grid) from=0 to=20ps
 .measure tran uut_avg_hold_power avg p(xuut_grid) from=0.27ns to=0.5ns
-.measure tran uut_avg_read_power avg p(xuut_grid) from=0.5ns to=0.78ns
-.measure tran prec_avg_write_power_0 avg p(xuut_grid.xprec_0) from=0 to=0.27ns
+.measure tran uut_avg_read_power avg p(xuut_grid) from=0.48ns to=0.55ns
+.measure tran prec_avg_write_power_0 avg p(xuut_grid.xprec_0) from=0 to=20ps
 .measure tran prec_avg_hold_power_0 avg p(xuut_grid.xprec_0) from=0.27ns to=0.5ns
-.measure tran prec_avg_read_power_0 avg p(xuut_grid.xprec_0) from=0.5ns to=0.78ns
-.measure tran sram_avg_write_power_00 avg p(xuut_grid.xsram_00) from=0 to=0.27ns
+.measure tran prec_avg_read_power_0 avg p(xuut_grid.xprec_0) from=0.48ns to=0.55ns
+.measure tran sram_avg_write_power_00 avg p(xuut_grid.xsram_00) from=0 to=20ps
 .measure tran sram_avg_hold_power_00 avg p(xuut_grid.xsram_00) from=0.27ns to=0.5ns
-.measure tran sram_avg_read_power_00 avg p(xuut_grid.xsram_00) from=0.5ns to=0.78ns
-.measure tran writing_avg_write_power_0 avg p(xuut_grid.xwriting_0) from=0 to=0.27ns
+.measure tran sram_avg_read_power_00 avg p(xuut_grid.xsram_00) from=0.48ns to=0.55ns
+.measure tran writing_avg_write_power_0 avg p(xuut_grid.xwriting_0) from=0 to=20ps
 .measure tran writing_avg_hold_power_0 avg p(xuut_grid.xwriting_0) from=0.27ns to=0.5ns
-.measure tran writing_avg_read_power_0 avg p(xuut_grid.xwriting_0) from=0.5ns to=0.78ns
-.measure tran sa_avg_writing_power_0 avg p(xuut_grid.xsa_0) from=0 to=0.27ns
+.measure tran writing_avg_read_power_0 avg p(xuut_grid.xwriting_0) from=0.48ns to=0.55ns
+.measure tran sa_avg_writing_power_0 avg p(xuut_grid.xsa_0) from=0 to=20ps
 .measure tran sa_avg_hold_power_0 avg p(xuut_grid.xsa_0) from=0.27ns to=0.5ns
-.measure tran sa_avg_read_power_0 avg p(xuut_grid.xsa_0) from=0.5ns to=0.78ns
+.measure tran sa_avg_read_power_0 avg p(xuut_grid.xsa_0) from=0.48ns to=0.55ns
 .measure tran write_q_delay_00 trig v(wl_0) val=vdd_10 rise=1 targ v(xuut_grid.xsram_00.q) val=vdd_90 rise=1
 .measure tran read_q_delay_00  trig v(sae_0) val=vdd_10 rise=1 targ v(xuut_grid.d_out_0) val=vdd_90 rise=1
 .measure tran uut_avg_power avg p(xuut_grid)
