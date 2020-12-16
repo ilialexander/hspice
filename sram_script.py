@@ -53,7 +53,7 @@ def main():
 
             sim_type = "tran"      # simulation type, e.g., tran, dc
             sim_tinc = "1p"        # time step for simulations
-            sim_time = "1"        # str(2 ** parallel_instances) # simulataion time
+            sim_time = "1"        # str(2 ** parallel_instances) # simulataion time in ns
             data = 1
             sim_params = (sim_type, sim_tinc, sim_time, data)
 
@@ -94,25 +94,21 @@ def main():
             hp_subuuts.append(subuut) # collects all hp subuut names
             # collects all ptm sizes
             ptm_sizes.append(int(subuut.replace("ptm","").replace("hp","")))
-            # collects all hp delays
             hp_write_delay.append(write_delay * 1e12)
             hp_read_delay.append(read_delay * 1e12)
-            # collects all hp powers
             write_hp_power.append(power_series[7][1] * 1e9)
             read_hp_power.append(power_series[9][1] * 1e9)
             hold_hp_power.append(power_series[8][1] * 1e9)
 
         if "lstp" in subuut:
             lstp_subuuts.append(subuut) # collects all lstp subuut names
-            # collects all lstp delays
             lstp_write_delay.append(write_delay * 1e12)
             lstp_read_delay.append(read_delay * 1e12)
-            # collects all lstp powers
             write_lstp_power.append(power_series[7][1] * 1e9)
             read_lstp_power.append(power_series[9][1] * 1e6)
             hold_lstp_power.append(power_series[8][1] * 1e9)
 
-    plt.figure(6)
+    plt.figure(1)
     plt.title("Average Write Power by FET Size")
     plt.scatter(ptm_sizes, write_hp_power, color = "red", label = "High Performance")
     plt.xlabel("Width (nm)")
@@ -126,7 +122,7 @@ def main():
 #    plt.ylabel("Power (nw)")
 #    plt.legend()
 
-    plt.figure(3)
+    plt.figure(2)
     plt.title("Average Read Power by FET Size")
     plt.scatter(ptm_sizes, read_hp_power, color = "red", label = "High Performance")
 #    plt.scatter(ptm_sizes, read_lstp_power, color = "blue", label = "Low Standby Power")
@@ -134,7 +130,7 @@ def main():
     plt.ylabel("Power (nw)")
     plt.legend()
 
-    plt.figure(4)
+    plt.figure(3)
     plt.title("Average Hold Power by FET Size")
     plt.scatter(ptm_sizes, hold_hp_power, color = "red", label = "High Performance")
     plt.xlabel("Width (nm)")
@@ -148,10 +144,10 @@ def main():
 #    plt.ylabel("Power (nw)")
 #    plt.legend()
 
-    plt.figure(1)
+    plt.figure(4)
     plt.title("Average Delay by FET size for \nHigh Performance ('red') and Low Standby Power ('blue')")
 #    plt.scatter(ptm_sizes, lstp_write_delay, color = "blue", label = "LSTP Write")
-#    plt.scatter(ptm_sizes, lstp_read_delay, color = "green", label = "LSTP Read")
+    plt.scatter(ptm_sizes, lstp_read_delay, color = "green", label = "LSTP Read")
     plt.scatter(ptm_sizes, hp_write_delay, color = "red", label = "HP Write")
     plt.scatter(ptm_sizes, hp_read_delay, color = "black", label = "HP Read")
     plt.xlabel("Width (nm)")

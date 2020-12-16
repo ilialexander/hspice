@@ -1,0 +1,28 @@
+* "simulator" "HSPICE" 
+* "version" "F-2011.09-SP2 64-BIT"
+* "format" "HSP"
+* "rundate" "21:29:18 12/15/2020 "
+* "netlist" "ptm14lstp.sp "
+* "runtitle" "$ netlist of sram_lstp"
+* time =  0.000e+00       
+* temperature =  2.500e+01       
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc= 1.000e-12       
+.nodeset
++ bbl_0 = 4.372e-01       
++ bl_0 = 6.711e-01       
++ data_0 = 3.182e-08       
++ in_phi_0 = 0.000e+00       
++ in_we_0 = 8.000e-01       
++ in_wl_0 = 8.000e-01       
++ phi_0 = 8.000e-01       
++ vdd = 8.000e-01       
++ we_0 = 3.181e-08       
++ wl_0 = 3.692e-08       
++ xuut_grid.xsram_00.q = 3.977e-01       
++ xuut_grid.xsram_00.qb = 3.977e-01       
++ xuut_grid.xwriting_0.datab = 8.000e-01       
++ xuut_grid.xwriting_0.dbbl = 2.347e-08       
++ xuut_grid.xwriting_0.dbl = 4.643e-02       
+***   END: Saved Operating Point ***                     

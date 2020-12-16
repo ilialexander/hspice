@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "F-2011.09-SP2 64-BIT"
 * "format" "HSP"
-* "rundate" "15:07:21 12/14/2020 "
+* "rundate" "21:31:08 12/15/2020 "
 * "netlist" "ptm16lstp.sp "
 * "runtitle" "$ netlist of sram"
 * time =  0.000e+00       

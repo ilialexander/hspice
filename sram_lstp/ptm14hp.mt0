@@ -1,0 +1,14 @@
+$DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
+.TITLE '$ netlist of sram_lstp'
+ uut_avg_write_power uut_avg_hold_power uut_avg_read_power  
+ prec_avg_write_power_0 prec_avg_hold_power_0 prec_avg_read_power_0  
+ sram_avg_write_power_00 sram_avg_hold_power_00 sram_avg_read_power_00  
+ writing_avg_write_power_0 writing_avg_hold_power_0  
+ writing_avg_read_power_0 sa_avg_writing_power_0 sa_avg_hold_power_0  
+ sa_avg_read_power_0 write_q_delay_00 uut_avg_power     
+ temper           alter#            
+  2.629e-05        6.656e-08        1.097e-06        1.314e-06        
+  6.525e-09        1.076e-06        2.497e-05        3.364e-08        
+  1.220e-08        8.980e-09        2.640e-08        8.590e-09        
+    failed           failed           failed         6.606e-12        
+  1.899e-06        2.500e+01       1                 

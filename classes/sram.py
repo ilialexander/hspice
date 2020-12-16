@@ -42,7 +42,7 @@ class sram(inverter):
             rise_time_str = str(fall_time / 2)    # time from lowest value to lowest
             fall_time_str = str(fall_time)
             ins_str = str(instance)
-            # sets input wave
+            # sets world line wave
             self.spice_file.write("vin_wl_" + ins_str + " in_wl_" + ins_str + "  gnd  pulse(vdd " + "0v 0s " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
             self.spice_file.write("xwl_" + ins_str + " in_wl_" + ins_str + " wl_" + ins_str + " vdd gnd " + "inverter\n")
 
@@ -51,7 +51,7 @@ class sram(inverter):
             rise_time_str = str(fall_time / 2)    # time from lowest value to lowest
             fall_time_str = str(fall_time)
             inout = str(outin)
-            # sets input wave
+            # sets data wave
             if self.data == 1:
                 self.spice_file.write("xdata_" + inout + " vdd data_" + inout + " vdd gnd " + "inverter\n")
             else:
@@ -60,8 +60,10 @@ class sram(inverter):
             fall_time = (2) * (2 ** instance) # time from highest value to lowest, it provides a virtual binary count
             rise_time_str = str(fall_time / 8)    # time from lowest value to lowest
             fall_time_str = str(fall_time)
+            # sets write enable wave
             self.spice_file.write("vin_we_" + ins_str + " in_we_" + ins_str + "  gnd  pulse(vdd " + "0v 0n " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
             self.spice_file.write("xwe_" + ins_str + " in_we_" + ins_str + " we_" + ins_str + " vdd gnd " + "inverter\n")
+            # sets sense amplifier enable / reading enable wave
             self.spice_file.write("vin_sae" + inout + " in_sae_" + inout + "  gnd  pulse(vdd " + "0v .5ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
             self.spice_file.write("xsae_" + inout + " in_sae_" + inout + " sae_" + inout + " vdd gnd " + "inverter\n")
             self.spice_file.write("xsaeb_" + inout + " sae_" + inout + " saeb_" + inout + " vdd gnd " + "inverter\n")
@@ -87,52 +89,36 @@ class sram(inverter):
 
     '''UUTs'''
     def set_cells_subckts(self):
-        '''Set inverter subckt'''
-        # declare subckt name, input, output, and source
+        # declare inverter subckt
         self.spice_file.write(".subckt inverter in out vdd gnd\n")
-        # call pfet model name, and decaler its input, output, and source
         self.spice_file.write("xpfet out in vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
-        # call nfet model name, and decaler its input, output, and source
         self.spice_file.write("xnfet out in gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write(".ends\n\n")
 
-        '''Set blline conditioning subckt'''
         # declare blline conditioning/pre-charge subckt
         self.spice_file.write(".subckt prec sae bl bbl vdd\n")
         self.spice_file.write("xsae   bl  sae vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write("xsae_b bbl sae vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write(".ends\n\n")
 
-        '''Set write subckt'''
         # declare write subckt
         self.spice_file.write(".subckt writing we data bl bbl vdd\n")
-        # sets bl access transistor
         self.spice_file.write("xwrite_bl  bl  we dbl  gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        # sets bbl access transistor
         self.spice_file.write("xwrite_bbl bbl we dbbl gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        # sets data access transistor
         self.spice_file.write("xwrite_dbl  dbl  data gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        # sets datab access transistor
         self.spice_file.write("xwrite_dbbl dbbl datab gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        # sets datab
         self.spice_file.write("xq  data datab vdd gnd inverter\n")
         self.spice_file.write(".ends\n\n")
 
-        '''Set sram subckt'''
         # declare sram subckt
         self.spice_file.write(".subckt sram wl bl bbl vdd\n")
-        # sets bl access transistor
         self.spice_file.write("xnfet_bl  bl  wl q  q  nfet l=lg nfin=" + self.fet_nfin + "\n")
-        # sets bbl access transistor
         self.spice_file.write("xnfet_bbl bbl wl qb qb nfet l=lg nfin=" + self.fet_nfin + "\n")
-        # sets q | left latch
         self.spice_file.write("xq  qb q  vdd gnd inverter\n")
-        # sets qb | right latch
         self.spice_file.write("xqb q  qb vdd gnd inverter\n")
         self.spice_file.write(".ends\n\n")
 
-        '''Set sense amplifier'''
-        # declare samp subckt
+        # declare sense amplifier subckt
         self.spice_file.write(".subckt sa sae saeb bl bbl d_out vdd\n")
         self.spice_file.write("xngnd_acc gnd_acc sae  gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write("xneq  sa_outb saeb sa_out sa_out nfet l=lg nfin=" + self.fet_nfin + "\n")
@@ -280,27 +266,6 @@ class sram(inverter):
                 (delay_flag, delay_line_data) = self.read_meas("sa_avg_read_power", "uut_avg_power", line, delay_flag)
                 if (delay_flag) and len(delay_line_data):
                     delay_series.append(delay_line_data)
-                # reads the timing measurements from .lis file
-#                (timing_flag, timing_line_data) = self.read_meas("x\n", "y\n", line, timing_flag)
-#                if (timing_flag == 1) and len(timing_line_data):
-#                    if timing_len:# == len(timing_line_data):
-#                        for i in range(timing_len):
-#                            try:
-#                                if not(i):
-#                                    timing_series[i].append(timing_line_data[i] * 1e9) # 1e9 makes diagram visualization better
-#                                else:
-#                                    timing_series[i].append(timing_line_data[i])
-#                            except:
-#                                continue
-#                    else:
-#                        timing_len = len(timing_line_data) # gets width of measurments to create proper matrix
-#                        timing_series = [[] for i in range(timing_len)] # creates a matrix of proper width
-#                if (old_timing_flag == 1) and (timing_flag == 0):
-#                    for i in range(1, timing_len - 1):
-#                        timing_series[i].pop(0) # delete redundant item
-#                old_timing_flag = timing_flag
-#
-#        # returns power, delay and timing data
         return (power_series, delay_series)
 
 
@@ -312,15 +277,6 @@ class sram(inverter):
             model_uut_data[datum[0]] = datum[1]
 
         return model_uut_data        
-
-
-    def get_power_avg(self, subuut_power_data):
-        '''NOT IN USE'''
-        subuut_avg_power = []
-        for power_keys in list(subuut_power_data.keys()):
-            if "model_uut" in power_keys:
-                subuut_avg_power.append(subuut_power_data.pop(power_keys))
-        return sum(subuut_avg_power) / len(subuut_avg_power)
 
 
     def measure_delays(self):
@@ -374,19 +330,4 @@ class sram(inverter):
 
         return None
 
-
-#    def print_wave(self):
-#        '''Prints each datapoint to .lis file'''
-#        self.uut_subckt = []
-#        for instance in range(self.par_instances):
-#            for outin in range(self.ser_instances):
-#                ins_str = str(instance)
-#                inout = str(outin + 1)
-#                outin = str(outin)
-#                # prints data per input-output pair in each model_uut subckt
-#                self.spice_file.write(".print TRAN V(" + "outin_" + outin + ins_str + ") V(" + "outin_" + inout + ins_str + ")\n")
-#                self.uut_subckt.append("xinverter" + outin + ins_str)
-#                
-#        self.spice_file.write("\n")
-#        return None
 
