@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "F-2011.09-SP2 64-BIT"
 * "format" "HSP"
-* "rundate" "20:13:41 12/16/2020 "
+* "rundate" "12:29:44 12/17/2020 "
 * "netlist" "ptm16hp.sp "
 * "runtitle" "$ netlist of sram"
 * time =  0.000e+00       
@@ -10,10 +10,10 @@
 .option 
 + gmindc= 1.000e-12       
 .nodeset
-+ bbl_0 = 3.330e-02       
-+ bl_0 = 4.264e-01       
++ bbl_0 = 2.512e-01       
++ bl_0 = 2.512e-01       
 + d_out_0 = 0.000e+00       
-+ data_0 = 2.156e-05       
++ data_0 = 2.374e-05       
 + in_phi_0 = 0.000e+00       
 + in_sae_0 = 8.500e-01       
 + in_we_0 = 8.500e-01       
@@ -24,12 +24,10 @@
 + vdd = 8.500e-01       
 + we_0 = 1.942e-05       
 + wl_0 = 1.942e-05       
-+ xuut_grid.d_out_0 = 5.801e-05       
 + xuut_grid.xprec_0.vdd = 8.500e-01       
 + xuut_grid.xsram_00.q = 4.136e-01       
 + xuut_grid.xsram_00.qb = 4.136e-01       
 + xuut_grid.xwriting_0.datab = 8.500e-01       
-+ xuut_grid.xsa_0.gnd_acc = 4.236e-01       
-+ xuut_grid.xsa_0.sa_out = 8.247e-01       
-+ xuut_grid.xsa_0.sa_outb = 8.150e-01       
++ xuut_grid.xsa_0.gnd_acc = 2.396e-01       
++ xuut_grid.xsa_0.vdd_acc = 2.857e-01       
 ***   END: Saved Operating Point ***                     

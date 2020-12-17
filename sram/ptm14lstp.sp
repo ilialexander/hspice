@@ -29,14 +29,14 @@ xq  qb q  vdd inverter
 xqb q  qb vdd inverter
 .ends
 
-.subckt sa sae saeb bl bbl d_out vdd
-xngnd_acc gnd_acc sae  gnd gnd nfet l=lg nfin=1000m
-xneq  sa_outb saeb sa_out gnd nfet l=lg nfin=1000m
-xpdiff  sa_outb sa_out  vdd vdd pfet l=lg nfin=1000m
-xpdiffb sa_out  sa_outb vdd vdd pfet l=lg nfin=1000m
-xndiff  sa_outb bl  gnd_acc gnd nfet l=lg nfin=1000m
-xndiffb sa_out  bbl gnd_acc gnd nfet l=lg nfin=1000m
-xd_out sa_outb  d_out vdd inverter
+.subckt sa sae saeb bl bbl vdd
+xvdd_acc vdd_acc saeb vdd vdd pfet l=lg nfin=1000m
+xgnd_acc gnd_acc sae  gnd gnd nfet l=lg nfin=1000m
+xneq  bl saeb bbl gnd nfet l=lg nfin=1000m
+xpdiff  bl  bbl vdd_acc vdd pfet l=lg nfin=1000m
+xpdiffb bbl bl  vdd_acc vdd pfet l=lg nfin=1000m
+xndiff  bl  bbl gnd_acc gnd nfet l=lg nfin=1000m
+xndiffb bbl bl  gnd_acc gnd nfet l=lg nfin=1000m
 .ends
 $ Sources
 vdd vdd gnd vdd
@@ -44,11 +44,11 @@ $Sources
 vin_wl_0 in_wl_0  gnd  pulse(vdd 0v 0s 1p 1p 0.25n 0.5n)
 xwl_0 in_wl_0 wl_0 vdd inverter
 xdata_0 vdd data_0 vdd inverter
-vin_phi0 in_phi_0  gnd  pulse(0v vdd 0ns 1p 1p 0.07n .5n)
+vin_phi0 in_phi_0  gnd  pulse(0v vdd 0ns 1p 1p 0.07n 2n)
 xphi_0 in_phi_0 phi_0 vdd inverter
 vin_we_0 in_we_0  gnd  pulse(vdd 0v 0n 1p 1p 0.25n 2n)
 xwe_0 in_we_0 we_0 vdd inverter
-vin_sae0 in_sae_0  gnd  pulse(vdd 0v .5ns 1p 1p 0.25n 2n)
+vin_sae0 in_sae_0  gnd  pulse(vdd 0v .6ns 1p 1p 0.25n 2n)
 xsae_0 in_sae_0 sae_0 vdd inverter
 xsaeb_0 sae_0 saeb_0 vdd inverter
 
@@ -59,7 +59,7 @@ $ Unit Under Test
 xprec_0 phi_0 bl_0 bbl_0 prec
 xsram_00 wl_0 bl_0 bbl_0 vdd sram
 xwriting_0 we_0 data_0 bl_0 bbl_0 vdd writing
-xsa_0 sae_0 saeb_0 bl_0 bbl_0 d_out_0 vdd sa
+xsa_0 sae_0 saeb_0 bl_0 bbl_0 vdd sa
 .ends
 $invoke UUT grid
 xuut_grid vdd
@@ -84,7 +84,7 @@ $ Measurements
 .measure tran sa_avg_hold_power_0 avg p(xuut_grid.xsa_0) from=0.27ns to=0.5ns
 .measure tran sa_avg_read_power_0 avg p(xuut_grid.xsa_0) from=0.48ns to=0.55ns
 .measure tran write_q_delay_00 trig v(wl_0) val=vdd_10 rise=1 targ v(xuut_grid.xsram_00.q) val=vdd_90 rise=1
-.measure tran read_q_delay_00  trig v(sae_0) val=vdd_10 rise=1 targ v(xuut_grid.d_out_0) val=vdd_90 rise=1
+.measure tran read_q_delay_00  trig v(sae_0) val=vdd_10 rise=1 targ v(xuut_grid.bl_0) val=vdd_90 rise=1
 .measure tran uut_avg_power avg p(xuut_grid)
 $ Simulation/Analysis Type
 .option post=2 ingold=2

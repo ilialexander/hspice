@@ -57,17 +57,17 @@ class sram(inverter):
             else:
                 self.spice_file.write("xdata_" + inout + " gnd data_" + inout + " vdd " + "inverter\n")
 
-            self.spice_file.write("vin_phi" + inout + " in_phi_" + inout + "  gnd  pulse(0v " + "vdd 0ns " + self.sim_tinc + " " + self.sim_tinc + " 0.07n .5n)\n")
-            self.spice_file.write("xphi_" + inout + " in_phi_" + inout + " phi_" + inout + " vdd " + "inverter\n")
 
             fall_time = (2) * (2 ** instance) # time from highest value to lowest, it provides a virtual binary count
             rise_time_str = str(fall_time / 8)    # time from lowest value to lowest
             fall_time_str = str(fall_time)
+            self.spice_file.write("vin_phi" + inout + " in_phi_" + inout + "  gnd  pulse(0v " + "vdd 0ns " + self.sim_tinc + " " + self.sim_tinc + " 0.07n " + fall_time_str + "n)\n")
+            self.spice_file.write("xphi_" + inout + " in_phi_" + inout + " phi_" + inout + " vdd " + "inverter\n")
             # sets write enable wave
             self.spice_file.write("vin_we_" + ins_str + " in_we_" + ins_str + "  gnd  pulse(vdd " + "0v 0n " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
             self.spice_file.write("xwe_" + ins_str + " in_we_" + ins_str + " we_" + ins_str + " vdd " + "inverter\n")
             # sets sense amplifier enable / reading enable wave
-            self.spice_file.write("vin_sae" + inout + " in_sae_" + inout + "  gnd  pulse(vdd " + "0v .5ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
+            self.spice_file.write("vin_sae" + inout + " in_sae_" + inout + "  gnd  pulse(vdd " + "0v .6ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
             self.spice_file.write("xsae_" + inout + " in_sae_" + inout + " sae_" + inout + " vdd " + "inverter\n")
             self.spice_file.write("xsaeb_" + inout + " sae_" + inout + " saeb_" + inout + " vdd " + "inverter\n")
 
@@ -119,14 +119,14 @@ class sram(inverter):
         self.spice_file.write(".ends\n\n")
 
         # declare sense amplifier subckt
-        self.spice_file.write(".subckt sa sae saeb bl bbl d_out vdd\n")
-        self.spice_file.write("xngnd_acc gnd_acc sae  gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xneq  sa_outb saeb sa_out gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xpdiff  sa_outb sa_out  vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xpdiffb sa_out  sa_outb vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xndiff  sa_outb bl  gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xndiffb sa_out  bbl gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xd_out sa_outb  d_out vdd inverter\n")
+        self.spice_file.write(".subckt sa sae saeb bl bbl vdd\n")
+        self.spice_file.write("xvdd_acc vdd_acc saeb vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xgnd_acc gnd_acc sae  gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xneq  bl saeb bbl gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xpdiff  bl  bbl vdd_acc vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xpdiffb bbl bl  vdd_acc vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xndiff  bl  bbl gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xndiffb bbl bl  gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write(".ends\n")
         return None
 
@@ -163,7 +163,7 @@ class sram(inverter):
             # invoke writing subckt 
             self.spice_file.write("xwriting_" + inout + " " + "we_" + inout + " " + "data_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " vdd " + "writing\n")
             # invoke sense-amplifier subckt 
-            self.spice_file.write("xsa_" + inout + " " + "sae_" + inout + " " + "saeb_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " " + "d_out_" + inout + " "+ "vdd" + " sa\n")
+            self.spice_file.write("xsa_" + inout + " " + "sae_" + inout + " " + "saeb_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " " + "vdd" + " sa\n")
         self.spice_file.write(".ends\n")
 
         # invoke uut_grid
@@ -291,7 +291,7 @@ class sram(inverter):
                         # measures write q delay
                         self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xsram_" + inout + ins_str + ".q) val=vdd_90 rise=1\n")
                         # measures read delay
-                        self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.d_out_" + inout + ") val=vdd_90 rise=1\n")
+                        self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.bl_" + inout + ") val=vdd_90 rise=1\n")
                     else:
                         # measures write q delay
                         self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xsram_" + inout + ins_str + ".qb) val=vdd_90 rise=1\n")
