@@ -2,38 +2,76 @@
  Input File: ptm14lstp.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu
- lic: HOSTID:                      PID:      108325
+ lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu
+ lic: HOSTID:                      PID:      42107
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
  lic: License/Maintenance for hspice will expire on 18-jul-2021/2019.06
  lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu
  lic:
- init: begin read circuit files,  cpu clock=  3.00E-02
+ init: begin read circuit files,  cpu clock=  2.00E-02
        option post     =     2.00
        option ingold   =     2.00
- init: end read circuit files,  cpu clock=  3.00E-02 memory=       158 kb
- init: begin check errors,  cpu clock=  3.00E-02
- init: end check errors,  cpu clock=  5.00E-02 memory=       424 kb
- init: begin setup matrix, pivot=     0 cpu clock=  5.00E-02
-       establish matrix -- done,  cpu clock=  5.00E-02 memory=       483 kb
-       re-order matrix -- done,  cpu clock=  5.00E-02 memory=       476 kb
- init: end setup matrix,  cpu clock=  5.00E-02 memory=       576 kb
- dcop: begin dcop,  cpu clock=  5.00E-02
- dcop: end dcop,  cpu clock=  8.00E-02 memory=       576 kb  tot_iter=     111
+ init: end read circuit files,  cpu clock=  2.00E-02 memory=       158 kb
+ init: begin check errors,  cpu clock=  2.00E-02
+ init: end check errors,  cpu clock=  4.00E-02 memory=       424 kb
+ init: begin setup matrix, pivot=     0 cpu clock=  4.00E-02
+       establish matrix -- done,  cpu clock=  4.00E-02 memory=       481 kb
+       re-order matrix -- done,  cpu clock=  4.00E-02 memory=       475 kb
+ init: end setup matrix,  cpu clock=  4.00E-02 memory=       572 kb
+ dcop: begin dcop,  cpu clock=  4.00E-02
+       establish matrix -- done,  cpu clock=  5.00E-02 memory=       490 kb
+       re-order matrix -- done,  cpu clock=  5.00E-02 memory=       484 kb
+ dcop: begin pseudo transient
+ dcop: ...failed in final try
+ dcop: end pseudo transient
+ dcop: begin gshunt ramping
+ dcop: gshunt =      0.1000000E-03, gmin =      0.1000000E-11, iter =        8
+ dcop: gshunt =      0.1000000E-04, gmin =      0.1000000E-11, iter =      200
+ dcop: gshunt =      0.1000000E-04, gmin =      0.9500000E-11, iter =      200
+ dcop: gshunt =      0.5050000E-04, gmin =      0.9500000E-11, iter =       52
+ dcop: gshunt =      0.2550250E-04, gmin =      0.9500000E-11, iter =        6
+ dcop: gshunt =      0.2550250E-04, gmin =      0.4750000E-11, iter =        3
+ dcop: gshunt =      0.1287876E-04, gmin =      0.4750000E-11, iter =       10
+ dcop: gshunt =      0.1287876E-04, gmin =      0.2375000E-11, iter =        3
+ dcop: gshunt =      0.6503775E-05, gmin =      0.2375000E-11, iter =      200
+ dcop: gshunt =      0.6503775E-05, gmin =      0.2256250E-10, iter =      200
+ dcop: gshunt =      0.9372519E-05, gmin =      0.2256250E-10, iter =        8
+ dcop: gshunt =      0.6820850E-05, gmin =      0.2256250E-10, iter =        6
+ dcop: gshunt =      0.6820850E-05, gmin =      0.1128125E-10, iter =        3
+ dcop: gshunt =      0.4963874E-05, gmin =      0.1128125E-10, iter =        6
+ dcop: gshunt =      0.4963874E-05, gmin =      0.5640625E-11, iter =        3
+ dcop: gshunt =      0.3612459E-05, gmin =      0.5640625E-11, iter =        6
+ dcop: gshunt =      0.3612459E-05, gmin =      0.2820312E-11, iter =        3
+ dcop: gshunt =      0.2137221E-05, gmin =      0.2820312E-11, iter =        6
+ dcop: gshunt =      0.2137221E-05, gmin =      0.1410156E-11, iter =        3
+ dcop: gshunt =      0.8280395E-06, gmin =      0.1410156E-11, iter =        7
+ dcop: gshunt =      0.8280395E-06, gmin =      0.1000000E-11, iter =        3
+ dcop: gshunt =      0.8280395E-07, gmin =      0.1000000E-11, iter =       10
+ dcop: gshunt =      0.8280395E-08, gmin =      0.1000000E-11, iter =        7
+ dcop: gshunt =      0.8280395E-09, gmin =      0.1000000E-11, iter =        7
+ dcop: gshunt =      0.8280395E-10, gmin =      0.1000000E-11, iter =        7
+ dcop: gshunt =      0.8280395E-11, gmin =      0.1000000E-11, iter =        7
+ dcop: gshunt =      0.8280395E-12, gmin =      0.1000000E-11, iter =        7
+ dcop: gshunt =      0.8280395E-13, gmin =      0.1000000E-11, iter =        7
+ dcop: gshunt =      0.8280395E-14, gmin =      0.1000000E-11, iter =        7
+ dcop: gshunt =      0.0000000E+00, gmin =      0.1000000E-11, iter =      200
+ dcop: gshunt =      0.0000000E+00, gmin =      0.1000000E-11, iter =      523
+ dcop: gshunt ramping succeeded
+ dcop: end dcop,  cpu clock=  1.24E+00 memory=       573 kb  tot_iter=    3729
  output: ptm14lstp.mt0
- sweep: tran tran0    begin, stop_t=  1.00E-09 #sweeps=1001 cpu clock=  8.00E-02
- tran: time= 1.0236E-10 tot_iter=     137 conv_iter=      34 cpu clock= 1.20E-01
- tran: time= 2.0616E-10 tot_iter=     149 conv_iter=      38 cpu clock= 1.20E-01
- tran: time= 3.0326E-10 tot_iter=     241 conv_iter=      63 cpu clock= 1.50E-01
- tran: time= 4.1117E-10 tot_iter=     250 conv_iter=      66 cpu clock= 1.50E-01
- tran: time= 5.0000E-10 tot_iter=     256 conv_iter=      68 cpu clock= 1.50E-01
- tran: time= 6.1189E-10 tot_iter=     425 conv_iter=     106 cpu clock= 2.00E-01
- tran: time= 7.3001E-10 tot_iter=     434 conv_iter=     109 cpu clock= 2.00E-01
- tran: time= 8.0690E-10 tot_iter=     566 conv_iter=     141 cpu clock= 2.30E-01
- tran: time= 9.0222E-10 tot_iter=     584 conv_iter=     146 cpu clock= 2.40E-01
- tran: time= 1.0000E-09 tot_iter=     593 conv_iter=     149 cpu clock= 2.40E-01
- sweep: tran tran0    end,  cpu clock=  2.40E-01 memory=       577 kb
+ sweep: tran tran0    begin, stop_t=  1.00E-09 #sweeps=1001 cpu clock=  1.24E+00
+ tran: time= 1.1065E-10 tot_iter=     185 conv_iter=      45 cpu clock= 1.29E+00
+ tran: time= 2.2048E-10 tot_iter=     195 conv_iter=      49 cpu clock= 1.29E+00
+ tran: time= 3.1529E-10 tot_iter=     273 conv_iter=      73 cpu clock= 1.31E+00
+ tran: time= 4.0784E-10 tot_iter=     278 conv_iter=      75 cpu clock= 1.31E+00
+ tran: time= 5.0000E-10 tot_iter=     282 conv_iter=      77 cpu clock= 1.31E+00
+ tran: time= 6.0560E-10 tot_iter=     509 conv_iter=     131 cpu clock= 1.37E+00
+ tran: time= 7.2656E-10 tot_iter=     532 conv_iter=     138 cpu clock= 1.37E+00
+ tran: time= 8.0904E-10 tot_iter=     653 conv_iter=     169 cpu clock= 1.40E+00
+ tran: time= 9.0545E-10 tot_iter=     669 conv_iter=     173 cpu clock= 1.41E+00
+ tran: time= 1.0000E-09 tot_iter=     681 conv_iter=     177 cpu clock= 1.41E+00
+ sweep: tran tran0    end,  cpu clock=  1.41E+00 memory=       573 kb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)

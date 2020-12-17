@@ -9,8 +9,8 @@
   Command line options: ptm20lstp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu 
- lic: HOSTID:                      PID:      108360 
+ lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu 
+ lic: HOSTID:                      PID:      42170 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -18,7 +18,6 @@
  lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu 
  lic:   
   **warning** (../modelfiles/lstp/20nfet.pm:4) Model nfet device geometries will not be checked against the limits set by lmin, lmax, nfinmin and nfinmax. To enable this check, add a period(.) to the model name(i.e. enable model selector).
-  **warning** (ptm20lstp.sp:10) Global net name, "gnd", in subckt pin list. The pin will be connected to the local net. Recommend to not use global net names in subckt pin lists.
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
  ******  
  $ netlist of sram
@@ -29,36 +28,34 @@
         0 main circuit
         1 xwl_0.                          inverter           1.00 
         2 xdata_0.                        inverter           1.00 
-        3 xwe_0.                          inverter           1.00 
-        4 xsae_0.                         inverter           1.00 
-        5 xsaeb_0.                        inverter           1.00 
-        6 xuut_grid.                      uut_grid           1.00 
-        7 xwl_0.xpfet.                    pfet               1.00 
-        8 xwl_0.xnfet.                    nfet               1.00 
-        9 xdata_0.xpfet.                  pfet               1.00 
-       10 xdata_0.xnfet.                  nfet               1.00 
-       11 xwe_0.xpfet.                    pfet               1.00 
-       12 xwe_0.xnfet.                    nfet               1.00 
-       13 xsae_0.xpfet.                   pfet               1.00 
-       14 xsae_0.xnfet.                   nfet               1.00 
-       15 xsaeb_0.xpfet.                  pfet               1.00 
-       16 xsaeb_0.xnfet.                  nfet               1.00 
-       17 xuut_grid.xprec_0.              prec               1.00 
-       18 xuut_grid.xsram_00.             sram               1.00 
-       19 xuut_grid.xwriting_0.           writing            1.00 
-       20 xuut_grid.xsa_0.                sa                 1.00 
-       21 xuut_grid.xprec_0.xsae.         pfet               1.00 
-       22 xuut_grid.xprec_0.xsae_b.       pfet               1.00 
-       23 xuut_grid.xsram_00.xnfet_bl.    nfet               1.00 
-       24 xuut_grid.xsram_00.xnfet_bbl.   nfet               1.00 
-       25 xuut_grid.xsram_00.xq.          inverter           1.00 
-       26 xuut_grid.xsram_00.xqb.         inverter           1.00 
-       27 xuut_grid.xwriting_0.xwrite_bl. nfet               1.00 
-       28 xuut_grid.xwriting_0.xwrite_bbl.
-                                            nfet               1.00 
-       29 xuut_grid.xwriting_0.xwrite_dbl.
-                                            nfet               1.00 
-       30 xuut_grid.xwriting_0.xwrite_dbbl.
+        3 xphi_0.                         inverter           1.00 
+        4 xwe_0.                          inverter           1.00 
+        5 xsae_0.                         inverter           1.00 
+        6 xsaeb_0.                        inverter           1.00 
+        7 xuut_grid.                      uut_grid           1.00 
+        8 xwl_0.xpfet.                    pfet               1.00 
+        9 xwl_0.xnfet.                    nfet               1.00 
+       10 xdata_0.xpfet.                  pfet               1.00 
+       11 xdata_0.xnfet.                  nfet               1.00 
+       12 xphi_0.xpfet.                   pfet               1.00 
+       13 xphi_0.xnfet.                   nfet               1.00 
+       14 xwe_0.xpfet.                    pfet               1.00 
+       15 xwe_0.xnfet.                    nfet               1.00 
+       16 xsae_0.xpfet.                   pfet               1.00 
+       17 xsae_0.xnfet.                   nfet               1.00 
+       18 xsaeb_0.xpfet.                  pfet               1.00 
+       19 xsaeb_0.xnfet.                  nfet               1.00 
+       20 xuut_grid.xprec_0.              prec               1.00 
+       21 xuut_grid.xsram_00.             sram               1.00 
+       22 xuut_grid.xwriting_0.           writing            1.00 
+       23 xuut_grid.xsa_0.                sa                 1.00 
+       24 xuut_grid.xprec_0.xprec_eq.     pfet               1.00 
+       25 xuut_grid.xsram_00.xnfet_bl.    nfet               1.00 
+       26 xuut_grid.xsram_00.xnfet_bbl.   nfet               1.00 
+       27 xuut_grid.xsram_00.xq.          inverter           1.00 
+       28 xuut_grid.xsram_00.xqb.         inverter           1.00 
+       29 xuut_grid.xwriting_0.xwrite_bl. nfet               1.00 
+       30 xuut_grid.xwriting_0.xwrite_bbl.
                                             nfet               1.00 
        31 xuut_grid.xwriting_0.xq.        inverter           1.00 
        32 xuut_grid.xsa_0.xngnd_acc.      nfet               1.00 
@@ -9064,9 +9061,10 @@
    LNIGBACC =      0 
    NNIGBACC =      0 
    PNIGBACC =      0 
-  **info** (ptm20lstp.sp:52) DC voltage reset to initial transient source value              in source        0:vin_sae0            new dc=  0.9000D+00
+  **info** (ptm20lstp.sp:47) DC voltage reset to initial transient source value              in source        0:vin_phi0            new dc=  0.0000D+00
   
   **warning**  No connections on node d_out_0; Node ignored.
+  **warning** (../models:35) Only 1 connection at node vdd called in element xuut_grid.xprec_0.xprec_eq.mpfet.
       
  **info** set option symb=1 internally to help for convergence.
  *****************************************************************
@@ -9076,6 +9074,31 @@
   Opening plot unit= 15
  file=ptm20lstp.pa0                                                            
 
+
+ **info** rebuilding matrix with pivot option
+
+
+ **info** rebuilding matrix without pivot option
+
+ no convergence with standard algorithm,  trying damped pseudo-transient
+
+  *** initial damped pseudo transient completed. ***
+  *** final try started ***
+
+ **info** dc convergence failure, 
+ resetting dcon option to 1 and retrying
+
+ **info** remove gshunt failed
+  **info** try to load final result like nodeset
+
+ **info** gmin ramping for pseudo-tran
+ final try failed.
+
+ **info** remove gshunt failed
+  **info** no convergence in the final try 
+  *** final try failed *** 
+  *** gshunt ramping started *** 
+  *** gshunt ramping succeeded *** 
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
  ******  
  $ netlist of sram
@@ -9084,36 +9107,37 @@
  ***** operating point status is voltage   simulation time is   0.000e+00
      node    =voltage       node    =voltage       node    =voltage
 
- + 0:bbl_0   = 9.000e-01  0:bl_0    = 9.000e-01  0:d_out_0 = 0.000e+00
- + 0:data_0  = 7.951e-08  0:in_sae_0= 9.000e-01  0:in_we_0 = 9.000e-01
- + 0:in_wl_0 = 9.000e-01  0:sae_0   = 7.956e-08  0:saeb_0  = 9.000e-01
- + 0:vdd     = 9.000e-01  0:we_0    = 7.948e-08  0:wl_0    = 8.284e-08
- + 6:d_out_0 = 4.270e-07 18:q       = 4.461e-01 18:qb      = 4.461e-01
- +19:datab   = 9.000e-01 19:dbbl    = 7.970e-08 19:dbl     = 5.735e-02
- +20:gnd_acc = 8.237e-01 20:sa_out  = 8.332e-01 20:sa_outb = 8.243e-01
+ + 0:bbl_0   = 3.191e-02  0:bl_0    = 2.364e-01  0:d_out_0 = 0.000e+00
+ + 0:data_0  = 8.329e-08  0:in_phi_0= 0.000e+00  0:in_sae_0= 9.000e-01
+ + 0:in_we_0 = 9.000e-01  0:in_wl_0 = 9.000e-01  0:phi_0   = 9.000e-01
+ + 0:sae_0   = 7.951e-08  0:saeb_0  = 9.000e-01  0:vdd     = 9.000e-01
+ + 0:we_0    = 7.948e-08  0:wl_0    = 7.948e-08  7:d_out_0 = 4.211e-07
+ +20:vdd     = 7.905e-01 21:q       = 4.461e-01 21:qb      = 4.461e-01
+ +22:datab   = 9.000e-01 23:gnd_acc = 2.585e-01 23:sa_out  = 8.495e-01
+ +23:sa_outb = 8.248e-01
 
  ******  
  $ netlist of sram
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- uut_avg_write_power= 2.6864e-05  from= 0.0000e+00     to= 2.0000e-11
- uut_avg_hold_power= 1.5727e-10  from= 2.7000e-10     to= 5.0000e-10
- uut_avg_read_power= 4.4357e-06  from= 4.8000e-10     to= 5.5000e-10
- prec_avg_write_power_0= 4.5404e-06  from= 0.0000e+00     to= 2.0000e-11
- prec_avg_hold_power_0= 1.2612e-11  from= 2.7000e-10     to= 5.0000e-10
- prec_avg_read_power_0= 1.0388e-07  from= 4.8000e-10     to= 5.5000e-10
- sram_avg_write_power_00= 6.0634e-06  from= 0.0000e+00     to= 2.0000e-11
- sram_avg_hold_power_00= 3.1038e-11  from= 2.7000e-10     to= 5.0000e-10
- sram_avg_read_power_00= 1.1917e-06  from= 4.8000e-10     to= 5.5000e-10
- writing_avg_write_power_0= 1.6260e-05  from= 0.0000e+00     to= 2.0000e-11
- writing_avg_hold_power_0= 1.1372e-11  from= 2.7000e-10     to= 5.0000e-10
- writing_avg_read_power_0= 1.1470e-10  from= 4.8000e-10     to= 5.5000e-10
- sa_avg_writing_power_0= 6.1929e-10  from= 0.0000e+00     to= 2.0000e-11
- sa_avg_hold_power_0= 1.0225e-10  from= 2.7000e-10     to= 5.0000e-10
- sa_avg_read_power_0= 3.1400e-06  from= 4.8000e-10     to= 5.5000e-10
- write_q_delay_00= 3.6910e-11  targ= 3.8668e-11   trig= 1.7579e-12
- read_q_delay_00= 2.0787e-11  targ= 5.2343e-10   trig= 5.0265e-10
- uut_avg_power= 1.0412e-05  from= 0.0000e+00     to= 1.0000e-09
+ uut_avg_write_power= 7.3659e-06  from= 0.0000e+00     to= 2.0000e-11
+ uut_avg_hold_power= 7.1847e-09  from= 2.7000e-10     to= 5.0000e-10
+ uut_avg_read_power= 3.4354e-06  from= 4.8000e-10     to= 5.5000e-10
+ prec_avg_write_power_0= 7.4601e-07  from= 0.0000e+00     to= 2.0000e-11
+ prec_avg_hold_power_0= 1.9207e-16  from= 2.7000e-10     to= 5.0000e-10
+ prec_avg_read_power_0= 5.9644e-07  from= 4.8000e-10     to= 5.5000e-10
+ sram_avg_write_power_00= 5.3314e-06  from= 0.0000e+00     to= 2.0000e-11
+ sram_avg_hold_power_00= 3.6805e-09  from= 2.7000e-10     to= 5.0000e-10
+ sram_avg_read_power_00= 1.0607e-06  from= 4.8000e-10     to= 5.5000e-10
+ writing_avg_write_power_0= 1.2880e-06  from= 0.0000e+00     to= 2.0000e-11
+ writing_avg_hold_power_0= 3.3552e-09  from= 2.7000e-10     to= 5.0000e-10
+ writing_avg_read_power_0= 6.0448e-10  from= 4.8000e-10     to= 5.5000e-10
+ sa_avg_writing_power_0= 4.9018e-10  from= 0.0000e+00     to= 2.0000e-11
+ sa_avg_hold_power_0= 1.4902e-10  from= 2.7000e-10     to= 5.0000e-10
+ sa_avg_read_power_0= 1.7777e-06  from= 4.8000e-10     to= 5.5000e-10
+ write_q_delay_00= 1.2339e-11  targ= 1.4221e-11   trig= 1.8822e-12
+ read_q_delay_00= 7.0189e-11  targ= 5.7258e-10   trig= 5.0239e-10
+ uut_avg_power= 1.1283e-06  from= 0.0000e+00     to= 1.0000e-09
 
           ***** job concluded
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
@@ -9126,7 +9150,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2548.476
+ cpu MHz	: 2748.281
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -9142,12 +9166,12 @@
 
 
   ******  Circuit Statistics  ******
-  # nodes       =      86 # elements   =      37
+  # nodes       =      85 # elements   =      37
   # resistors   =       1 # capacitors =       0 # inductors   =       0
   # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
-  # cccs        =       0 # ccvs       =       0 # volt_srcs   =       4
+  # cccs        =       0 # ccvs       =       0 # volt_srcs   =       5
   # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
-  # jfets       =       0 # mosfets    =      32 # U elements  =       0
+  # jfets       =       0 # mosfets    =      31 # U elements  =       0
   # T elements  =       0 # W elements =       0 # B elements  =       0
   # S elements  =       0 # P elements =       0 # va device   =       0
   # vector_srcs =       0
@@ -9156,8 +9180,8 @@
   ******  Runtime Statistics (seconds)  ******
 
   analysis           time    # points   tot. iter  conv.iter
-  op point           0.04           1         109
-  transient          0.13        1001         499         145 rev=         4
+  op point           1.04           1        3291
+  transient          0.14        1001         673         180 rev=         4
   readin             0.00
   errchk             0.02
   setup              0.00
@@ -9165,10 +9189,10 @@
 
 
            peak memory used        135.46 megabytes
-           total cpu time            0.19 seconds
-           total elapsed time        0.44 seconds
-           job started at     21:31:09 12/15/2020
-           job ended   at     21:31:10 12/15/2020
+           total cpu time            1.20 seconds
+           total elapsed time        1.45 seconds
+           job started at     20:13:44 12/16/2020
+           job ended   at     20:13:46 12/16/2020
 
 
  lic: Release hspice token(s) 
