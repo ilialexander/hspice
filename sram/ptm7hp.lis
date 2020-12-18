@@ -9,8 +9,8 @@
   Command line options: ptm7hp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
- lic: HOSTID:                      PID:      98034 
+ lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu 
+ lic: HOSTID:                      PID:      2987 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -49,28 +49,29 @@
        21 xuut_grid.xsram_00.             sram               1.00 
        22 xuut_grid.xwriting_0.           writing            1.00 
        23 xuut_grid.xsa_0.                sa                 1.00 
-       24 xuut_grid.xprec_0.xprec_eq.     pfet               1.00 
-       25 xuut_grid.xsram_00.xnfet_bl.    nfet               1.00 
-       26 xuut_grid.xsram_00.xnfet_bbl.   nfet               1.00 
-       27 xuut_grid.xsram_00.xq.          inverter           1.00 
-       28 xuut_grid.xsram_00.xqb.         inverter           1.00 
-       29 xuut_grid.xwriting_0.xwrite_bl. nfet               1.00 
-       30 xuut_grid.xwriting_0.xwrite_bbl.
+       24 xuut_grid.xprec_0.xprec_bl.     pfet               1.00 
+       25 xuut_grid.xprec_0.xprec_bbl.    pfet               1.00 
+       26 xuut_grid.xsram_00.xnfet_bl.    nfet               1.00 
+       27 xuut_grid.xsram_00.xnfet_bbl.   nfet               1.00 
+       28 xuut_grid.xsram_00.xq.          inverter           1.00 
+       29 xuut_grid.xsram_00.xqb.         inverter           1.00 
+       30 xuut_grid.xwriting_0.xwrite_bl. nfet               1.00 
+       31 xuut_grid.xwriting_0.xwrite_bbl.
                                             nfet               1.00 
-       31 xuut_grid.xwriting_0.xq.        inverter           1.00 
-       32 xuut_grid.xsa_0.xvdd_acc.       pfet               1.00 
-       33 xuut_grid.xsa_0.xgnd_acc.       nfet               1.00 
-       34 xuut_grid.xsa_0.xneq.           nfet               1.00 
-       35 xuut_grid.xsa_0.xpdiff.         pfet               1.00 
-       36 xuut_grid.xsa_0.xpdiffb.        pfet               1.00 
-       37 xuut_grid.xsa_0.xndiff.         nfet               1.00 
-       38 xuut_grid.xsa_0.xndiffb.        nfet               1.00 
-       39 xuut_grid.xsram_00.xq.xpfet.    pfet               1.00 
-       40 xuut_grid.xsram_00.xq.xnfet.    nfet               1.00 
-       41 xuut_grid.xsram_00.xqb.xpfet.   pfet               1.00 
-       42 xuut_grid.xsram_00.xqb.xnfet.   nfet               1.00 
-       43 xuut_grid.xwriting_0.xq.xpfet.  pfet               1.00 
-       44 xuut_grid.xwriting_0.xq.xnfet.  nfet               1.00 
+       32 xuut_grid.xwriting_0.xq.        inverter           1.00 
+       33 xuut_grid.xsa_0.xvdd_acc.       pfet               1.00 
+       34 xuut_grid.xsa_0.xgnd_acc.       nfet               1.00 
+       35 xuut_grid.xsa_0.xneq.           nfet               1.00 
+       36 xuut_grid.xsa_0.xpdiff.         pfet               1.00 
+       37 xuut_grid.xsa_0.xpdiffb.        pfet               1.00 
+       38 xuut_grid.xsa_0.xndiff.         nfet               1.00 
+       39 xuut_grid.xsa_0.xndiffb.        nfet               1.00 
+       40 xuut_grid.xsram_00.xq.xpfet.    pfet               1.00 
+       41 xuut_grid.xsram_00.xq.xnfet.    nfet               1.00 
+       42 xuut_grid.xsram_00.xqb.xpfet.   pfet               1.00 
+       43 xuut_grid.xsram_00.xqb.xnfet.   nfet               1.00 
+       44 xuut_grid.xwriting_0.xq.xpfet.  pfet               1.00 
+       45 xuut_grid.xwriting_0.xq.xnfet.  nfet               1.00 
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
  ******  
  $ netlist of sram
@@ -7677,10 +7678,9 @@
    LNIGBACC =      0 
    NNIGBACC =      0 
    PNIGBACC =      0 
-  **info** (ptm7hp.sp:47) DC voltage reset to initial transient source value              in source        0:vin_phi0            new dc=  0.0000D+00
+  **info** (ptm7hp.sp:48) DC voltage reset to initial transient source value              in source        0:vin_phi0            new dc=  0.0000D+00
   
   **warning**  No connections on node d_out_0; Node ignored.
-  **warning** (../models:184) Only 1 connection at node vdd called in element xuut_grid.xprec_0.xprec_eq.mpfet.
       
  **info** set option symb=1 internally to help for convergence.
  *****************************************************************
@@ -7712,57 +7712,32 @@
  + 0:data_0  = 1.459e-05  0:in_phi_0= 0.000e+00  0:in_sae_0= 7.000e-01
  + 0:in_we_0 = 7.000e-01  0:in_wl_0 = 7.000e-01  0:phi_0   = 7.000e-01
  + 0:sae_0   = 1.158e-05  0:saeb_0  = 7.000e-01  0:vdd     = 7.000e-01
- + 0:we_0    = 1.158e-05  0:wl_0    = 1.158e-05 20:vdd     = 7.000e-01
+ + 0:we_0    = 1.158e-05  0:wl_0    = 1.158e-05 20:vdd     = 4.154e-01
  +21:q       = 3.428e-01 21:qb      = 3.428e-01 22:datab   = 7.000e-01
  +23:gnd_acc = 1.796e-01 23:vdd_acc = 2.178e-01
-
-
-
-
- **warning**  internal timestep too small in transient analysis
-
-          time =  0.52991E-09;  delta =  0.11642E-20;  numnit =  3601
-
- **info** tran convergence failure.
- autoconvergence will be invoked to try method=gear.
-
- **info** dc convergence successful
- you can increase the efficiency of the
- operating point calculation by setting dcon= 1
- in the .option statement
-
-
-
-
- **warning** autoconvergence is invoked, trying method=gear.
-
-
- **info** tran convergence successful.
- you can disable autoconvergence by setting trcon=0.
-
 
  ******  
  $ netlist of sram
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- uut_avg_write_power= 4.8347e-04  from= 0.0000e+00     to= 2.0000e-11
- uut_avg_hold_power= 2.7839e-08  from= 2.7000e-10     to= 5.0000e-10
- uut_avg_read_power= 2.9173e-04  from= 4.8000e-10     to= 5.5000e-10
- prec_avg_write_power_0= 6.8442e-06  from= 0.0000e+00     to= 2.0000e-11
- prec_avg_hold_power_0= 3.0175e-23  from= 2.7000e-10     to= 5.0000e-10
- prec_avg_read_power_0= 7.9649e-05  from= 4.8000e-10     to= 5.5000e-10
- sram_avg_write_power_00= 4.0964e-04  from= 0.0000e+00     to= 2.0000e-11
- sram_avg_hold_power_00= 1.3558e-08  from= 2.7000e-10     to= 5.0000e-10
- sram_avg_read_power_00= 1.3413e-04  from= 4.8000e-10     to= 5.5000e-10
- writing_avg_write_power_0= 2.7504e-05  from= 0.0000e+00     to= 2.0000e-11
- writing_avg_hold_power_0= 1.0877e-08  from= 2.7000e-10     to= 5.0000e-10
- writing_avg_read_power_0= 2.5396e-05  from= 4.8000e-10     to= 5.5000e-10
- sa_avg_writing_power_0= 3.9482e-05  from= 0.0000e+00     to= 2.0000e-11
- sa_avg_hold_power_0= 3.4038e-09  from= 2.7000e-10     to= 5.0000e-10
- sa_avg_read_power_0= 5.2553e-05  from= 4.8000e-10     to= 5.5000e-10
- write_q_delay_00= 9.6636e-13  targ= 1.1393e-12   trig= 1.7292e-13
- read_q_delay_00=-4.9924e-10  targ= 1.9469e-12   trig= 5.0119e-10
- uut_avg_power= 3.7549e-05  from= 0.0000e+00     to= 1.0000e-09
+ uut_avg_hold_power= 1.4398e-05  from= 0.0000e+00     to= 1.5000e-10
+ uut_avg_write_power= 2.0409e-05  from= 1.5000e-10     to= 3.5000e-10
+ uut_avg_read_power= 4.8472e-06  from= 7.0000e-10     to= 9.0000e-10
+ prec_avg_hold_power_0= 5.9777e-14  from= 0.0000e+00     to= 1.5000e-10
+ prec_avg_write_power_0= 1.1100e-07  from= 1.5000e-10     to= 3.5000e-10
+ prec_avg_read_power_0= 1.0695e-09  from= 7.0000e-10     to= 9.0000e-10
+ sram_avg_hold_power_00= 1.4394e-05  from= 0.0000e+00     to= 1.5000e-10
+ sram_avg_write_power_00= 1.3188e-05  from= 1.5000e-10     to= 3.5000e-10
+ sram_avg_read_power_00= 4.1603e-06  from= 7.0000e-10     to= 9.0000e-10
+ writing_avg_hold_power_0= 2.9719e-09  from= 0.0000e+00     to= 1.5000e-10
+ writing_avg_write_power_0= 4.4731e-06  from= 1.5000e-10     to= 3.5000e-10
+ writing_avg_read_power_0= 2.9277e-09  from= 7.0000e-10     to= 9.0000e-10
+ sa_avg_hold_power_0= 1.1809e-09  from= 0.0000e+00     to= 1.5000e-10
+ sa_avg_writing_power_0= 2.6363e-06  from= 1.5000e-10     to= 3.5000e-10
+ sa_avg_read_power_0= 6.8289e-07  from= 7.0000e-10     to= 9.0000e-10
+ write_q_delay_00= 1.5116e-10  targ= 4.0212e-10   trig= 2.5096e-10
+ read_q_delay_00= 4.7690e-12  targ= 8.0582e-10   trig= 8.0105e-10
+ uut_avg_power= 1.1590e-05  from= 0.0000e+00     to= 1.0000e-09
 
           ***** job concluded
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
@@ -7775,7 +7750,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2694.570
+ cpu MHz	: 2838.945
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -7791,12 +7766,12 @@
 
 
   ******  Circuit Statistics  ******
-  # nodes       =      81 # elements   =      36
+  # nodes       =      83 # elements   =      37
   # resistors   =       1 # capacitors =       0 # inductors   =       0
   # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
   # cccs        =       0 # ccvs       =       0 # volt_srcs   =       5
   # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
-  # jfets       =       0 # mosfets    =      30 # U elements  =       0
+  # jfets       =       0 # mosfets    =      31 # U elements  =       0
   # T elements  =       0 # W elements =       0 # B elements  =       0
   # S elements  =       0 # P elements =       0 # va device   =       0
   # vector_srcs =       0
@@ -7805,19 +7780,19 @@
   ******  Runtime Statistics (seconds)  ******
 
   analysis           time    # points   tot. iter  conv.iter
-  op point           0.14           1         474
-  transient          1.68        1001       10987         625 rev=       206
+  op point           0.06           1         230
+  transient          0.15        1001         696         208 rev=         8
   readin             0.01
-  errchk             0.02
+  errchk             0.01
   setup              0.00
   output             0.00
 
 
            peak memory used        135.46 megabytes
-           total cpu time            1.85 seconds
-           total elapsed time        2.09 seconds
-           job started at     12:29:46 12/17/2020
-           job ended   at     12:29:48 12/17/2020
+           total cpu time            0.23 seconds
+           total elapsed time        0.48 seconds
+           job started at     13:54:52 12/18/2020
+           job ended   at     13:54:52 12/18/2020
 
 
  lic: Release hspice token(s) 

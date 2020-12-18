@@ -9,8 +9,8 @@
   Command line options: ptm10lstp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
- lic: HOSTID:                      PID:      97961 
+ lic: USER:   iliabautista         HOSTNAME: itn2.rc.usf.edu 
+ lic: HOSTID:                      PID:      2916 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -7710,24 +7710,24 @@
  $ netlist of sram
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- uut_avg_write_power= 1.2857e-05  from= 0.0000e+00     to= 2.0000e-11
- uut_avg_hold_power= 9.1901e-10  from= 2.7000e-10     to= 5.0000e-10
- uut_avg_read_power= 7.9429e-06  from= 4.8000e-10     to= 5.5000e-10
- prec_avg_write_power_0= 1.6977e-10  from= 0.0000e+00     to= 2.0000e-11
- prec_avg_hold_power_0=-1.4579e-21  from= 2.7000e-10     to= 5.0000e-10
- prec_avg_read_power_0= 2.2105e-17  from= 4.8000e-10     to= 5.5000e-10
- sram_avg_write_power_00= 5.6982e-06  from= 0.0000e+00     to= 2.0000e-11
- sram_avg_hold_power_00= 4.3403e-10  from= 2.7000e-10     to= 5.0000e-10
- sram_avg_read_power_00= 7.2928e-06  from= 4.8000e-10     to= 5.5000e-10
- writing_avg_write_power_0= 5.3553e-06  from= 0.0000e+00     to= 2.0000e-11
- writing_avg_hold_power_0= 4.4707e-10  from= 2.7000e-10     to= 5.0000e-10
- writing_avg_read_power_0= 1.5117e-10  from= 4.8000e-10     to= 5.5000e-10
- sa_avg_writing_power_0= 1.8034e-06  from= 0.0000e+00     to= 2.0000e-11
- sa_avg_hold_power_0= 3.7907e-11  from= 2.7000e-10     to= 5.0000e-10
- sa_avg_read_power_0= 6.4992e-07  from= 4.8000e-10     to= 5.5000e-10
- write_q_delay_00= 1.1862e-11  targ= 1.2580e-11   trig= 7.1760e-13
- read_q_delay_00= 9.6042e-12  targ= 6.1123e-10   trig= 6.0163e-10
- uut_avg_power= 5.4508e-06  from= 0.0000e+00     to= 1.0000e-09
+ uut_avg_hold_power= 4.7276e-07  from= 0.0000e+00     to= 1.5000e-10
+ uut_avg_write_power= 7.3657e-06  from= 1.5000e-10     to= 3.5000e-10
+ uut_avg_read_power= 3.2926e-06  from= 7.0000e-10     to= 9.0000e-10
+ prec_avg_hold_power_0= 0.0000e+00  from= 0.0000e+00     to= 1.5000e-10
+ prec_avg_write_power_0= 2.7357e-10  from= 1.5000e-10     to= 3.5000e-10
+ prec_avg_read_power_0= 1.4412e-12  from= 7.0000e-10     to= 9.0000e-10
+ sram_avg_hold_power_00= 4.7275e-07  from= 0.0000e+00     to= 1.5000e-10
+ sram_avg_write_power_00= 3.3032e-06  from= 1.5000e-10     to= 3.5000e-10
+ sram_avg_read_power_00= 2.8784e-06  from= 7.0000e-10     to= 9.0000e-10
+ writing_avg_hold_power_0= 3.6696e-12  from= 0.0000e+00     to= 1.5000e-10
+ writing_avg_write_power_0= 2.8557e-06  from= 1.5000e-10     to= 3.5000e-10
+ writing_avg_read_power_0= 1.5475e-11  from= 7.0000e-10     to= 9.0000e-10
+ sa_avg_hold_power_0= 1.4099e-12  from= 0.0000e+00     to= 1.5000e-10
+ sa_avg_writing_power_0= 1.2065e-06  from= 1.5000e-10     to= 3.5000e-10
+ sa_avg_read_power_0= 4.1411e-07  from= 7.0000e-10     to= 9.0000e-10
+ write_q_delay_00= 2.1673e-11  targ= 2.7316e-10   trig= 2.5149e-10
+ read_q_delay_00= 9.6017e-12  targ= 8.1123e-10   trig= 8.0163e-10
+ uut_avg_power= 4.8801e-06  from= 0.0000e+00     to= 1.0000e-09
 
           ***** job concluded
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
@@ -7740,7 +7740,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2672.656
+ cpu MHz	: 2842.039
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -7770,19 +7770,19 @@
   ******  Runtime Statistics (seconds)  ******
 
   analysis           time    # points   tot. iter  conv.iter
-  op point           0.01           1          20
-  transient          0.17        1001         685         198 rev=         5
-  readin             0.00
+  op point           0.00           1          20
+  transient          0.16        1001         706         210 rev=         7
+  readin             0.01
   errchk             0.01
-  setup              0.00
+  setup              0.01
   output             0.00
 
 
            peak memory used        135.46 megabytes
            total cpu time            0.19 seconds
-           total elapsed time        0.44 seconds
-           job started at     12:29:43 12/17/2020
-           job ended   at     12:29:43 12/17/2020
+           total elapsed time        0.42 seconds
+           job started at     13:54:48 12/18/2020
+           job ended   at     13:54:49 12/18/2020
 
 
  lic: Release hspice token(s) 

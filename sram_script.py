@@ -64,7 +64,7 @@ def main():
             subckts_modules.set_library()
 
             spice_file.write("$ UUT individual unit\n")
-            subckts_modules.set_cells_subckts()
+            subckts_modules.set_cells_subckts(subuut)
 
             spice_file.write("$ Sources\n")
             spice_file.write("vdd vdd gnd vdd\n")
@@ -94,8 +94,8 @@ def main():
             hp_subuuts.append(subuut) # collects all hp subuut names
             # collects all ptm sizes
             ptm_sizes.append(int(subuut.replace("ptm","").replace("hp","")))
-#            hp_write_delay.append(write_delay * 1e12)
-#            hp_read_delay.append(read_delay * 1e12)
+            hp_write_delay.append(write_delay * 1e12)
+            hp_read_delay.append(read_delay * 1e12)
 #            write_hp_power.append(power_series[7][1] * 1e9)
 #            read_hp_power.append(power_series[9][1] * 1e9)
 #            hold_hp_power.append(power_series[8][1] * 1e9)
@@ -105,8 +105,8 @@ def main():
             lstp_write_delay.append(write_delay * 1e12)
             lstp_read_delay.append(read_delay * 1e12)
             write_lstp_power.append(power_series[7][1] * 1e9)
-            read_lstp_power.append(power_series[9][1] * 1e6)
-            hold_lstp_power.append(power_series[8][1] * 1e9)
+            read_lstp_power.append(power_series[8][1] * 1e9)
+            hold_lstp_power.append(power_series[6][1] * 1e9)
 
 #    plt.figure(1)
 #    plt.title("Average Write Power by FET Size")
@@ -148,8 +148,8 @@ def main():
     plt.title("Average Delay by FET size for \nHigh Performance ('red') and Low Standby Power ('blue')")
     plt.scatter(ptm_sizes, lstp_write_delay, color = "blue", label = "LSTP Write")
     plt.scatter(ptm_sizes, lstp_read_delay, color = "green", label = "LSTP Read")
-#    plt.scatter(ptm_sizes, hp_write_delay, color = "red", label = "HP Write")
-#    plt.scatter(ptm_sizes, hp_read_delay, color = "black", label = "HP Read")
+    plt.scatter(ptm_sizes, hp_write_delay, color = "red", label = "HP Write")
+    plt.scatter(ptm_sizes, hp_read_delay, color = "black", label = "HP Read")
     plt.xlabel("Width (nm)")
     plt.ylabel("Delay (ps)")
     plt.legend()

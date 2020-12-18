@@ -1,14 +1,14 @@
 $DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
 .TITLE '$ netlist of sram'
- uut_avg_write_power uut_avg_hold_power uut_avg_read_power  
- prec_avg_write_power_0 prec_avg_hold_power_0 prec_avg_read_power_0  
- sram_avg_write_power_00 sram_avg_hold_power_00 sram_avg_read_power_00  
- writing_avg_write_power_0 writing_avg_hold_power_0  
- writing_avg_read_power_0 sa_avg_writing_power_0 sa_avg_hold_power_0  
+ uut_avg_hold_power uut_avg_write_power uut_avg_read_power  
+ prec_avg_hold_power_0 prec_avg_write_power_0 prec_avg_read_power_0  
+ sram_avg_hold_power_00 sram_avg_write_power_00 sram_avg_read_power_00  
+ writing_avg_hold_power_0 writing_avg_write_power_0  
+ writing_avg_read_power_0 sa_avg_hold_power_0 sa_avg_writing_power_0  
  sa_avg_read_power_0 write_q_delay_00 read_q_delay_00   
  uut_avg_power    temper           alter#            
-  1.495e-05        1.774e-09        9.631e-06        1.433e-08        
-  8.435e-22        1.442e-17        7.912e-06        1.090e-09        
-  8.631e-06        5.816e-06        5.439e-10        2.391e-10        
-  1.211e-06        1.395e-10        1.000e-06        2.517e-11        
-  2.031e-11        7.197e-06        2.500e+01       1                 
+  4.707e-06        1.168e-05        4.581e-06        2.142e-31        
+  5.369e-09        1.903e-12        4.707e-06        6.573e-06        
+  3.755e-06        6.219e-12        3.432e-06        7.859e-11        
+  2.066e-12        1.669e-06        8.259e-07        3.322e-11        
+  2.031e-11        7.478e-06        2.500e+01       1                 
