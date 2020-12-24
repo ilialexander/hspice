@@ -1,10 +1,5 @@
-clean and comment code
-Measuring lstp delay w/o sense amp
-need to fix read delay to run faster
-
-create new branch cam
-create cam
-measure write, read and match delay
-measure write, hold, read and match power
+measure match delay
+fix write, hold and read power
+measure match power
 plot measurements
 clean and comment code

@@ -7,7 +7,8 @@ module('load', 'apps/synopsys/hspice/F-2011.09-SP2')
 
 from classes.ptm import ptm
 from classes.inverter import inverter
-from classes.cam import cam
+from classes.lstp_cam import lstp_cam
+from classes.hp_cam import hp_cam
 
 def main():
     # For the given path, get the full path list of transistors models
@@ -58,24 +59,27 @@ def main():
             sim_params = (sim_type, sim_tinc, sim_time, data)
 
             # invokes subckts class
-            subckts_modules = cam(script_params, grid_params, fet_params, sim_params)
+            if "hp" in subuut:
+                subckts_modules = hp_cam(script_params, grid_params, fet_params, sim_params)
+            else:
+                subckts_modules = lstp_cam(script_params, grid_params, fet_params, sim_params)
 
             # set .sp header and calls library
             subckts_modules.set_library()
 
             spice_file.write("$ UUT individual unit\n")
-            subckts_modules.set_cells_subckts(subuut)
+            subckts_modules.set_cells_subckts()
 
             spice_file.write("$ Sources\n")
             spice_file.write("vdd vdd gnd vdd\n")
-            subckts_modules.write_source(subuut)
+            subckts_modules.write_source()
  
             spice_file.write("$ Unit Under Test\n")
-            subckts_modules.write_uut(subuut)
+            subckts_modules.write_uut()
 
             spice_file.write("$ Measurements\n")
             subckts_modules.measure_power()
-            subckts_modules.measure_delays(subuut)
+            subckts_modules.measure_delays()
 
             spice_file.write("$ Simulation/Analysis Type\n")
             subckts_modules.analysis_type()
@@ -96,9 +100,9 @@ def main():
             ptm_sizes.append(int(subuut.replace("ptm","").replace("hp","")))
             hp_write_delay.append(write_delay * 1e12)
             hp_read_delay.append(read_delay * 1e12)
-#            write_hp_power.append(power_series[7][1] * 1e9)
-#            read_hp_power.append(power_series[9][1] * 1e9)
-#            hold_hp_power.append(power_series[8][1] * 1e9)
+            write_hp_power.append(power_series[7][1] * 1e9)
+            read_hp_power.append(power_series[9][1] * 1e9)
+            hold_hp_power.append(power_series[8][1] * 1e9)
 
         if "lstp" in subuut:
             lstp_subuuts.append(subuut) # collects all lstp subuut names
@@ -108,43 +112,43 @@ def main():
             read_lstp_power.append(power_series[8][1] * 1e9)
             hold_lstp_power.append(power_series[6][1] * 1e9)
 
-#    plt.figure(1)
-#    plt.title("Average Write Power by FET Size")
-#    plt.scatter(ptm_sizes, write_hp_power, color = "red", label = "High Performance")
-#    plt.xlabel("Width (nm)")
-#    plt.ylabel("Power (nw)")
-#    plt.legend()
-#
-#    plt.figure(1)
-#    plt.title("Average Write Power by FET Size")
-#    plt.scatter(ptm_sizes, write_lstp_power, color = "blue", label = "Low Standby Power")
-#    plt.xlabel("Width (nm)")
-#    plt.ylabel("Power (nw)")
-#    plt.legend()
-#
-#    plt.figure(2)
-#    plt.title("Average Read Power by FET Size")
-#    plt.scatter(ptm_sizes, read_hp_power, color = "red", label = "High Performance")
-#    plt.scatter(ptm_sizes, read_lstp_power, color = "blue", label = "Low Standby Power")
-#    plt.xlabel("Width (nm")
-#    plt.ylabel("Power (nw)")
-#    plt.legend()
-#
-##    plt.figure(3)
-##    plt.title("Average Hold Power by FET Size")
-##    plt.scatter(ptm_sizes, hold_hp_power, color = "red", label = "High Performance")
-##    plt.xlabel("Width (nm)")
-##    plt.ylabel("Power (nw)")
-##    plt.legend()
-#
-#    plt.figure(3)
-#    plt.title("Average Hold Power by FET Size")
-#    plt.scatter(ptm_sizes, hold_lstp_power, color = "blue", label = "Low Standby Power")
-#    plt.xlabel("Width (nm)")
-#    plt.ylabel("Power (nw)")
-#    plt.legend()
+    plt.figure(1)
+    plt.title("Average Write Power by FET Size")
+    plt.scatter(ptm_sizes, write_hp_power, color = "red", label = "High Performance")
+    plt.xlabel("Width (nm)")
+    plt.ylabel("Power (nw)")
+    plt.legend()
+
+    plt.figure(2)
+    plt.title("Average Write Power by FET Size")
+    plt.scatter(ptm_sizes, write_lstp_power, color = "blue", label = "Low Standby Power")
+    plt.xlabel("Width (nm)")
+    plt.ylabel("Power (nw)")
+    plt.legend()
+
+    plt.figure(3)
+    plt.title("Average Read Power by FET Size")
+    plt.scatter(ptm_sizes, read_hp_power, color = "red", label = "High Performance")
+    plt.scatter(ptm_sizes, read_lstp_power, color = "blue", label = "Low Standby Power")
+    plt.xlabel("Width (nm")
+    plt.ylabel("Power (nw)")
+    plt.legend()
 
     plt.figure(4)
+    plt.title("Average Hold Power by FET Size")
+    plt.scatter(ptm_sizes, hold_hp_power, color = "red", label = "High Performance")
+    plt.xlabel("Width (nm)")
+    plt.ylabel("Power (nw)")
+    plt.legend()
+
+    plt.figure(5)
+    plt.title("Average Hold Power by FET Size")
+    plt.scatter(ptm_sizes, hold_lstp_power, color = "blue", label = "Low Standby Power")
+    plt.xlabel("Width (nm)")
+    plt.ylabel("Power (nw)")
+    plt.legend()
+
+    plt.figure(6)
     plt.title("Average Delay by FET size for \nHigh Performance ('red') and Low Standby Power ('blue')")
     plt.scatter(ptm_sizes, lstp_write_delay, color = "blue", label = "LSTP Write")
     plt.scatter(ptm_sizes, lstp_read_delay, color = "green", label = "LSTP Read")
