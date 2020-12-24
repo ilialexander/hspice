@@ -1,0 +1,35 @@
+* "simulator" "HSPICE" 
+* "version" "F-2011.09-SP2 64-BIT"
+* "format" "HSP"
+* "rundate" "19:12:47 12/23/2020 "
+* "netlist" "ptm16hp.sp "
+* "runtitle" "$ netlist of cam"
+* time =  0.000e+00       
+* temperature =  2.500e+01       
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc= 1.000e-12       
+.nodeset
++ bbl_0 = 7.324e-02       
++ bl_0 = 7.704e-02       
++ d_out_0 = 0.000e+00       
++ data_0 = 2.192e-05       
++ in_sae_0 = 8.500e-01       
++ in_we_0 = 8.500e-01       
++ in_wl_0 = 8.500e-01       
++ ml_0 = 1.677e-06       
++ sae_0 = 1.942e-05       
++ saeb_0 = 8.500e-01       
++ vdd = 8.500e-01       
++ we_0 = 1.942e-05       
++ wl_0 = 1.942e-05       
++ xuut_grid.d_out_0 = 3.138e-05       
++ xuut_grid.xprec_0.vdd = 7.520e-02       
++ xuut_grid.xcam_00.gnd_acc = 1.675e-06       
++ xuut_grid.xcam_00.q = 4.136e-01       
++ xuut_grid.xcam_00.qb = 4.136e-01       
++ xuut_grid.xwriting_0.datab = 8.500e-01       
++ xuut_grid.xsa_0.gnd_acc = 1.444e-01       
++ xuut_grid.xsa_0.sa_out = 8.352e-01       
++ xuut_grid.xsa_0.sa_outb = 8.346e-01       
+***   END: Saved Operating Point ***                     
