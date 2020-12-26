@@ -9,8 +9,8 @@
   Command line options: ptm20hp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu 
- lic: HOSTID:                      PID:      117044 
+ lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu 
+ lic: HOSTID:                      PID:      152175 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -45,19 +45,19 @@
        16 xsaeb_0.xpfet.                  pfet               1.00 
        17 xsaeb_0.xnfet.                  nfet               1.00 
        18 xuut_grid.xprec_0.              prec               1.00 
-       19 xuut_grid.xsram_00.             sram               1.00 
+       19 xuut_grid.xcam_00.              cam                1.00 
        20 xuut_grid.xwriting_0.           writing            1.00 
        21 xuut_grid.xsa_0.                sa                 1.00 
        22 xuut_grid.xprec_0.xsae.         pfet               1.00 
        23 xuut_grid.xprec_0.xsae_b.       pfet               1.00 
-       24 xuut_grid.xsram_00.xnfet_bl.    nfet               1.00 
-       25 xuut_grid.xsram_00.xnfet_bbl.   nfet               1.00 
-       26 xuut_grid.xsram_00.xq.          inverter           1.00 
-       27 xuut_grid.xsram_00.xqb.         inverter           1.00 
-       28 xuut_grid.xsram_00.xmatch_q.    nfet               1.00 
-       29 xuut_grid.xsram_00.xmatch_qb.   nfet               1.00 
-       30 xuut_grid.xsram_00.xmatch_bl.   nfet               1.00 
-       31 xuut_grid.xsram_00.xmatch_bbl.  nfet               1.00 
+       24 xuut_grid.xcam_00.xnfet_bl.     nfet               1.00 
+       25 xuut_grid.xcam_00.xnfet_bbl.    nfet               1.00 
+       26 xuut_grid.xcam_00.xq.           inverter           1.00 
+       27 xuut_grid.xcam_00.xqb.          inverter           1.00 
+       28 xuut_grid.xcam_00.xmatch_q.     nfet               1.00 
+       29 xuut_grid.xcam_00.xmatch_qb.    nfet               1.00 
+       30 xuut_grid.xcam_00.xmatch_bl.    nfet               1.00 
+       31 xuut_grid.xcam_00.xmatch_bbl.   nfet               1.00 
        32 xuut_grid.xwriting_0.xwrite_bl. nfet               1.00 
        33 xuut_grid.xwriting_0.xwrite_bbl.
                                             nfet               1.00 
@@ -73,10 +73,10 @@
        41 xuut_grid.xsa_0.xndiff.         nfet               1.00 
        42 xuut_grid.xsa_0.xndiffb.        nfet               1.00 
        43 xuut_grid.xsa_0.xd_out.         inverter           1.00 
-       44 xuut_grid.xsram_00.xq.xpfet.    pfet               1.00 
-       45 xuut_grid.xsram_00.xq.xnfet.    nfet               1.00 
-       46 xuut_grid.xsram_00.xqb.xpfet.   pfet               1.00 
-       47 xuut_grid.xsram_00.xqb.xnfet.   nfet               1.00 
+       44 xuut_grid.xcam_00.xq.xpfet.     pfet               1.00 
+       45 xuut_grid.xcam_00.xq.xnfet.     nfet               1.00 
+       46 xuut_grid.xcam_00.xqb.xpfet.    pfet               1.00 
+       47 xuut_grid.xcam_00.xqb.xnfet.    nfet               1.00 
        48 xuut_grid.xwriting_0.xq.xpfet.  pfet               1.00 
        49 xuut_grid.xwriting_0.xq.xnfet.  nfet               1.00 
        50 xuut_grid.xsa_0.xd_out.xpfet.   pfet               1.00 
@@ -9800,21 +9800,21 @@
  $ netlist of cam
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- uut_avg_write_power= 7.6505e-05  from= 0.0000e+00     to= 2.0000e-11
- uut_avg_hold_power= 9.6801e-08  from= 2.7000e-10     to= 5.0000e-10
- uut_avg_read_power= 7.7107e-06  from= 4.8000e-10     to= 5.5000e-10
- prec_avg_write_power_0= 1.5466e-05  from= 0.0000e+00     to= 2.0000e-11
- prec_avg_hold_power_0=-4.2633e-11  from= 2.7000e-10     to= 5.0000e-10
- prec_avg_read_power_0= 2.9817e-07  from= 4.8000e-10     to= 5.5000e-10
- sram_avg_write_power_00= 3.8032e-05  from= 0.0000e+00     to= 2.0000e-11
- sram_avg_hold_power_00= 1.7522e-08  from= 2.7000e-10     to= 5.0000e-10
- sram_avg_read_power_00= 2.7038e-06  from= 4.8000e-10     to= 5.5000e-10
- writing_avg_write_power_0= 2.2934e-05  from= 0.0000e+00     to= 2.0000e-11
- writing_avg_hold_power_0= 1.2440e-08  from= 2.7000e-10     to= 5.0000e-10
- writing_avg_read_power_0= 8.8062e-09  from= 4.8000e-10     to= 5.5000e-10
- sa_avg_writing_power_0= 7.3160e-08  from= 0.0000e+00     to= 2.0000e-11
- sa_avg_hold_power_0= 6.6882e-08  from= 2.7000e-10     to= 5.0000e-10
- sa_avg_read_power_0= 4.6999e-06  from= 4.8000e-10     to= 5.5000e-10
+ uut_avg_write_power= 6.9041e-05  from= 0.0000e+00     to= 6.0000e-11
+ uut_avg_hold_power= 9.7406e-08  from= 3.0000e-10     to= 4.5000e-10
+ uut_avg_read_power= 2.6684e-05  from= 5.0000e-10     to= 5.2000e-10
+ prec_avg_write_power_0= 3.0023e-05  from= 0.0000e+00     to= 6.0000e-11
+ prec_avg_hold_power_0=-3.8670e-11  from= 3.0000e-10     to= 4.5000e-10
+ prec_avg_read_power_0= 1.0342e-06  from= 5.0000e-10     to= 5.2000e-10
+ cam_avg_write_power_00= 2.2543e-05  from= 0.0000e+00     to= 6.0000e-11
+ cam_avg_hold_power_00= 1.7521e-08  from= 3.0000e-10     to= 4.5000e-10
+ cam_avg_read_power_00= 9.4075e-06  from= 5.0000e-10     to= 5.2000e-10
+ writing_avg_write_power_0= 1.6344e-05  from= 0.0000e+00     to= 6.0000e-11
+ writing_avg_hold_power_0= 1.2441e-08  from= 3.0000e-10     to= 4.5000e-10
+ writing_avg_read_power_0= 8.5838e-09  from= 5.0000e-10     to= 5.2000e-10
+ sa_avg_writing_power_0= 1.2999e-07  from= 0.0000e+00     to= 6.0000e-11
+ sa_avg_hold_power_0= 6.7483e-08  from= 3.0000e-10     to= 4.5000e-10
+ sa_avg_read_power_0= 1.6233e-05  from= 5.0000e-10     to= 5.2000e-10
  write_q_delay_00= 2.3177e-11  targ= 2.4516e-11   trig= 1.3395e-12
  read_q_delay_00= 1.2768e-11  targ= 5.1473e-10   trig= 5.0197e-10
  uut_avg_power= 1.7906e-05  from= 0.0000e+00     to= 1.0000e-09
@@ -9830,7 +9830,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2557.929
+ cpu MHz	: 2526.132
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -9861,18 +9861,18 @@
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.04           1         105
-  transient          0.15        1001         494         136 rev=         4
+  transient          0.14        1001         494         136 rev=         4
   readin             0.01
   errchk             0.02
-  setup              0.01
+  setup              0.00
   output             0.00
 
 
            peak memory used        135.95 megabytes
-           total cpu time            0.23 seconds
+           total cpu time            0.21 seconds
            total elapsed time        0.46 seconds
-           job started at     17:05:29 12/24/2020
-           job ended   at     17:05:30 12/24/2020
+           job started at     16:58:02 12/26/2020
+           job ended   at     16:58:03 12/26/2020
 
 
  lic: Release hspice token(s) 

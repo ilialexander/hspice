@@ -25,7 +25,7 @@ class hp_cam(inverter):
         self.sim_type = sim_type # simulation type, e.g., tran, dc
         self.sim_tinc = sim_tinc # simulation time step
         self.sim_time = sim_time # total simulation time
-        self.data = data         # data to write in sram cell
+        self.data = data         # data to write in cam cell
 
         self.script_path = self.script_dir + "/" + self.script_name # full path to working script
 
@@ -119,9 +119,9 @@ class hp_cam(inverter):
         self.spice_file.write("xq  data datab vdd gnd inverter\n")
         self.spice_file.write(".ends\n\n")
 
-        '''Set sram subckt'''
-        # declare sram subckt
-        self.spice_file.write(".subckt sram wl ml bl bbl vdd\n")
+        '''Set cam subckt'''
+        # declare cam subckt
+        self.spice_file.write(".subckt cam wl ml bl bbl vdd\n")
         self.spice_file.write("xnfet_bl  bl  wl q  q  nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write("xnfet_bbl bbl wl qb qb nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write("xq  qb q  vdd gnd inverter\n")
@@ -146,7 +146,7 @@ class hp_cam(inverter):
         return None
 
     def write_uut(self):
-        '''Write sram device'''
+        '''Write cam device'''
         self.spice_file.write(".subckt uut_grid vdd\n")
         self.spice_file.write("+")
         for outin in range(self.ser_instances):
@@ -172,8 +172,8 @@ class hp_cam(inverter):
             self.spice_file.write("xprec_" + inout + " " + "sae_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " vdd " + "prec\n")
             for instance in range(self.par_instances):
                 ins_str = str(instance)
-                # invoke srams subckt 
-                self.spice_file.write("xsram_" + inout + ins_str + " " + "wl_" + ins_str + " " + "ml_" + ins_str + " " + "bl_" + inout + " " + "bbl_" + inout + " vdd " + "sram\n")
+                # invoke cams subckt 
+                self.spice_file.write("xcam_" + inout + ins_str + " " + "wl_" + ins_str + " " + "ml_" + ins_str + " " + "bl_" + inout + " " + "bbl_" + inout + " vdd " + "cam\n")
 
             # invoke writing subckt 
             self.spice_file.write("xwriting_" + inout + " " + "we_" + inout + " " + "data_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " vdd " + "writing\n")
@@ -334,12 +334,12 @@ class hp_cam(inverter):
                     ins_str = str(instance)
                     if self.data == 1:
                         # measures write q delay
-                        self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xsram_" + inout + ins_str + ".q) val=vdd_90 rise=1\n")
+                        self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xcam_" + inout + ins_str + ".q) val=vdd_90 rise=1\n")
                         # measures read delay
                         self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.d_out_" + inout + ") val=vdd_90 rise=1\n")
                     else:
                         # measures write q delay
-                        self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xsram_" + inout + ins_str + ".qb) val=vdd_90 rise=1\n")
+                        self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xcam_" + inout + ins_str + ".qb) val=vdd_90 rise=1\n")
                         # measures read delay
                         self.spice_file.write(".measure tran read_q_delay_" + inout + ins_str + "  trig v(sae_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.d_out_" + inout + ") val=vdd_90 rise=1\n")
         self.spice_file.write(".measure tran uut_avg_power avg p(xuut_grid)\n")
@@ -349,29 +349,29 @@ class hp_cam(inverter):
     def measure_power(self):
         '''Measures uut_grid and individual unit powers'''
         # measures uut avg power
-        self.spice_file.write(".measure tran uut_avg_write_power avg p(xuut_grid) from=0 to=20ps\n")
-        self.spice_file.write(".measure tran uut_avg_hold_power avg p(xuut_grid) from=0.27ns to=0.5ns\n")
-        self.spice_file.write(".measure tran uut_avg_read_power avg p(xuut_grid) from=0.48ns to=0.55ns\n")
+        self.spice_file.write(".measure tran uut_avg_write_power avg p(xuut_grid) from=0 to=60ps\n")
+        self.spice_file.write(".measure tran uut_avg_hold_power avg p(xuut_grid) from=0.3ns to=0.45ns\n")
+        self.spice_file.write(".measure tran uut_avg_read_power avg p(xuut_grid) from=0.5ns to=0.52ns\n")
         for outin in range(self.ser_instances):
             inout = str(outin)
             # measures precharge avg power
-            self.spice_file.write(".measure tran prec_avg_write_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0 to=20ps\n")
-            self.spice_file.write(".measure tran prec_avg_hold_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0.27ns to=0.5ns\n")
-            self.spice_file.write(".measure tran prec_avg_read_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0.48ns to=0.55ns\n")
+            self.spice_file.write(".measure tran prec_avg_write_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0 to=60ps\n")
+            self.spice_file.write(".measure tran prec_avg_hold_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0.3ns to=0.45ns\n")
+            self.spice_file.write(".measure tran prec_avg_read_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0.5ns to=0.52ns\n")
             for instance in range(self.par_instances):
                 ins_str = str(instance)
-                # measures sram avg power
-                self.spice_file.write(".measure tran sram_avg_write_power_" + inout + ins_str + " avg p(xuut_grid.xsram_" + inout + ins_str + ") from=0 to=20ps\n")
-                self.spice_file.write(".measure tran sram_avg_hold_power_" + inout + ins_str + " avg p(xuut_grid.xsram_" + inout + ins_str + ") from=0.27ns to=0.5ns\n")
-                self.spice_file.write(".measure tran sram_avg_read_power_" + inout + ins_str + " avg p(xuut_grid.xsram_" + inout + ins_str + ") from=0.48ns to=0.55ns\n")
+                # measures cam avg power
+                self.spice_file.write(".measure tran cam_avg_write_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=0 to=60ps\n")
+                self.spice_file.write(".measure tran cam_avg_hold_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=0.3ns to=0.45ns\n")
+                self.spice_file.write(".measure tran cam_avg_read_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=0.5ns to=0.52ns\n")
             # measures writing avg power
-            self.spice_file.write(".measure tran writing_avg_write_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0 to=20ps\n")
-            self.spice_file.write(".measure tran writing_avg_hold_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0.27ns to=0.5ns\n")
-            self.spice_file.write(".measure tran writing_avg_read_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0.48ns to=0.55ns\n")
+            self.spice_file.write(".measure tran writing_avg_write_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0 to=60ps\n")
+            self.spice_file.write(".measure tran writing_avg_hold_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0.3ns to=0.45ns\n")
+            self.spice_file.write(".measure tran writing_avg_read_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0.5ns to=0.52ns\n")
             # measures sa avg power
-            self.spice_file.write(".measure tran sa_avg_writing_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0 to=20ps\n")
-            self.spice_file.write(".measure tran sa_avg_hold_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.27ns to=0.5ns\n")
-            self.spice_file.write(".measure tran sa_avg_read_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.48ns to=0.55ns\n")
+            self.spice_file.write(".measure tran sa_avg_writing_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0 to=60ps\n")
+            self.spice_file.write(".measure tran sa_avg_hold_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.3ns to=0.45ns\n")
+            self.spice_file.write(".measure tran sa_avg_read_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.5ns to=0.52ns\n")
 
         return None
 

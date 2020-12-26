@@ -1,5 +1,5 @@
 00300005000000009601    $ netlist of cam                                        
-        12/24/2020      17:05:28 Copyright (C) 2011 Synopsys, Inc. All Rights Re
+        12/26/2020      16:58:01 Copyright (C) 2011 Synopsys, Inc. All Rights Re
 served.                    0                                                    
                           1       1       1       1       1       1       1     
   1       1       1       1       1       1       1       1       1       1     
@@ -8,12 +8,12 @@ served.                    0
 0               bbl_0           bl_0            d_out_0         data_0          
 in_phi_0        in_sae_0        in_we_0         in_wl_0         ml_0            
 sae_0           saeb_0          vdd             we_0            wl_0            
-xuut_grid.d_out_0               xuut_grid.xsram_00.gnd_acc      xuut_grid.xsram_
-00.q            xuut_grid.xsram_00.qb           xuut_grid.xwriting_0.datab      
+xuut_grid.d_out_0               xuut_grid.xcam_00.gnd_acc       xuut_grid.xcam_0
+0.q             xuut_grid.xcam_00.qb            xuut_grid.xwriting_0.datab      
 xuut_grid.xwriting_0.dbbl       xuut_grid.xwriting_0.dbl        xuut_grid.xsa_0.
 gnd_acc         xuut_grid.xsa_0.sa_out          xuut_grid.xsa_0.sa_outb         
 I(vdd           I(vin_sae0      I(vin_we_0      I(vin_wl_0      p(xuut_grid     
-p(xuut_grid.xprec_0             p(xuut_grid.xsram_00            p(xuut_grid.xwri
+p(xuut_grid.xprec_0             p(xuut_grid.xcam_00             p(xuut_grid.xwri
 ting_0          p(xuut_grid.xsa_0               $&%#                            
 0.00000E+000.00000E+000.79998E+000.80000E+000.00000E+000.13582E-040.80000E+00
 0.80000E+000.80000E+000.80000E+000.16290E-040.13582E-040.79998E+000.80000E+00

@@ -53,7 +53,7 @@ xphi_0 in_phi_0 phi_0 vdd inverter
 xmatch_phi_0 ml_0 in_phi_0 vdd vdd pfet l=lg nfin=1000m
 vin_we_0 in_we_0  gnd  pulse(vdd 0v 0.26n 1p 1p 0.25n 2n)
 xwe_0 in_we_0 we_0 vdd inverter
-vin_sae0 in_sae_0  gnd  pulse(vdd 0v .8ns 1p 1p 0.25n 2n)
+vin_sae0 in_sae_0  gnd  pulse(vdd 0v .75ns 1p 1p 0.25n 2n)
 xsae_0 in_sae_0 sae_0 vdd inverter
 xsaeb_0 sae_0 saeb_0 vdd inverter
 
@@ -73,21 +73,21 @@ xuut_grid vdd
 +uut_grid
 
 $ Measurements
-.measure tran uut_avg_hold_power avg p(xuut_grid) from=0ns to=0.15ns
 .measure tran uut_avg_write_power avg p(xuut_grid) from=0.15ns to=0.35ns
-.measure tran uut_avg_read_power avg p(xuut_grid) from=0.7ns to=0.9ns
-.measure tran prec_avg_hold_power_0 avg p(xuut_grid.xprec_0) from=0ns to=0.15ns
+.measure tran uut_avg_hold_power avg p(xuut_grid) from=550ps to=0.7ns
+.measure tran uut_avg_read_power avg p(xuut_grid) from=0.6ns to=0.8ns
 .measure tran prec_avg_write_power_0 avg p(xuut_grid.xprec_0) from=0.15ns to=0.35ns
-.measure tran prec_avg_read_power_0 avg p(xuut_grid.xprec_0) from=0.7ns to=0.9ns
-.measure tran cam_avg_hold_power_00 avg p(xuut_grid.xcam_00) from=0ns to=0.15ns
+.measure tran prec_avg_hold_power_0 avg p(xuut_grid.xprec_0) from=550ps to=0.7ns
+.measure tran prec_avg_read_power_0 avg p(xuut_grid.xprec_0) from=0.6ns to=0.8ns
 .measure tran cam_avg_write_power_00 avg p(xuut_grid.xcam_00) from=0.15ns to=0.35ns
-.measure tran cam_avg_read_power_00 avg p(xuut_grid.xcam_00) from=0.7ns to=0.9ns
-.measure tran writing_avg_hold_power_0 avg p(xuut_grid.xwriting_0) from=0ns to=0.15ns
+.measure tran cam_avg_hold_power_00 avg p(xuut_grid.xcam_00) from=550ps to=0.7ns
+.measure tran cam_avg_read_power_00 avg p(xuut_grid.xcam_00) from=0.6ns to=0.8ns
 .measure tran writing_avg_write_power_0 avg p(xuut_grid.xwriting_0) from=0.15ns to=0.35ns
-.measure tran writing_avg_read_power_0 avg p(xuut_grid.xwriting_0) from=0.7ns to=0.9ns
-.measure tran sa_avg_hold_power_0 avg p(xuut_grid.xsa_0) from=0ns to=0.15ns
+.measure tran writing_avg_hold_power_0 avg p(xuut_grid.xwriting_0) from=550ps to=0.7ns
+.measure tran writing_avg_read_power_0 avg p(xuut_grid.xwriting_0) from=0.6ns to=0.8ns
 .measure tran sa_avg_writing_power_0 avg p(xuut_grid.xsa_0) from=0.15ns to=0.35ns
-.measure tran sa_avg_read_power_0 avg p(xuut_grid.xsa_0) from=0.7ns to=0.9ns
+.measure tran sa_avg_hold_power_0 avg p(xuut_grid.xsa_0) from=550ps to=0.7ns
+.measure tran sa_avg_read_power_0 avg p(xuut_grid.xsa_0) from=0.6ns to=0.8ns
 .measure tran write_q_delay_00 trig v(we_0) val=vdd_10 rise=1 targ v(xuut_grid.xcam_00.q) val=vdd_90 rise=1
 .measure tran read_q_delay_00  trig v(sae_0) val=vdd_10 rise=1 targ v(xuut_grid.bl_0) val=vdd_90 rise=1
 .measure tran uut_avg_power avg p(xuut_grid)

@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "F-2011.09-SP2 64-BIT"
 * "format" "HSP"
-* "rundate" "17:05:27 12/24/2020 "
+* "rundate" "16:58:00 12/26/2020 "
 * "netlist" "ptm14hp.sp "
 * "runtitle" "$ netlist of cam"
 * time =  0.000e+00       
@@ -25,9 +25,9 @@
 + we_0 = 1.358e-05       
 + wl_0 = 1.358e-05       
 + xuut_grid.d_out_0 = 6.793e-05       
-+ xuut_grid.xsram_00.gnd_acc = 6.813e-06       
-+ xuut_grid.xsram_00.q = 3.914e-01       
-+ xuut_grid.xsram_00.qb = 3.914e-01       
++ xuut_grid.xcam_00.gnd_acc = 6.813e-06       
++ xuut_grid.xcam_00.q = 3.914e-01       
++ xuut_grid.xcam_00.qb = 3.914e-01       
 + xuut_grid.xwriting_0.datab = 8.000e-01       
 + xuut_grid.xwriting_0.dbbl = 1.410e-05       
 + xuut_grid.xwriting_0.dbl = 6.140e-02       

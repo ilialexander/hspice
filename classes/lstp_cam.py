@@ -68,7 +68,7 @@ class lstp_cam(inverter):
             self.spice_file.write("vin_we_" + ins_str + " in_we_" + ins_str + "  gnd  pulse(vdd " + "0v 0.26n " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
             self.spice_file.write("xwe_" + ins_str + " in_we_" + ins_str + " we_" + ins_str + " vdd " + "inverter\n")
             # sets sense amplifier enable / reading enable wave
-            self.spice_file.write("vin_sae" + inout + " in_sae_" + inout + "  gnd  pulse(vdd " + "0v .8ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
+            self.spice_file.write("vin_sae" + inout + " in_sae_" + inout + "  gnd  pulse(vdd " + "0v .75ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
             self.spice_file.write("xsae_" + inout + " in_sae_" + inout + " sae_" + inout + " vdd " + "inverter\n")
             self.spice_file.write("xsaeb_" + inout + " sae_" + inout + " saeb_" + inout + " vdd " + "inverter\n")
 
@@ -308,29 +308,29 @@ class lstp_cam(inverter):
     def measure_power(self):
         '''Measures uut_grid and individual unit powers'''
         # measures uut avg power
-        self.spice_file.write(".measure tran uut_avg_hold_power avg p(xuut_grid) from=0ns to=0.15ns\n")
         self.spice_file.write(".measure tran uut_avg_write_power avg p(xuut_grid) from=0.15ns to=0.35ns\n")
-        self.spice_file.write(".measure tran uut_avg_read_power avg p(xuut_grid) from=0.7ns to=0.9ns\n")
+        self.spice_file.write(".measure tran uut_avg_hold_power avg p(xuut_grid) from=550ps to=0.7ns\n")
+        self.spice_file.write(".measure tran uut_avg_read_power avg p(xuut_grid) from=0.6ns to=0.8ns\n")
         for outin in range(self.ser_instances):
             inout = str(outin)
             # measures precharge avg power
-            self.spice_file.write(".measure tran prec_avg_hold_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0ns to=0.15ns\n")
             self.spice_file.write(".measure tran prec_avg_write_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0.15ns to=0.35ns\n")
-            self.spice_file.write(".measure tran prec_avg_read_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0.7ns to=0.9ns\n")
+            self.spice_file.write(".measure tran prec_avg_hold_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=550ps to=0.7ns\n")
+            self.spice_file.write(".measure tran prec_avg_read_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0.6ns to=0.8ns\n")
             for instance in range(self.par_instances):
                 ins_str = str(instance)
                 # measures cam avg power
-                self.spice_file.write(".measure tran cam_avg_hold_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=0ns to=0.15ns\n")
                 self.spice_file.write(".measure tran cam_avg_write_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=0.15ns to=0.35ns\n")
-                self.spice_file.write(".measure tran cam_avg_read_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=0.7ns to=0.9ns\n")
+                self.spice_file.write(".measure tran cam_avg_hold_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=550ps to=0.7ns\n")
+                self.spice_file.write(".measure tran cam_avg_read_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=0.6ns to=0.8ns\n")
             # measures writing avg power
-            self.spice_file.write(".measure tran writing_avg_hold_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0ns to=0.15ns\n")
             self.spice_file.write(".measure tran writing_avg_write_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0.15ns to=0.35ns\n")
-            self.spice_file.write(".measure tran writing_avg_read_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0.7ns to=0.9ns\n")
+            self.spice_file.write(".measure tran writing_avg_hold_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=550ps to=0.7ns\n")
+            self.spice_file.write(".measure tran writing_avg_read_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0.6ns to=0.8ns\n")
             # measures sa avg power
-            self.spice_file.write(".measure tran sa_avg_hold_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0ns to=0.15ns\n")
             self.spice_file.write(".measure tran sa_avg_writing_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.15ns to=0.35ns\n")
-            self.spice_file.write(".measure tran sa_avg_read_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.7ns to=0.9ns\n")
+            self.spice_file.write(".measure tran sa_avg_hold_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=550ps to=0.7ns\n")
+            self.spice_file.write(".measure tran sa_avg_read_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.6ns to=0.8ns\n")
 
         return None
 

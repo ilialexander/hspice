@@ -9,8 +9,8 @@
   Command line options: ptm10lstp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu 
- lic: HOSTID:                      PID:      116989 
+ lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu 
+ lic: HOSTID:                      PID:      152063 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -8407,24 +8407,24 @@
  $ netlist of cam
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- uut_avg_hold_power= 4.7758e-07  from= 0.0000e+00     to= 1.5000e-10
  uut_avg_write_power= 7.3826e-06  from= 1.5000e-10     to= 3.5000e-10
- uut_avg_read_power= 1.0716e-05  from= 7.0000e-10     to= 9.0000e-10
- prec_avg_hold_power_0= 0.0000e+00  from= 0.0000e+00     to= 1.5000e-10
+ uut_avg_hold_power= 4.7867e-09  from= 5.5000e-10     to= 7.0000e-10
+ uut_avg_read_power= 3.6424e-06  from= 6.0000e-10     to= 8.0000e-10
  prec_avg_write_power_0= 1.3993e-10  from= 1.5000e-10     to= 3.5000e-10
- prec_avg_read_power_0= 1.4097e-12  from= 7.0000e-10     to= 9.0000e-10
- cam_avg_hold_power_00= 4.7758e-07  from= 0.0000e+00     to= 1.5000e-10
+ prec_avg_hold_power_0= 4.7013e-24  from= 5.5000e-10     to= 7.0000e-10
+ prec_avg_read_power_0= 5.7581e-13  from= 6.0000e-10     to= 8.0000e-10
  cam_avg_write_power_00= 3.3523e-06  from= 1.5000e-10     to= 3.5000e-10
- cam_avg_read_power_00= 1.0269e-05  from= 7.0000e-10     to= 9.0000e-10
- writing_avg_hold_power_0= 3.6695e-12  from= 0.0000e+00     to= 1.5000e-10
+ cam_avg_hold_power_00= 4.7644e-09  from= 5.5000e-10     to= 7.0000e-10
+ cam_avg_read_power_00= 3.4432e-06  from= 6.0000e-10     to= 8.0000e-10
  writing_avg_write_power_0= 2.8369e-06  from= 1.5000e-10     to= 3.5000e-10
- writing_avg_read_power_0= 8.3137e-12  from= 7.0000e-10     to= 9.0000e-10
- sa_avg_hold_power_0= 1.4101e-12  from= 0.0000e+00     to= 1.5000e-10
+ writing_avg_hold_power_0= 1.6714e-11  from= 5.5000e-10     to= 7.0000e-10
+ writing_avg_read_power_0= 1.6853e-11  from= 6.0000e-10     to= 8.0000e-10
  sa_avg_writing_power_0= 1.1933e-06  from= 1.5000e-10     to= 3.5000e-10
- sa_avg_read_power_0= 4.4689e-07  from= 7.0000e-10     to= 9.0000e-10
+ sa_avg_hold_power_0= 5.5225e-12  from= 5.5000e-10     to= 7.0000e-10
+ sa_avg_read_power_0= 1.9918e-07  from= 6.0000e-10     to= 8.0000e-10
  write_q_delay_00= 1.3504e-11  targ= 2.7498e-10   trig= 2.6147e-10
- read_q_delay_00= 1.0879e-11  targ= 8.1251e-10   trig= 8.0163e-10
- uut_avg_power= 8.0367e-06  from= 0.0000e+00     to= 1.0000e-09
+ read_q_delay_00= 1.0912e-11  targ= 7.6249e-10   trig= 7.5158e-10
+ uut_avg_power= 8.2882e-06  from= 0.0000e+00     to= 1.0000e-09
 
           ***** job concluded
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
@@ -8437,7 +8437,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2607.773
+ cpu MHz	: 2650.484
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -8467,19 +8467,19 @@
   ******  Runtime Statistics (seconds)  ******
 
   analysis           time    # points   tot. iter  conv.iter
-  op point           0.01           1          20
-  transient          0.20        1001         713         214 rev=         8
-  readin             0.01
-  errchk             0.01
+  op point           0.00           1          20
+  transient          0.18        1001         661         193 rev=         7
+  readin             0.00
+  errchk             0.03
   setup              0.00
   output             0.00
 
 
            peak memory used        135.46 megabytes
-           total cpu time            0.23 seconds
-           total elapsed time        0.48 seconds
-           job started at     17:05:27 12/24/2020
-           job ended   at     17:05:27 12/24/2020
+           total cpu time            0.21 seconds
+           total elapsed time        0.45 seconds
+           job started at     16:58:00 12/26/2020
+           job ended   at     16:58:00 12/26/2020
 
 
  lic: Release hspice token(s) 

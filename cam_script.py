@@ -100,17 +100,17 @@ def main():
             ptm_sizes.append(int(subuut.replace("ptm","").replace("hp","")))
             hp_write_delay.append(write_delay * 1e12)
             hp_read_delay.append(read_delay * 1e12)
-            write_hp_power.append(power_series[7][1] * 1e9)
-            read_hp_power.append(power_series[9][1] * 1e9)
-            hold_hp_power.append(power_series[8][1] * 1e9)
+            write_hp_power.append(power_series[6][1] * 1e9)
+            hold_hp_power.append(power_series[7][1] * 1e9)
+            read_hp_power.append(power_series[8][1] * 1e9)
 
         if "lstp" in subuut:
             lstp_subuuts.append(subuut) # collects all lstp subuut names
             lstp_write_delay.append(write_delay * 1e12)
             lstp_read_delay.append(read_delay * 1e12)
-            write_lstp_power.append(power_series[7][1] * 1e9)
+            write_lstp_power.append(power_series[6][1] * 1e9)
+            hold_lstp_power.append(power_series[7][1] * 1e9)
             read_lstp_power.append(power_series[8][1] * 1e9)
-            hold_lstp_power.append(power_series[6][1] * 1e9)
 
     plt.figure(1)
     plt.title("Average Write Power by FET Size")

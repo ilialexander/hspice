@@ -2,13 +2,13 @@ $DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
 .TITLE '$ netlist of cam'
  uut_avg_write_power uut_avg_hold_power uut_avg_read_power  
  prec_avg_write_power_0 prec_avg_hold_power_0 prec_avg_read_power_0  
- sram_avg_write_power_00 sram_avg_hold_power_00 sram_avg_read_power_00  
+ cam_avg_write_power_00 cam_avg_hold_power_00 cam_avg_read_power_00  
  writing_avg_write_power_0 writing_avg_hold_power_0  
  writing_avg_read_power_0 sa_avg_writing_power_0 sa_avg_hold_power_0  
  sa_avg_read_power_0 write_q_delay_00 read_q_delay_00   
  uut_avg_power    temper           alter#            
-  6.909e-05        6.071e-08        3.125e-06        2.674e-05        
-  9.539e-11        7.958e-08        2.185e-05        1.253e-08        
-  1.099e-06        2.044e-05        8.998e-09        6.066e-09        
-  7.547e-08        3.909e-08        1.941e-06        1.241e-11        
+  6.612e-05        6.110e-08        1.082e-05        3.969e-05        
+  9.972e-11        2.723e-07        1.344e-05        1.252e-08        
+  3.807e-06        1.290e-05        8.998e-09        5.289e-09        
+  9.854e-08        3.948e-08        6.734e-06        1.241e-11        
   5.793e-12        1.703e-05        2.500e+01       1                 

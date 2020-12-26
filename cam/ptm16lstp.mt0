@@ -1,14 +1,14 @@
 $DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
 .TITLE '$ netlist of cam'
- uut_avg_hold_power uut_avg_write_power uut_avg_read_power  
- prec_avg_hold_power_0 prec_avg_write_power_0 prec_avg_read_power_0  
- cam_avg_hold_power_00 cam_avg_write_power_00 cam_avg_read_power_00  
- writing_avg_hold_power_0 writing_avg_write_power_0  
- writing_avg_read_power_0 sa_avg_hold_power_0 sa_avg_writing_power_0  
+ uut_avg_write_power uut_avg_hold_power uut_avg_read_power  
+ prec_avg_write_power_0 prec_avg_hold_power_0 prec_avg_read_power_0  
+ cam_avg_write_power_00 cam_avg_hold_power_00 cam_avg_read_power_00  
+ writing_avg_write_power_0 writing_avg_hold_power_0  
+ writing_avg_read_power_0 sa_avg_writing_power_0 sa_avg_hold_power_0  
  sa_avg_read_power_0 write_q_delay_00 read_q_delay_00   
  uut_avg_power    temper           alter#            
-  2.784e-06        1.100e-05        1.356e-05        0.000e+00        
-  1.208e-09        1.913e-12        2.784e-06        5.653e-06        
-  1.283e-05        5.430e-12        3.615e-06        2.887e-11        
-  1.920e-12        1.728e-06        7.299e-07        1.889e-11        
-  1.574e-11        1.102e-05        2.500e+01       1                 
+  1.100e-05        7.582e-09        4.484e-06        1.208e-09        
+  2.304e-22        6.532e-13        5.653e-06        7.493e-09        
+  4.120e-06        3.615e-06        7.931e-11        7.236e-11        
+  1.728e-06        9.693e-12        3.633e-07        1.889e-11        
+  1.593e-11        1.131e-05        2.500e+01       1                 
