@@ -1,5 +1,3 @@
-fix read power
- - need to specify individual times per each finfet lstp finfet
 measure match delay
 measure match power
 plot measurements

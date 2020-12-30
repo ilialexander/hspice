@@ -7,8 +7,8 @@ $DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
  writing_avg_read_power_0 sa_avg_writing_power_0 sa_avg_hold_power_0  
  sa_avg_read_power_0 write_q_delay_00 read_q_delay_00   
  uut_avg_power    temper           alter#            
-  5.804e-05        4.729e-08        8.010e-06        3.482e-05        
-  4.490e-11        1.645e-07        1.168e-05        1.055e-08        
-  2.800e-06        1.147e-05        7.517e-09        4.459e-09        
-  6.593e-08        2.918e-08        5.041e-06        1.066e-11        
-  4.891e-12        1.498e-05        2.500e+01       1                 
+  2.704e-05        1.495e-07        7.192e-06        2.773e-07        
+  3.610e-24        6.769e-10        1.816e-05        1.432e-07        
+  6.980e-06        5.549e-06        3.678e-09        3.648e-09        
+  3.056e-06        2.669e-09        2.076e-07        1.407e-10        
+  6.270e-12        2.183e-05        2.500e+01       1                 
