@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "F-2011.09-SP2 64-BIT"
 * "format" "HSP"
-* "rundate" "17:25:31 01/08/2021 "
+* "rundate" "22:04:16 01/14/2021 "
 * "netlist" "ptm14lstp.sp "
 * "runtitle" "$ netlist of match_cam"
 * time =  0.000e+00       
@@ -14,11 +14,15 @@
 + bl_0 = 8.000e-01       
 + d_out_0 = 0.000e+00       
 + data_0 = 3.182e-08       
++ in_ml_pre_0 = 0.000e+00       
 + in_phi_0 = 0.000e+00       
 + in_sae_0 = 8.000e-01       
 + in_we_0 = 8.000e-01       
 + in_wl_0 = 8.000e-01       
-+ ml_0 = 1.299e-07       
++ ml_0 = 7.917e-01       
++ ml_out_0 = 8.000e-01       
++ ml_pre_0 = 8.000e-01       
++ ml_pre_b_0 = 3.182e-08       
 + phi_0 = 8.000e-01       
 + sae_0 = 3.185e-08       
 + saeb_0 = 8.000e-01       
@@ -26,9 +30,10 @@
 + we_0 = 3.181e-08       
 + wl_0 = 3.692e-08       
 + xuut_grid.d_out_0 = 1.478e-07       
-+ xuut_grid.xcam_00.gnd_acc = 2.454e-08       
++ xuut_grid.xcam_00.gnd_acc = 3.521e-03       
 + xuut_grid.xcam_00.q = 3.977e-01       
 + xuut_grid.xcam_00.qb = 3.977e-01       
++ xuut_grid.xmatch_sa_0.ml_out_b = 3.630e-08       
 + xuut_grid.xwriting_0.datab = 8.000e-01       
 + xuut_grid.xwriting_0.dbbl = 3.166e-08       
 + xuut_grid.xwriting_0.dbl = 5.436e-02       

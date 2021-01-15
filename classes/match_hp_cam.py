@@ -46,6 +46,10 @@ class match_hp_cam(inverter):
             self.spice_file.write("vin_wl_" + ins_str + " in_wl_" + ins_str + "  gnd  pulse(vdd " + "0v 0s " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
             self.spice_file.write("xwl_" + ins_str + " in_wl_" + ins_str + " wl_" + ins_str + " vdd gnd " + "inverter\n")
 
+            self.spice_file.write("vin_ml_pre_" + ins_str + " in_ml_pre_" + ins_str + "  gnd  pulse(0v " + "vdd 0.5ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
+            self.spice_file.write("xml_pre_" + ins_str +  " in_ml_pre_" + ins_str + " ml_pre_" + ins_str + " vdd gnd " + "inverter\n")
+            self.spice_file.write("xml_pre_b" + ins_str + " ml_pre_" + ins_str + " ml_pre_b_" + ins_str + " vdd gnd " + "inverter\n")
+
         for outin in range(self.ser_instances):
             fall_time = (2) * (2 ** instance) / 2 # time from highest value to lowest, it provides a virtual binary count
             rise_time_str = str(fall_time / 2)    # time from lowest value to lowest
@@ -64,7 +68,6 @@ class match_hp_cam(inverter):
             self.spice_file.write("xwe_" + ins_str + " in_we_" + ins_str + " we_" + ins_str + " vdd gnd " + "inverter\n")
             self.spice_file.write("vin_phi" + inout + " in_phi_" + inout + "  gnd  pulse(0v " + "vdd 0.5ns " + self.sim_tinc + " " + self.sim_tinc + " 0.2n " + fall_time_str + "n)\n")
             self.spice_file.write("xphi_" + inout + " in_phi_" + inout + " phi_" + inout + " vdd gnd " + "inverter\n")
-            self.spice_file.write("xmatch_phi_" + inout + " ml_" + inout + " phi_" + inout + " vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
             self.spice_file.write("vin_sae" + inout + " in_sae_" + inout + "  gnd  pulse(vdd " + "0v .5ns " + self.sim_tinc + " " + self.sim_tinc + " " + rise_time_str + "n " + fall_time_str + "n)\n")
             self.spice_file.write("xsae_" + inout + " in_sae_" + inout + " sae_" + inout + " vdd gnd " + "inverter\n")
             self.spice_file.write("xsaeb_" + inout + " sae_" + inout + " saeb_" + inout + " vdd gnd " + "inverter\n")
@@ -145,6 +148,15 @@ class match_hp_cam(inverter):
         self.spice_file.write("xndiffb sa_out  bbl gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write("xd_out sa_outb  d_out vdd gnd inverter\n")
         self.spice_file.write(".ends\n")
+
+        '''Set match sense amplifier'''
+        # declare samp subckt
+        self.spice_file.write(".subckt match_sa ml ml_pre ml_pre_b ml_out vdd\n")
+        self.spice_file.write("xmlpre_b ml     ml_pre_b vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xmlpre ml_out_b ml_pre   gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xml    ml_out_b ml       vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xd_out ml_out_b ml_out vdd gnd inverter\n")
+        self.spice_file.write(".ends\n")
         return None
 
     def write_uut(self):
@@ -157,7 +169,7 @@ class match_hp_cam(inverter):
             self.spice_file.write("sae_" + inout + " " + "saeb_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " " + "we_" + inout + " " + "data_" + inout + " ")
             for instance in range(self.par_instances):
                 ins_str = str(instance)
-                self.spice_file.write("wl_" + ins_str + " " + "ml_" + ins_str + " ")
+                self.spice_file.write("wl_" + ins_str + " " + "ml_" + ins_str + " " + "ml_pre_" + ins_str + " " + "ml_pre_b_" + ins_str + " ")
         self.spice_file.write("$inputs to uut_grid Subckt\n")
 
         self.spice_file.write("+")
@@ -166,6 +178,9 @@ class match_hp_cam(inverter):
             inout = str(outin + 1)
             # declare subckt outputs
             self.spice_file.write("d_out_" + inout + " ")
+            for instance in range(self.par_instances):
+                ins_str = str(instance)
+                self.spice_file.write("ml_out_" + ins_str + " ")
         self.spice_file.write("$outputs to uut_grid Subckt\n")
 
         for outin in range(self.ser_instances):
@@ -176,6 +191,7 @@ class match_hp_cam(inverter):
                 ins_str = str(instance)
                 # invoke cams subckt 
                 self.spice_file.write("xcam_" + inout + ins_str + " " + "wl_" + ins_str + " " + "ml_" + ins_str + " " + "bl_" + inout + " " + "bbl_" + inout + " vdd " + "cam\n")
+                self.spice_file.write("xmatch_sa_" + ins_str + " " + "ml_" + ins_str + " " + "ml_pre_" + ins_str + " " + "ml_pre_b_" + ins_str + " " + "ml_out_" + ins_str + " " + "vdd" + " match_sa\n")
 
             # invoke writing subckt 
             self.spice_file.write("xwriting_" + inout + " " + "we_" + inout + " " + "data_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " vdd " + "writing\n")
@@ -193,7 +209,7 @@ class match_hp_cam(inverter):
             self.spice_file.write("sae_" + inout + " " + "saeb_" + inout + " " + "bl_" + inout + " " + "bbl_" + inout + " " + "we_" + inout + " " + "data_" + inout + " ")
             for instance in range(self.par_instances):
                 ins_str = str(instance)
-                self.spice_file.write("wl_" + ins_str + " " + "ml_" + ins_str + " ")
+                self.spice_file.write("wl_" + ins_str + " " + "ml_" + ins_str + " " + "ml_pre_" + ins_str + " " + "ml_pre_b_" + ins_str + " ")
         self.spice_file.write("$inputs to uut_grid\n")
 
         self.spice_file.write("+")
@@ -201,6 +217,9 @@ class match_hp_cam(inverter):
             inout = str(outin)
             # declare subckt outputs
             self.spice_file.write("d_out_" + inout + " ")
+            for instance in range(self.par_instances):
+                ins_str = str(instance)
+                self.spice_file.write("ml_out_" + ins_str + " ")
         self.spice_file.write("$outputs to uut_grid\n")
         self.spice_file.write("+uut_grid\n\n")
         return None
@@ -223,6 +242,7 @@ class match_hp_cam(inverter):
         self.spice_file.write(".param vdd_10='vdd*.1'"  "\n")
         self.spice_file.write(".param vdd_15='vdd*.15'"  "\n")
         self.spice_file.write(".param vdd_90='vdd*.9'"  "\n")
+        self.spice_file.write(".param vdd_70='vdd*.7'"  "\n")
         return None
 
 
@@ -280,7 +300,7 @@ class match_hp_cam(inverter):
                 if (power_flag) and len(power_line_data):
                     power_series.append(power_line_data)
                 # reads the delay measurements from .lis file
-                (delay_flag, delay_line_data) = self.read_meas("sa_avg_read_power", "uut_avg_power", line, delay_flag)
+                (delay_flag, delay_line_data) = self.read_meas("sa_avg_match_power", "uut_avg_power", line, delay_flag)
                 if (delay_flag) and len(delay_line_data):
                     delay_series.append(delay_line_data)
         return (power_series, delay_series)
@@ -316,13 +336,13 @@ class match_hp_cam(inverter):
                     if self.data == 1:
                         # measures write q delay
                         self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xcam_" + inout + ins_str + ".q) val=vdd_90 rise=1\n")
-                        # measures read delay
-                        self.spice_file.write(".measure tran match_q_delay_" + inout + ins_str + "  trig v(wl_" + inout + ") val=vdd_10 rise=2 targ v(ml_" + inout + ") val=.5 rise=1\n")
+                        # measures match delay
+                        self.spice_file.write(".measure tran match_q_delay_" + inout + ins_str + "  trig v(wl_" + inout + ") val=vdd_10 rise=2 targ v(ml_out_" + inout + ") val=vdd_10 fall=1\n")
                     else:
                         # measures write q delay
                         self.spice_file.write(".measure tran write_q_delay_" + inout + ins_str + " trig v(wl_" + inout + ") val=vdd_10 rise=1 targ v(xuut_grid.xcam_" + inout + ins_str + ".qb) val=vdd_90 rise=1\n")
-                        # measures read delay
-                        self.spice_file.write(".measure tran match_q_delay_" + inout + ins_str + "  trig v(wl_" + inout + ") val=vdd_10 rise=2 targ v(ml_" + inout + ") val=.5 rise=1\n")
+                        # measures match delay
+                        self.spice_file.write(".measure tran match_q_delay_" + inout + ins_str + "  trig v(wl_" + inout + ") val=vdd_10 rise=2 targ v(ml_out_" + inout + ") val=vdd_10 fall=1\n")
         self.spice_file.write(".measure tran uut_avg_power avg p(xuut_grid)\n")
         return None
 
@@ -332,27 +352,27 @@ class match_hp_cam(inverter):
         # measures uut avg power
         self.spice_file.write(".measure tran uut_avg_write_power avg p(xuut_grid) from=0 to=60ps\n")
         self.spice_file.write(".measure tran uut_avg_hold_power avg p(xuut_grid) from=0.3ns to=0.45ns\n")
-        self.spice_file.write(".measure tran uut_avg_read_power avg p(xuut_grid) from=0.5ns to=0.52ns\n")
+        self.spice_file.write(".measure tran uut_avg_match_power avg p(xuut_grid) from=0.49ns to=0.52ns\n")
         for outin in range(self.ser_instances):
             inout = str(outin)
             # measures precharge avg power
             self.spice_file.write(".measure tran prec_avg_write_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0 to=60ps\n")
             self.spice_file.write(".measure tran prec_avg_hold_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0.3ns to=0.45ns\n")
-            self.spice_file.write(".measure tran prec_avg_read_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0.5ns to=0.52ns\n")
+            self.spice_file.write(".measure tran prec_avg_match_power_" + inout + " avg p(xuut_grid.xprec_" + inout + ") from=0.49ns to=0.52ns\n")
             for instance in range(self.par_instances):
                 ins_str = str(instance)
                 # measures cam avg power
                 self.spice_file.write(".measure tran cam_avg_write_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=0 to=60ps\n")
                 self.spice_file.write(".measure tran cam_avg_hold_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=0.3ns to=0.45ns\n")
-                self.spice_file.write(".measure tran cam_avg_read_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=0.5ns to=0.52ns\n")
+                self.spice_file.write(".measure tran cam_avg_match_power_" + inout + ins_str + " avg p(xuut_grid.xcam_" + inout + ins_str + ") from=0.49ns to=0.52ns\n")
             # measures writing avg power
             self.spice_file.write(".measure tran writing_avg_write_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0 to=60ps\n")
             self.spice_file.write(".measure tran writing_avg_hold_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0.3ns to=0.45ns\n")
-            self.spice_file.write(".measure tran writing_avg_read_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0.5ns to=0.52ns\n")
+            self.spice_file.write(".measure tran writing_avg_match_power_" + inout + " avg p(xuut_grid.xwriting_" + inout + ") from=0.49ns to=0.52ns\n")
             # measures sa avg power
             self.spice_file.write(".measure tran sa_avg_writing_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0 to=60ps\n")
             self.spice_file.write(".measure tran sa_avg_hold_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.3ns to=0.45ns\n")
-            self.spice_file.write(".measure tran sa_avg_read_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.5ns to=0.52ns\n")
+            self.spice_file.write(".measure tran sa_avg_match_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.49ns to=0.52ns\n")
 
         return None
 

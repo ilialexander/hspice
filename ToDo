@@ -1,9 +1,5 @@
-add match_sense_amplifier
 measure match delay
-    - delay for matching 1
-    - delay for matching 0
     - delay for missmatching 1
+    - delay for matching 0
     - delay for missmatching 0
-measure match power
-plot measurements
 clean and comment code
