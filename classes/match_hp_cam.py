@@ -96,9 +96,7 @@ class match_hp_cam(inverter):
         '''Set inverter subckt'''
         # declare subckt name, input, output, and source
         self.spice_file.write(".subckt inverter in out vdd gnd\n")
-        # call pfet model name, and decaler its input, output, and source
         self.spice_file.write("xpfet out in vdd vdd pfet l=lg nfin=" + self.fet_nfin + "\n")
-        # call nfet model name, and decaler its input, output, and source
         self.spice_file.write("xnfet out in gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write(".ends\n\n")
 
@@ -112,15 +110,10 @@ class match_hp_cam(inverter):
         '''Set write subckt'''
         # declare write subckt
         self.spice_file.write(".subckt writing we data bl bbl vdd\n")
-        # sets bl access transistor
         self.spice_file.write("xwrite_bl  bl  we dbl  gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        # sets bbl access transistor
         self.spice_file.write("xwrite_bbl bbl we dbbl gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        # sets data access transistor
         self.spice_file.write("xwrite_dbl  dbl  data gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        # sets datab access transistor
         self.spice_file.write("xwrite_dbbl dbbl datab gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        # sets datab
         self.spice_file.write("xq  data datab vdd gnd inverter\n")
         self.spice_file.write(".ends\n\n")
 
@@ -131,10 +124,10 @@ class match_hp_cam(inverter):
         self.spice_file.write("xnfet_bbl bbl wl qb qb nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write("xq  qb q  vdd gnd inverter\n")
         self.spice_file.write("xqb q  qb vdd gnd inverter\n")
-        self.spice_file.write("xmatch_q   ml qb gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xmatch_qb  ml q  gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xmatch_bl  gnd_acc bl  gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xmatch_bbl gnd_acc bbl gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xmatch_q   ml qb gnd_acc_bl gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xmatch_qb  ml q  gnd_acc_bbl gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xmatch_bl  gnd_acc_bbl bl  gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xmatch_bbl gnd_acc_bl bbl gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write(".ends\n\n")
 
         '''Set sense amplifier'''

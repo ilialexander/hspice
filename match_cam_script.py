@@ -31,6 +31,8 @@ def match_cam_script():
 
     for fet_params in uut_params:
         (subuut, fet_nfin) = fet_params
+        if "7" in subuut:
+            break
         with open(cwd + "/" + uut_setup.uut + "/" + subuut + ".sp", 'w+') as spice_file:
             uut = uut_setup.uut    # uut name
             script_name = __file__ # working script name

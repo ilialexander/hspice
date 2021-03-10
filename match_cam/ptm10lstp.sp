@@ -31,10 +31,10 @@ xnfet_bl  bl  wl q  q  nfet l=lg nfin=1000m
 xnfet_bbl bbl wl qb qb nfet l=lg nfin=1000m
 xq  qb q  vdd gnd inverter
 xqb q  qb vdd gnd inverter
-xmatch_q   ml qb gnd_acc gnd nfet l=lg nfin=1000m
-xmatch_qb  ml q  gnd_acc gnd nfet l=lg nfin=1000m
-xmatch_bl  gnd_acc bl  gnd gnd nfet l=lg nfin=1000m
-xmatch_bbl gnd_acc bbl gnd gnd nfet l=lg nfin=1000m
+xmatch_q   ml qb gnd_acc_bl gnd nfet l=lg nfin=1000m
+xmatch_qb  ml q  gnd_acc_bbl gnd nfet l=lg nfin=1000m
+xmatch_bl  gnd_acc_bbl bl  gnd gnd nfet l=lg nfin=1000m
+xmatch_bbl gnd_acc_bl bbl gnd gnd nfet l=lg nfin=1000m
 .ends
 
 .subckt sa sae saeb bl bbl d_out vdd

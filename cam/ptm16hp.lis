@@ -10,7 +10,7 @@
  lic:  
  lic: FLEXlm: v10.8 
  lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
- lic: HOSTID:                      PID:      8339 
+ lic: HOSTID:                      PID:      109833 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -8409,32 +8409,32 @@
  + 0:in_we_0 = 8.500e-01  0:in_wl_0 = 8.500e-01  0:ml_0    = 8.323e-01
  + 0:phi_0   = 8.500e-01  0:sae_0   = 1.942e-05  0:saeb_0  = 8.500e-01
  + 0:vdd     = 8.500e-01  0:we_0    = 1.942e-05  0:wl_0    = 1.942e-05
- +21:vdd     = 8.500e-01 22:gnd_acc = 1.973e-01 22:q       = 4.136e-01
- +22:qb      = 4.136e-01 23:datab   = 8.500e-01 24:gnd_acc = 2.396e-01
- +24:vdd_acc = 2.856e-01
+ +21:vdd     = 8.500e-01 22:gnd_acc_= 1.973e-01 22:gnd_acc_= 1.973e-01
+ +22:q       = 4.136e-01 22:qb      = 4.136e-01 23:datab   = 8.500e-01
+ +24:gnd_acc = 2.396e-01 24:vdd_acc = 2.856e-01
 
  ******  
  $ netlist of cam
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- uut_avg_write_power= 3.6181e-05  from= 1.5000e-10     to= 3.5000e-10
- uut_avg_hold_power= 5.1811e-07  from= 5.5000e-10     to= 7.0000e-10
- uut_avg_read_power= 8.1475e-06  from= 6.0000e-10     to= 8.0000e-10
- prec_avg_write_power_0= 5.8187e-07  from= 1.5000e-10     to= 3.5000e-10
- prec_avg_hold_power_0= 2.9343e-24  from= 5.5000e-10     to= 7.0000e-10
- prec_avg_read_power_0= 7.4387e-10  from= 6.0000e-10     to= 8.0000e-10
- cam_avg_write_power_00= 2.5720e-05  from= 1.5000e-10     to= 3.5000e-10
- cam_avg_hold_power_00= 5.0890e-07  from= 5.5000e-10     to= 7.0000e-10
- cam_avg_read_power_00= 7.7526e-06  from= 6.0000e-10     to= 8.0000e-10
- writing_avg_write_power_0= 6.6283e-06  from= 1.5000e-10     to= 3.5000e-10
- writing_avg_hold_power_0= 5.3680e-09  from= 5.5000e-10     to= 7.0000e-10
- writing_avg_read_power_0= 5.3142e-09  from= 6.0000e-10     to= 8.0000e-10
- sa_avg_writing_power_0= 3.2505e-06  from= 1.5000e-10     to= 3.5000e-10
- sa_avg_hold_power_0= 3.8448e-09  from= 5.5000e-10     to= 7.0000e-10
- sa_avg_read_power_0= 3.8888e-07  from= 6.0000e-10     to= 8.0000e-10
- write_q_delay_00= 1.4075e-10  targ= 4.0208e-10   trig= 2.6134e-10
- read_q_delay_00= 1.1213e-11  targ= 7.6257e-10   trig= 7.5136e-10
- uut_avg_power= 2.7667e-05  from= 0.0000e+00     to= 1.0000e-09
+ uut_avg_write_power= 3.6199e-05  from= 1.5000e-10     to= 3.5000e-10
+ uut_avg_hold_power= 1.9803e-07  from= 5.5000e-10     to= 7.0000e-10
+ uut_avg_read_power= 1.0511e-06  from= 6.0000e-10     to= 8.0000e-10
+ prec_avg_write_power_0= 5.7954e-07  from= 1.5000e-10     to= 3.5000e-10
+ prec_avg_hold_power_0= 2.4725e-23  from= 5.5000e-10     to= 7.0000e-10
+ prec_avg_read_power_0= 7.4369e-10  from= 6.0000e-10     to= 8.0000e-10
+ cam_avg_write_power_00= 2.5747e-05  from= 1.5000e-10     to= 3.5000e-10
+ cam_avg_hold_power_00= 1.8869e-07  from= 5.5000e-10     to= 7.0000e-10
+ cam_avg_read_power_00= 6.5871e-07  from= 6.0000e-10     to= 8.0000e-10
+ writing_avg_write_power_0= 6.6376e-06  from= 1.5000e-10     to= 3.5000e-10
+ writing_avg_hold_power_0= 5.3621e-09  from= 5.5000e-10     to= 7.0000e-10
+ writing_avg_read_power_0= 5.3105e-09  from= 6.0000e-10     to= 8.0000e-10
+ sa_avg_writing_power_0= 3.2344e-06  from= 1.5000e-10     to= 3.5000e-10
+ sa_avg_hold_power_0= 3.9732e-09  from= 5.5000e-10     to= 7.0000e-10
+ sa_avg_read_power_0= 3.8634e-07  from= 6.0000e-10     to= 8.0000e-10
+ write_q_delay_00= 1.4074e-10  targ= 4.0207e-10   trig= 2.6134e-10
+ read_q_delay_00= 1.1297e-11  targ= 7.6266e-10   trig= 7.5136e-10
+ uut_avg_power= 1.8783e-05  from= 0.0000e+00     to= 1.0000e-09
 
           ***** job concluded
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
@@ -8447,7 +8447,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2580.445
+ cpu MHz	: 2222.773
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -8463,7 +8463,7 @@
 
 
   ******  Circuit Statistics  ******
-  # nodes       =      93 # elements   =      41
+  # nodes       =      94 # elements   =      41
   # resistors   =       1 # capacitors =       0 # inductors   =       0
   # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
   # cccs        =       0 # ccvs       =       0 # volt_srcs   =       5
@@ -8477,19 +8477,19 @@
   ******  Runtime Statistics (seconds)  ******
 
   analysis           time    # points   tot. iter  conv.iter
-  op point           0.08           1         233
-  transient          0.19        1001         680         197 rev=         9
-  readin             0.00
+  op point           0.07           1         233
+  transient          0.18        1001         677         198 rev=        10
+  readin             0.01
   errchk             0.02
   setup              0.00
   output             0.00
 
 
            peak memory used        135.46 megabytes
-           total cpu time            0.29 seconds
-           total elapsed time        0.53 seconds
-           job started at     13:27:04 03/10/2021
-           job ended   at     13:27:04 03/10/2021
+           total cpu time            0.28 seconds
+           total elapsed time        0.52 seconds
+           job started at     15:22:18 03/10/2021
+           job ended   at     15:22:19 03/10/2021
 
 
  lic: Release hspice token(s) 

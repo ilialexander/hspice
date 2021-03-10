@@ -7,7 +7,6 @@ from match_cam_script import match_cam_script
 
 (hp_data, lstp_data) = hp_cam_script()
 (ptm_sizes, hp_write_delay, hp_read_delay, write_hp_power, hold_hp_power, read_hp_power) = hp_data
-print(ptm_sizes)
 (lstp_write_delay, lstp_read_delay, write_lstp_power, hold_lstp_power, read_lstp_power) = lstp_data
 
 (hp_data, lstp_data) = lstp_cam_script()
@@ -32,11 +31,11 @@ write_lstp_power.pop(4)
 hold_lstp_power.pop(4)
 read_lstp_power.pop(4)
  
-hp_match_delay.pop(4)
-match_hp_power.pop(4)
-
-lstp_match_delay.pop(4)
-match_lstp_power.pop(4)
+#hp_match_delay.pop(4)
+#match_hp_power.pop(4)
+#
+#lstp_match_delay.pop(4)
+#match_lstp_power.pop(4)
 
 ptm_sizes.pop(1)
 hp_write_delay.pop(1)

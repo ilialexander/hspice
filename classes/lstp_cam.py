@@ -117,10 +117,10 @@ class lstp_cam(inverter):
         self.spice_file.write("xnfet_bbl bbl wl qb gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write("xq  qb q  vdd inverter\n")
         self.spice_file.write("xqb q  qb vdd inverter\n")
-        self.spice_file.write("xmatch_q   ml qb gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xmatch_qb  ml q  gnd_acc gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xmatch_bl  gnd_acc bl  gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
-        self.spice_file.write("xmatch_bbl gnd_acc bbl gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xmatch_q   ml qb gnd_acc_bl gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xmatch_qb  ml q  gnd_acc_bbl gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xmatch_bl  gnd_acc_bl bl  gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("xmatch_bbl gnd_acc_bbl bbl gnd gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write(".ends\n\n")
 
         # declare sense amplifier subckt
