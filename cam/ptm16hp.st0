@@ -2,8 +2,8 @@
  Input File: ptm16hp.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu
- lic: HOSTID:                      PID:      77492
+ lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu
+ lic: HOSTID:                      PID:      8339
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
@@ -23,17 +23,17 @@
  dcop: begin dcop,  cpu clock=  4.00E-02
        establish matrix -- done,  cpu clock=  4.00E-02 memory=       500 kb
        re-order matrix -- done,  cpu clock=  4.00E-02 memory=       494 kb
- dcop: end dcop,  cpu clock=  1.10E-01 memory=       593 kb  tot_iter=     233
+ dcop: end dcop,  cpu clock=  1.20E-01 memory=       593 kb  tot_iter=     233
  output: ptm16hp.mt0
- sweep: tran tran0    begin, stop_t=  1.00E-09 #sweeps=1001 cpu clock=  1.10E-01
+ sweep: tran tran0    begin, stop_t=  1.00E-09 #sweeps=1001 cpu clock=  1.20E-01
  tran: time= 1.4821E-10 tot_iter=      12 conv_iter=       6 cpu clock= 1.20E-01
  tran: time= 2.0000E-10 tot_iter=      14 conv_iter=       7 cpu clock= 1.20E-01
  tran: time= 3.0152E-10 tot_iter=     286 conv_iter=      81 cpu clock= 2.00E-01
  tran: time= 4.0100E-10 tot_iter=     300 conv_iter=      86 cpu clock= 2.00E-01
- tran: time= 5.0100E-10 tot_iter=     381 conv_iter=     112 cpu clock= 2.20E-01
- tran: time= 6.0700E-10 tot_iter=     529 conv_iter=     157 cpu clock= 2.60E-01
+ tran: time= 5.0100E-10 tot_iter=     381 conv_iter=     112 cpu clock= 2.30E-01
+ tran: time= 6.0700E-10 tot_iter=     529 conv_iter=     157 cpu clock= 2.70E-01
  tran: time= 7.5000E-10 tot_iter=     536 conv_iter=     160 cpu clock= 2.70E-01
- tran: time= 8.0163E-10 tot_iter=     662 conv_iter=     191 cpu clock= 3.00E-01
+ tran: time= 8.0163E-10 tot_iter=     662 conv_iter=     191 cpu clock= 3.10E-01
  tran: time= 9.4770E-10 tot_iter=     674 conv_iter=     195 cpu clock= 3.10E-01
  tran: time= 1.0000E-09 tot_iter=     677 conv_iter=     196 cpu clock= 3.10E-01
  sweep: tran tran0    end,  cpu clock=  3.10E-01 memory=       594 kb
