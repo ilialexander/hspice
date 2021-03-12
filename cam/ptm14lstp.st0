@@ -2,15 +2,15 @@
  Input File: ptm14lstp.sp
  lic:
  lic: FLEXlm: v10.8
- lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu
- lic: HOSTID:                      PID:      109827
+ lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu
+ lic: HOSTID:                      PID:      43879
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
  lic: License/Maintenance for hspice will expire on 18-jul-2021/2019.06
  lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu
  lic:
- init: begin read circuit files,  cpu clock=  3.00E-02
+ init: begin read circuit files,  cpu clock=  2.00E-02
        option post     =     2.00
        option ingold   =     2.00
  init: end read circuit files,  cpu clock=  3.00E-02 memory=       162 kb
@@ -26,14 +26,14 @@
  sweep: tran tran0    begin, stop_t=  1.00E-09 #sweeps=1001 cpu clock=  5.00E-02
  tran: time= 1.4821E-10 tot_iter=      12 conv_iter=       6 cpu clock= 5.00E-02
  tran: time= 2.0000E-10 tot_iter=      14 conv_iter=       7 cpu clock= 5.00E-02
- tran: time= 3.1023E-10 tot_iter=     263 conv_iter=      79 cpu clock= 1.30E-01
- tran: time= 4.0100E-10 tot_iter=     271 conv_iter=      83 cpu clock= 1.30E-01
- tran: time= 5.0100E-10 tot_iter=     350 conv_iter=     107 cpu clock= 1.50E-01
- tran: time= 6.1379E-10 tot_iter=     504 conv_iter=     153 cpu clock= 2.00E-01
- tran: time= 7.1379E-10 tot_iter=     508 conv_iter=     155 cpu clock= 2.00E-01
- tran: time= 8.0261E-10 tot_iter=     642 conv_iter=     189 cpu clock= 2.40E-01
- tran: time= 9.4558E-10 tot_iter=     654 conv_iter=     193 cpu clock= 2.40E-01
- tran: time= 1.0000E-09 tot_iter=     657 conv_iter=     194 cpu clock= 2.40E-01
- sweep: tran tran0    end,  cpu clock=  2.40E-01 memory=       595 kb
+ tran: time= 3.1023E-10 tot_iter=     263 conv_iter=      79 cpu clock= 1.20E-01
+ tran: time= 4.0100E-10 tot_iter=     271 conv_iter=      83 cpu clock= 1.20E-01
+ tran: time= 5.0100E-10 tot_iter=     350 conv_iter=     107 cpu clock= 1.40E-01
+ tran: time= 6.1379E-10 tot_iter=     504 conv_iter=     153 cpu clock= 1.80E-01
+ tran: time= 7.1379E-10 tot_iter=     508 conv_iter=     155 cpu clock= 1.80E-01
+ tran: time= 8.0261E-10 tot_iter=     642 conv_iter=     189 cpu clock= 2.20E-01
+ tran: time= 9.4558E-10 tot_iter=     654 conv_iter=     193 cpu clock= 2.20E-01
+ tran: time= 1.0000E-09 tot_iter=     657 conv_iter=     194 cpu clock= 2.20E-01
+ sweep: tran tran0    end,  cpu clock=  2.20E-01 memory=       595 kb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)

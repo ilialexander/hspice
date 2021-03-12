@@ -1,5 +1,0 @@
-measure match delay
-    - delay for missmatching 1
-    - delay for matching 0
-    - delay for missmatching 0
-clean and comment code

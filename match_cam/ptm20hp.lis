@@ -9,8 +9,8 @@
   Command line options: ptm20hp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn0.rc.usf.edu 
- lic: HOSTID:                      PID:      109951 
+ lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu 
+ lic: HOSTID:                      PID:      44130 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -11916,7 +11916,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2506.023
+ cpu MHz	: 2634.156
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -11947,18 +11947,18 @@
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.04           1         103
-  transient          0.19        1001         617         167 rev=         5
-  readin             0.01
+  transient          0.18        1001         617         167 rev=         5
+  readin             0.00
   errchk             0.03
   setup              0.00
   output             0.00
 
 
-           peak memory used        135.95 megabytes
-           total cpu time            0.27 seconds
-           total elapsed time        0.51 seconds
-           job started at     15:22:25 03/10/2021
-           job ended   at     15:22:26 03/10/2021
+           peak memory used        135.96 megabytes
+           total cpu time            0.25 seconds
+           total elapsed time        0.50 seconds
+           job started at     19:19:46 03/11/2021
+           job ended   at     19:19:47 03/11/2021
 
 
  lic: Release hspice token(s) 

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import csv
 import matplotlib.pyplot as plt
 from hp_cam_script import hp_cam_script
 from lstp_cam_script import lstp_cam_script
@@ -56,49 +57,53 @@ match_hp_power.pop(1)
 lstp_match_delay.pop(1)
 match_lstp_power.pop(1)
 
+with open('power_results.csv', mode='w') as power_results:
+    power_writer = csv.writer(power_results, delimiter = ',') 
+    power_writer.writerow(write_lstp_power) 
+    power_writer.writerow(read_lstp_power) 
+    power_writer.writerow(match_lstp_power) 
+    power_writer.writerow(hold_lstp_power) 
+    power_writer.writerow(write_hp_power) 
+    power_writer.writerow(read_hp_power) 
+    power_writer.writerow(match_hp_power) 
+    power_writer.writerow(hold_hp_power)
+
+with open('delay_results.csv', mode='w') as delay_results:
+    delay_writer = csv.writer(delay_results, delimiter = ',') 
+    delay_writer.writerow(lstp_write_delay) 
+    delay_writer.writerow(lstp_read_delay)
+    delay_writer.writerow(lstp_match_delay)
+    delay_writer.writerow(hp_write_delay)
+    delay_writer.writerow(hp_read_delay)
+    delay_writer.writerow(hp_match_delay)
+
 # Graphing delays and power
 plt.figure(1)
 plt.title("Average Write Power by FET Size")
-plt.scatter(ptm_sizes, write_hp_power, color = "red", label = "High Performance")
-plt.scatter(ptm_sizes, write_lstp_power, color = "blue", label = "Low Standby Power")
+plt.scatter(ptm_sizes, write_lstp_power, color = "blue", label = "LSTP Write")
+plt.scatter(ptm_sizes, read_lstp_power, color = "cyan", label = "LSTP Read")
+plt.scatter(ptm_sizes, match_lstp_power, color = "green", label = "LSTP Match")
+plt.scatter(ptm_sizes, hold_lstp_power, color = "black", label = "LSTP Hold")
+plt.scatter(ptm_sizes, write_hp_power, color = "red", label = "HP Write")
+plt.scatter(ptm_sizes, read_hp_power, color = "magenta", label = "HP Read")
+plt.scatter(ptm_sizes, match_hp_power, color = "lime", label = "HP Match")
+plt.scatter(ptm_sizes, hold_hp_power, color = "dimgray", label = "HP Hold")
 plt.xlabel("Width (nm)")
 plt.ylabel("Power (nw)")
+plt.grid()
 plt.legend()
 
 plt.figure(2)
-plt.title("Average Read Power by FET Size")
-plt.scatter(ptm_sizes, read_hp_power, color = "red", label = "High Performance")
-plt.scatter(ptm_sizes, read_lstp_power, color = "blue", label = "Low Standby Power")
-plt.xlabel("Width (nm")
-plt.ylabel("Power (nw)")
-plt.legend()
-
-plt.figure(3)
-plt.title("Average Match Power by FET Size")
-plt.scatter(ptm_sizes, match_hp_power, color = "red", label = "High Performance")
-plt.scatter(ptm_sizes, match_lstp_power, color = "blue", label = "Low Standby Power")
-plt.xlabel("Width (nm")
-plt.ylabel("Power (nw)")
-plt.legend()
-
-plt.figure(4)
-plt.title("Average Hold Power by FET Size")
-plt.scatter(ptm_sizes, hold_hp_power, color = "red", label = "High Performance")
-plt.scatter(ptm_sizes, hold_lstp_power, color = "blue", label = "Low Standby Power")
-plt.xlabel("Width (nm)")
-plt.ylabel("Power (nw)")
-plt.legend()
-
-plt.figure(5)
-plt.title("Average Delay by FET size for \nHigh Performance ('red') and Low Standby Power ('blue')")
+plt.title("FETs' Average Delays for \nHigh Performance (HP) and Low Standby Power (LSTP)")
 plt.scatter(ptm_sizes, lstp_write_delay, color = "blue", label = "LSTP Write")
-plt.scatter(ptm_sizes, lstp_read_delay, color = "green", label = "LSTP Read")
-plt.scatter(ptm_sizes, hp_write_delay, color = "red", label = "HP Write")
-plt.scatter(ptm_sizes, hp_read_delay, color = "black", label = "HP Read")
-plt.scatter(ptm_sizes, lstp_match_delay, color = "magenta", label = "LSTP Match")
-plt.scatter(ptm_sizes, hp_match_delay, color = "cyan", label = "HP Match")
+plt.scatter(ptm_sizes, lstp_read_delay, color = "cyan", marker = "D", label = "LSTP Read")
+plt.scatter(ptm_sizes, lstp_match_delay, color = "green", marker = "s", label = "LSTP Match")
+plt.scatter(ptm_sizes, hp_write_delay, color = "red", marker = "v", label = "HP Write")
+plt.scatter(ptm_sizes, hp_read_delay, color = "magenta", marker = "*", label = "HP Read")
+plt.scatter(ptm_sizes, hp_match_delay, color = "lime", marker = "x", label = "HP Match")
 plt.xlabel("Width (nm)")
 plt.ylabel("Delay (ps)")
 plt.legend()
+plt.grid()
 
 plt.show()
