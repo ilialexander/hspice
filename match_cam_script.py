@@ -31,8 +31,8 @@ def match_cam_script():
 
     for fet_params in uut_params:
         (subuut, fet_nfin) = fet_params
-        if "7" in subuut:
-            break
+        if "hp" in subuut:
+           continue 
         with open(cwd + "/" + uut_setup.uut + "/" + subuut + ".sp", 'w+') as spice_file:
             uut = uut_setup.uut    # uut name
             script_name = __file__ # working script name
@@ -97,7 +97,6 @@ def match_cam_script():
             write_lstp_power.append(power_series[6][1] * 1e9)
             hold_lstp_power.append(power_series[7][1] * 1e9)
             match_lstp_power.append(power_series[8][1] * 1e9)
-
     hp_data = (ptm_sizes, hp_write_delay, hp_match_delay, write_hp_power, hold_hp_power, match_hp_power)
     lstp_data = (lstp_write_delay, lstp_match_delay, write_lstp_power, hold_lstp_power, match_lstp_power)
 

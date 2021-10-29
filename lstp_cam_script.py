@@ -31,6 +31,8 @@ def lstp_cam_script():
 
     for fet_params in uut_params:
         (subuut, fet_nfin) = fet_params
+        if "hp" in subuut:
+            continue
         with open(cwd + "/" + uut_setup.uut + "/" + subuut + ".sp", 'w+') as spice_file:
             uut = uut_setup.uut    # uut name
             script_name = __file__ # working script name
@@ -90,6 +92,7 @@ def lstp_cam_script():
             read_hp_power.append(power_series[8][1] * 1e9)
 
         if "lstp" in subuut:
+            ptm_sizes.append(int(subuut.replace("ptm","").replace("lstp","")))
             lstp_write_delay.append(write_delay * 1e12)
             lstp_read_delay.append(read_delay * 1e12)
             write_lstp_power.append(power_series[6][1] * 1e9)
@@ -97,6 +100,6 @@ def lstp_cam_script():
             read_lstp_power.append(power_series[8][1] * 1e9)
 
     hp_data = (ptm_sizes, hp_write_delay, hp_read_delay, write_hp_power, hold_hp_power, read_hp_power)
-    lstp_data = (lstp_write_delay, lstp_read_delay, write_lstp_power, hold_lstp_power, read_lstp_power)
+    lstp_data = (ptm_sizes, lstp_write_delay, lstp_read_delay, write_lstp_power, hold_lstp_power, read_lstp_power)
 
     return (hp_data, lstp_data)

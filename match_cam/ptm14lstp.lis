@@ -9,12 +9,12 @@
   Command line options: ptm14lstp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu 
- lic: HOSTID:                      PID:      44060 
+ lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu 
+ lic: HOSTID:                      PID:      102971 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
- lic: License/Maintenance for hspice will expire on 18-jul-2021/2019.06 
+ lic: License/Maintenance for hspice will expire on 01-sep-2023/2021.09 
  lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu 
  lic:   
   **warning** (../modelfiles/lstp/14nfet.pm:4) Model nfet device geometries will not be checked against the limits set by lmin, lmax, nfinmin and nfinmax. To enable this check, add a period(.) to the model name(i.e. enable model selector).
@@ -11916,7 +11916,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2644.210
+ cpu MHz	: 2576.492
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -11946,19 +11946,19 @@
   ******  Runtime Statistics (seconds)  ******
 
   analysis           time    # points   tot. iter  conv.iter
-  op point           0.05           1         111
-  transient          0.19        1001         705         172 rev=         3
-  readin             0.00
+  op point           0.04           1         111
+  transient          0.20        1001         705         172 rev=         3
+  readin             0.01
   errchk             0.03
   setup              0.00
   output             0.00
 
 
-           peak memory used        135.95 megabytes
-           total cpu time            0.27 seconds
-           total elapsed time        0.51 seconds
-           job started at     19:19:45 03/11/2021
-           job ended   at     19:19:45 03/11/2021
+           peak memory used        135.96 megabytes
+           total cpu time            0.28 seconds
+           total elapsed time        0.52 seconds
+           job started at     19:15:45 10/28/2021
+           job ended   at     19:15:46 10/28/2021
 
 
  lic: Release hspice token(s) 

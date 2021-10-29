@@ -11,7 +11,7 @@ from match_cam_script import match_cam_script
 (lstp_write_delay, lstp_read_delay, write_lstp_power, hold_lstp_power, read_lstp_power) = lstp_data
 
 (hp_data, lstp_data) = lstp_cam_script()
-(lstp_write_delay, lstp_read_delay, write_lstp_power, hold_lstp_power, _) = lstp_data
+(lstp_write_delay, lstp_read_delay, write_lstp_power, hold_lstp_power, read_lstp_power) = lstp_data
 
 (hp_data, lstp_data) = match_cam_script()
 (_1, _2, hp_match_delay, _3, _4, match_hp_power) = hp_data
