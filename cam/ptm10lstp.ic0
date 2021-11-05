@@ -1,0 +1,36 @@
+* "simulator" "HSPICE" 
+* "version" "F-2011.09-SP2 64-BIT"
+* "format" "HSP"
+* "rundate" "18:24:34 11/05/2021 "
+* "netlist" "ptm10lstp.sp "
+* "runtitle" "$ netlist of cam"
+* time =  0.000e+00       
+* temperature =  2.500e+01       
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc= 1.000e-12       
+.nodeset
++ bbl_0 = 2.445e-01       
++ bl_0 = 2.445e-01       
++ d_out_0 = 0.000e+00       
++ data_0 = 4.468e-08       
++ in_phi_0 = 0.000e+00       
++ in_sae_0 = 7.500e-01       
++ in_we_0 = 7.500e-01       
++ in_wl_0 = 7.500e-01       
++ ml_0 = 7.500e-01       
++ phi_0 = 7.500e-01       
++ sae_0 = 4.069e-08       
++ saeb_0 = 7.500e-01       
++ vdd = 7.500e-01       
++ we_0 = 4.065e-08       
++ wl_0 = 4.065e-08       
++ xuut_grid.xprec_0.vdd = 7.500e-01       
++ xuut_grid.xcam_00.gnd_acc_bbl = 1.569e-01       
++ xuut_grid.xcam_00.gnd_acc_bl = 1.569e-01       
++ xuut_grid.xcam_00.q = 3.710e-01       
++ xuut_grid.xcam_00.qb = 3.710e-01       
++ xuut_grid.xwriting_0.datab = 7.500e-01       
++ xuut_grid.xsa_0.gnd_acc = 2.340e-01       
++ xuut_grid.xsa_0.vdd_acc = 2.689e-01       
+***   END: Saved Operating Point ***                     
