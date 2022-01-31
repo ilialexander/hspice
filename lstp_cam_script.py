@@ -16,7 +16,7 @@ def lstp_cam_script():
     fet_models_dir_name = cwd + '/modelfiles/' # full path to fet models files
     uut_setup = ptm("lstp_cam", "nfet.pm", "pfet.pm", "1000m") # calls ptm class
     uut_params = uut_setup.set_fet_names(fet_models_dir_name) # gets/sets fet names and creates uut directory
-    cap_dict = {"ptm7lstp": "0.2ff", "ptm10lstp": "0.6ff", "ptm14lstp": "1.0ff", "ptm16lstp": "1.2ff", "ptm20lstp": "1.6ff",
+    cap_dict = {"ptm7lstp": "0.2ff", "ptm10lstp": "0.3ff", "ptm14lstp": "0.5ff", "ptm16lstp": "0.6ff", "ptm20lstp": "0.8ff",
     "ptm7hp": "0.2ff", "ptm10hp": "0.6ff", "ptm14hp": "1.0ff", "ptm16hp": "1.2ff", "ptm20hp": "1.6ff"}
     ptm_sizes = []       # stores all fet sizes
     hp_write_delay = []        # collects hp delay data to graph
