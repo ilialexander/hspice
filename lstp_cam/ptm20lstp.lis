@@ -5,22 +5,22 @@
   terms and conditions of the license agreement from Synopsys.
   Use of this program is your acceptance to be bound by the
   license agreement. HSPICE is the trademark of Synopsys, Inc.
-  Input File: ptm16lstp.sp                                                      
-  Command line options: ptm16lstp.sp
+  Input File: ptm20lstp.sp                                                      
+  Command line options: ptm20lstp.sp
  lic:  
  lic: FLEXlm: v10.8 
- lic: USER:   iliabautista         HOSTNAME: itn3.rc.usf.edu 
- lic: HOSTID:                      PID:      130145 
+ lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu 
+ lic: HOSTID:                      PID:      98687 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
  lic: License/Maintenance for hspice will expire on 01-sep-2023/2021.09 
  lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license0.rc.usf.edu 
  lic:   
-  **warning** (../modelfiles/lstp/16nfet.pm:4) Model nfet device geometries will not be checked against the limits set by lmin, lmax, nfinmin and nfinmax. To enable this check, add a period(.) to the model name(i.e. enable model selector).
+  **warning** (../modelfiles/lstp/20nfet.pm:4) Model nfet device geometries will not be checked against the limits set by lmin, lmax, nfinmin and nfinmax. To enable this check, add a period(.) to the model name(i.e. enable model selector).
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
  ******  
- $ netlist of cam
+ $ netlist of lstp_cam
 
   ******  circuit name directory
  circuit number to circuit name directory
@@ -78,7 +78,7 @@
        49 xuut_grid.xwriting_0.xq.xnfet.  nfet               1.00 
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
  ******  
- $ netlist of cam
+ $ netlist of lstp_cam
 
   ******  mos   model parameters tnom=  25.000 temp=  25.000 *****
  Model Name: pfet 
@@ -99,23 +99,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.588 eV
+   PHIG =  4.622 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -124,14 +124,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.9925 
-   ETA0R = 0.9925 
+   ETA0 =   0.85 
+   ETA0R =   0.85 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -146,10 +146,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT = 8.8e+04 
+   VSAT = 8.4e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 = 8.8e+04 
+   VSAT1 = 8.4e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -163,7 +163,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 =   0.03 
+   U0 =  0.026 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -213,18 +213,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC =  2e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  5e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -281,7 +281,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -719,10 +719,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -739,13 +739,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -790,23 +790,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.588 eV
+   PHIG =  4.622 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -815,14 +815,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.9925 
-   ETA0R = 0.9925 
+   ETA0 =   0.85 
+   ETA0R =   0.85 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -837,10 +837,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT = 8.8e+04 
+   VSAT = 8.4e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 = 8.8e+04 
+   VSAT1 = 8.4e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -854,7 +854,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 =   0.03 
+   U0 =  0.026 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -904,18 +904,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC =  2e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  5e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -972,7 +972,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -1410,10 +1410,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -1430,13 +1430,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -1481,23 +1481,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.589 eV
+   PHIG =  4.557 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -1506,14 +1506,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.7358 
-   ETA0R = 0.7358 
+   ETA0 = 0.6656 
+   ETA0R = 0.6656 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -1528,10 +1528,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT =  9e+04 
+   VSAT = 8.5e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 =  9e+04 
+   VSAT1 = 8.5e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -1545,7 +1545,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 = 0.0448 
+   U0 =  0.038 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -1595,18 +1595,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC = 1.5e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  4e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -1663,7 +1663,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -2101,10 +2101,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -2121,13 +2121,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -2172,23 +2172,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.588 eV
+   PHIG =  4.622 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -2197,14 +2197,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.9925 
-   ETA0R = 0.9925 
+   ETA0 =   0.85 
+   ETA0R =   0.85 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -2219,10 +2219,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT = 8.8e+04 
+   VSAT = 8.4e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 = 8.8e+04 
+   VSAT1 = 8.4e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -2236,7 +2236,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 =   0.03 
+   U0 =  0.026 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -2286,18 +2286,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC =  2e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  5e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -2354,7 +2354,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -2792,10 +2792,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -2812,13 +2812,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -2863,23 +2863,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.589 eV
+   PHIG =  4.557 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -2888,14 +2888,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.7358 
-   ETA0R = 0.7358 
+   ETA0 = 0.6656 
+   ETA0R = 0.6656 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -2910,10 +2910,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT =  9e+04 
+   VSAT = 8.5e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 =  9e+04 
+   VSAT1 = 8.5e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -2927,7 +2927,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 = 0.0448 
+   U0 =  0.038 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -2977,18 +2977,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC = 1.5e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  4e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -3045,7 +3045,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -3483,10 +3483,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -3503,13 +3503,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -3554,23 +3554,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.589 eV
+   PHIG =  4.557 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -3579,14 +3579,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.7358 
-   ETA0R = 0.7358 
+   ETA0 = 0.6656 
+   ETA0R = 0.6656 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -3601,10 +3601,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT =  9e+04 
+   VSAT = 8.5e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 =  9e+04 
+   VSAT1 = 8.5e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -3618,7 +3618,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 = 0.0448 
+   U0 =  0.038 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -3668,18 +3668,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC = 1.5e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  4e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -3736,7 +3736,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -4174,10 +4174,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -4194,13 +4194,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -4245,23 +4245,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.588 eV
+   PHIG =  4.622 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -4270,14 +4270,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.9925 
-   ETA0R = 0.9925 
+   ETA0 =   0.85 
+   ETA0R =   0.85 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -4292,10 +4292,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT = 8.8e+04 
+   VSAT = 8.4e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 = 8.8e+04 
+   VSAT1 = 8.4e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -4309,7 +4309,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 =   0.03 
+   U0 =  0.026 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -4359,18 +4359,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC =  2e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  5e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -4427,7 +4427,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -4865,10 +4865,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -4885,13 +4885,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -4936,23 +4936,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.589 eV
+   PHIG =  4.557 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -4961,14 +4961,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.7358 
-   ETA0R = 0.7358 
+   ETA0 = 0.6656 
+   ETA0R = 0.6656 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -4983,10 +4983,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT =  9e+04 
+   VSAT = 8.5e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 =  9e+04 
+   VSAT1 = 8.5e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -5000,7 +5000,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 = 0.0448 
+   U0 =  0.038 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -5050,18 +5050,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC = 1.5e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  4e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -5118,7 +5118,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -5556,10 +5556,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -5576,13 +5576,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -5627,23 +5627,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.588 eV
+   PHIG =  4.622 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -5652,14 +5652,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.9925 
-   ETA0R = 0.9925 
+   ETA0 =   0.85 
+   ETA0R =   0.85 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -5674,10 +5674,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT = 8.8e+04 
+   VSAT = 8.4e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 = 8.8e+04 
+   VSAT1 = 8.4e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -5691,7 +5691,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 =   0.03 
+   U0 =  0.026 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -5741,18 +5741,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC =  2e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  5e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -5809,7 +5809,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -6247,10 +6247,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -6267,13 +6267,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -6318,23 +6318,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.589 eV
+   PHIG =  4.557 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -6343,14 +6343,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.7358 
-   ETA0R = 0.7358 
+   ETA0 = 0.6656 
+   ETA0R = 0.6656 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -6365,10 +6365,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT =  9e+04 
+   VSAT = 8.5e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 =  9e+04 
+   VSAT1 = 8.5e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -6382,7 +6382,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 = 0.0448 
+   U0 =  0.038 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -6432,18 +6432,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC = 1.5e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  4e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -6500,7 +6500,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -6938,10 +6938,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -6958,13 +6958,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -7009,23 +7009,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.588 eV
+   PHIG =  4.622 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -7034,14 +7034,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.9925 
-   ETA0R = 0.9925 
+   ETA0 =   0.85 
+   ETA0R =   0.85 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -7056,10 +7056,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT = 8.8e+04 
+   VSAT = 8.4e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 = 8.8e+04 
+   VSAT1 = 8.4e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -7073,7 +7073,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 =   0.03 
+   U0 =  0.026 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -7123,18 +7123,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC =  2e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  5e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -7191,7 +7191,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -7629,10 +7629,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -7649,13 +7649,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -7700,23 +7700,23 @@
    RGEOMOD = 1 
    CGEOMOD = 2 
    CAPMOD = 0 
-   LINT = -1e-09 m
+   LINT = -1.5e-09 m
    LL =      0 m^(LLN+1)
    LLN =      1 
    DLC =      0 m
    DLBIN =      0 
    LLC =      0 m^(LLN+1)
-   EOT =  1e-09 m
-   TOXP = 1.35e-09 m
+   EOT = 1.1e-09 m
+   TOXP = 1.4e-09 m
    EOTBOX = 1.4e-07 m
-   HFIN = 2.6e-08 m
+   HFIN = 2.8e-08 m
    FECH =      1 
    DELTAW =      0 m
    FECHCV =      1 
    DELTAWCV =      0 m
-   NBODY =  1e+23 m^-3
+   NBODY =  5e+23 m^-3
    NSD =  3e+26 m^-3
-   PHIG =  4.589 eV
+   PHIG =  4.557 eV
    EPSROX =    3.9 
    EPSRSUB =   11.9 
    EASUB =   4.05 eV
@@ -7725,14 +7725,14 @@
    NC0SUB = 2.86e+25 m^-3
    NGATE =      0 m^-3
    CIT = 1.3e-05 F/m^2
-   CDSC =  0.021 F/m^2
+   CDSC = 0.01695 F/m^2
    CDSCD =  0.007 F/m^2
    CDSCDR =  0.007 
    DVT0 =   0.01 
    DVT1 =   0.69 
    PHIN =   0.05 V
-   ETA0 = 0.7358 
-   ETA0R = 0.7358 
+   ETA0 = 0.6656 
+   ETA0R = 0.6656 
    DSUB =    0.9 
    K1RSCE =      0 V^1/2
    LPE0 =  5e-09 m
@@ -7747,10 +7747,10 @@
    PQM =   0.66 
    QM0ACC =  0.001 
    PQMACC =   0.66 
-   VSAT =  9e+04 
+   VSAT = 8.5e+04 
    AVSAT =      0 
    BVSAT =  1e-07 
-   VSAT1 =  9e+04 
+   VSAT1 = 8.5e+04 
    AVSAT1 =      0 
    BVSAT1 =  1e-07 
    DELTAVSAT =      1 
@@ -7764,7 +7764,7 @@
    AT = -0.00156 
    TMEXP =      0 
    PTWGT =  0.004 
-   U0 = 0.0448 
+   U0 =  0.038 
    ETAMOB =      2 
    UP =      0 
    LPA =      1 
@@ -7814,18 +7814,18 @@
    RGFIN =  0.001 ohm
    RSHS =      0 ohm
    RSHD =      0 ohm
-   HEPI = 9.5e-09 m
-   TSILI =  9e-09 m
-   RHOC = 1.5e-12 ohm/m^2
+   HEPI =  1e-08 m
+   TSILI =  1e-08 m
+   RHOC =  4e-12 ohm/m^2
    RHORSD =      1 ohm/m
    RHOEXT =      1 ohm/m
    CRATIO =    0.5 
    DELTAPRSD =      0 m
    SDTERM = 0 
-   LSP =  4e-09 m
+   LSP = 4.8e-09 m
    LDG =  3e-09 m
    EPSRSP =    3.9 
-   TGATE =  9e-09 m
+   TGATE =  1e-08 m
    TMASK =      0 m
    ASILIEND =      0 m^2
    ARSDEND =      0 m^2
@@ -7882,7 +7882,7 @@
    SII1 =    0.1 
    SII2 =      0 V
    SIID =      0 V
-   EOTACC =  1e-09 m
+   EOTACC = 1.1e-09 m
    DELVFBACC =      0 V
    CFS = 2.56e-11 F/m
    CFD = 2.65e-11 F/m
@@ -8320,10 +8320,10 @@
    LIGT =      0 
    NIGT =      0 
    PIGT =      0 
-   L =  2e-08 m
+   L = 2.4e-08 m
    D =  4e-08 m
-   TFIN = 1.2e-08 m
-   FPITCH = 4.2e-08 m
+   TFIN = 1.5e-08 m
+   FPITCH =  6e-08 m
    NF = 1 
    NFIN = 1 
    NGCON = 1 
@@ -8340,13 +8340,13 @@
    CDSP =      0 F
    NRS =      0 
    NRD =      0 
-   LRSD =  2e-08 m
+   LRSD = 2.4e-08 m
    XL =      0 m
    DELVTRAND =      0 
    U0MULT =      1 
    IDS0MULT =      1 
    Lmin =  1e-08 m
-   Lmax =  3e-08 m
+   Lmax = 2.4e-08 m
    NFINmin = 0 
    NFINmax = 1 
    LVSAT1 =      0 
@@ -8373,10 +8373,10 @@
    LNIGBACC =      0 
    NNIGBACC =      0 
    PNIGBACC =      0 
-  **info** (ptm16lstp.sp:51) DC voltage reset to initial transient source value              in source        0:vin_phi0            new dc=  0.0000D+00
+  **info** (ptm20lstp.sp:53) DC voltage reset to initial transient source value              in source        0:vin_phi0            new dc=  0.0000D+00
   
   **warning**  No connections on node d_out_0; Node ignored.
-  **warning** (../models:51) Only 1 connection at node vdd called in element xuut_grid.xprec_0.xprec_eq.mpfet.
+  **warning** (../models:35) Only 1 connection at node vdd called in element xuut_grid.xprec_0.xprec_eq.mpfet.
       
  **info** set option symb=1 internally to help for convergence.
  *****************************************************************
@@ -8384,52 +8384,52 @@
  ******
  runlvl  = 3         bypass  = 2         
   Opening plot unit= 15
- file=ptm16lstp.pa0                                                            
+ file=ptm20lstp.pa0                                                            
 
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
  ******  
- $ netlist of cam
+ $ netlist of lstp_cam
 
   ******  operating point information tnom=  25.000 temp=  25.000 *****
  ***** operating point status is voltage   simulation time is   0.000e+00
      node    =voltage       node    =voltage       node    =voltage
 
- + 0:bbl_0   = 2.985e-01  0:bl_0    = 2.985e-01  0:d_out_0 = 0.000e+00
- + 0:data_0  = 5.587e-08  0:in_phi_0= 0.000e+00  0:in_sae_0= 8.500e-01
- + 0:in_we_0 = 8.500e-01  0:in_wl_0 = 8.500e-01  0:ml_0    = 8.498e-01
- + 0:phi_0   = 8.500e-01  0:sae_0   = 4.989e-08  0:saeb_0  = 8.500e-01
- + 0:vdd     = 8.500e-01  0:we_0    = 4.987e-08  0:wl_0    = 4.987e-08
- +21:vdd     = 8.500e-01 22:gnd_acc_= 1.564e-01 22:gnd_acc_= 1.564e-01
- +22:q       = 4.221e-01 22:qb      = 4.221e-01 23:datab   = 8.500e-01
- +24:gnd_acc = 2.861e-01 24:vdd_acc = 3.237e-01
+ + 0:bbl_0   = 3.324e-01  0:bl_0    = 3.324e-01  0:d_out_0 = 0.000e+00
+ + 0:data_0  = 8.858e-08  0:in_phi_0= 0.000e+00  0:in_sae_0= 9.000e-01
+ + 0:in_we_0 = 9.000e-01  0:in_wl_0 = 9.000e-01  0:ml_0    = 8.989e-01
+ + 0:phi_0   = 9.000e-01  0:sae_0   = 7.951e-08  0:saeb_0  = 9.000e-01
+ + 0:vdd     = 9.000e-01  0:we_0    = 7.948e-08  0:wl_0    = 7.948e-08
+ +21:vdd     = 9.000e-01 22:gnd_acc_= 1.479e-01 22:gnd_acc_= 1.479e-01
+ +22:q       = 4.461e-01 22:qb      = 4.461e-01 23:datab   = 9.000e-01
+ +24:gnd_acc = 3.174e-01 24:vdd_acc = 3.587e-01
 
  ******  
- $ netlist of cam
+ $ netlist of lstp_cam
 
   ******  transient analysis tnom=  25.000 temp=  25.000 *****
- uut_avg_write_power= 1.0978e-05  from= 1.5000e-10     to= 3.5000e-10
- uut_avg_hold_power= 3.6128e-09  from= 5.5000e-10     to= 7.0000e-10
- uut_avg_read_power= 7.5743e-07  from= 6.0000e-10     to= 8.0000e-10
- prec_avg_write_power_0= 1.1773e-09  from= 1.5000e-10     to= 3.5000e-10
- prec_avg_hold_power_0=-2.3459e-22  from= 5.5000e-10     to= 7.0000e-10
- prec_avg_read_power_0= 6.6351e-13  from= 6.0000e-10     to= 8.0000e-10
- cam_avg_write_power_00= 5.6160e-06  from= 1.5000e-10     to= 3.5000e-10
- cam_avg_hold_power_00= 3.5164e-09  from= 5.5000e-10     to= 7.0000e-10
- cam_avg_read_power_00= 4.0442e-07  from= 6.0000e-10     to= 8.0000e-10
- writing_avg_write_power_0= 3.6329e-06  from= 1.5000e-10     to= 3.5000e-10
- writing_avg_hold_power_0= 8.5458e-11  from= 5.5000e-10     to= 7.0000e-10
- writing_avg_read_power_0= 7.6225e-11  from= 6.0000e-10     to= 8.0000e-10
- sa_avg_writing_power_0= 1.7278e-06  from= 1.5000e-10     to= 3.5000e-10
- sa_avg_hold_power_0= 1.0934e-11  from= 5.5000e-10     to= 7.0000e-10
- sa_avg_read_power_0= 3.5294e-07  from= 6.0000e-10     to= 8.0000e-10
- write_q_delay_00= 1.7919e-11  targ= 2.7972e-10   trig= 2.6180e-10
- read_q_delay_00= 1.5629e-11  targ= 7.6755e-10   trig= 7.5192e-10
- uut_avg_power= 6.3475e-06  from= 0.0000e+00     to= 1.0000e-09
+ uut_avg_write_power= 1.1213e-05  from= 1.5000e-10     to= 3.5000e-10
+ uut_avg_hold_power= 3.9642e-09  from= 5.5000e-10     to= 7.0000e-10
+ uut_avg_read_power= 2.8452e-06  from= 6.0000e-10     to= 8.0000e-10
+ prec_avg_write_power_0= 7.3030e-09  from= 1.5000e-10     to= 3.5000e-10
+ prec_avg_hold_power_0=-1.4563e-25  from= 5.5000e-10     to= 7.0000e-10
+ prec_avg_read_power_0= 4.4387e-17  from= 6.0000e-10     to= 8.0000e-10
+ cam_avg_write_power_00= 6.5100e-06  from= 1.5000e-10     to= 3.5000e-10
+ cam_avg_hold_power_00= 3.7738e-09  from= 5.5000e-10     to= 7.0000e-10
+ cam_avg_read_power_00= 1.1357e-06  from= 6.0000e-10     to= 8.0000e-10
+ writing_avg_write_power_0= 3.2177e-06  from= 1.5000e-10     to= 3.5000e-10
+ writing_avg_hold_power_0= 1.8678e-10  from= 5.5000e-10     to= 7.0000e-10
+ writing_avg_read_power_0= 1.4105e-10  from= 6.0000e-10     to= 8.0000e-10
+ sa_avg_writing_power_0= 1.4779e-06  from= 1.5000e-10     to= 3.5000e-10
+ sa_avg_hold_power_0= 3.6607e-12  from= 5.5000e-10     to= 7.0000e-10
+ sa_avg_read_power_0= 1.7094e-06  from= 6.0000e-10     to= 8.0000e-10
+ write_q_delay_00= 2.8611e-11  targ= 2.9088e-10   trig= 2.6227e-10
+ read_q_delay_00= 7.5027e-11  targ= 8.2746e-10   trig= 7.5243e-10
+ uut_avg_power= 7.1191e-06  from= 0.0000e+00     to= 1.0000e-09
 
           ***** job concluded
 1****** HSPICE -- F-2011.09-SP2 64-BIT (Feb 27 2012) linux ******               
  ******  
- $ netlist of cam
+ $ netlist of lstp_cam
 
   ******  job statistics summary tnom=  25.000 temp=  25.000 *****
   
@@ -8437,7 +8437,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2538.335
+ cpu MHz	: 2740.546
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -8453,8 +8453,8 @@
 
 
   ******  Circuit Statistics  ******
-  # nodes       =      94 # elements   =      41
-  # resistors   =       1 # capacitors =       0 # inductors   =       0
+  # nodes       =      94 # elements   =      43
+  # resistors   =       1 # capacitors =       2 # inductors   =       0
   # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
   # cccs        =       0 # ccvs       =       0 # volt_srcs   =       5
   # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
@@ -8468,7 +8468,7 @@
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.01           1          21
-  transient          0.17        1001         655         198 rev=         9
+  transient          0.15        1001         699         201 rev=         9
   readin             0.00
   errchk             0.02
   setup              0.00
@@ -8476,10 +8476,10 @@
 
 
            peak memory used        135.46 megabytes
-           total cpu time            0.20 seconds
-           total elapsed time        0.44 seconds
-           job started at     18:24:35 11/05/2021
-           job ended   at     18:24:35 11/05/2021
+           total cpu time            0.18 seconds
+           total elapsed time        0.48 seconds
+           job started at     14:06:57 01/31/2022
+           job ended   at     14:06:57 01/31/2022
 
 
  lic: Release hspice token(s) 

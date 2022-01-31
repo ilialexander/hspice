@@ -29,6 +29,8 @@ xq  data datab vdd gnd inverter
 .subckt cam wl ml bl bbl vdd
 xnfet_bl  bl  wl q  q  nfet l=lg nfin=1000m
 xnfet_bbl bbl wl qb qb nfet l=lg nfin=1000m
+c_bl  bl  gnd 1.2ff
+c_bbl bbl gnd 1.2ff
 xq  qb q  vdd gnd inverter
 xqb q  qb vdd gnd inverter
 xmatch_q   ml qb gnd_acc_bl gnd nfet l=lg nfin=1000m

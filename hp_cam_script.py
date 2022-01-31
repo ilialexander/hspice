@@ -16,6 +16,8 @@ def hp_cam_script():
     fet_models_dir_name = cwd + '/modelfiles/' # full path to fet models files
     uut_setup = ptm("cam", "nfet.pm", "pfet.pm", "1000m") # calls ptm class
     uut_params = uut_setup.set_fet_names(fet_models_dir_name) # gets/sets fet names and creates uut directory
+    cap_dict = {"ptm7lstp": "0.2ff", "ptm10lstp": "0.6ff", "ptm14lstp": "1.0ff", "ptm16lstp": "1.2ff", "ptm20lstp": "1.6ff",
+    "ptm7hp": "0.2ff", "ptm10hp": "0.6ff", "ptm14hp": "1.0ff", "ptm16hp": "1.2ff", "ptm20hp": "1.6ff"}
 
     ptm_sizes = []       # stores all fet sizes
     hp_write_delay = []        # collects hp delay data to graph
@@ -45,8 +47,9 @@ def hp_cam_script():
             sim_type = "tran"      # simulation type, e.g., tran, dc
             sim_tinc = "1p"        # time step for simulations
             sim_time = "1"        # str(2 ** parallel_instances) # simulataion time in ns
+            bl_capacitance = cap_dict[subuut]        # str(2 ** parallel_instances) # simulataion time in ns
             data = 1
-            sim_params = (sim_type, sim_tinc, sim_time, data)
+            sim_params = (sim_type, sim_tinc, sim_time, bl_capacitance, data)
 
             # invokes subckts class
             subckts_modules = hp_cam(script_params, grid_params, fet_params, sim_params)

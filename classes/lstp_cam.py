@@ -21,10 +21,11 @@ class lstp_cam(inverter):
         self.subuut = subuut # ptm under test
         self.fet_nfin = fet_nfin # fin size?? e.g. 1000m
 
-        (sim_type, sim_tinc, sim_time, data) = sim_params
+        (sim_type, sim_tinc, sim_time, bl_capacitance, data) = sim_params
         self.sim_type = sim_type # simulation type, e.g., tran, dc
         self.sim_tinc = sim_tinc # simulation time step
         self.sim_time = sim_time # total simulation time
+        self.bl_capacitance = bl_capacitance # bit line capacitance
         self.data = data         # data to write in cam cell
 
         self.script_path = self.script_dir + "/" + self.script_name # full path to working script
@@ -115,6 +116,8 @@ class lstp_cam(inverter):
         self.spice_file.write(".subckt cam wl ml bl bbl vdd\n")
         self.spice_file.write("xnfet_bl  bl  wl q  gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
         self.spice_file.write("xnfet_bbl bbl wl qb gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
+        self.spice_file.write("c_bl  bl  gnd " + self.bl_capacitance + "\n")
+        self.spice_file.write("c_bbl bbl gnd " + self.bl_capacitance + "\n")
         self.spice_file.write("xq  qb q  vdd inverter\n")
         self.spice_file.write("xqb q  qb vdd inverter\n")
         self.spice_file.write("xmatch_q   ml qb gnd_acc_bl gnd nfet l=lg nfin=" + self.fet_nfin + "\n")
@@ -331,7 +334,6 @@ class lstp_cam(inverter):
             self.spice_file.write(".measure tran sa_avg_writing_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.15ns to=0.35ns\n")
             self.spice_file.write(".measure tran sa_avg_hold_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=550ps to=0.7ns\n")
             self.spice_file.write(".measure tran sa_avg_read_power_" + inout + " avg p(xuut_grid.xsa_" + inout + ") from=0.6ns to=0.8ns\n")
-
         return None
 
 
