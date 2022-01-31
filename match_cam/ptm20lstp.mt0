@@ -1,0 +1,14 @@
+$DATA1 SOURCE='HSPICE' VERSION='F-2011.09-SP2 64-BIT'
+.TITLE '$ netlist of match_cam'
+ uut_avg_write_power uut_avg_hold_power uut_avg_match_power  
+ prec_avg_write_power_0 prec_avg_hold_power_0 prec_avg_match_power_0  
+ cam_avg_write_power_00 cam_avg_hold_power_00 cam_avg_match_power_00  
+ writing_avg_write_power_0 writing_avg_hold_power_0  
+ writing_avg_match_power_0 sa_avg_writing_power_0 sa_avg_hold_power_0  
+ sa_avg_match_power_0 write_q_delay_00 match_q_delay_00  
+ uut_avg_power    temper           alter#            
+  4.640e-05        2.605e-05        4.371e-05        5.328e-06        
+  5.365e-09        2.531e-08        2.044e-05        2.014e-05        
+  2.614e-05        1.916e-05        6.841e-11        3.048e-11        
+  1.181e-10        9.742e-11        8.054e-06        4.788e-11        
+  1.723e-11        3.170e-05        2.500e+01       1                 
