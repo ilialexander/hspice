@@ -10,7 +10,7 @@
  lic:  
  lic: FLEXlm: v10.8 
  lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu 
- lic: HOSTID:                      PID:      98710 
+ lic: HOSTID:                      PID:      165638 
  lic: Using FLEXlm license file: 
  lic: 27000@license0.rc.usf.edu 
  lic: Checkout 1 hspice 
@@ -11916,7 +11916,7 @@
  ******  Machine Information  ******
  CPU:
  model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
- cpu MHz	: 2817.632
+ cpu MHz	: 2674.203
   
  OS:
  Linux version 3.10.0-693.17.1.el7.x86_64 (mockbuild@x86-041.build.eng.bos.redha
@@ -11948,17 +11948,17 @@
   analysis           time    # points   tot. iter  conv.iter
   op point           0.05           1         110
   transient          0.20        1001         787         194 rev=         8
-  readin             0.00
+  readin             0.01
   errchk             0.02
   setup              0.00
   output             0.00
 
 
-           peak memory used        135.96 megabytes
-           total cpu time            0.27 seconds
+           peak memory used        135.95 megabytes
+           total cpu time            0.28 seconds
            total elapsed time        0.53 seconds
-           job started at     14:06:58 01/31/2022
-           job ended   at     14:06:58 01/31/2022
+           job started at     15:35:08 01/31/2022
+           job ended   at     15:35:09 01/31/2022
 
 
  lic: Release hspice token(s) 

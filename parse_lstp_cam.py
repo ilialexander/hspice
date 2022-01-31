@@ -11,19 +11,30 @@ from match_cam_script import match_cam_script
 (hp_data, lstp_data) = match_cam_script()
 (_1, lstp_match_delay, _3, _4, match_lstp_power) = lstp_data
 
+operations = ["Write","Read","Match","Hold"]
+
+ptm_sizes.insert(0, ptm_sizes.pop())
+
+write_lstp_power.insert(0, write_lstp_power.pop())
+read_lstp_power.insert(0, read_lstp_power.pop())
+match_lstp_power.insert(0, match_lstp_power.pop())
+hold_lstp_power.insert(0, hold_lstp_power.pop())
+
+lstp_write_delay.insert(0, lstp_write_delay.pop())
+lstp_read_delay.insert(0, lstp_read_delay.pop())
+lstp_match_delay.insert(0, lstp_match_delay.pop())
 
 with open('power_results.csv', mode='w') as power_results:
     power_writer = csv.writer(power_results, delimiter = ',') 
-    power_writer.writerow(write_lstp_power) 
-    power_writer.writerow(read_lstp_power) 
-    power_writer.writerow(match_lstp_power) 
-    power_writer.writerow(hold_lstp_power) 
+    power_writer.writerow(operations) 
+    for power in range(5):
+        power_writer.writerow([write_lstp_power[power], read_lstp_power[power], match_lstp_power[power], hold_lstp_power[power]]) 
 
 with open('delay_results.csv', mode='w') as delay_results:
     delay_writer = csv.writer(delay_results, delimiter = ',') 
-    delay_writer.writerow(lstp_write_delay) 
-    delay_writer.writerow(lstp_read_delay)
-    delay_writer.writerow(lstp_match_delay)
+    delay_writer.writerow(operations[:-1]) # Does not need Hold operation
+    for delay in range(5):
+        delay_writer.writerow([lstp_write_delay[delay], lstp_read_delay[delay], lstp_match_delay[delay]]) 
 
 # Graphing delays and power
 plt.figure(1)

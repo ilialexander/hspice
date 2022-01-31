@@ -3,7 +3,7 @@
  lic:
  lic: FLEXlm: v10.8
  lic: USER:   iliabautista         HOSTNAME: itn1.rc.usf.edu
- lic: HOSTID:                      PID:      98676
+ lic: HOSTID:                      PID:      165603
  lic: Using FLEXlm license file:
  lic: 27000@license0.rc.usf.edu
  lic: Checkout 1 hspice
@@ -33,7 +33,7 @@
  tran: time= 7.1145E-10 tot_iter=     521 conv_iter=     155 cpu clock= 1.80E-01
  tran: time= 8.0904E-10 tot_iter=     660 conv_iter=     189 cpu clock= 2.10E-01
  tran: time= 9.1653E-10 tot_iter=     674 conv_iter=     194 cpu clock= 2.10E-01
- tran: time= 1.0000E-09 tot_iter=     679 conv_iter=     196 cpu clock= 2.20E-01
- sweep: tran tran0    end,  cpu clock=  2.20E-01 memory=       596 kb
+ tran: time= 1.0000E-09 tot_iter=     679 conv_iter=     196 cpu clock= 2.10E-01
+ sweep: tran tran0    end,  cpu clock=  2.10E-01 memory=       596 kb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)

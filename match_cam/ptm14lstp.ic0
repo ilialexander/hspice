@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "F-2011.09-SP2 64-BIT"
 * "format" "HSP"
-* "rundate" "14:06:58 01/31/2022 "
+* "rundate" "15:35:09 01/31/2022 "
 * "netlist" "ptm14lstp.sp "
 * "runtitle" "$ netlist of match_cam"
 * time =  0.000e+00       
